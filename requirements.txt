@@ -1,0 +1,6 @@
+selenium
+streamlit
+PyPDF2
+openai
+python-docx
+streamlit-extras
