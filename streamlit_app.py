@@ -196,15 +196,17 @@ if __name__ == "__main__":
             # driver.close()
             driver.quit()
 
-            threads = []
-            for i in links:
-                t = threading.Thread(target=get_links, args=(i, resumeContent))
-                # st.write("IT REACHED THREADING")
-                threads.append(t)
-                t.start()
-                # t.join()
-            for t in threads:
-                t.join()
+            with Pool(len(links)) as p:
+                p.map(get_links,links)
+            # threads = []
+            # for i in links:
+            #     t = threading.Thread(target=get_links, args=(i, resumeContent))
+            #     # st.write("IT REACHED THREADING")
+            #     threads.append(t)
+            #     t.start()
+            #     # t.join()
+            # for t in threads:
+            #     t.join()
 
             # st.write(Final_Array)
             # st.stop()
