@@ -104,7 +104,6 @@ if __name__ == "__main__":
         def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
             name = str()
             Final_Array = []
-
             options = Options()
             options.add_argument("--headless")
             options.add_argument(
@@ -203,9 +202,9 @@ if __name__ == "__main__":
                 # st.write("IT REACHED THREADING")
                 threads.append(t)
                 t.start()
-                # t.join()
-            for t in threads:
                 t.join()
+            # for t in threads:
+            #     t.join()
 
             # st.write(Final_Array)
             # st.stop()
