@@ -3,6 +3,7 @@ import random
 
 import streamlit as st
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import time
@@ -124,7 +125,7 @@ if __name__ == "__main__":
                 Final_Company = []
                 Final_Description = []
                 shortened_summary = []
-                driver = webdriver.Chrome(options=options)
+                driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
                 driver.get(i)
                 # time.sleep(2)
                 elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
@@ -174,7 +175,7 @@ if __name__ == "__main__":
 
                 # driver.close()
 
-            with webdriver.Chrome(options=options) as driver:
+            with webdriver.Chrome(ChromeDriverManager().install(), options=options) as driver:
                 driver.get(
                     f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")  # st.write( driver.find_element(By.XPATH, "/html/body").text)
                 # st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")
@@ -312,7 +313,7 @@ if __name__ == "__main__":
 
         SubTitle = st.empty()
         SubTitle.markdown(
-            f"<h4 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'>Use AI to discover personalized real-time jobs — by simply scanning your resume.</h4>",
+            f"<h4 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'>Use AI to discover personalized real jobs — by simply scanning your resume.</h4>",
             unsafe_allow_html=True)
         Credits = st.empty()
         Credits.markdown(
