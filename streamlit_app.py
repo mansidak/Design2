@@ -75,6 +75,7 @@ if __name__ == "__main__":
              <style>
              #MainMenu {visibility: hidden;}
              .css-j7qwjs {visibility: hidden;}
+             footer {visibility: hidden;}
              </style>
              """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
@@ -255,21 +256,21 @@ if __name__ == "__main__":
 
             if ExperienceLevel is not None:
                 my_bar = st.progress(0, text=progress_text)
-                my_bar.progress(20, text=f"")
+                my_bar.progress(40, text=f"")
                 holder2.empty()
-                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Finding the perfect job for you! Please hang tight while we search!</h6>", unsafe_allow_html=True)
+                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {Titles.split('2.')[1].split('3.')[0]}etc...</h6>", unsafe_allow_html=True)
 
                 result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1,resumeContent)
                 st.session_state["result1"] = result1
 
-                my_bar.progress(30, text=f"")
-                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {Titles.split('2.')[1].split('3.')[0]}etc...</h6>", unsafe_allow_html=True)
+                my_bar.progress(70, text=f"")
+
+                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! We're loading more jobs that match your background in {softSkills}</h6>", unsafe_allow_html=True)
 
                 result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1,resumeContent)
                 st.session_state["result2"] = result2
 
                 my_bar.progress(75, text=f"")
-                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! We're loading more jobs that match your background in {softSkills}</h6>", unsafe_allow_html=True)
 
                 my_bar.progress(90, text="")
                 progressText.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Almost there...</h6>",unsafe_allow_html=True)
@@ -300,10 +301,9 @@ if __name__ == "__main__":
              st.write("")
 
         SubTitle = st.empty()
-        SubTitle.markdown(
-            f"<h4 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'>Discover the most personalized jobs by just scanning your resume.</h4>",
-            unsafe_allow_html=True)
-
+        SubTitle.markdown(f"<h4 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'>Discover the most personalized jobs by just scanning your resume.</h4>",unsafe_allow_html=True)
+        Credits = st.empty()
+        Credits.markdown(f"<h6 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'> </h6>",unsafe_allow_html=True)
         holder = st.empty()
         ResumePDF = holder.file_uploader(
             '',
@@ -327,7 +327,8 @@ if __name__ == "__main__":
 
 
         if ResumePDF is not None:
-
+            SubTitle.empty()
+            Credits.empty()
             holder.empty()
             pdfReader = PyPDF2.PdfReader(ResumePDF)
             txtFile = open('sample.txt', 'w')

@@ -8,6 +8,7 @@ hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
          .css-j7qwjs {visibility: hidden;}
+         footer {visibility: hidden;}
          </style>
          """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
@@ -39,6 +40,7 @@ for element in st.session_state['result1']:
     shortSummary = element[3]
     fullDescription = element[4]
     with st.expander(f"{title} at {companyName}"):
+
         st.write(f"[Apply]({link})")
         st.write(shortSummary)
         if st.button("Generate Cover Letter", key=f"{link}+{title}"):
@@ -96,10 +98,3 @@ for element in st.session_state['result2']:
                 cover_letter_file = CoverLetterResponse["choices"][0]["text"]
                 st.download_button('Download Cover Letter',cover_letter_file)
 
-document = Document()
-for element in st.session_state['result1']:
-    link = element[0]
-    title = element[1]
-    companyName = element[2]
-    shortSummary = element[3]
-    fullDescription = element[4]
