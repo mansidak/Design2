@@ -39,14 +39,9 @@ for element in st.session_state['result1']:
     companyName = element[2]
     shortSummary = element[3]
     fullDescription = element[4]
-    if len(shortSummary) == 2:
-        shorterSummary = shortSummary.split('.')
-        second_paragraph = shorterSummary[1]
-    else:
-        second_paragraph = shortSummary
     with st.expander(f"{title} at {companyName}"):
         st.write(f"[Apply]({link})")
-        st.write(second_paragraph)
+        # st.write(shortSummary)
         if st.button("Generate Cover Letter", key=f"{link}+{title}"):
                 responseJob = openai.Completion.create(
                     model="text-davinci-003",
@@ -78,7 +73,7 @@ for element in st.session_state['result2']:
     fullDescription = element[4]
     with st.expander(f"{title} at {companyName}"):
         st.write(f"[Apply]({link})")
-        st.write(shortSummary)
+        # st.write(shortSummary)
         if st.button("Generate Cover Letter", key=f"{link}+{title}"):
                 responseJob = openai.Completion.create(
                     model="text-davinci-003",
