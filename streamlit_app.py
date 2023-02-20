@@ -202,9 +202,9 @@ if __name__ == "__main__":
                 # st.write("IT REACHED THREADING")
                 threads.append(t)
                 t.start()
+                # t.join()
+            for t in threads:
                 t.join()
-            # for t in threads:
-            #     t.join()
 
             # st.write(Final_Array)
             # st.stop()
