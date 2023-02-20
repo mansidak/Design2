@@ -3,6 +3,7 @@ st.set_page_config(page_title="Cover Letter", page_icon="📈")
 # st.title("CoverLetter")
 import openai
 from docx import Document
+from streamlit_extras.switch_page_button import switch_page
 
 hide_menu_style = """
          <style>
@@ -33,6 +34,8 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
             unsafe_allow_html=True)
 
+if st.button("Rerun"):
+    switch_page("streamlit_app")
 for element in st.session_state['result1']:
     link = element[0]
     title = element[1]
