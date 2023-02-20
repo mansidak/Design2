@@ -298,11 +298,25 @@ if __name__ == "__main__":
 
         with col3:
              st.write("")
+
+        SubTitle = st.empty()
+        SubTitle.markdown(
+            f"<h4 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'>Discover the most personalized jobs by just scanning your resume.</h4>",
+            unsafe_allow_html=True)
+
         holder = st.empty()
         ResumePDF = holder.file_uploader(
-            'Upload your resume as a single-page PDF.',
+            '',
             help='Help message goes here',
         )
+        st.markdown(
+            """
+            <style>
+                .css-9ycgxx::after {
+                    display: " as a single-page PDF.";
+                }
+            <style>
+            """, unsafe_allow_html=True)
         # my_bar = st.progress(0, text=progress_text)
         with st.sidebar:
             undesired = st.text_input(
