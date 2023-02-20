@@ -46,7 +46,6 @@ def show_selenium_log():
             content = f.read()
             st.code(content)
 
-
 openai.api_key = os.environ.get("openai_api_key")
 
 if __name__ == "__main__":
