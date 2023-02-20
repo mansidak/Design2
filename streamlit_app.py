@@ -312,7 +312,7 @@ try:
 
             SubTitle = st.empty()
             SubTitle.markdown(
-                f"<h4 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'>Discover the most personalized jobs by just scanning your resume.</h4>",
+                f"<h4 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'>Use AI to discover personalized real-time jobs — by simply scanning your resume.</h4>",
                 unsafe_allow_html=True)
             Credits = st.empty()
             Credits.markdown(
