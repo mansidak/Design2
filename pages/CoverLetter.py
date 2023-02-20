@@ -31,8 +31,9 @@ hide_streamlit_style = """
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
-            unsafe_allow_html=True)
+st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>", unsafe_allow_html=True)
+st.markdown(f"<h4 style='text-align: center; font-family: Sans-Serif;'>Now you can either apply direclty or generate custom cover letters for each job. Good Luck!</h4>", unsafe_allow_html=True)
+
 col1, col2, col3 = st.columns([2, 1, 2])
 with col1:
     st.write("")
