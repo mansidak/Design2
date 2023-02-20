@@ -11,6 +11,7 @@ from multiprocessing import Pool
 import PyPDF2
 from docx import Document
 import openai
+from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 
 
@@ -280,6 +281,23 @@ if __name__ == "__main__":
                 st.write("That's all we could. If you're not satisfied with the results, please refresh the page and run the search again.")
                 delete_selenium_log()
 
+
+
+        col1, col2, col3 = st.columns([2, 1, 2])
+
+        with col1:
+            st.write("")
+
+        with col2:
+            image = Image.open('PenManLogo.png')
+            st.image(image, width=130)
+            # Title = st.empty()
+            # Title.markdown(f"<h4 style='text-align: center; font-family: Sans-Serif;'>PenMan</h4>", unsafe_allow_html=True)
+            # st.empty()
+            # st.empty()
+
+        with col3:
+             st.write("")
         holder = st.empty()
         ResumePDF = holder.file_uploader(
             'Upload your resume as a single-page PDF.',
@@ -292,6 +310,8 @@ if __name__ == "__main__":
                 placeholder='Excluded Keywords[upto one]',
                 help="As we develop this program more, we'll add more filter"
             )
+
+
         if ResumePDF is not None:
 
             holder.empty()
