@@ -44,7 +44,7 @@ for element in st.session_state['result1']:
         second_paragraph = shorterSummary[1]
     with st.expander(f"{title} at {companyName}"):
         st.write(f"[Apply]({link})")
-        st.write(shorterSummary)
+        st.write(second_paragraph)
         if st.button("Generate Cover Letter", key=f"{link}+{title}"):
                 responseJob = openai.Completion.create(
                     model="text-davinci-003",
