@@ -39,8 +39,9 @@ with col1:
     st.write("")
 
 with col2:
+    st.write("")
     # if st.button("Run Again"):
-    #     switch_page("streamlit_app")
+    #    switch_page("streamlit_app")
 with col3:
     st.write("")
 
