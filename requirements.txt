@@ -4,4 +4,4 @@ PyPDF2
 openai
 python-docx
 streamlit-extras
-webdriver-manager
+pip

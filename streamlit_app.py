@@ -47,7 +47,7 @@ def show_selenium_log():
             st.code(content)
 
 
-openai.api_key = (st.secrets["openai_api_key"])
+openai.api_key = os.environ.get("openai_api_key")
 
 if __name__ == "__main__":
     st.set_page_config(page_title="Selenium Test", page_icon='✅',
