@@ -33,9 +33,16 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
             unsafe_allow_html=True)
+col1, col2, col3 = st.columns([2, 1, 2])
+with col1:
+    st.write("")
 
-if st.button("Rerun"):
-    switch_page("streamlit_app")
+with col2:
+    if st.button("Rerun"):
+        switch_page("streamlit_app")
+with col3:
+    st.write("")
+
 for element in st.session_state['result1']:
     link = element[0]
     title = element[1]
