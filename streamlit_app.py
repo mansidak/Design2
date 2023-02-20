@@ -195,7 +195,7 @@ if __name__ == "__main__":
                         else:
                             pass
             # driver.close()
-            driver.quit()
+            # driver.quit()
 
 
             threads = []
