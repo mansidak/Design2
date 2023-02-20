@@ -42,6 +42,8 @@ for element in st.session_state['result1']:
     if len(shortSummary) == 2:
         shorterSummary = shortSummary.split('.')
         second_paragraph = shorterSummary[1]
+    else:
+        pass
     with st.expander(f"{title} at {companyName}"):
         st.write(f"[Apply]({link})")
         st.write(second_paragraph)
