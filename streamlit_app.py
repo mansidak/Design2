@@ -50,7 +50,7 @@ def show_selenium_log():
 openai.api_key = os.environ.get("openai_api_key")
 
 if __name__ == "__main__":
-    st.set_page_config(page_title="Selenium Test", page_icon='✅',
+    st.set_page_config(page_title="19th Street", page_icon='✅',
                        initial_sidebar_state='collapsed')
     hide_streamlit_style = """
                   <style>
@@ -299,7 +299,7 @@ if __name__ == "__main__":
             st.write("")
 
         with col2:
-            image = Image.open('PenManLogo1.png')
+            image = Image.open('PenManLogo.png')
             st.image(image)
 
         with col3:
