@@ -51,9 +51,8 @@ openai.api_key = os.environ.get("openai_api_key")
 
 
 if __name__ == "__main__":
-    faviconImage = Image.open('Favicon.ico')
-
-    st.set_page_config(page_title="19th Street", page_icon=faviconImage,
+    # faviconImage = Image.open('Favicon.ico')
+    st.set_page_config(page_title="19th Street", page_icon='⓵⓽',
                        initial_sidebar_state='collapsed')
     hide_streamlit_style = """
                   <style>
