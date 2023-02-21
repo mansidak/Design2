@@ -8,8 +8,8 @@
 # fileWatcherType = "poll"
 
 [theme]
-primaryColor="#000000"
-backgroundColor="#181818"
+primaryColor="#F63366"
+backgroundColor="#000000"
 secondaryBackgroundColor="#2A2A2A"
 textColor="#ffffff"
 font="sans serif"
