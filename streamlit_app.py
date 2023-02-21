@@ -325,8 +325,7 @@ if __name__ == "__main__":
             unsafe_allow_html=True)
         holder = st.empty()
         ResumePDF = holder.file_uploader(
-            '',
-            help='Help message goes here',
+            ''
         )
         st.markdown(
             """
