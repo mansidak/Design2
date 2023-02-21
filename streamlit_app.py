@@ -93,6 +93,9 @@ if __name__ == "__main__":
             .css-5y9es8 {
                 border-radius:100px;
             }
+            .css-1db87p3{
+                border-radius:100px;
+            }
         <style>
         """, unsafe_allow_html=True)
     # fileup = st.file_uploader("Hello")
