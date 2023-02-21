@@ -96,13 +96,16 @@ if __name__ == "__main__":
             .css-1db87p3{
                 border-radius:100px;
             }
+            .css-v1vwiw{
+                border-radius:100px;
+            }
         <style>
         """, unsafe_allow_html=True)
     # fileup = st.file_uploader("Hello")
     st.markdown(
         """
         <style>
-            .css-9ycgxx {
+            .css-9ycgxx::after {
                 content: " as a single-page PDF";
             }
         <style>
