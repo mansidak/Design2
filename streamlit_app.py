@@ -88,6 +88,15 @@ if __name__ == "__main__":
 
     st.markdown(hide_img_fs, unsafe_allow_html=True)
 
+    st.markdown(
+        """
+        <style>
+            .css-5y9es8::after {
+                border-radius:100px;
+            }
+        <style>
+        """, unsafe_allow_html=True)
+
     progress_text = "See your search progress here."
     progress_text_2 = "Hola"
 
@@ -97,14 +106,7 @@ if __name__ == "__main__":
             </style>
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
-    st.markdown(
-        """
-        <style>
-            .css-5y9es8 {
-                border-radius:100px:
-            }
-        <style>
-        """, unsafe_allow_html=True)
+
 
     with Pool(2) as p:
 
