@@ -201,10 +201,8 @@ if __name__ == "__main__":
             threads = []
             for i in links:
                 t = threading.Thread(target=get_links, args=(i, resumeContent))
-                # st.write("IT REACHED THREADING")
                 threads.append(t)
                 t.start()
-                # t.join()
             for t in threads:
                 t.join()
 
@@ -301,7 +299,7 @@ if __name__ == "__main__":
             st.write("")
 
         with col2:
-            image = Image.open('PenManLogo.png')
+            image = Image.open('PenManLogo1.png')
             st.image(image, width=130)
             # Title = st.empty()
             # Title.markdown(f"<h4 style='text-align: center; font-family: Sans-Serif;'>PenMan</h4>", unsafe_allow_html=True)
