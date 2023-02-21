@@ -102,7 +102,7 @@ if __name__ == "__main__":
     st.markdown(
         """
         <style>
-            .css-9ycgxx::after {
+            .css-9ycgxx {
                 content: " as a single-page PDF";
             }
         <style>
