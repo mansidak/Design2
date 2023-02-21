@@ -97,18 +97,15 @@ if __name__ == "__main__":
             </style>
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
+    st.markdown(
+        """
+        <style>
+            .css-5y9es8::after {
+                content: " 拖放";
+            }
+        <style>
+        """, unsafe_allow_html=True)
 
-    # st.markdown(
-    #     "<h3 style='text-align: center; font-family: Sans-Serif;'>PenMan: Discover Real-Time Jobs You're Perfect For.</h3>",
-    #     unsafe_allow_html=True)
-    #
-    # st.write("Made by [@mansidaksgh](https://www.twitter.com/mansidaksgh)")
-
-    # ExperienceLevel = st.selectbox(
-    #     'Choose your experience level',
-    #     ('Intern', 'Entry-Level', 'Associate'),
-    #     help='Experience Level'
-    # )
     with Pool(2) as p:
 
         def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
