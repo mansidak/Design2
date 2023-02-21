@@ -91,7 +91,7 @@ if __name__ == "__main__":
     st.markdown(
         """
         <style>
-            .css-5y9es8::after {
+            .css-5y9es8 {
                 border-radius:100px;
             }
         <style>
