@@ -286,7 +286,7 @@ if __name__ == "__main__":
                 progressText.markdown(
                     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Now just apply! Good Luck :)</h6>",
                     unsafe_allow_html=True)
-                switch_page("CoverLetter")
+                switch_page("results")
 
                 st.write(
                     "That's all we could. If you're not satisfied with the results, please refresh the page and run the search again.")
