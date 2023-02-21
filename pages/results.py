@@ -61,7 +61,7 @@ for element in st.session_state['result1']:
     companyName = element[2]
     shortSummary = element[3]
     fullDescription = element[4]
-    with st.expander(f"{title} at {companyName}", expanded=true):
+    with st.expander(f"{title} at {companyName}", expanded= True):
         st.write(f"[Apply]({link})")
         st.write(shortSummary)
         if st.button("Generate Cover Letter", key=f"{link}+{title}"):
