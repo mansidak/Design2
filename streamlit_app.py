@@ -300,7 +300,7 @@ if __name__ == "__main__":
 
         with col2:
             image = Image.open('PenManLogo1.png')
-            st.image(image, width=170)
+            st.image(image, width=130)
             # Title = st.empty()
             # Title.markdown(f"<h4 style='text-align: center; font-family: Sans-Serif;'>PenMan</h4>", unsafe_allow_html=True)
             # st.empty()
