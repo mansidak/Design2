@@ -87,7 +87,6 @@ if __name__ == "__main__":
     '''
 
     st.markdown(hide_img_fs, unsafe_allow_html=True)
-
     st.markdown(
         """
         <style>
