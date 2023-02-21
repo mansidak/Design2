@@ -61,12 +61,10 @@ for element in st.session_state['result1']:
     companyName = element[2]
     shortSummary = element[3]
     fullDescription = element[4]
-    # location = element[5]
     with st.expander(f"{title} at {companyName}", expanded= False):
         st.write(f"[Apply]({link})")
         for item in fullDescription.split('.')[:3]:
             st.write(item)
-        # st.write(location)
         # st.write(fullDescription.split('.')[:3])
         if st.button("Generate Cover Letter", key=f"{link}+{title}"):
                 responseJob = openai.Completion.create(

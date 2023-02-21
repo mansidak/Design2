@@ -147,7 +147,6 @@ if __name__ == "__main__":
                 Final_Titles = []
                 Final_Company = []
                 Final_Description = []
-                Final_Locations = []
                 shortened_summary = []
                 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
                 driver.get(i)
@@ -165,8 +164,6 @@ if __name__ == "__main__":
                 Final_Company.append(company)
                 description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
                 Final_Description.append(description)
-                locations = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[2]/span/text()")
-                Final_Locations.append(locations)
                 words = description.split()
                 description_length = len(words)
                 if description_length > 950:
@@ -194,10 +191,10 @@ if __name__ == "__main__":
                     shortened_summary.append(response3["choices"][0]["text"])
 
                 # Final_Array.append(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description)
-                for links, titles, companies, summaries, descriptions, locations in zip(Final_Links, Final_Titles,
+                for links, titles, companies, summaries, descriptions in zip(Final_Links, Final_Titles,
                                                                              Final_Company, shortened_summary,
-                                                                             Final_Description, Final_Locations):
-                    Final_Array.append((links, titles, companies, summaries, descriptions, locations))
+                                                                             Final_Description):
+                    Final_Array.append((links, titles, companies, summaries, descriptions))
 
                 # driver.close()
 
