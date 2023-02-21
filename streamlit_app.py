@@ -299,7 +299,7 @@ if __name__ == "__main__":
             st.write("")
 
         with col2:
-            image = Image.open('PenManLogo.png')
+            image = Image.open('PenManLogo1.png')
             st.image(image)
 
         with col3:
