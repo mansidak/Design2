@@ -290,7 +290,7 @@ if __name__ == "__main__":
                 my_bar.progress(70, text=f"")
 
                 progressText.markdown(
-                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! We're loading more jobs that match your background in {softSkills}</h6>",
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",
                     unsafe_allow_html=True)
 
                 result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}",

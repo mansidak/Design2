@@ -19,6 +19,7 @@ hide_streamlit_style = """
                 background: rgba(0, 0, 0, 0.3);
                 color: #fff;
                 border-radius: 10px;
+                backdrop-filter: blur(10px);
                 height: 40px;
                 max-width: 200px;
                 position: fixed;
