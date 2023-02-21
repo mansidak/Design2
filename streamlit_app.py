@@ -49,8 +49,10 @@ def show_selenium_log():
 
 openai.api_key = os.environ.get("openai_api_key")
 
+faviconImage = Image.open('Favicon.png')
+
 if __name__ == "__main__":
-    st.set_page_config(page_title="19th Street", page_icon='✅',
+    st.set_page_config(page_title="19th Street", page_icon=faviconImage,
                        initial_sidebar_state='collapsed')
     hide_streamlit_style = """
                   <style>
