@@ -57,6 +57,7 @@ if __name__ == "__main__":
                   div[class='css-4z1n4l ehezqtx5']{
                     background: rgba(0, 0, 0, 0.3);
                     color: #fff;
+                    backdrop-filter: blur(10px);
                     border-radius: 10px;
                     height: 40px;
                     max-width: 200px;
