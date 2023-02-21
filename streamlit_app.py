@@ -299,8 +299,8 @@ if __name__ == "__main__":
             st.write("")
 
         with col2:
-            image = Image.open('PenManLogo1.png')
-            st.image(image, width=90)
+            image = Image.open('PenManLogo.png')
+            st.image(image, width=90, output_format='PNG')
             # Title = st.empty()
             # Title.markdown(f"<h4 style='text-align: center; font-family: Sans-Serif;'>PenMan</h4>", unsafe_allow_html=True)
             # st.empty()
