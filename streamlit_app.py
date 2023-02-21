@@ -99,6 +99,14 @@ if __name__ == "__main__":
         <style>
         """, unsafe_allow_html=True)
     # fileup = st.file_uploader("Hello")
+    st.markdown(
+        """
+        <style>
+            .css-9ycgxx::after {
+                content: " as a single-page PDF";
+            }
+        <style>
+        """, unsafe_allow_html=True)
     progress_text = "See your search progress here."
     progress_text_2 = "Hola"
 
@@ -327,14 +335,7 @@ if __name__ == "__main__":
         ResumePDF = holder.file_uploader(
             ''
         )
-        st.markdown(
-            """
-            <style>
-                .css-9ycgxx::after {
-                    display: " as a single-page PDF.";
-                }
-            <style>
-            """, unsafe_allow_html=True)
+
         # my_bar = st.progress(0, text=progress_text)
         with st.sidebar:
             undesired = st.text_input(
