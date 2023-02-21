@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title="Cover Letter", page_icon="📈")
+st.set_page_config(page_title="Cover Letter", page_icon="⓵⓽")
 # st.title("CoverLetter")
 import openai
 from docx import Document
@@ -63,7 +63,7 @@ for element in st.session_state['result1']:
     fullDescription = element[4]
     with st.expander(f"{title} at {companyName}"):
         st.write(f"[Apply]({link})")
-        st.write(shortSummary)
+        st.write(fullDescription)
         if st.button("Generate Cover Letter", key=f"{link}+{title}"):
                 responseJob = openai.Completion.create(
                     model="text-davinci-003",
