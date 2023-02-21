@@ -96,7 +96,7 @@ if __name__ == "__main__":
             }
         <style>
         """, unsafe_allow_html=True)
-
+    fileup = st.file_uploader("Hello")
     progress_text = "See your search progress here."
     progress_text_2 = "Hola"
 
