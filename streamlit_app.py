@@ -101,7 +101,7 @@ if __name__ == "__main__":
         """
         <style>
             .css-5y9es8::after {
-                content: " 拖放";
+                border-radius:100px:
             }
         <style>
         """, unsafe_allow_html=True)
