@@ -79,6 +79,15 @@ if __name__ == "__main__":
              """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
+    hide_img_fs = '''
+    <style>
+    button[title="View fullscreen"]{
+        visibility: hidden;}
+    </style>
+    '''
+
+    st.markdown(hide_img_fs, unsafe_allow_html=True)
+
     progress_text = "See your search progress here."
     progress_text_2 = "Hola"
 

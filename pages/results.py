@@ -34,6 +34,16 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>", unsafe_allow_html=True)
 st.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Now you can apply directly to the jobs you've found, or create custom cover letters to give yourself a competitive edge. Or Rerun the task if you're not satisfied with the resulsts</h6>", unsafe_allow_html=True)
 
+hide_img_fs = '''
+<style>
+button[title="View fullscreen"]{
+    visibility: hidden;}
+</style>
+'''
+
+st.markdown(hide_img_fs, unsafe_allow_html=True)
+
+
 col1, col2, col3 = st.columns([2, 1, 2])
 with col1:
     st.write("")
