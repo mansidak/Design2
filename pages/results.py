@@ -46,7 +46,7 @@ with col3:
     st.write("")
 
 st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>", unsafe_allow_html=True)
-st.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Now you can apply directly to the jobs you've found, or create custom cover letters to give yourself a competitive edge. Or Rerun the task if you're not satisfied with the resulsts</h6>", unsafe_allow_html=True)
+st.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job. You can also rerun the task from the sidebar if you're not satisfied with the results</h6>", unsafe_allow_html=True)
 
 hide_img_fs = '''
 <style>
