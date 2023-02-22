@@ -112,8 +112,8 @@ if __name__ == "__main__":
                 content: " as a single-page PDF";
             }
             
-            .css-11yu3z8::after {
-            content: " Mansidak Singh";
+            .css-11yu3z8{
+            content: "Mansidak Singh";
             }
         <style>
         """, unsafe_allow_html=True)
