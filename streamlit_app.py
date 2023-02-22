@@ -4,7 +4,7 @@ import streamlit.components.v1 as components
 from streamlit_extras.switch_page_button import switch_page
 
 
-st.set_page_config(page_title="19th Street", layout="wide", page_icon='⓵⓽', initial_sidebar_state='collapsed')
+st.set_page_config(page_title="19th Street", layout="wide", page_icon='🗽', initial_sidebar_state='collapsed')
 
 st.markdown(
     """
