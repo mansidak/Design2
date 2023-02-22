@@ -114,17 +114,35 @@ if __name__ == "__main__":
         <style>
         """, unsafe_allow_html=True)
 
-#     st.markdown(
-#         """
-#         <style>
-#         footer:after{ content: 'A Mansidak Singh Prod.'
-# display:block;
-# position: relative;
-# color: white;
-#      </style>
-#
-#         """
-#     )
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Developed with ❤ by</p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
+
     progress_text = "See your search progress here."
     progress_text_2 = "Hola"
 
