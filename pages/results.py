@@ -3,6 +3,7 @@ st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽")
 # st.title("CoverLetter")
 import openai
 from docx import Document
+from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 
 hide_menu_style = """
@@ -31,6 +32,18 @@ hide_streamlit_style = """
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns([2, 1, 2])
+
+with col1:
+    st.write("")
+
+with col2:
+    image = Image.open('PenManLogo.png')
+    st.image(image)
+
+with col3:
+    st.write("")
 
 st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>", unsafe_allow_html=True)
 st.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Now you can apply directly to the jobs you've found, or create custom cover letters to give yourself a competitive edge. Or Rerun the task if you're not satisfied with the resulsts</h6>", unsafe_allow_html=True)
