@@ -57,16 +57,11 @@ button[title="View fullscreen"]{
 
 st.markdown(hide_img_fs, unsafe_allow_html=True)
 
-
-col1, col2, col3 = st.columns([2, 1, 2])
-with col1:
-    st.write("")
-
-with col2:
+with st.sidebar:
     if st.button("Run Again"):
-       switch_page("streamlit_app")
-with col3:
-    st.write("")
+        switch_page("streamlit_app")
+
+
 
 for element in st.session_state['result1']:
     link = element[0]
