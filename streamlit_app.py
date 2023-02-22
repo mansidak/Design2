@@ -48,6 +48,7 @@ hide_menu_style = """
              .css-j7qwjs {visibility: hidden;}
              .css-1uhah0b {visibility: hidden;}
              .css-zmzbej {visibility: hidden;}
+             .css-6qob1r {visibility: hidden;}
              footer {visibility: hidden;}
              </style>
              """
