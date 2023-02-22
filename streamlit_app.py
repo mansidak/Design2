@@ -116,10 +116,11 @@ if __name__ == "__main__":
     st.markdown(
         """
         <style>
-        footer:after{ content: 'A Mansidak Singh Prod.'
-display:block;
-position: relative;
-color: white;
+        footer:after {
+        content: 'A Mansidak Singh Prod.';
+        display:block;
+        position: relative;
+        color: white;
      </style>
         
         """
