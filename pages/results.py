@@ -32,25 +32,8 @@ hide_streamlit_style = """
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-footer="""<style>
 
-
-.footer {
-position: fixed;
-left: 0;
-top: 0;
-width: 100%;
-background-color: 0d0d0d;
-color: 2A2A2A;
-text-align: center;
-}
-</style>
-<div class="footer" font-family: Sans-Serif;font-weight: lighter;>
-<p>A Mansidak Singh Production</p>
-</div>
-"""
-st.markdown(footer,unsafe_allow_html=True)
-col1, col2, col3 = st.columns([2, 1, 2])
+col1, col2, col3 = st.columns([5, 1, 5])
 
 with col1:
     st.write("")
