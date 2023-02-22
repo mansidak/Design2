@@ -138,7 +138,7 @@ text-align: center;
 }
 </style>
 <div class="footer" font-family: Sans-Serif;font-weight: lighter;>
-<p>a mansidak sing prod</p>
+<p>A Mansidak Singh Production</p>
 </div>
 """
     st.markdown(footer,unsafe_allow_html=True)
