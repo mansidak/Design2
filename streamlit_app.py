@@ -4,7 +4,7 @@ import streamlit.components.v1 as components
 from streamlit_extras.switch_page_button import switch_page
 
 
-st.set_page_config(page_title="9th Street", layout="wide")
+st.set_page_config(page_title="9th Street", layout="wide", initial_sidebar_state='collapsed')
 
 st.markdown(
     """
@@ -23,6 +23,94 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+hide_streamlit_style = """
+                  <style>
+                  div[class='css-4z1n4l ehezqtx5']{
+                    background: rgba(0, 0, 0, 0.3);
+                    color: #fff;
+                    backdrop-filter: blur(10px);
+                    border-radius: 10px;
+                    height: 40px;
+                    max-width: 200px;
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 50%;
+                  }
+                  </style>
+                  """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+hide_menu_style = """
+             <style>
+             #MainMenu {visibility: hidden;}
+             .css-j7qwjs {visibility: hidden;}
+             footer {visibility: hidden;}
+             </style>
+             """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+hide_img_fs = '''
+    <style>
+    button[title="View fullscreen"]{
+        visibility: hidden;}
+    </style>
+    '''
+
+st.markdown(hide_img_fs, unsafe_allow_html=True)
+st.markdown(
+        """
+        <style>
+            .css-5y9es8 {
+                border-radius:100px;
+            }
+            .css-1db87p3{
+                border-radius:100px;
+            }
+            .css-v1vwiw{
+                border-radius:100px;
+            }
+        <style>
+        """, unsafe_allow_html=True)
+# fileup = st.file_uploader("Hello")
+st.markdown(
+        """
+        <style>
+            .css-9ycgxx::after {
+                content: " as a single-page PDF";
+            }
+        <style>
+        """, unsafe_allow_html=True)
+
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: 0d0d0d;
+color: 2A2A2A;
+text-align: center;
+}
+</style>
+<div class="footer" font-family: Sans-Serif;font-weight: lighter;>
+<p>A Mansidak Singh Production</p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
 st.text("")
 st.text("")
 st.text("")
