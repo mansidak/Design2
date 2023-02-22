@@ -133,7 +133,7 @@ left: 0;
 bottom: 0;
 width: 100%;
 background-color: 0d0d0d;
-color: white;
+color: 2A2A2A;
 text-align: center;
 }
 </style>
