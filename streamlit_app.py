@@ -77,7 +77,7 @@ if __name__ == "__main__":
              <style>
              #MainMenu {visibility: hidden;}
              .css-j7qwjs {visibility: hidden;}
-         
+             footer {visibility: hidden;}
              </style>
              """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
@@ -110,10 +110,6 @@ if __name__ == "__main__":
         <style>
             .css-9ycgxx::after {
                 content: " as a single-page PDF";
-            }
-            
-            .css-11yu3z8.egzxvld1{
-            content: "Mansidak Singh";
             }
         <style>
         """, unsafe_allow_html=True)
