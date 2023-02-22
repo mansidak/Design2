@@ -77,6 +77,7 @@ if __name__ == "__main__":
              <style>
              #MainMenu {visibility: hidden;}
              .css-j7qwjs {visibility: hidden;}
+             footer {visibility: hidden;}
              </style>
              """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
@@ -113,18 +114,17 @@ if __name__ == "__main__":
         <style>
         """, unsafe_allow_html=True)
 
-    st.markdown(
-        """
-        <style>
-        footer:after {
-        content: 'A Mansidak Singh Prod.';
-        display:block;
-        position: relative;
-        color: white;
-     </style>
-        
-        """
-    )
+#     st.markdown(
+#         """
+#         <style>
+#         footer:after{ content: 'A Mansidak Singh Prod.'
+# display:block;
+# position: relative;
+# color: white;
+#      </style>
+#
+#         """
+#     )
     progress_text = "See your search progress here."
     progress_text_2 = "Hola"
 
