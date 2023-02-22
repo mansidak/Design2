@@ -132,13 +132,13 @@ position: fixed;
 left: 0;
 bottom: 0;
 width: 100%;
-background-color: white;
-color: black;
+background-color: 0d0d0d;
+color: white;
 text-align: center;
 }
 </style>
-<div class="footer">
-<p>Developed with ❤ by</p>
+<div class="footer" font-family: Sans-Serif;font-weight: lighter;>
+<p>a mansidak sing prod</p>
 </div>
 """
     st.markdown(footer,unsafe_allow_html=True)
