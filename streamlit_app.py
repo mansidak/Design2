@@ -47,6 +47,7 @@ hide_menu_style = """
              #MainMenu {visibility: hidden;}
              .css-j7qwjs {visibility: hidden;}
              .css-1uhah0b {visibility: hidden;}
+             .css-zmzbej {visibility: hidden;}
              footer {visibility: hidden;}
              </style>
              """
