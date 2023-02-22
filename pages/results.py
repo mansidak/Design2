@@ -36,9 +36,9 @@ footer="""<style>
 
 
 .footer {
-position: absolute;
+position: fixed;
 left: 0;
-bottom: 0;
+top: 0;
 width: 100%;
 background-color: 0d0d0d;
 color: 2A2A2A;
