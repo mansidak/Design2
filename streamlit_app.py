@@ -112,7 +112,7 @@ if __name__ == "__main__":
                 content: " as a single-page PDF";
             }
             
-            .css-11yu3z8{
+            .css-11yu3z8.egzxvld1{
             content: "Mansidak Singh";
             }
         <style>
