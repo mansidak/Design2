@@ -113,6 +113,18 @@ if __name__ == "__main__":
             }
         <style>
         """, unsafe_allow_html=True)
+
+    st.markdown(
+        """
+        <style>
+        footer:after{ content: 'A Mansidak Singh Prod.'
+display:block;
+position: relative;
+color: white;
+     </style>
+        
+        """
+    )
     progress_text = "See your search progress here."
     progress_text_2 = "Hola"
 
