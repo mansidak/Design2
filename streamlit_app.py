@@ -114,7 +114,7 @@ if __name__ == "__main__":
         <style>
         """, unsafe_allow_html=True)
 
-footer="""<style>
+    footer="""<style>
 a:link , a:visited{
 color: blue;
 background-color: transparent;
@@ -141,7 +141,7 @@ text-align: center;
 <p>Developed with ❤ by</p>
 </div>
 """
-st.markdown(footer,unsafe_allow_html=True)
+    st.markdown(footer,unsafe_allow_html=True)
 
     progress_text = "See your search progress here."
     progress_text_2 = "Hola"
