@@ -112,7 +112,7 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
-    col1, col2 = st.columns([2, 1])
+    col1, col2 = st.columns([3, 2])
     with col1:
         st.text_input(
             'Enter Position at Company',
