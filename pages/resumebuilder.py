@@ -57,7 +57,7 @@ with col1:
     st.write("")
 
 with col2:
-    image = Image.open('PenManLogo.png')
+    image = Image.open('Lighter.png')
     st.image(image)
 
 with col3:
