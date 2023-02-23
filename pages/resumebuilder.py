@@ -93,20 +93,23 @@ with tab1:
         help='Help message goes here',
         key = 'Name'
         )
+        st.text_input(
+            'Caption goes here',
+            placeholder='Phone Number',
+            help='Help message goes here',
+            key='Phone'
+        )
+        st.text_input(
+            'Caption goes here',
+            placeholder='Placeholder goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ',
+            help='Email',
+            key='Email'
+        )
     with col2:
-        st.text_input(
-        'Caption goes here',
-        placeholder='Phone Number',
-        help='Help message goes here',
-        key = 'Phone'
-        )
+       st.write("")
     with col3:
-        st.text_input(
-        'Caption goes here',
-        placeholder='Placeholder goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ',
-        help='Email',
-        key = 'Email'
-        )
+        st.write("")
+
 with tab2:
     st.header("Experiences")
 
