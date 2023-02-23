@@ -317,7 +317,7 @@ text-align: center;
 
             result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}",
                                         1, resumeContent)
-            st.session_state["result2"] = result2
+            st.session_state["result1"].append(result2)
 
             my_bar.progress(75, text=f"")
 
