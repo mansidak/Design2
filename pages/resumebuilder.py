@@ -118,13 +118,13 @@ with tab2:
             'Enter Position at Company',
             placeholder='',
             help='Name',
-            key='Name'
+            key='Experience1'
         )
         st.text_area(
             'Enter Position at Company',
             placeholder='',
             help='Name',
-            key='Name'
+            key='Experience 1 Detial'
         )
         st.markdown("<hr>", unsafe_allow_html=True)
 
