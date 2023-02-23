@@ -62,6 +62,10 @@ with st.sidebar:
         switch_page("streamlit_app")
 
 
+st.write("")
+st.write("")
+st.write("")
+st.write("")
 
 for element in st.session_state['result1']:
     link = element[0]
