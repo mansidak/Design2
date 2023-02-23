@@ -115,19 +115,19 @@ with tab2:
         # )
         # st.markdown("<hr>", unsafe_allow_html=True)
 
-    if 'count' not in st.session_state:
-        st.session_state.count = 0
+        if 'count' not in st.session_state:
+            st.session_state.count = 0
 
-    def add_new_row():
-        st.text_input("Please input something",
+        def add_new_row():
+            st.text_input("Please input something",
                       key=random.choice(string.ascii_uppercase) + str(random.randint(0, 999999)))
 
-    if st.button("Add new row"):
-        st.session_state.count += 1
-        add_new_row()
-        if st.session_state.count > 1:
-            for i in range(st.session_state.count - 1):
-                add_new_row()
+        if st.button("Add new row"):
+            st.session_state.count += 1
+            add_new_row()
+            if st.session_state.count > 1:
+                for i in range(st.session_state.count - 1):
+                    add_new_row()
 
 
     with col2:
