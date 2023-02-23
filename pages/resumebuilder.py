@@ -93,27 +93,6 @@ st.markdown("""
     """,unsafe_allow_html=True)
 
 
-col1, col2, col3, col4 = st.columns([1, 1.5, 1.5, 1])
-
-with col1:
-    st.write("")
-
-with col2:
-    st.text_area(
-        'Enter Experience',
-        placeholder="Write briefly about your experience in less than a paragraph. We'll take care of the rest. ",
-        help='Help message goes here'
-    )
-
-with col3:
-    st.text_area(
-        'Enter Experience',
-        placeholder="Write briefly about your experience in less than a paragraph. We'll take care of the rest. ",
-        help='Help message goes here', key="experiecne2"
-    )
-with col4:
-    st.write("")
-
 
 tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
 
