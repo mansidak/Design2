@@ -123,7 +123,7 @@ with tab2:
             placeholder='',
             help='Name',
             key='Experience 2 Detial'
-        )g
+        )
         st.markdown("<hr>", unsafe_allow_html=True)
 
         st.text_input(
