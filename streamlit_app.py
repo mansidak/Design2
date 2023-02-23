@@ -127,7 +127,7 @@ st.markdown(f"<h4 style='font-family: Sans-Serif; font-weight:lighter; color: bl
 st.text("")
 st.text("")
 
-col1, col2, col3 = st.columns([2, 2, 10])
+col1, col2, col3 = st.columns([1.5, 1.5, 10])
 
 with col1:
     if st.button("Find Best-Fit Roles"):
