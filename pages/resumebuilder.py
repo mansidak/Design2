@@ -112,7 +112,7 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
-    col1, col2 = st.columns([3, 2])
+    col1, col2 = st.columns([2, 2])
     with col1:
         st.text_input(
             'Enter Position at Company',
@@ -127,6 +127,15 @@ with tab2:
             key='Experience 1 Detial'
         )
         st.markdown("<hr>", unsafe_allow_html=True)
+        button = st.empty()
+
+        # Create a text area
+        if button:
+            text_area = st.text_area("")
+
+        # Display the text area
+        if text_area:
+            st.text(text_area)
 
     with col2:
         st.write("")
