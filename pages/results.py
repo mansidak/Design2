@@ -73,7 +73,7 @@ for element in st.session_state['result1']:
     st.markdown(f"<h5 style='font-family: Sans-Serif;font-weight: lighter;'>{companyName}</h5>", unsafe_allow_html=True)
     st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: lighter;'>{shortSummary}</h6>", unsafe_allow_html=True)
     # st.write(shortSummary)
-    col1, col2, col3 = st.columns([1, 1, 2.5])
+    col1, col2, col3 = st.columns([1, 1, 2])
 
     with col1:
         if st.button("Generate Cover Letter", key=f"{link}+{title}"):
