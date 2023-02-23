@@ -79,12 +79,12 @@ st.markdown(hide_img_fs, unsafe_allow_html=True)
 st.markdown("""
     <style>
     .stTextArea [data-baseweb=base-input] {
-        background-color: linear-gradient(140deg, rgb(54, 36, 31) 0%, rgb(121, 56, 100) 50%, rgb(106, 117, 25) 75%);
+        background-color: red;
         -webkit-text-fill-color: white;
     }
 
     .stTextArea [data-baseweb=base-input] [disabled=""]{
-        background-color: linear-gradient(45deg, red, purple, red);
+        background-color: red;
         -webkit-text-fill-color: gray;
     }
     </style>
