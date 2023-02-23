@@ -130,7 +130,11 @@ with tab2:
         button = st.button("HOLE")
         def add_text_area():
             key = st.empty()
-            st.text_area(key)
+            st.text_area(
+            'Enter Position at Company',
+            placeholder='',
+            help='Name',
+            key='New text')
 
 
         if st.button('Add Text Area'):
