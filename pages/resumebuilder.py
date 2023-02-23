@@ -127,7 +127,7 @@ with tab2:
             key='Experience 1 Detial'
         )
         st.markdown("<hr>", unsafe_allow_html=True)
-        button = st.empty()
+        button = st.button("HOLE")
 
         # Create a text area
         if button:
