@@ -67,6 +67,13 @@ st.write("")
 st.write("")
 st.write("")
 
+options = st.multiselect(
+    'What are your favorite colors',
+    ['Green', 'Yellow', 'Red', 'Blue'],
+    ['Yellow', 'Red'])
+
+st.write('You selected:', options)
+
 for element in st.session_state['result1']:
     link = element[0]
     title = element[1]
