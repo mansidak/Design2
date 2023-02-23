@@ -99,33 +99,45 @@ with tab2:
     col1, col2 = st.columns([2, 2])
     with col1:
         st.text_input(
-            'Enter Position at Company',
+            '',
             placeholder='',
             help='Name',
             key='Experience1'
         )
         st.text_area(
-            'Enter Position at Company',
+            '',
             placeholder='',
             help='Name',
             key='Experience 1 Detial'
         )
         st.markdown("<hr>", unsafe_allow_html=True)
-        button = st.button("HOLE")
-        def add_text_area():
-            key = uuid.uuid4()
-            key2 = uuid.uuid4()
-            st.text_area(
-            'Enter Position at Company',
+
+        st.text_input(
+            '',
             placeholder='',
             help='Name',
-            key=f'{key}')
-            if st.button('Add Text Area',key=f'{key}+{key2}'):
-                add_text_area()
+            key='Experience2'
+        )
+        st.text_area(
+            '',
+            placeholder='',
+            help='Name',
+            key='Experience 2 Detial'
+        )
+        st.markdown("<hr>", unsafe_allow_html=True)
 
-
-        if st.button('Add Text Area'):
-            add_text_area()
+        st.text_input(
+            '',
+            placeholder='',
+            help='Name',
+            key='Experience2'
+        )
+        st.text_area(
+            '',
+            placeholder='',
+            help='Name',
+            key='Experience 2 Detial'
+        )
 
     with col2:
         st.write("")
