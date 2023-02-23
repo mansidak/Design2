@@ -114,6 +114,51 @@ with tab2:
         )
         st.markdown("<hr>", unsafe_allow_html=True)
 
+
+        st.text_input(
+            '',
+            placeholder='Position at Company',
+            help='Name',
+            key='Experience2'
+        )
+        st.text_area(
+            '',
+            placeholder='Description',
+            help='Name',
+            key='Experience 2 Detail'
+        )
+        st.markdown("<hr>", unsafe_allow_html=True)
+
+
+        st.text_input(
+            '',
+            placeholder='Position at Company',
+            help='Name',
+            key='Experience3'
+        )
+        st.text_area(
+            '',
+            placeholder='Description',
+            help='Name',
+            key='Experience 3 Detail'
+        )
+        st.markdown("<hr>", unsafe_allow_html=True)
+
+
+        st.text_input(
+            '',
+            placeholder='Position at Company',
+            help='Name',
+            key='Experience4'
+        )
+        st.text_area(
+            '',
+            placeholder='Description',
+            help='Name',
+            key='Experience 4 Detail'
+        )
+        st.markdown("<hr>", unsafe_allow_html=True)
+
     with col2:
         st.write("")
 
