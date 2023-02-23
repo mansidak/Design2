@@ -88,19 +88,19 @@ with tab1:
     col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
         st.text_input(
-        'Caption goes here',
+        'Name',
         placeholder='Name ',
         help='Help message goes here',
         key = 'Name'
         )
         st.text_input(
-            'Caption goes here',
+            'Phone',
             placeholder='Phone Number',
             help='Help message goes here',
             key='Phone'
         )
         st.text_input(
-            'Caption goes here',
+            'Email',
             placeholder='Placeholder goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ',
             help='Email',
             key='Email'
