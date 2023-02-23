@@ -128,14 +128,13 @@ with tab2:
         )
         st.markdown("<hr>", unsafe_allow_html=True)
         button = st.button("HOLE")
+        def add_text_area():
+            key = st.empty()
+            st.text_area(key)
 
-        # Create a text area
-        if button:
-            text_area = st.text_area("")
 
-        # Display the text area
-        if text_area:
-            st.text(text_area)
+        if st.button('Add Text Area'):
+            add_text_area()
 
     with col2:
         st.write("")
