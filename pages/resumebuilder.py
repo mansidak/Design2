@@ -119,7 +119,7 @@ with tab2:
             placeholder='',
             help='Name',
             key=f'{key}')
-            if st.button('Add Text Area'):
+            if st.button('Add Text Area',key=f'{key}'):
                 add_text_area()
 
 
