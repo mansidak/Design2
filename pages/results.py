@@ -69,7 +69,7 @@ st.write("")
 
 options = st.multiselect(
     'Filter through company',
-    st.session_state['result1'].element[2],
+    st.session_state['result1'][2],
     [])
 
 st.write('You selected:', options)
