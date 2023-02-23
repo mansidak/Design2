@@ -90,18 +90,18 @@ with tab1:
         st.text_input(
         'Name',
         placeholder='Name ',
-        help='Help message goes here',
+        help='Name',
         key = 'Name'
         )
         st.text_input(
             'Phone',
             placeholder='Phone Number',
-            help='Help message goes here',
+            help='Phone Number',
             key='Phone'
         )
         st.text_input(
             'Email',
-            placeholder='Placeholder goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ',
+            placeholder='Email ',
             help='Email',
             key='Email'
         )
