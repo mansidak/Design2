@@ -75,31 +75,31 @@ st.markdown("""
     """,unsafe_allow_html=True)
 
 
-col1, col2, col3 = st.columns([2, 1, 2])
+# col1, col2, col3 = st.columns([2, 1, 2])
+#
+# with col1:
+#     st.write("")
+#
+# with col2:
+tab1, tab2, tab3, tab4 = st.tabs(["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001","\u2001\u2001Interests\u2001\u2001"])
 
-with col1:
-    st.write("")
+with tab1:
+    st.header("Details")
+    st.text_area(
+        'Caption goes here',
+        placeholder='Placeholder goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ',
+        help='Help message goes here'
+    )
 
-with col2:
-    tab1, tab2, tab3, tab4 = st.tabs(["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001","\u2001\u2001Interests\u2001\u2001"])
+with tab2:
+    st.header("Experiences")
 
-    with tab1:
-        st.header("Details")
-        st.text_area(
-            'Caption goes here',
-            placeholder='Placeholder goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ',
-            help='Help message goes here'
-        )
+with tab3:
+    st.header("Projects")
 
-    with tab2:
-        st.header("Experiences")
-
-    with tab3:
-        st.header("Projects")
-
-    with tab4:
-        st.header("Interests")
-
-with col3:
-    st.write("")
+with tab4:
+    st.header("Interests")
+#
+# with col3:
+#     st.write("")
 
