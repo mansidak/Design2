@@ -70,7 +70,7 @@ hide_img_fs = '''
 button[title="View fullscreen"]{
     visibility: hidden;}
     
-    textarea { 
+    .css-1om1ktf { 
     background-color : #eeeeee; 
     }
 </style>
