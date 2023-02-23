@@ -100,41 +100,41 @@ with tab2:
     with col1:
         st.text_input(
             '',
-            placeholder='',
+            placeholder='Position at Company',
             help='Name',
             key='Experience1'
         )
         st.text_area(
             '',
-            placeholder='',
+            placeholder='Description',
             help='Name',
-            key='Experience 1 Detial'
+            key='Experience 1 Detail'
         )
         st.markdown("<hr>", unsafe_allow_html=True)
 
         st.text_input(
             '',
-            placeholder='',
+            placeholder='Position at Company',
             help='Name',
             key='Experience2'
         )
         st.text_area(
             '',
-            placeholder='',
+            placeholder='Description',
             help='Name',
-            key='Experience 2 Detial'
+            key='Experience 2 Detail'
         )
         st.markdown("<hr>", unsafe_allow_html=True)
 
         st.text_input(
             '',
-            placeholder='',
+            placeholder='Position at Company',
             help='Name',
             key='Experience2'
         )
         st.text_area(
             '',
-            placeholder='',
+            placeholder='Description',
             help='Name',
             key='Experience 2 Detial'
         )
