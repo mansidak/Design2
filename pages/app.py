@@ -307,7 +307,7 @@ text-align: center;
 
             result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}",
                                         1, resumeContent)
-            st.session_state["result1"] = result1
+            # st.session_state["result1"] = result1
 
             my_bar.progress(70, text=f"")
 
@@ -317,8 +317,8 @@ text-align: center;
 
             result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}",
                                         1, resumeContent)
-            st.session_state["result2"] = result2
-            st.session_state["FinalResulsts"].append(result1).append(result2)
+            # st.session_state["result2"] = result2
+            st.session_state["FinalResults"] = result1 + result2
 
             my_bar.progress(75, text=f"")
 

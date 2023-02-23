@@ -71,7 +71,7 @@ options = st.multiselect('Filter through company', [item[5] for item in st.sessi
 
 st.write('You selected:', options)
 
-for element in st.session_state['result1']:
+for element in st.session_state['FinalResults']:
     if element[5] in options:
         link = element[0]
         title = element[1]
