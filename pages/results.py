@@ -69,8 +69,8 @@ for element in st.session_state['result1']:
     companyName = element[2]
     shortSummary = element[3]
     fullDescription = element[4]
-    st.subheader(f"{title}")
-    st.markdown(f"<h4 style='font-family: Sans-Serif;font-weight: lighter;'>{companyName}</h4>", unsafe_allow_html=True)
+    st.markdown(f"<h4 style='font-family: Sans-Serif;font-weight: lighter;'>{title}</h4>", unsafe_allow_html=True)
+    st.markdown(f"<h5 style='font-family: Sans-Serif;font-weight: lighter;'>{companyName}</h5>", unsafe_allow_html=True)
     st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: lighter;'>{shortSummary}</h6>", unsafe_allow_html=True)
     # st.write(shortSummary)
     if st.button("Generate Cover Letter", key=f"{link}+{title}"):
