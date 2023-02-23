@@ -133,8 +133,9 @@ with col1:
     if st.button("Find Best-Fit Roles"):
         switch_page("app")
 with col2:
-    if st.button("Build Resume"):
-        switch_page("resumebuilder")
+    st.write("")
+    # if st.button("Build Resume"):
+    #     switch_page("resumebuilder")
 
 with col3:
     st.write("")

@@ -76,6 +76,9 @@ button[title="View fullscreen"]{
      .input[type="text"], textarea {
      color : #eeeeee; 
      } 
+     .css-1r6slb0 e1tzin5v2{
+     border-radius:20px;
+     }
 </style>
 '''
 
