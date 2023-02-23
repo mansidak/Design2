@@ -79,13 +79,17 @@ st.markdown("""
     <style>
     .stTextArea [data-baseweb=base-input] {
         background-color: #eeeeee;
-        border-radius:20px;
+        -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
         -webkit-text-fill-color: black;
     }
 
     .stTextArea [data-baseweb=base-input] [disabled=""]{
         background-color: #eeeeee;
-        border-radius:20px;
+        -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
         -webkit-text-fill-color: black;
     }
     </style>
