@@ -66,8 +66,8 @@ st.write("")
 st.write("")
 st.write("")
 st.write("")
-
-options = st.multiselect('Filter through company', [item[5] for item in st.session_state['FinalResults']], [item[5] for item in st.session_state['FinalResults']])
+with st.sidebar:
+    options = st.multiselect('Filter through company', [item[5] for item in st.session_state['FinalResults']], [item[5] for item in st.session_state['FinalResults']])
 
 # st.write('You selected:', options)
 
