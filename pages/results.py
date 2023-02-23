@@ -123,7 +123,7 @@ for element in st.session_state['FinalResults']:
             st.write("")
 
         st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
-    else:
+    elif not options:
         link = element[0]
         title = element[1]
         companyName = element[2]
