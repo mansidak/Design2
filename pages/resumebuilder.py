@@ -119,6 +119,8 @@ with tab2:
             placeholder='',
             help='Name',
             key=f'{key}')
+            if st.button('Add Text Area'):
+                add_text_area()
 
 
         if st.button('Add Text Area'):
