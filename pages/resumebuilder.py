@@ -85,7 +85,7 @@ tab1, tab2, tab3, tab4 = st.tabs(["\u2001Basics\u2001", "\u2001\u2001Experience\
 
 with tab1:
     st.header("Details")
-    col1, col2, col3 = st.columns([2, 1, 2])
+    col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
         st.text_input(
         'Caption goes here',
