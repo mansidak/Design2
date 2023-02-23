@@ -6,24 +6,24 @@ from docx import Document
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 
-
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #eeeeee
-    }
-
-    .css-hckj40{
-        background-color: #eeeeee
-    }
-   .sidebar .sidebar-content {
-        background: #eeeeee
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+#
+# st.markdown(
+#     """
+#     <style>
+#     .stApp {
+#         background-color: #eeeeee
+#     }
+#
+#     .css-hckj40{
+#         background-color: #eeeeee
+#     }
+#    .sidebar .sidebar-content {
+#         background: #eeeeee
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
@@ -78,17 +78,7 @@ st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 st.markdown("""
     <style>
-    .stTextArea [data-baseweb=base-input] {
-        background-color: #eeeeee;
-        -webkit-text-fill-color: black;
-        border: 2px solid #eeeeee;
-    }
 
-    .stTextArea [data-baseweb=base-input] [disabled=""]{
-        background-color: #eeeeee;
-        -webkit-text-fill-color: black;
-        border: 2px solid #eeeeee;
-    }
     css-17z41qg {
         background-color: #eeeeee;
     }
