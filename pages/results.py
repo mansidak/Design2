@@ -69,7 +69,7 @@ for element in st.session_state['result1']:
     companyName = element[2]
     shortSummary = element[3]
     fullDescription = element[4]
-    st.markdown(f"<a href='{link}' style='text-decoration: none; color: white;'><h4 style='font-family: Sans-Serif;'>{title}→ </h4></a>", unsafe_allow_html=True)
+    st.markdown(f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;'>{title}→ </h4></a>", unsafe_allow_html=True)
     st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{companyName}</h6>", unsafe_allow_html=True)
     st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: normal;'>{shortSummary}</h6>", unsafe_allow_html=True)
     # st.write(shortSummary)
