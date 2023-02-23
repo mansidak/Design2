@@ -96,7 +96,7 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
-    col1, col2 = st.columns([2, 2])
+    col1, col2 = st.columns([1, 3])
     with col1:
         st.text_input(
             '',
@@ -123,7 +123,7 @@ with tab2:
             placeholder='',
             help='Name',
             key='Experience 2 Detial'
-        )
+        )g
         st.markdown("<hr>", unsafe_allow_html=True)
 
         st.text_input(
