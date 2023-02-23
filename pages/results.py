@@ -67,10 +67,11 @@ st.write("")
 st.write("")
 st.write("")
 
-options = st.multiselect(
-    'Filter through company',
-    st.session_state['result1'][1],
-    [])
+for element in st.session_state['result1']:
+    options = st.multiselect(
+        'Filter through company',
+        element[2],
+        [])
 
 st.write('You selected:', options)
 
