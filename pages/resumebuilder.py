@@ -51,17 +51,6 @@ hide_streamlit_style = """
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([2, 1, 2])
-
-with col1:
-    st.write("")
-
-with col2:
-    # image = Image.open('Lighter.png')
-    # st.image(image)
-    st.write("")
-with col3:
-    st.write("")
 
 st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif; color:black>Coming Sooner</h2>", unsafe_allow_html=True)
 
