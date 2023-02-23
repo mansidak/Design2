@@ -1,5 +1,10 @@
 import streamlit as st
-import os
+st.set_page_config(page_title="19th Street | Resume Builder", page_icon="📜")
+# st.title("CoverLetter")
+import openai
+from docx import Document
+from PIL import Image
+from streamlit_extras.switch_page_button import switch_page
 
 hide_menu_style = """
          <style>
@@ -27,3 +32,26 @@ hide_streamlit_style = """
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns([2, 1, 2])
+
+with col1:
+    st.write("")
+
+with col2:
+    image = Image.open('PenManLogo.png')
+    st.image(image)
+
+with col3:
+    st.write("")
+
+st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Coming Sooner</h2>", unsafe_allow_html=True)
+
+hide_img_fs = '''
+<style>
+button[title="View fullscreen"]{
+    visibility: hidden;}
+</style>
+'''
+
+st.markdown(hide_img_fs, unsafe_allow_html=True)
