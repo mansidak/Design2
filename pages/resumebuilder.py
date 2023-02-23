@@ -81,7 +81,7 @@ with col1:
     st.write("")
 
 with col2:
-    tab1, tab2, tab3, tab4 = st.tabs(["   Basics  ", "   Experience   ", "   Projects   ","   Interests   "])
+    tab1, tab2, tab3, tab4 = st.tabs(["\u2001Basics\u2001", "   Experience   ", "   Projects   ","   Interests   "])
 
     with tab1:
         st.header("Details")
