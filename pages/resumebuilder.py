@@ -87,22 +87,25 @@ with tab1:
     st.header("Details")
     col1, col2, col3 = st.columns([2, 1, 2])
     with col1:
-        st.text_area(
+        st.text_input(
         'Caption goes here',
         placeholder='Placeholder goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ',
-        help='Help message goes here'
+        help='Help message goes here',
+        key = ''
         )
     with col2:
-        st.text_area(
+        st.text_input(
         'Caption goes here',
         placeholder='Placeholder goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ',
-        help='Help message goes here'
+        help='Help message goes here',
+        key = ''
         )
     with col3:
-        st.text_area(
+        st.text_input(
         'Caption goes here',
         placeholder='Placeholder goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to ',
-        help='Help message goes here'
+        help='Help message goes here',
+        key = ''
         )
 with tab2:
     st.header("Experiences")
