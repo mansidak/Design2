@@ -177,6 +177,7 @@ text-align: center;
                 Final_Titles = []
                 Final_Company = []
                 Final_Description = []
+                Final_Location = []
                 shortened_summary = []
                 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
                 driver.get(i)
@@ -189,8 +190,9 @@ text-align: center;
                 title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
                 st.write(title)
                 Final_Titles.append(title)
-                company = driver.find_element(By.XPATH,
-                                              "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
+                location = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
+                Final_Location.apppend(location)
+                company = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
                 Final_Company.append(company)
                 description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
                 Final_Description.append(description)
@@ -221,10 +223,10 @@ text-align: center;
                     shortened_summary.append(response3["choices"][0]["text"])
 
                 # Final_Array.append(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description)
-                for links, titles, companies, summaries, descriptions in zip(Final_Links, Final_Titles,
+                for links, titles, companies, summaries, descriptions, locations in zip(Final_Links, Final_Titles,
                                                                              Final_Company, shortened_summary,
-                                                                             Final_Description):
-                    Final_Array.append((links, titles, companies, summaries, descriptions))
+                                                                             Final_Description, Final_Location):
+                    Final_Array.append((links, titles, companies, summaries, descriptions, locations))
 
                 # driver.close()
 
