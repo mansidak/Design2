@@ -70,25 +70,25 @@ hide_img_fs = '''
 button[title="View fullscreen"]{
     visibility: hidden;}
     
-    .input[type="text"], textarea {
-     background-color : #eeeeee; 
-     } 
-     .input[type="text"], textarea {
-     color : #eeeeee; 
-     } 
-     css-1om1ktf{
-     border-radius:20px;
-     }
-     
-     textarea {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
+
 </style>
 '''
 
 st.markdown(hide_img_fs, unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
+    .stTextArea [data-baseweb=base-input] {
+        background-image: linear-gradient(140deg, rgb(54, 36, 31) 0%, rgb(121, 56, 100) 50%, rgb(106, 117, 25) 75%);
+        -webkit-text-fill-color: white;
+    }
+
+    .stTextArea [data-baseweb=base-input] [disabled=""]{
+        background-image: linear-gradient(45deg, red, purple, red);
+        -webkit-text-fill-color: gray;
+    }
+    </style>
+    """,unsafe_allow_html=True)
 
 
 col1, col2, col3, col4 = st.columns([1, 2, 2, 1])
