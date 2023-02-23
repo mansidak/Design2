@@ -69,7 +69,7 @@ st.write("")
 
 options = st.multiselect('Filter through company', [item[5] for item in st.session_state['FinalResults']], [item[5] for item in st.session_state['FinalResults']])
 
-st.write('You selected:', options)
+# st.write('You selected:', options)
 
 for element in st.session_state['FinalResults']:
     if element[5] in options:
