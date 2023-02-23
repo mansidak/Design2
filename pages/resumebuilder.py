@@ -6,6 +6,24 @@ from docx import Document
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #eeeeee
+    }
+
+    .css-hckj40{
+        background-color: #eeeeee
+    }
+   .sidebar .sidebar-content {
+        background: #eeeeee
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
@@ -55,3 +73,4 @@ button[title="View fullscreen"]{
 '''
 
 st.markdown(hide_img_fs, unsafe_allow_html=True)
+
