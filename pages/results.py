@@ -68,9 +68,9 @@ st.write("")
 st.write("")
 
 options = st.multiselect(
-    'What are your favorite colors',
-    ['Green', 'Yellow', 'Red', 'Blue'],
-    ['Yellow', 'Red'])
+    'Filter through company',
+    st.session_state['result1'].element[2],
+    [])
 
 st.write('You selected:', options)
 
