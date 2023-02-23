@@ -81,11 +81,13 @@ st.markdown("""
     .stTextArea [data-baseweb=base-input] {
         background-color: #eeeeee;
         -webkit-text-fill-color: black;
+        border: 2px solid #eeeeee;
     }
 
     .stTextArea [data-baseweb=base-input] [disabled=""]{
         background-color: #eeeeee;
         -webkit-text-fill-color: black;
+        border: 2px solid #eeeeee;
     }
     </style>
     """,unsafe_allow_html=True)
