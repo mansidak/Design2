@@ -279,73 +279,62 @@ text-align: center;
             )
             Titles = response["choices"][0]["text"]
             print(Titles)
-            # st.write(Titles)
             Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
             Skills = Titles.split('2.')[1].split('3.')[0].split(',')
             Name = Titles.split('3.')[1].split('4.')[0]
             st.session_state["Name"] = Name
             softSkills = Titles.split('4.')[1]
-            # st.write(Jobtitles)
-            # st.write(Skills)
-            # st.write(Name)
-            # st.write(softSkills)
+
             newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
             newSkills = [item.replace(" ", "-") for item in Skills]
             st.write()
 
-            st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
-                        unsafe_allow_html=True)
+            st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
             progressText = st.empty()
             write_cover_letter = st.empty()
-            holder2 = st.empty()
-            progressText.markdown(
-                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Great job, {str(Name).split(' ')[1]}! Your resume is being parsed. Choose your desired type of level</h6>",
-                unsafe_allow_html=True)
-            # progressText.write(f"Great job, {str(Name).split(' ')[1]}! Your resume is being parsed. Choose your desired type of level")
-            ExperienceLevel = holder2.selectbox(
-                '',
-                (None, 'Intern', 'Entry-Level', 'Associate'),
-                help='Experience Level'
-            )
 
-            if ExperienceLevel is not None:
-                my_bar = st.progress(0, text=progress_text)
-                my_bar.progress(40, text=f"")
-                holder2.empty()
-                progressText.markdown(
+            progressText.markdown(
+                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Great job, {str(Name).split(' ')[1]}! Your resume is being parsed. Choose your desired type of level</h6>", unsafe_allow_html=True)
+
+
+            # if ExperienceLevel is not None:
+            my_bar = st.progress(0, text=progress_text)
+            my_bar.progress(40, text=f"")
+            holder2.empty()
+            progressText.markdown(
                     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {Titles.split('2.')[1].split('3.')[0]}etc...</h6>",
                     unsafe_allow_html=True)
 
-                result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}",
+            result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}",
                                         1, resumeContent)
-                st.session_state["result1"] = result1
+            st.session_state["result1"] = result1
 
-                my_bar.progress(70, text=f"")
+            my_bar.progress(70, text=f"")
 
-                progressText.markdown(
+            progressText.markdown(
                     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",
                     unsafe_allow_html=True)
 
-                result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}",
+            result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}",
                                         1, resumeContent)
-                st.session_state["result2"] = result2
+            st.session_state["result2"] = result2
 
-                my_bar.progress(75, text=f"")
+            my_bar.progress(75, text=f"")
 
-                my_bar.progress(90, text="")
-                progressText.markdown(
+            my_bar.progress(90, text="")
+            progressText.markdown(
                     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Almost there...</h6>",
                     unsafe_allow_html=True)
 
-                my_bar.progress(100, text="")
-                progressText.markdown(
+            my_bar.progress(100, text="")
+            progressText.markdown(
                     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Now just apply! Good Luck :)</h6>",
                     unsafe_allow_html=True)
-                switch_page("results")
+            switch_page("results")
 
-                st.write(
+            st.write(
                     "That's all we could. If you're not satisfied with the results, please refresh the page and run the search again.")
-                delete_selenium_log()
+            delete_selenium_log()
 
 
         col1, col2, col3 = st.columns([2, 1, 2])
@@ -372,7 +361,12 @@ text-align: center;
         ResumePDF = holder.file_uploader(
             ''
         )
-
+        holder2 = st.empty()
+        ExperienceLevel = holder2.selectbox(
+            '',
+            ('Experience Level', 'Intern', 'Entry-Level', 'Associate'),
+            help='Experience Level'
+        )
         # my_bar = st.progress(0, text=progress_text)
         with st.sidebar:
             undesired = st.text_input(
@@ -381,7 +375,7 @@ text-align: center;
                 help="As we develop this program more, we'll add more filter"
             )
 
-        if ResumePDF is not None:
+        if ResumePDF is not None and ExperienceLevel is not 'Select Experience':
             SubTitle.empty()
             Credits.empty()
             holder.empty()
