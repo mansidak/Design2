@@ -1,5 +1,6 @@
 import streamlit as st
 import uuid
+import random
 st.set_page_config(page_title="19th Street | Resume Builder", page_icon="📜", layout="wide", initial_sidebar_state='collapsed')
 # st.title("CoverLetter")
 import openai
@@ -77,6 +78,7 @@ with tab1:
         help='Name',
         key = 'Name'
         )
+
         st.text_input(
             'Phone',
             placeholder='Phone Number',
@@ -98,6 +100,7 @@ with tab2:
     st.header("Experiences")
     col1, col2 = st.columns([1, 3])
     with col1:
+
         st.text_input(
             '',
             placeholder='Position at Company',
@@ -112,32 +115,14 @@ with tab2:
         )
         st.markdown("<hr>", unsafe_allow_html=True)
 
-        st.text_input(
-            '',
-            placeholder='Position at Company',
-            help='Name',
-            key='Experience2'
-        )
-        st.text_area(
-            '',
-            placeholder='Description',
-            help='Name',
-            key='Experience 2 Detail'
-        )
-        st.markdown("<hr>", unsafe_allow_html=True)
 
-        st.text_input(
-            '',
-            placeholder='Position at Company',
-            help='Name',
-            key='Experience2'
-        )
-        st.text_area(
-            '',
-            placeholder='Description',
-            help='Name',
-            key='Experience 2 Detial'
-        )
+        def add_text_area():
+            st.text_area(key=''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', k=10)))
+
+
+        if st.button('Add Text Area'):
+            add_text_area()
+
 
     with col2:
         st.write("")
