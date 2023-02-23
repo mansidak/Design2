@@ -92,16 +92,19 @@ with col1:
     st.write("")
 
 with col2:
-    tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+    tab1, tab2, tab3, tab4 = st.tabs(["Deets", "Experience", "Projects","Interests"])
 
     with tab1:
-        st.header("A cat")
+        st.header("Details")
 
     with tab2:
-        st.header("A dog")
+        st.header("Experiences")
 
     with tab3:
-        st.header("An owl")
+        st.header("Projects")
+
+    with tab4:
+        st.header("Interests")
 
 with col3:
     st.write("")
