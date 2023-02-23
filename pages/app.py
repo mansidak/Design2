@@ -191,7 +191,7 @@ text-align: center;
                 st.write(title)
                 Final_Titles.append(title)
                 location = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
-                Final_Location.apppend(location)
+                Final_Location.append(location)
                 company = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
                 Final_Company.append(company)
                 description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
@@ -222,7 +222,6 @@ text-align: center;
                     )
                     shortened_summary.append(response3["choices"][0]["text"])
 
-                # Final_Array.append(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description)
                 for links, titles, companies, summaries, descriptions, locations in zip(Final_Links, Final_Titles,
                                                                              Final_Company, shortened_summary,
                                                                              Final_Description, Final_Location):
