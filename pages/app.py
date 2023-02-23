@@ -364,7 +364,7 @@ text-align: center;
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             '',
-            ('Experience Level', 'Intern', 'Entry-Level', 'Associate'),
+            (None, 'Intern', 'Entry-Level', 'Associate'),
             help='Experience Level'
         )
         # my_bar = st.progress(0, text=progress_text)
@@ -375,7 +375,7 @@ text-align: center;
                 help="As we develop this program more, we'll add more filter"
             )
 
-        if ResumePDF is not None and ExperienceLevel is not 'Select Experience':
+        if ResumePDF is not None and ExperienceLevel is not None:
             SubTitle.empty()
             Credits.empty()
             holder.empty()
