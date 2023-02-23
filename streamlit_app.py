@@ -127,8 +127,18 @@ st.markdown(f"<h4 style='font-family: Sans-Serif; font-weight:lighter; color: bl
 st.text("")
 st.text("")
 
-if st.button("Find Best-Fit Roles"):
-    switch_page("app")
+col1, col2, col3 = st.columns([1, 1, 10])
+
+with col1:
+    if st.button("Find Best-Fit Roles"):
+        switch_page("app")
+with col2:
+    if st.button("Build Resume"):
+        switch_page("resumebuilder")
+
+with col3:
+    st.write("")
+
 
 st.text("")
 st.text("")
