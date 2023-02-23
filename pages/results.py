@@ -69,12 +69,12 @@ st.write("")
 
 options = st.multiselect(
 
-    'Filter through company', [item[2] for item in st.session_state['result1']], [])
+    'Filter through company', [item[5] for item in st.session_state['result1']], [])
 
 st.write('You selected:', options)
 
 for element in st.session_state['result1']:
-    if element[2] in options:
+    if element[5] in options:
         link = element[0]
         title = element[1]
         companyName = element[2]
