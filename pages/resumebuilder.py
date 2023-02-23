@@ -93,18 +93,26 @@ st.markdown("""
     """,unsafe_allow_html=True)
 
 
+col1, col2, col3 = st.columns([1, 1, 1])
 
-tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+with col1:
+    st.write("")
 
-with tab1:
-   st.header("A cat")
-   st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+with col2:
+    tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
 
-with tab2:
-   st.header("A dog")
-   st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+    with tab1:
+        st.header("A cat")
+        st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
 
-with tab3:
-   st.header("An owl")
-   st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+    with tab2:
+        st.header("A dog")
+        st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+
+    with tab3:
+        st.header("An owl")
+        st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+
+with col3:
+    st.write("")
 
