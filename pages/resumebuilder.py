@@ -79,12 +79,12 @@ st.markdown(hide_img_fs, unsafe_allow_html=True)
 st.markdown("""
     <style>
     .stTextArea [data-baseweb=base-input] {
-        background-color: red;
+        background-color: #eeeeee;
         -webkit-text-fill-color: white;
     }
 
     .stTextArea [data-baseweb=base-input] [disabled=""]{
-        background-color: red;
+        background-color: #eeeeee;
         -webkit-text-fill-color: gray;
     }
     </style>
