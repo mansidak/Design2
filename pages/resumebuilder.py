@@ -57,13 +57,13 @@ with col1:
     st.write("")
 
 with col2:
-    image = Image.open('Lighter.png')
+    image = Image.open('PenManLogo.png')
     st.image(image)
 
 with col3:
     st.write("")
 
-st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;color:black'>Coming Sooner</h2>", unsafe_allow_html=True)
+st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif'>Coming Sooner</h2>", unsafe_allow_html=True)
 
 hide_img_fs = '''
 <style>
