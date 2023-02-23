@@ -107,7 +107,7 @@ for element in st.session_state['result1']:
     with col3:
         st.write("")
 
-    st.markdown("<hr style = 'margin-top:-10px;'>", unsafe_allow_html=True)
+    st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
     # with st.expander(f"{title} at {companyName}", expanded= False):
     #     st.write(f"[Apply]({link})")
     #     # for item in fullDescription.split('.')[:5]:
