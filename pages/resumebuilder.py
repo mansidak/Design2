@@ -112,6 +112,26 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
+    col1, col2 = st.columns([2, 1])
+    with col1:
+        st.text_input(
+            'Enter Position at Company',
+            placeholder='',
+            help='Name',
+            key='Name'
+        )
+
+        st.text_area(
+            'Enter Position at Company',
+            placeholder='',
+            help='Name',
+            key='Name'
+        )
+        st.markdown("<hr>", unsafe_allow_html=True)
+
+    with col2:
+        st.write("")
+
 
 with tab3:
     st.header("Projects")
