@@ -82,7 +82,7 @@ button[title="View fullscreen"]{
 st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 
-col1, col2, col3, col4 = st.columns([2, 1, 1, 2])
+col1, col2, col3, col4 = st.columns([1, 2, 2, 1])
 
 with col1:
     st.write("")
