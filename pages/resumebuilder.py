@@ -114,12 +114,13 @@ with tab2:
         button = st.button("HOLE")
         def add_text_area():
             key = uuid.uuid4()
+            key2 = uuid.uuid4()
             st.text_area(
             'Enter Position at Company',
             placeholder='',
             help='Name',
             key=f'{key}')
-            if st.button('Add Text Area',key=f'{key}'):
+            if st.button('Add Text Area',key=f'{key}+{key2}'):
                 add_text_area()
 
 
