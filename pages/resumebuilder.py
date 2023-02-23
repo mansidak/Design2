@@ -117,7 +117,7 @@ with tab2:
 
 
         def add_text_area():
-            st.text_area(key=''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', k=10)))
+            st.text_area('',placeholder='Description', help='Name',key=''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', k=10)))
 
 
         if st.button('Add Text Area'):
