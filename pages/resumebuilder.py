@@ -79,6 +79,12 @@ button[title="View fullscreen"]{
      css-1om1ktf{
      border-radius:20px;
      }
+     
+     textarea {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
 </style>
 '''
 
