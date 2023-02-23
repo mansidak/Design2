@@ -100,7 +100,7 @@ for element in st.session_state['result1']:
             st.download_button('Download Cover Letter', cover_letter_file)
 
     with col2:
-        if st.button("Apply"):
+        if st.button("Apply", key=f"{link}+{title}+Apply"):
             js = f"window.open('{link}')"  # New tab or window
 
     with col3:
