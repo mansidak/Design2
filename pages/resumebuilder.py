@@ -1,4 +1,5 @@
 import streamlit as st
+import uuid
 st.set_page_config(page_title="19th Street | Resume Builder", page_icon="📜", layout="wide", initial_sidebar_state='collapsed')
 # st.title("CoverLetter")
 import openai
@@ -6,24 +7,7 @@ from docx import Document
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 
-#
-# st.markdown(
-#     """
-#     <style>
-#     .stApp {
-#         background-color: #eeeeee
-#     }
-#
-#     .css-hckj40{
-#         background-color: #eeeeee
-#     }
-#    .sidebar .sidebar-content {
-#         background: #eeeeee
-#     }
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
+
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
@@ -129,12 +113,12 @@ with tab2:
         st.markdown("<hr>", unsafe_allow_html=True)
         button = st.button("HOLE")
         def add_text_area():
-            key = st.empty()
+            key = uuid.uuid4()
             st.text_area(
             'Enter Position at Company',
             placeholder='',
             help='Name',
-            key='New text')
+            key=f'{key}')
 
 
         if st.button('Add Text Area'):
