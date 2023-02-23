@@ -81,7 +81,7 @@ for element in st.session_state['result1']:
     fullDescription = element[4]
     location = element[5]
     st.markdown(f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>{title}→ </h4></a>", unsafe_allow_html=True)
-    st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{companyName}, {location}</h6>", unsafe_allow_html=True)
+    st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{companyName},  {location}</h6>", unsafe_allow_html=True)
     st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: normal;'>{shortSummary}</h6>", unsafe_allow_html=True)
     # st.write(shortSummary)
     col1, col2, col3 = st.columns([1, 1, 1])
@@ -136,7 +136,7 @@ for element in st.session_state['result2']:
     col1, col2, col3 = st.columns([1, 1, 1])
 
     with col1:
-        if st.button("Generate Cover Letter", key=f"{link}+{title}"):
+        if st.button("Generate Cover Letter", key=f"{link}+{title}+{shortSummary}"):
             responseJob = openai.Completion.create(
                 model="text-davinci-003",
                 prompt=f"summarize the job: {fullDescription}",
