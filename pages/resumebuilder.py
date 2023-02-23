@@ -90,7 +90,7 @@ st.markdown("""
     """,unsafe_allow_html=True)
 
 
-col1, col2, col3, col4 = st.columns([1, 2, 2, 1])
+col1, col2, col3, col4 = st.columns([1, 1.5, 1.5, 1])
 
 with col1:
     st.write("")
