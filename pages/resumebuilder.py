@@ -69,6 +69,12 @@ hide_img_fs = '''
 <style>
 button[title="View fullscreen"]{
     visibility: hidden;}
+    
+    input[type="text"], textarea {
+
+  background-color : #eeeeee; 
+
+}
 </style>
 '''
 
