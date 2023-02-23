@@ -71,7 +71,8 @@ for element in st.session_state['result1']:
     fullDescription = element[4]
     st.title(f"{title}")
     st.subheader(f"{companyName}")
-    st.write(shortSummary)
+    st.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>{shortSummary}</h6>")
+    # st.write(shortSummary)
     if st.button("Generate Cover Letter", key=f"{link}+{title}"):
         responseJob = openai.Completion.create(
             model="text-davinci-003",
