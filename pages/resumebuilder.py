@@ -100,35 +100,19 @@ with tab2:
     st.header("Experiences")
     col1, col2 = st.columns([1, 3])
     with col1:
-
-        # st.text_input(
-        #     '',
-        #     placeholder='Position at Company',
-        #     help='Name',
-        #     key='Experience1'
-        # )
-        # st.text_area(
-        #     '',
-        #     placeholder='Description',
-        #     help='Name',
-        #     key='Experience 1 Detail'
-        # )
-        # st.markdown("<hr>", unsafe_allow_html=True)
-
-        if 'count' not in st.session_state:
-            st.session_state.count = 0
-
-        def add_new_row():
-            st.text_input("Please input something",
-                      key=random.choice(string.ascii_uppercase) + str(random.randint(0, 999999)))
-
-        if st.button("Add new row"):
-            st.session_state.count += 1
-            add_new_row()
-            if st.session_state.count > 1:
-                for i in range(st.session_state.count - 1):
-                    add_new_row()
-
+        st.text_input(
+            '',
+            placeholder='Position at Company',
+            help='Name',
+            key='Experience1'
+        )
+        st.text_area(
+            '',
+            placeholder='Description',
+            help='Name',
+            key='Experience 1 Detail'
+        )
+        st.markdown("<hr>", unsafe_allow_html=True)
 
     with col2:
         st.write("")
