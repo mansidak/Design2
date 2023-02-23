@@ -6,24 +6,24 @@ from docx import Document
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 
-#
-# st.markdown(
-#     """
-#     <style>
-#     .stApp {
-#         background-color: #eeeeee
-#     }
-#
-#     .css-hckj40{
-#         background-color: #eeeeee
-#     }
-#    .sidebar .sidebar-content {
-#         background: #eeeeee
-#     }
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #eeeeee
+    }
+
+    .css-hckj40{
+        background-color: #eeeeee
+    }
+   .sidebar .sidebar-content {
+        background: #eeeeee
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
@@ -57,13 +57,12 @@ with col1:
     st.write("")
 
 with col2:
-    # image = Image.open('PenManLogo.png')
-    # st.image(image)
-    st.write("")
+    image = Image.open('Lighter.png')
+    st.image(image)
 with col3:
     st.write("")
 
-st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif'>Coming Sooner</h2>", unsafe_allow_html=True)
+st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif; color:black>Coming Sooner</h2>", unsafe_allow_html=True)
 
 hide_img_fs = '''
 <style>
@@ -80,12 +79,12 @@ st.markdown("""
     <style>
     .stTextArea [data-baseweb=base-input] {
         background-color: #eeeeee;
-        -webkit-text-fill-color: white;
+        -webkit-text-fill-color: black;
     }
 
     .stTextArea [data-baseweb=base-input] [disabled=""]{
         background-color: #eeeeee;
-        -webkit-text-fill-color: gray;
+        -webkit-text-fill-color: black;
     }
     </style>
     """,unsafe_allow_html=True)
