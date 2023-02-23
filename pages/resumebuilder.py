@@ -120,7 +120,6 @@ with tab2:
             help='Name',
             key='Name'
         )
-
         st.text_area(
             'Enter Position at Company',
             placeholder='',
