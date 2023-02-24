@@ -29,6 +29,12 @@ hide_streamlit_style = """
                 transform: translate(-50%, -50%);
                 width: 50%;
               }
+              
+              
+              
+              
+              
+              
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
