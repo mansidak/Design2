@@ -115,7 +115,10 @@ with tab2:
             border-radius:5px;
             -moz-border-radius:5px;
             -webkit-border-radius:5px;
-            border-bottom: 1px solid #000;
+            border-top: 0 none;
+            border-left: 0 none;
+            border-right: 0 none;
+            border-bottom: 1px solid red;
             outline: none;
             }
 
