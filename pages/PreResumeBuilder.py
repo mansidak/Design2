@@ -63,7 +63,7 @@ with col2:
     ResumePDF = st.file_uploader(
         ''
     )
-    st.button("Start with your old resume →")
+    st.button("Start with your old resume →", key = "Old Resume Begin Button")
 with col3:
     st.markdown("<hr style = 'width:0px; border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
 with col4:
@@ -90,7 +90,7 @@ with col4:
         key='Email'
     )
     st.session_state['CandidateEmail'] = CandidateEmail
-    st.button("Start with your old resume →")
+    st.button("Go Manually →", key = "Go Manually")
 
 with col5:
     st.write("")
