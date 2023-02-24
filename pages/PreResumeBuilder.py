@@ -54,14 +54,14 @@ col1, col2, col3 = st.columns([1, 0.1, 1])
 
 with col1:
     st.write("")
-    image = Image.open('Resume.png')
+    image = Image.open('Manual300.png')
     st.image(image)
 with col2:
     st.markdown("<hr style = 'width:0px; border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
 
 with col3:
     st.write("")
-    image = Image.open('Manual.png')
+    image = Image.open('Resume300.png')
     st.image(image)
 #
 # col1, col2, col3, col4, col5 = st.columns([1, 2, 0.1, 2, 1])
