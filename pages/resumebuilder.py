@@ -313,8 +313,7 @@ with tab4:
                 frequency_penalty=0,
                 presence_penalty=0
             )
-            PreSkills = response["choices"][0]["text"].split(',')
-            st.session_state['Skills'] = map(str.strip, PreSkills)
+            st.session_state['Skills'] = response["choices"][0]["text"].split(',')
 
             st.text_input(
             'Caption goes here',
@@ -327,8 +326,6 @@ with tab4:
         'Caption goes here',
         placeholder='Placeholder goes here',
         help='Help message goes here',
-        value=map(str.strip, st.session_state['Skills'])
-        )
-
+        value=st.session_state['Skills'])
 with tab5:
     st.write("")
