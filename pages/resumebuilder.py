@@ -100,6 +100,21 @@ with tab2:
     st.header("Experiences")
     col1, col2 = st.columns([0.75, 1])
     with col1:
+        st.markdown("""
+            <style>
+            .stTextArea [data-baseweb=base-input] {
+                background-color: #0d0d0d;
+                -webkit-text-fill-color: white;
+                border: 2px solid #eeeeee;
+            }
+            .stTextArea [data-baseweb=base-input] [disabled=""]{
+                background-color: #0d0d0d;
+                -webkit-text-fill-color: white;
+                border: 2px solid #eeeeee;
+            }
+            </style>
+            """, unsafe_allow_html=True)
+
         with st.expander("Experience 1", expanded= False):
             st.text_input(
             '',
