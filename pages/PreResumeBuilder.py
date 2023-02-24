@@ -76,7 +76,6 @@ with col3:
     st.write("")
     st.write("")
     st.write("")
-    st.write("")
     col111, col222, col333 = st.columns([1,2,1])
     with col111:
         st.write("")
