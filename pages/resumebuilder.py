@@ -327,7 +327,7 @@ with tab4:
         'Caption goes here',
         placeholder='Placeholder goes here',
         help='Help message goes here',
-        value=st.session_state['Skills']
+        value=map(str.strip, st.session_state['Skills'])
         )
 
 with tab5:
