@@ -27,7 +27,7 @@ hide_streamlit_style = """
                 width: 50%;
               }
               
-              div[class = 'css-5y9es8']{
+              div[class = 'css-5y9es8 exg6vvm15']{
               border-radius:100px;
               }
               </style>
