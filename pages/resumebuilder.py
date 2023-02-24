@@ -302,8 +302,8 @@ with tab3:
 
 with tab4:
     st.header("Skills")
-
-    response = openai.Completion.create(
+    if st.button("Add Skills"):
+        response = openai.Completion.create(
         model="text-davinci-003",
         prompt=f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n What kind of technical skills they have? List them in bullet points.\n",
         temperature=0.7,
@@ -311,7 +311,7 @@ with tab4:
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
-    )
-    st.write(response)
+        )
+        st.write(response)
 with tab5:
     st.write("")
