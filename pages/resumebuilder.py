@@ -113,7 +113,7 @@ with tab2:
             
             .st-br{
             border-radius:0px;
-            -moz-border-radius:0px;
+            -moz-border-radius:30px;
             -webkit-border-radius:0px;
             border-top: 0 none;
             border-left: 0 none;
