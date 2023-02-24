@@ -222,17 +222,17 @@ with tab3:
     with col1tab3:
         st.header("Projects")
         with st.expander("Project 1", expanded=False):
-            col1Project1, col2Project2 = st.columns([1, 1])
+            col1Project1, col2Project1 = st.columns([1, 1])
             with col1Project1:
                 st.text_input(
                     '',
                     placeholder='Project Name',
                     key='Project1Name'
                 )
-            with col2Project2:
+            with col2Project1:
                 st.text_input(
                     '',
-                    placeholder='Project Name',
+                    placeholder='Project Link',
                     key='Project1Link'
                 )
 
@@ -242,50 +242,66 @@ with tab3:
                 key='Project 1 Detail'
             )
         with st.expander("Project 2", expanded=False):
-            st.text_input(
-                '',
-                placeholder='Project Name',
-                key='Project2'
-            )
+            col1Project2, col2Project2 = st.columns([1, 1])
+            with col1Project2:
+                st.text_input(
+                    '',
+                    placeholder='Project Name',
+                    key='Project2Name'
+                )
+            with col2Project2:
+                st.text_input(
+                    '',
+                    placeholder='Project Link',
+                    key='Project2Link'
+                )
+
             st.text_area(
                 '',
                 placeholder='Description',
                 key='Project 2 Detail'
             )
         with st.expander("Project 3", expanded=False):
-            st.text_input(
-                '',
-                placeholder='Project Name',
-                key='Project3'
-            )
+            col1Project3, col2Project3 = st.columns([1, 1])
+            with col1Project3:
+                st.text_input(
+                    '',
+                    placeholder='Project Name',
+                    key='Project3Name'
+                )
+            with col2Project3:
+                st.text_input(
+                    '',
+                    placeholder='Project Link',
+                    key='Project3Link'
+                )
+
             st.text_area(
                 '',
                 placeholder='Description',
                 key='Project 3 Detail'
             )
         with st.expander("Project 4", expanded=False):
-            st.text_input(
-                '',
-                placeholder=' Project Name',
-                key='Project4'
-            )
+            col1Project4, col2Project4 = st.columns([1, 1])
+            with col1Project4:
+                st.text_input(
+                    '',
+                    placeholder='Project Name',
+                    key='Project4Name'
+                )
+            with col2Project4:
+                st.text_input(
+                    '',
+                    placeholder='Project Link',
+                    key='Project4Link'
+                )
+
             st.text_area(
                 '',
                 placeholder='Description',
                 key='Project 4 Detail'
             )
-        with st.expander("Project 5", expanded=False):
 
-            st.text_input(
-                '',
-                placeholder='Project Name',
-                key='Project5'
-            )
-            st.text_area(
-                '',
-                placeholder='Description',
-                key='Project 5 Detail'
-            )
     with col2tab3:
         st.write("")
 
