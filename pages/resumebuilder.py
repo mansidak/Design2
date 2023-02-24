@@ -98,7 +98,7 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
-    col1, col2 = st.columns([2, 1])
+    col1, col2 = st.columns([1, 1])
     with col1:
         tab1experience, tab2experience, tab3experience, tab4experience = st.tabs(
             ["\u2001Experience 1\u2001", "\u2001\u2001Experience 2\u2001\u2001", "\u2001\u2001Experience 3\u2001\u2001","\u2001\u2001Experience 4\u2001\u2001"])
