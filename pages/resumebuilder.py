@@ -178,16 +178,27 @@ with tab2:
             placeholder='Description',
             key='Experience 2 Detail'
             )
-        with st.expander("Experience 3", expanded=False):
+        with st.expander("Experience 4", expanded=False):
             st.text_input(
             '',
             placeholder='  Position at Company',
-            key='Experience3'
+            key='Experience4'
             )
             st.text_area(
             '',
             placeholder='Description',
-            key='Experience 3 Detail'
+            key='Experience 4 Detail'
+            )
+        with st.expander("Experience 5", expanded= False):
+            st.text_input(
+            '',
+            placeholder='Position at Company',
+            key='Experience5'
+            )
+            st.text_area(
+            '',
+            placeholder='Description',
+            key='Experience 5 Detail'
             )
 
     with col2:
