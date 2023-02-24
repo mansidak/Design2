@@ -48,11 +48,18 @@ with col1:
     st.write("")
 
 with col2:
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
     ResumePDF = st.file_uploader(
         ''
     )
 with col3:
-    st.markdown("<hr style = 'border-left: 6px solid green; height: 500px;'>", unsafe_allow_html=True)
+    st.markdown("<hr style = 'border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
 with col4:
     CandidateName = st.text_input(
         'Name',
