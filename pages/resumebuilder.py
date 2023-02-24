@@ -317,7 +317,7 @@ with tab4:
             'Caption goes here',
             placeholder='Placeholder goes here',
             help='Help message goes here',
-            value= response["choices"][0]["text"].split(',')
+            value= str(response["choices"][0]["text"].split(','))
         )
 
 with tab5:
