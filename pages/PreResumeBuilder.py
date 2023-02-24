@@ -27,7 +27,7 @@ hide_streamlit_style = """
                 width: 50%;
               }
               
-              .css-5y9es8 exg6vvm15{
+              .css-5y9es8{
               width:10px;
               }
        
