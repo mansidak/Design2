@@ -125,7 +125,7 @@ with tab2:
                   width: 100%;
                   font-size: 5em;
                   outline: none;
-                  position: absolute;
+                  position: relative;
                 
                 
             }
@@ -137,7 +137,7 @@ with tab2:
                   width: 100%;
                   font-size: 5em;
                   outline: none;
-                  position: absolute;
+                  position: relative;
             }
             </style>
             """, unsafe_allow_html=True)
