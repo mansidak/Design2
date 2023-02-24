@@ -27,9 +27,7 @@ hide_streamlit_style = """
                 width: 50%;
               }
               
-              .css-5y9es8{
-              width:450px;
-              }
+              
        
               </style>
               """
@@ -52,7 +50,7 @@ st.write("")
 
 
 
-col1, col2, col3, col4, col5 = st.columns([0.75, 2, 0.1, 2, 0.75])
+col1, col2, col3, col4, col5 = st.columns([1, 2, 0.1, 2, 1])
 
 with col1:
     st.write("")
