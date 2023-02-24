@@ -102,6 +102,7 @@ with tab2:
     with col1:
         st.markdown("""
             <style>
+            
             div[inputmode="text"]{
             border-radius:5px;
             -moz-border-radius:5px;
@@ -110,16 +111,18 @@ with tab2:
             outline: none;
             }
             
-            st-br.st-b3.st-ds.st-b8.st-e5.st-e6.st-e7.st-d8.st-e8.st-e9.st-ea.st-eb.st-ec.st-b1.st-ed.st-au.st-ax.st-av.st-aw.st-ae.st-af.st-ag.st-ah.st-ai.st-aj.st-ee.st-ef.st-eg.st-eh.st-ei.st-ej.st-ek"{
+            .st-br{
+            border-radius:5px;
+            -moz-border-radius:5px;
+            -webkit-border-radius:5px;
             border: 0 none;
-            border-bottom: 1px solid red;
             outline: none;
             }
 
-            
             ul.streamlit-expander {
             border-radius: 20px !important;
             }
+            
             .stTextInput [data-baseweb=base-input] {
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
@@ -139,9 +142,8 @@ with tab2:
                   font-size: 5em;
                   outline: none;
                   position: relative;
-                
-                
             }
+            
             .stTextArea [data-baseweb=base-input] [disabled=""]{
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
@@ -152,6 +154,7 @@ with tab2:
                   outline: none;
                   position: relative;
             }
+            
             </style>
             """, unsafe_allow_html=True)
 
