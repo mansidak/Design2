@@ -98,7 +98,14 @@ with col4:
         key='Email'
     )
     st.session_state['CandidateEmail'] = CandidateEmail
-    st.button("Go Manually →", key = "Go Manually")
+    col111, col222, col333 = st.columns([1, 1.5, 1])
+    with col111:
+        st.write("")
+    with col222:
+        st.button("Go Manually →", key="Old Resume Begin Button")
+
+    with col333:
+        st.write("")
 
 with col5:
     st.write("")
