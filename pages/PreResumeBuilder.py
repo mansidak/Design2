@@ -63,13 +63,15 @@ with col2:
     ResumePDF = st.file_uploader(
         ''
     )
-    st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
-    st.write("")
-    st.button("Start with your old resume →", key = "Old Resume Begin Button")
+    col1, col2, col3 = st.columne([1,2,1])
+    with col1:
+       st.write("")
+    with col2:
+        st.button("Start with your old resume →", key="Old Resume Begin Button")
+
+    with col3:
+        st.write("")
+
 with col3:
     st.markdown("<hr style = 'width:0px; border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
 with col4:
