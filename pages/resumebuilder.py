@@ -121,7 +121,6 @@ with tab2:
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
                 background-color: #0d0d0d;
-                  border: 0 none;
                   border-radius:20px;
                   width: 100%;
                   font-size: 5em;
@@ -134,7 +133,6 @@ with tab2:
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
                  background-color: #0d0d0d;
-                  border: 0 none;
                   border-radius:20px;
                   width: 100%;
                   font-size: 5em;
