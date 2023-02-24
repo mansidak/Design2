@@ -120,7 +120,7 @@ with tab2:
             }
       
             ul.streamlit-expander {
-            border-radius: 10px !important;
+            border-radius: 15px !important;
             }
             
             .stTextInput [data-baseweb=base-input] {
