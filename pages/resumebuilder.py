@@ -111,10 +111,7 @@ with tab2:
             }
             
             .st-br{
-            border-radius:5px;
-            -moz-border-radius:5px;
-            -webkit-border-radius:5px;
-            border: 0 none;
+            border-bottom: 1px solid red;
             outline: none;
             }
             
