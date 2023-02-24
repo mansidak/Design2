@@ -63,13 +63,13 @@ with col2:
     ResumePDF = st.file_uploader(
         ''
     )
-    col1, col2, col3 = st.columns([1,2,1])
-    with col1:
+    col11, col22, col33 = st.columns([1,2,1])
+    with col11:
        st.write("")
-    with col2:
+    with col22:
         st.button("Start with your old resume →", key="Old Resume Begin Button")
 
-    with col3:
+    with col33:
         st.write("")
 
 with col3:
