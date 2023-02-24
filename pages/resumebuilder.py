@@ -95,7 +95,7 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
-    st.markdown(f"<h5 style='font-family: Sans-Serif; font-weight:lighter; color: black'>Don't worry about being perfect. Just write briefly about what you did and we'll clean it up and generate bullet points out of it.</h5>", unsafe_allow_html=True)
+    st.markdown(f"<h6 style='font-family: Sans-Serif; font-weight:lighter; color: white'>Don't worry about being perfect. Just write briefly about what you did and we'll clean it up and generate bullet points out of it.</h6>", unsafe_allow_html=True)
 
     col1, col2 = st.columns([0.75, 1])
     with col1:
