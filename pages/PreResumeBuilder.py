@@ -63,7 +63,7 @@ with col2:
     with col22:
         st.markdown("<hr style = 'width:0px; border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
     with col33:
-        image = Image.open('ManualBold.png')
+        image = Image.open(' ManualBold.png')
         st.image(image)
         if st.button("Fill details manually", key = "filll detials"):
             switch_page("resumebuilder1")
