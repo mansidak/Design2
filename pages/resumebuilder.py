@@ -95,7 +95,7 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
-    st.write("Don't worry about being perfect. Just write briefly about what you did and we'll clean it up and generate bullet points out of it.")
+    st.write("Once done writing. Hit Generate to get final copy")
     col1, col2 = st.columns([0.75, 1])
     with col1:
         st.markdown("""
@@ -160,6 +160,9 @@ with tab2:
             placeholder='Position at Company',
             key='Experience1'
             )
+            st.write(
+                "Don't worry about being perfect. Just write briefly about what you did and we'll clean it up and generate bullet points out of it.")
+
             st.text_area(
             '',
             placeholder='Description',
