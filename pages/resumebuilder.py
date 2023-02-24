@@ -313,6 +313,6 @@ with tab4:
         presence_penalty=0
         )
 
-        st.write(response)
+        st.write(response["choices"][0]["text"])
 with tab5:
     st.write("")
