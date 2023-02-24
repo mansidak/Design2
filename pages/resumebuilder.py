@@ -98,11 +98,11 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
-    col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([3, 1])
     with col1:
-        tab1, tab2, tab3, tab4 = st.tabs(
+        tab1experience, tab2experience, tab3experience, tab4experience = st.tabs(
             ["\u2001Experience 1\u2001", "\u2001\u2001Experience 2\u2001\u2001", "\u2001\u2001Experience 3\u2001\u2001","\u2001\u2001Experience 4\u2001\u2001"])
-        with tab1:
+        with tab1experience:
             st.text_input(
                 '',
                 placeholder='Position at Company',
@@ -116,7 +116,7 @@ with tab2:
                 key='Experience 1 Detail'
             )
             st.markdown("<hr>", unsafe_allow_html=True)
-        with tab2:
+        with tab2experience:
             st.text_input(
                 '',
                 placeholder='Position at Company',
@@ -130,7 +130,7 @@ with tab2:
                 key='Experience 2 Detail'
             )
             st.markdown("<hr>", unsafe_allow_html=True)
-        with tab3:
+        with tab3experience:
             st.text_input(
                 '',
                 placeholder='Position at Company',
@@ -144,7 +144,7 @@ with tab2:
                 key='Experience 3 Detail'
             )
             st.markdown("<hr>", unsafe_allow_html=True)
-        with tab4:
+        with tab4experience:
             st.text_input(
                 '',
                 placeholder='Position at Company',
