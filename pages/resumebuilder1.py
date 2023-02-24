@@ -30,10 +30,10 @@ hide_streamlit_style = """
                 width: 50%;
               }
             .st-br{
-            border-radius:10px;
-            -moz-border-radius:10px;
-            -webkit-border-radius:10px;
-
+            border-radius:20px;
+            -moz-border-radius:20px;
+            -webkit-border-radius:20px;
+            min-height:500px;
             outline: none;
             }
               </style>
