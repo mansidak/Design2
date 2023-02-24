@@ -70,6 +70,9 @@ with col2:
         st.write("")
         st.write("")
         st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
         st.button("Start with your old resume →", key="Old Resume Begin Button")
 
     with col33:
