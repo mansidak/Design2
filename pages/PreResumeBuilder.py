@@ -6,7 +6,7 @@ import PyPDF2
 from PIL import Image
 
 
-st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽")
+st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽", layout="wide")
 
 
 hide_menu_style = """
