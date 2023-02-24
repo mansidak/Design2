@@ -303,22 +303,24 @@ with tab3:
 with tab4:
     st.header("Skills")
     if st.button("Add Skills"):
-        response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n What kind of technical skills they have? List them as spearated by commas.\n",
-        temperature=0.7,
-        max_tokens=80,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
-        )
+        if st.session_state['Skills'] is None:
+            response = openai.Completion.create(
+                model="text-davinci-003",
+                prompt=f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n What kind of technical skills they have? List them as spearated by commas.\n",
+                temperature=0.7,
+                max_tokens=80,
+                top_p=1,
+                frequency_penalty=0,
+                presence_penalty=0
+            )
+            st.session_state['Skills'] = response["choices"][0]["text"].split(',')
 
-        st.text_input(
+            st.text_input(
             'Caption goes here',
             placeholder='Placeholder goes here',
             help='Help message goes here',
-            value= str(response["choices"][0]["text"].split(','))
-        )
+            value= st.session_state['Skills']
+            )
 
 with tab5:
     st.write("")
