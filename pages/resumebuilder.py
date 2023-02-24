@@ -118,10 +118,19 @@ with tab2:
             border-top: 0 none;
             border-left: 0 none;
             border-right: 0 none;
-            border-bottom: 1px ;
+            border-bottom: 1px;
             outline: none;
             }
-
+            .st-br:focus{
+            border-radius:5px;
+            -moz-border-radius:5px;
+            -webkit-border-radius:5px;
+            border-top: 0 none;
+            border-left: 0 none;
+            border-right: 0 none;
+            border-bottom: 1px solid red;
+            outline: none;
+            }
             ul.streamlit-expander {
             border-radius: 20px !important;
             }
