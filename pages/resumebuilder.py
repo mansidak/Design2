@@ -313,7 +313,7 @@ with tab4:
                 frequency_penalty=0,
                 presence_penalty=0
             )
-            st.session_state['Skills'] = response["choices"][0]["text"].split(',')
+            st.session_state['Skills'] = response["choices"][0]["text"]
 
             st.text_input(
             'Caption goes here',
