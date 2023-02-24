@@ -110,12 +110,13 @@ with tab2:
             outline: none;
             }
             
-            .st-br{
+            st-br.st-b3.st-ds.st-b8.st-e5.st-e6.st-e7.st-d8.st-e8.st-e9.st-ea.st-eb.st-ec.st-b1.st-ed.st-au.st-ax.st-av.st-aw.st-ae.st-af.st-ag.st-ah.st-ai.st-aj.st-ee.st-ef.st-eg.st-eh.st-ei.st-ej.st-ek"{
+            border: 0 none;
             border-bottom: 1px solid red;
             outline: none;
             }
+
             
- 
             ul.streamlit-expander {
             border-radius: 20px !important;
             }
