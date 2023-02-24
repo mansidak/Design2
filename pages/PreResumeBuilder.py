@@ -57,13 +57,13 @@ with col1:
     st.write("")
     st.write("")
     st.write("")
-    col11, col22, col33 = st.columns([1, 1, 1])
+    col11, col22, col33 = st.columns([1, 2, 1])
     with col11:
         st.write("")
     with col22:
         st.write("")
         image = Image.open('Manual300.png')
-        st.image(image, width=150)
+        st.image(image)
         if st.button("Start with your old resume →", key="Old Resume Begin Button"):
             switch_page("resumebuilder1")
     with col33:
@@ -77,13 +77,13 @@ with col3:
     st.write("")
     st.write("")
     st.write("")
-    col111, col222, col333 = st.columns([0.25, 1, 0.25])
+    col111, col222, col333 = st.columns([1,2,1])
     with col111:
         st.write("")
     with col222:
         st.write("")
         image = Image.open('Resume300.png')
-        st.image(image, width=150)
+        st.image(image)
         if st.button("Go Manual→", key="Manual"):
             switch_page("resumebuilder")
     with col333:
