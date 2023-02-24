@@ -56,11 +56,15 @@ with col1:
 with col2:
     col11, col22, col33 = st.columns([2, 1, 2])
     with col11:
+        image = Image.open('ResumeBold.png')
+        st.image(image)
         if st.button("Start with old resume", key="Start with old resume"):
             switch_page("resumebuilder1")
     with col22:
         st.markdown("<hr style = 'width:0px; border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
     with col33:
+        image = Image.open('ManualBold.png')
+        st.image(image)
         if st.button("Fill details manually", key = "filll detials"):
             switch_page("resumebuilder1")
 with col3:
