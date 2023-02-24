@@ -102,6 +102,18 @@ with tab2:
     with col1:
         st.markdown("""
             <style>
+            .stTextInput [data-baseweb=base-input] {
+                background-color: #0d0d0d;
+                -webkit-text-fill-color: white;
+                border: 2px solid #0d0d0d;
+            }
+            
+            .stTextInput [data-baseweb=base-input] [disabled=""]{
+                background-color: #0d0d0d;
+                -webkit-text-fill-color: white;
+                border: 2px solid #0d0d0d;
+            }
+            
             .stTextArea [data-baseweb=base-input] {
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
