@@ -85,7 +85,7 @@ for element in st.session_state['FinalResults']:
         st.markdown(
             f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{companyName},  {location}</h6>",
             unsafe_allow_html=True)
-        st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: normal;'>{shortSummary}</h6>",
+        st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: lighter;'>{shortSummary}</h6>",
                     unsafe_allow_html=True)
         # st.write(shortSummary)
         col1, col2, col3 = st.columns([1, 1, 1])
