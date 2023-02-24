@@ -80,8 +80,8 @@ for element in st.session_state['FinalResults']:
         fullDescription = element[4]
         location = element[5]
 
-        with st.expander(f"{title} at {companyName}"):
-            st.write(f"{shortSummary}")
+    with st.expander(f"{title} at {companyName}"):
+        st.write(f"{shortSummary}")
 
     #
     #     st.markdown(
