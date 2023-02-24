@@ -155,13 +155,13 @@ with tab2:
             """, unsafe_allow_html=True)
 
         with st.expander("Experience 1", expanded= False):
+            st.write("Don't worry about being perfect. Just write briefly about what you did and we'll clean it up and generate bullet points out of it.")
+
             st.text_input(
             '',
             placeholder='Position at Company',
             key='Experience1'
             )
-            st.write(
-                "Don't worry about being perfect. Just write briefly about what you did and we'll clean it up and generate bullet points out of it.")
 
             st.text_area(
             '',
