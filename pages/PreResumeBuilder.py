@@ -107,7 +107,7 @@ with col4:
     )
     st.session_state['CandidateEmail'] = CandidateEmail
 
-    col111, col222, col333 = st.columns([1, 1.75, 1])
+    col111, col222, col333 = st.columns([2, 1, 2])
 
     with col111:
         st.write("")
