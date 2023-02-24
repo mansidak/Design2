@@ -115,10 +115,7 @@ with tab2:
             outline: none;
             }
             
-            .st-br:focus{
-            border: 1px solid #F63366,
-            }
-            
+ 
             ul.streamlit-expander {
             border-radius: 20px !important;
             }
