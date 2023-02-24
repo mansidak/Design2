@@ -312,6 +312,7 @@ with tab4:
         frequency_penalty=0,
         presence_penalty=0
         )
+
         st.write(response)
 with tab5:
     st.write("")
