@@ -64,6 +64,8 @@ with col1:
         st.write("")
         image = Image.open('Manual300.png')
         st.image(image, width=150)
+        if st.button("Start with your old resume →", key="Old Resume Begin Button"):
+            switch_page("resumebuilder1")
     with col33:
         st.write("")
 
@@ -82,6 +84,8 @@ with col3:
         st.write("")
         image = Image.open('Resume300.png')
         st.image(image, width=150)
+        if st.button("Go Manual→", key="Manual"):
+            switch_page("resumebuilder")
     with col333:
         st.write("")
 #
