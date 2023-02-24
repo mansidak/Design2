@@ -75,20 +75,17 @@ with tab1:
         st.text_input(
         'Name',
         placeholder='Name ',
-        help='Name',
         key = 'Name'
         )
 
         st.text_input(
             'Phone',
             placeholder='Phone Number',
-            help='Phone Number',
             key='Phone'
         )
         st.text_input(
             'Email',
             placeholder='Email ',
-            help='Email',
             key='Email'
         )
     with col2:
@@ -98,6 +95,7 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
+    st.write("Don't worry about being perfect. Just write briefly about what you did and we'll clean it up and generate bullet points out of it.")
     col1, col2 = st.columns([0.75, 1])
     with col1:
         st.markdown("""
