@@ -100,65 +100,45 @@ with tab2:
     st.header("Experiences")
     col1, col2 = st.columns([0.75, 1])
     with col1:
-        Title1 = ''
-        tab1experience, tab2experience, tab3experience, tab4experience = st.tabs(
-            [f"\u2001{Title1}\u2001", "\u2001\u2001Experience 2\u2001\u2001", "\u2001\u2001Experience 3\u2001\u2001","\u2001\u2001Experience 4\u2001\u2001"])
-        with tab1experience:
-           Title1 = st.text_input(
-                '',
-                placeholder='Position at Company',
-                help='Name',
-                key='Experience1'
-            )
-           Description1 = st.text_area(
-                '',
-                placeholder='Description',
-                help='Name',
-                key='Experience 1 Detail'
-            )
-           st.markdown("<hr>", unsafe_allow_html=True)
-        with tab2experience:
+        with st.expander:
             st.text_input(
-                '',
-                placeholder='Position at Company',
-                help='Name',
-                key='Experience2'
+            '',
+            placeholder='Position at Company',
+            help='Name',
+            key='Experience1'
             )
             st.text_area(
-                '',
-                placeholder='Description',
-                help='Name',
-                key='Experience 2 Detail'
+            '',
+            placeholder='Description',
+            help='Name',
+            key='Experience 1 Detail'
             )
-            st.markdown("<hr>", unsafe_allow_html=True)
-        with tab3experience:
+        with st.expander:
             st.text_input(
-                '',
-                placeholder='Position at Company',
-                help='Name',
-                key='Experience3'
+            '',
+            placeholder='Position at Company',
+            help='Name',
+            key='Experience2'
             )
             st.text_area(
-                '',
-                placeholder='Description',
-                help='Name',
-                key='Experience 3 Detail'
+            '',
+            placeholder='Description',
+            help='Name',
+            key='Experience 2 Detail'
             )
-            st.markdown("<hr>", unsafe_allow_html=True)
-        with tab4experience:
+        with st.expander:
             st.text_input(
-                '',
-                placeholder='Position at Company',
-                help='Name',
-                key='Experience4'
+            '',
+            placeholder='Position at Company',
+            help='Name',
+            key='Experience3'
             )
             st.text_area(
-                '',
-                placeholder='Description',
-                help='Name',
-                key='Experience 4 Detail'
+            '',
+            placeholder='Description',
+            help='Name',
+            key='Experience 3 Detail'
             )
-            st.markdown("<hr>", unsafe_allow_html=True)
 
     with col2:
         st.write("")
