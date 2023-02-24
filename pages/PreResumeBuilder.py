@@ -75,7 +75,7 @@ with col3:
     st.write("")
     st.write("")
     st.write("")
-    col111, col222, col333 = st.columns([1, 1, 1])
+    col111, col222, col333 = st.columns([0.5, 1, 0.5])
     with col111:
         st.write("")
     with col222:
