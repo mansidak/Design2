@@ -100,7 +100,7 @@ with tab2:
     st.header("Experiences")
     col1, col2 = st.columns([0.75, 1])
     with col1:
-        with st.expander:
+        with st.expander("Experience 1", expanded= False):
             st.text_input(
             '',
             placeholder='Position at Company',
@@ -113,7 +113,7 @@ with tab2:
             help='Name',
             key='Experience 1 Detail'
             )
-        with st.expander:
+        with st.expander("Experience 2", expanded= False):
             st.text_input(
             '',
             placeholder='Position at Company',
@@ -126,7 +126,7 @@ with tab2:
             help='Name',
             key='Experience 2 Detail'
             )
-        with st.expander:
+        with st.expander("Experience 3", expanded=False):
             st.text_input(
             '',
             placeholder='Position at Company',
