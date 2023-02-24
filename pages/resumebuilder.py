@@ -112,9 +112,9 @@ with tab2:
             }
             
             .st-br{
-            border-radius:20px;
-            -moz-border-radius:20px;
-            -webkit-border-radius:20px;
+            border-radius:10px;
+            -moz-border-radius:10px;
+            -webkit-border-radius:10px;
 
             outline: none;
             }
@@ -159,7 +159,7 @@ with tab2:
         with st.expander("Experience 1", expanded= False):
             st.text_input(
             '',
-            placeholder='\u2001Position at Company',
+            placeholder='Position at Company',
             key='Experience1'
             )
             st.text_area(
@@ -170,7 +170,7 @@ with tab2:
         with st.expander("Experience 2", expanded= False):
             st.text_input(
             '',
-            placeholder='\u2001Position at Company',
+            placeholder='Position at Company',
             key='Experience2'
             )
             st.text_area(
