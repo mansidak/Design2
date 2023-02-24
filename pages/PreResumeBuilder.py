@@ -63,7 +63,7 @@ with col2:
     ResumePDF = st.file_uploader(
         ''
     )
-    col11, col22, col33 = st.columns([1,1.5,1])
+    col11, col22, col33 = st.columns([1,1.75,1])
     with col11:
        st.write("")
     with col22:
@@ -98,12 +98,13 @@ with col4:
         key='Email'
     )
     st.session_state['CandidateEmail'] = CandidateEmail
-    col111, col222, col333 = st.columns([1, 1.5, 1])
+
+    col111, col222, col333 = st.columns([1, 1.75, 1])
+
     with col111:
         st.write("")
     with col222:
-        st.button("Go Manually →", key="Old Resume Begin Button")
-
+        st.button("Go Manually →", key="Go Manually")
     with col333:
         st.write("")
 
