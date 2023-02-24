@@ -115,7 +115,7 @@ with tab2:
             border-radius:5px;
             -moz-border-radius:5px;
             -webkit-border-radius:5px;
-            border: 0 none;
+            border-bottom: 1px solid #000;
             outline: none;
             }
 
