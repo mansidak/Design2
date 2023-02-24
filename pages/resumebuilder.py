@@ -303,7 +303,7 @@ with tab3:
 with tab4:
     st.header("Skills")
     if st.button("Add Skills"):
-        if st.session_state['Skills'] is None:
+        if 'Skills' not in st.session_state:
             response = openai.Completion.create(
                 model="text-davinci-003",
                 prompt=f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n What kind of technical skills they have? List them as spearated by commas.\n",
