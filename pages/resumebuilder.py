@@ -110,7 +110,7 @@ with tab2:
                 help='Name',
                 key='Experience1'
             )
-            st.text_area(
+           Description1 = st.text_area(
                 '',
                 placeholder='Description',
                 help='Name',
