@@ -218,63 +218,67 @@ with tab2:
 
 
 with tab3:
-    st.header("Projects")
-    with st.expander("Experience 1", expanded=False):
-        st.text_input(
-            '',
-            placeholder='Position at Company',
-            key='Project1'
-        )
+    col1tab3, col2tab3 = st.columns([0.75, 1])
+    with col1tab3:
+        st.header("Projects")
+        with st.expander("Experience 1", expanded=False):
+            st.text_input(
+                '',
+                placeholder='Position at Company',
+                key='Project1'
+            )
 
-        st.text_area(
-            '',
-            placeholder='Description',
-            key='Project 1 Detail'
-        )
-    with st.expander("Experience 2", expanded=False):
-        st.text_input(
-            '',
-            placeholder='Position at Company',
-            key='Project2'
-        )
-        st.text_area(
-            '',
-            placeholder='Description',
-            key='Project 2 Detail'
-        )
-    with st.expander("Experience 3", expanded=False):
-        st.text_input(
-            '',
-            placeholder='Position at Company',
-            key='Project3'
-        )
-        st.text_area(
-            '',
-            placeholder='Description',
-            key='Project 3 Detail'
-        )
-    with st.expander("Experience 4", expanded=False):
-        st.text_input(
-            '',
-            placeholder='  Position at Company',
-            key='Project4'
-        )
-        st.text_area(
-            '',
-            placeholder='Description',
-            key='Project 4 Detail'
-        )
-    with st.expander("Experience 5", expanded=False):
-        st.text_input(
-            '',
-            placeholder='Position at Company',
-            key='Project5'
-        )
-        st.text_area(
-            '',
-            placeholder='Description',
-            key='Project 5 Detail'
-        )
+            st.text_area(
+                '',
+                placeholder='Description',
+                key='Project 1 Detail'
+            )
+        with st.expander("Experience 2", expanded=False):
+            st.text_input(
+                '',
+                placeholder='Position at Company',
+                key='Project2'
+            )
+            st.text_area(
+                '',
+                placeholder='Description',
+                key='Project 2 Detail'
+            )
+        with st.expander("Experience 3", expanded=False):
+            st.text_input(
+                '',
+                placeholder='Position at Company',
+                key='Project3'
+            )
+            st.text_area(
+                '',
+                placeholder='Description',
+                key='Project 3 Detail'
+            )
+        with st.expander("Experience 4", expanded=False):
+            st.text_input(
+                '',
+                placeholder='  Position at Company',
+                key='Project4'
+            )
+            st.text_area(
+                '',
+                placeholder='Description',
+                key='Project 4 Detail'
+            )
+        with st.expander("Experience 5", expanded=False):
+            st.text_input(
+                '',
+                placeholder='Position at Company',
+                key='Project5'
+            )
+            st.text_area(
+                '',
+                placeholder='Description',
+                key='Project 5 Detail'
+            )
+    with col2tab3:
+        st.write("")
 
 with tab4:
     st.header("Interests")
