@@ -81,8 +81,7 @@ for element in st.session_state['FinalResults']:
         location = element[5]
 
         with st.expander(f"{title} at {companyName}"):
-            st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: lighter;'>{shortSummary}</h6>",
-                        unsafe_allow_html=True)
+            st.write(f"{shortSummary}")
 
 
         st.markdown(
