@@ -112,13 +112,13 @@ with tab2:
             }
             
             .st-br{
-            border-radius:5px;
-            -moz-border-radius:5px;
-            -webkit-border-radius:5px;
+            border-radius:0px;
+            -moz-border-radius:0px;
+            -webkit-border-radius:0px;
             border-top: 0 none;
             border-left: 0 none;
             border-right: 0 none;
-            border-bottom: 1px;
+            border-bottom: 1px solid white;
             outline: none;
             }
             .st-br:focus{
