@@ -1,7 +1,9 @@
 import streamlit as st
 import os
+st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽")
 
-col1, col2, col3, col4 = st.columns[(1, 2, 2, 1)]
+
+col1, col2, col3, col4 = st.columns([2, 1, 1, 2])
 
 with col1:
     st.write("")
