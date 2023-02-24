@@ -193,7 +193,7 @@ with tab2:
         with st.expander("Experience 3", expanded=False):
             st.text_input(
             '',
-            placeholder='\u2001Position at Company',
+            placeholder='  Position at Company',
             key='Experience3'
             )
             st.text_area(
