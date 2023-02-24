@@ -117,8 +117,8 @@ with tab2:
             .stTextArea [data-baseweb=base-input] {
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border-style: none; 
-                border: 0px;
+                border-style: none;  !important;
+                border: 0px; !important;
                 border-color: Transparent; 
                 overflow: auto; 
                 
@@ -126,8 +126,8 @@ with tab2:
             .stTextArea [data-baseweb=base-input] [disabled=""]{
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border-style: none; 
-                border: 0px;
+                border-style: none;  !important;
+                border: 0px; !important;
                 border-color: Transparent; 
                 overflow: auto; 
             }
