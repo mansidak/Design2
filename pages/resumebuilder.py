@@ -317,17 +317,37 @@ with tab4:
             PreSkills= response["choices"][0]["text"].split(",")
             st.session_state['Skills'] = ','.join(PreSkills)
 
-            st.text_input(
+            FinalSkills = st.text_input(
             'Caption goes here',
             placeholder='Placeholder goes here',
             help='Help message goes here',
             value= st.session_state['Skills']
             )
     else:
-        st.text_input(
+        FinalSkills = st.text_input(
         'Caption goes here',
         placeholder='Placeholder goes here',
         help='Help message goes here',
         value=st.session_state['Skills'])
+
 with tab5:
-    st.write("")
+    from docx import Document
+    from docx.shared import Inches
+
+    document = Document()
+
+    document.sections[0].margin_left = Inches(1.25)
+    document.sections[0].margin_right = Inches(1.25)
+
+    for page_num in range(1, document.sections[0].page_width):
+        section = document.sections[0]
+        header = section.header
+        footer = section.footer
+
+    header.paragraphs[0].text = 'Header for Page ' + str(page_num)
+    footer.paragraphs[0].text = 'Footer for Page ' + str(page_num)
+
+    document.add_paragraph('This is a string in a Word document!')
+
+    document.save('my_document.docx')
+    st.download_button("Donwload Word Doc", document, file_name="Word Doc")
