@@ -34,6 +34,8 @@ hide_streamlit_style = """
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-st.subheader("Does everything look good?")
-
+st.header("Does everything look good?")
+st.subheader("Experiences")
 st.text_area(label="",value = st.session_state['OldExperiences'])
+st.subheader("Projects")
+st.text_area(label="",value = st.session_state['OldProjects'])

@@ -90,7 +90,8 @@ with col2:
                 pageObj = pdfReader.pages[page_num]
                 txtFile.write(pageObj.extract_text())
                 ResumeToCorrectContent = pageObj.extract_text()
-            response = openai.Completion.create(
+
+            responseExperiences = openai.Completion.create(
                 model="text-davinci-003",
                 prompt=f"I have the resume of a job seeker as follows:\n\n{ResumeToCorrectContent}\n\nI want you to identifiy which parts of their resume has their experiences and list them as bullet points and their details:\n",
                 temperature=0.7,
@@ -99,7 +100,18 @@ with col2:
                 frequency_penalty=0,
                 presence_penalty=0
             )
-            st.session_state['OldExperiences'] = response["choices"][0]["text"]
+            st.session_state['OldExperiences'] = responseExperiences["choices"][0]["text"]
+
+            responseProjects = openai.Completion.create(
+                model="text-davinci-003",
+                prompt=f"I have the resume of a job seeker as follows:\n\n{ResumeToCorrectContent}\n\nI want you to identifiy which parts of their resume has their Proejcts and list them as bullet points and their details:\n",
+                temperature=0.7,
+                max_tokens=339,
+                top_p=1,
+                frequency_penalty=0,
+                presence_penalty=0
+            )
+            st.session_state['OldProjects'] = responseProjects["choices"][0]["text"]
             switch_page("resumebuilder1")
 
 
