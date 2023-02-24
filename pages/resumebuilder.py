@@ -108,19 +108,20 @@ with tab2:
             -webkit-border-radius:5px;
             border: 2px solid red
             }
+            
             ul.streamlit-expander {
             border-radius: 20px !important;
             }
             .stTextInput [data-baseweb=base-input] {
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border: 2px solid #0d0d0d;
+                border: 2px solid red;
             }
             
             .stTextInput [data-baseweb=base-input] [disabled=""]{
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border: 2px solid #0d0d0d;git
+                border: 2px solid red;
             }
             
             .stTextArea [data-baseweb=base-input] {
