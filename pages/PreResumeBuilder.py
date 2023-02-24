@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽")
+st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽", layout = "wide")
 
 
 col1, col2, col3, col4 = st.columns([2, 1, 1, 2])
