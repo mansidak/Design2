@@ -114,25 +114,32 @@ with tab2:
             .stTextInput [data-baseweb=base-input] [disabled=""]{
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border: 2px solid #0d0d0d;
+                border: 2px solid #0d0d0d;git
             }
             
             .stTextArea [data-baseweb=base-input] {
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border-style: none;  !important;
-                border: 0px; !important;
-                border-color: Transparent; 
-                overflow: auto; 
+                background: transparent;
+                  border: 0 none;
+                  width: 100%;
+                  font-size: 5em;
+                  outline: none;
+                  height: 100%;
+                  position: absolute;
+                
                 
             }
             .stTextArea [data-baseweb=base-input] [disabled=""]{
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border-style: none;  !important;
-                border: 0px; !important;
-                border-color: Transparent; 
-                overflow: auto; 
+                 background: transparent;
+                  border: 0 none;
+                  width: 100%;
+                  font-size: 5em;
+                  outline: none;
+                  height: 100%;
+                  position: absolute;
             }
             </style>
             """, unsafe_allow_html=True)
