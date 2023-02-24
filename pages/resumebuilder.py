@@ -106,6 +106,7 @@ with tab2:
             border-radius:5px;
             -moz-border-radius:5px;
             -webkit-border-radius:5px;
+            border: 2px solid red
             }
             ul.streamlit-expander {
             border-radius: 20px !important;
