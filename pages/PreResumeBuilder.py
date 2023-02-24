@@ -92,7 +92,7 @@ with col2:
                 ResumeToCorrectContent = pageObj.extract_text()
             response = openai.Completion.create(
                 model="text-davinci-003",
-                prompt=f"I have the resume of a job seeker as follows:\n\n{ResumeToCorrectContent}\n\nI want you to identifiy which parts of their resume has their experiences and list them as bullet points:\n",
+                prompt=f"I have the resume of a job seeker as follows:\n\n{ResumeToCorrectContent}\n\nI want you to identifiy which parts of their resume has their experiences and list them as bullet points and their details:\n",
                 temperature=0.7,
                 max_tokens=339,
                 top_p=1,
