@@ -57,17 +57,20 @@ with col1:
     st.write("")
     st.write("")
     st.write("")
-    col11, col22, col33 = st.columns([1, 2, 1])
-    with col11:
-        st.write("")
-    with col22:
-        st.write("")
-        image = Image.open('Manual300.png')
-        st.image(image)
-        if st.button("Upload old resume →", key="Old Resume Begin Button"):
-            switch_page("resumebuilder1")
-    with col33:
-        st.write("")
+
+    if st.button("Existing resume →", key="Old Resume Begin Button"):
+        switch_page("resumebuilder1")
+    # col11, col22, col33 = st.columns([1, 2, 1])
+    # with col11:
+    #     st.write("")
+    # with col22:
+    #     st.write("")
+    #     image = Image.open('Manual300.png')
+    #     st.image(image)
+    #     if st.button("Existing resume →", key="Old Resume Begin Button"):
+    #         switch_page("resumebuilder1")
+    # with col33:
+    #     st.write("")
 
 with col2:
     st.markdown("<hr style = 'width:0px; border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
@@ -77,16 +80,18 @@ with col3:
     st.write("")
     st.write("")
     col111, col222, col333 = st.columns([1,2,1])
-    with col111:
-        st.write("")
-    with col222:
-        st.write("")
-        image = Image.open('Resume300.png')
-        st.image(image)
-        if st.button("Go Manual→", key="Manual"):
-            switch_page("resumebuilder")
-    with col333:
-        st.write("")
+    if st.button("Go Manual→", key="Manual"):
+        switch_page("resumebuilder")
+    # with col111:
+    #     st.write("")
+    # with col222:
+    #     st.write("")
+    #     image = Image.open('Resume300.png')
+    #     st.image(image)
+    #     if st.button("Go Manual→", key="Manual"):
+    #         switch_page("resumebuilder")
+    # with col333:
+    #     st.write("")
 #
 # col1, col2, col3, col4, col5 = st.columns([1, 2, 0.1, 2, 1])
 #
