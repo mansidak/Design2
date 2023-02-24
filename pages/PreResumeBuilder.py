@@ -63,7 +63,7 @@ with col2:
     ResumePDF = st.file_uploader(
         ''
     )
-    col11, col22, col33 = st.columns([1,2,1])
+    col11, col22, col33 = st.columns([1,1.5,1])
     with col11:
        st.write("")
     with col22:
