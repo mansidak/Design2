@@ -105,12 +105,12 @@ with tab2:
             .stTextArea [data-baseweb=base-input] {
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border: 0px solid #eeeeee;
+                border: 2px solid #0d0d0d;
             }
             .stTextArea [data-baseweb=base-input] [disabled=""]{
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border: 0px solid #eeeeee;
+                border: 2px solid #0d0d0d;
             }
             </style>
             """, unsafe_allow_html=True)
