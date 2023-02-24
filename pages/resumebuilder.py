@@ -313,7 +313,12 @@ with tab4:
         presence_penalty=0
         )
 
+        st.text_input(
+            'Caption goes here',
+            placeholder='Placeholder goes here',
+            help='Help message goes here',
+            value= response["choices"][0]["text"].split(',')
+        )
 
-        options = st.multiselect('Filter through location', response["choices"][0]["text"].split(','),response["choices"][0]["text"].split(','))
 with tab5:
     st.write("")
