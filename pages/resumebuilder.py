@@ -118,7 +118,7 @@ with tab2:
             border-top: 0 none;
             border-left: 0 none;
             border-right: 0 none;
-            border-bottom: 1px solid red;
+            border-bottom: 1px ;
             outline: none;
             }
 
