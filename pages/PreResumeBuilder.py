@@ -111,7 +111,6 @@ with col4:
         st.write("")
     with col222:
         st.write("")
-        st.write("")
         st.button("Go Manually →", key="Go Manually")
     with col333:
         st.write("")
