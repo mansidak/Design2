@@ -36,4 +36,4 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.subheader("Does everything look good?")
 
-st.text_area(value = st.session_state['OldExperiences'])
+st.text_area(label="",value = st.session_state['OldExperiences'])
