@@ -38,7 +38,12 @@ st.write("")
 st.write("")
 st.write("")
 st.write("")
-
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
 
 
 
@@ -61,6 +66,9 @@ with col2:
 with col3:
     st.markdown("<hr style = 'width:0px; border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
 with col4:
+    st.write("")
+    st.write("")
+    st.write("")
     CandidateName = st.text_input(
         'Name',
         placeholder='Name ',
