@@ -1,5 +1,8 @@
 import streamlit as st
 import os
+import openai
+from streamlit_extras.switch_page_button import switch_page
+
 st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽", layout = "wide")
 
 
@@ -63,9 +66,10 @@ with col2:
     st.write("")
     st.write("")
     st.write("")
-    ResumePDF = st.file_uploader(
+    ResumeToCorrect = st.file_uploader(
         ''
     )
+    st.session_state['ResumeToCorrect'] = ResumeToCorrect
     col11, col22, col33 = st.columns([1,1.75,1])
     with col11:
        st.write("")
@@ -76,7 +80,19 @@ with col2:
         st.write("")
         st.write("")
         st.write("")
-        st.button("Start with your old resume →", key="Old Resume Begin Button")
+        if st.button("Start with your old resume →", key="Old Resume Begin Button"):
+            switch_page("resumebuilder1")
+            response = openai.Completion.create(
+                model="text-davinci-003",
+                prompt=f"I have the resume of a job seeker as follows:\n\n{st.session_state['ResumeToCorrect']}\n\nI want you to identifiy which parts of their resume has their experiences and list them as bullet points:\n",
+                temperature=0.7,
+                max_tokens=339,
+                top_p=1,
+                frequency_penalty=0,
+                presence_penalty=0
+            )
+            st.session_state['OldExperiences'] = response["choices"][0]["text"]
+
 
     with col33:
         st.write("")
@@ -114,7 +130,8 @@ with col4:
         st.write("")
     with col222:
         st.subheader("")
-        st.button("Go Manually →", key="Go Manually")
+        if st.button("Go Manually →", key="Go Manually"):
+            switch_page("resumebuilder")
     with col333:
         st.write("")
 
