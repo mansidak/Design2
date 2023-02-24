@@ -227,7 +227,7 @@ with tab3:
                 st.text_input(
                     '',
                     placeholder='Project Name',
-                    key='Project1'
+                    key='Project1Name'
                 )
             with col2Project2:
                 st.text_input(
