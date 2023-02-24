@@ -314,7 +314,7 @@ with tab4:
                 presence_penalty=0
             )
 
-            PreSkills= response["choices"][0]["text"]
+            PreSkills= response["choices"][0]["text"].split(",")
             st.session_state['Skills'] = ','.join(PreSkills)
 
             st.text_input(
