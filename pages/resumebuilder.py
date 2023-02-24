@@ -60,30 +60,25 @@ st.markdown("""
     """,unsafe_allow_html=True)
 
 
-# col1, col2, col3 = st.columns([2, 1, 2])
-#
-# with col1:
-#     st.write("")
-#
-# with col2:
-tab1, tab2, tab3, tab4 = st.tabs(["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001","\u2001\u2001Interests\u2001\u2001"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001","\u2001\u2001Skills\u2001\u2001", "\u2001\u2001Result\u2001\u2001"])
 
 with tab1:
     st.header("Details")
     col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
-        st.text_input(
+        CandidateName = st.text_input(
         'Name',
         placeholder='Name ',
         key = 'Name'
         )
 
-        st.text_input(
+        CandidatePhone = st.text_input(
             'Phone',
             placeholder='Phone Number',
             key='Phone'
         )
-        st.text_input(
+
+        CandidateEmail = st.text_input(
             'Email',
             placeholder='Email ',
             key='Email'
@@ -157,57 +152,57 @@ with tab2:
 
         with st.expander("Experience 1", expanded= False):
 
-            st.text_input(
+            Experience1Name = st.text_input(
             '',
             placeholder='Position at Company',
             key='Experience1'
             )
 
-            st.text_area(
+            Experience1Description = st.text_area(
             '',
             placeholder='Description',
             key='Experience 1 Detail'
             )
         with st.expander("Experience 2", expanded= False):
-            st.text_input(
+            Experience2Name = st.text_input(
             '',
             placeholder='Position at Company',
             key='Experience2'
             )
-            st.text_area(
+            Experience2Description = st.text_area(
             '',
             placeholder='Description',
             key='Experience 2 Detail'
             )
         with st.expander("Experience 3", expanded= False):
-            st.text_input(
+            Experience3Name = st.text_input(
             '',
             placeholder='Position at Company',
             key='Experience3'
             )
-            st.text_area(
+            Experience3Description = st.text_area(
             '',
             placeholder='Description',
             key='Experience 3 Detail'
             )
         with st.expander("Experience 4", expanded=False):
-            st.text_input(
+            Experience4Name = st.text_input(
             '',
             placeholder='  Position at Company',
             key='Experience4'
             )
-            st.text_area(
+            Experience4Description = st.text_area(
             '',
             placeholder='Description',
             key='Experience 4 Detail'
             )
         with st.expander("Experience 5", expanded= False):
-            st.text_input(
+            Experience5Name = st.text_input(
             '',
             placeholder='Position at Company',
             key='Experience5'
             )
-            st.text_area(
+            Experience5Description = st.text_area(
             '',
             placeholder='Description',
             key='Experience 5 Detail'
@@ -306,8 +301,17 @@ with tab3:
         st.write("")
 
 with tab4:
-    st.header("Interests")
-#
-# with col3:
-#     st.write("")
+    st.header("Skills")
 
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n What kind of technical skills they have? List them in bullet points.\n",
+        temperature=0.7,
+        max_tokens=110,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0
+    )
+    st.write(response)
+with tab5:
+    st.write("")
