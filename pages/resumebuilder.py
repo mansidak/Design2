@@ -100,10 +100,11 @@ with tab2:
     st.header("Experiences")
     col1, col2 = st.columns([0.75, 1])
     with col1:
+        Title1 = ''
         tab1experience, tab2experience, tab3experience, tab4experience = st.tabs(
-            ["\u2001Experience 1\u2001", "\u2001\u2001Experience 2\u2001\u2001", "\u2001\u2001Experience 3\u2001\u2001","\u2001\u2001Experience 4\u2001\u2001"])
+            [f"\u2001{Title1}\u2001", "\u2001\u2001Experience 2\u2001\u2001", "\u2001\u2001Experience 3\u2001\u2001","\u2001\u2001Experience 4\u2001\u2001"])
         with tab1experience:
-            st.text_input(
+           Title1 = st.text_input(
                 '',
                 placeholder='Position at Company',
                 help='Name',
