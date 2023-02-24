@@ -118,6 +118,7 @@ with tab2:
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
                 border-style: none; 
+                border: 0px;
                 border-color: Transparent; 
                 overflow: auto; 
                 
@@ -126,6 +127,7 @@ with tab2:
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
                 border-style: none; 
+                border: 0px;
                 border-color: Transparent; 
                 overflow: auto; 
             }
