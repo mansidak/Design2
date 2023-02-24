@@ -42,7 +42,7 @@ st.write("")
 
 
 
-col1, col2, col3, col4 = st.columns([1, 2, 2, 1])
+col1, col2, col3, col4, col5 = st.columns([1, 2, 0.1, 2, 1])
 
 with col1:
     st.write("")
@@ -52,7 +52,8 @@ with col2:
         ''
     )
 with col3:
-    st.subheader("Or go manually")
+    st.markdown("""<hr style="border-left: 6px solid green;height: 500px;" /> """)
+with col4:
     CandidateName = st.text_input(
         'Name',
         placeholder='Name ',
@@ -74,6 +75,5 @@ with col3:
     )
     st.session_state['CandidateEmail'] = CandidateEmail
 
-
-with col4:
+with col5:
     st.write("")
