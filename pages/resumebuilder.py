@@ -95,7 +95,8 @@ with tab1:
 
 with tab2:
     st.header("Experiences")
-    st.write("Once done writing. Hit Generate to get final copy")
+    st.markdown(f"<h5 style='font-family: Sans-Serif; font-weight:lighter; color: black'>Don't worry about being perfect. Just write briefly about what you did and we'll clean it up and generate bullet points out of it.</h5>", unsafe_allow_html=True)
+
     col1, col2 = st.columns([0.75, 1])
     with col1:
         st.markdown("""
@@ -155,7 +156,6 @@ with tab2:
             """, unsafe_allow_html=True)
 
         with st.expander("Experience 1", expanded= False):
-            st.write("Don't worry about being perfect. Just write briefly about what you did and we'll clean it up and generate bullet points out of it.")
 
             st.text_input(
             '',
