@@ -102,7 +102,15 @@ with tab2:
     with col1:
         st.markdown("""
             <style>
-            input[inputmode="text"]{
+            div[inputmode="text"]{
+            border-radius:5px;
+            -moz-border-radius:5px;
+            -webkit-border-radius:5px;
+            border: 0 none;
+            outline: none;
+            }
+            
+            .st-br{
             border-radius:5px;
             -moz-border-radius:5px;
             -webkit-border-radius:5px;
