@@ -53,16 +53,29 @@ col1, col2, col3 = st.columns([1, 0.1, 1])
 
 
 with col1:
-    st.write("")
-    image = Image.open('Manual300.png')
-    st.image(image, width=150)
+    col11, col22, col33 = st.columns([1, 1, 1])
+    with col11:
+        st.write("")
+    with col22:
+        st.write("")
+        image = Image.open('Manual300.png')
+        st.image(image, width=150)
+    with col33:
+        st.write("")
+
 with col2:
     st.markdown("<hr style = 'width:0px; border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
 
 with col3:
-    st.write("")
-    image = Image.open('Resume300.png')
-    st.image(image, width=150)
+    col111, col222, col333 = st.columns([1, 1, 1])
+    with col111:
+        st.write("")
+    with col222:
+        st.write("")
+        image = Image.open('Resume300.png')
+        st.image(image, width=150)
+    with col333:
+        st.write("")
 #
 # col1, col2, col3, col4, col5 = st.columns([1, 2, 0.1, 2, 1])
 #
