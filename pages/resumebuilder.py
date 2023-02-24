@@ -117,12 +117,17 @@ with tab2:
             .stTextArea [data-baseweb=base-input] {
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border: 2px solid #0d0d0d;
+                border-style: none; 
+                border-color: Transparent; 
+                overflow: auto; 
+                
             }
             .stTextArea [data-baseweb=base-input] [disabled=""]{
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border: 2px solid #0d0d0d;
+                border-style: none; 
+                border-color: Transparent; 
+                overflow: auto; 
             }
             </style>
             """, unsafe_allow_html=True)
