@@ -59,7 +59,7 @@ with col2:
         ''
     )
 with col3:
-    st.markdown("<hr style = 'border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
+    st.markdown("<hr style = 'width:0px; border-left: 2px solid grey; height: 300px;'>", unsafe_allow_html=True)
 with col4:
     CandidateName = st.text_input(
         'Name',
