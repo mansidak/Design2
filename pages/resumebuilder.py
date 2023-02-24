@@ -115,13 +115,11 @@ with tab2:
             .stTextInput [data-baseweb=base-input] {
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border: 2px solid red;
             }
             
             .stTextInput [data-baseweb=base-input] [disabled=""]{
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
-                border: 2px solid red;
             }
             
             .stTextArea [data-baseweb=base-input] {
