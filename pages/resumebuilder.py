@@ -221,22 +221,30 @@ with tab3:
     col1tab3, col2tab3 = st.columns([0.75, 1])
     with col1tab3:
         st.header("Projects")
-        with st.expander("Experience 1", expanded=False):
-            st.text_input(
-                '',
-                placeholder='Position at Company',
-                key='Project1'
-            )
+        with st.expander("Project 1", expanded=False):
+            col1Project1, col2Project2 = st.columns([1, 1])
+            with col1Project1:
+                st.text_input(
+                    '',
+                    placeholder='Project Name',
+                    key='Project1'
+                )
+            with col2Project2:
+                st.text_input(
+                    '',
+                    placeholder='Project Name',
+                    key='Project1Link'
+                )
 
             st.text_area(
                 '',
                 placeholder='Description',
                 key='Project 1 Detail'
             )
-        with st.expander("Experience 2", expanded=False):
+        with st.expander("Project 2", expanded=False):
             st.text_input(
                 '',
-                placeholder='Position at Company',
+                placeholder='Project Name',
                 key='Project2'
             )
             st.text_area(
@@ -244,10 +252,10 @@ with tab3:
                 placeholder='Description',
                 key='Project 2 Detail'
             )
-        with st.expander("Experience 3", expanded=False):
+        with st.expander("Project 3", expanded=False):
             st.text_input(
                 '',
-                placeholder='Position at Company',
+                placeholder='Project Name',
                 key='Project3'
             )
             st.text_area(
@@ -255,10 +263,10 @@ with tab3:
                 placeholder='Description',
                 key='Project 3 Detail'
             )
-        with st.expander("Experience 4", expanded=False):
+        with st.expander("Project 4", expanded=False):
             st.text_input(
                 '',
-                placeholder='  Position at Company',
+                placeholder=' Project Name',
                 key='Project4'
             )
             st.text_area(
@@ -266,10 +274,11 @@ with tab3:
                 placeholder='Description',
                 key='Project 4 Detail'
             )
-        with st.expander("Experience 5", expanded=False):
+        with st.expander("Project 5", expanded=False):
+
             st.text_input(
                 '',
-                placeholder='Position at Company',
+                placeholder='Project Name',
                 key='Project5'
             )
             st.text_area(
