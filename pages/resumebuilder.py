@@ -125,7 +125,10 @@ with tab2:
             border-radius:5px;
             -moz-border-radius:5px;
             -webkit-border-radius:5px;
-            border: 1px solid F63366;
+            border-top: 0 none;
+            border-left: 0 none;
+            border-right: 0 none;
+            border: 1px solid #F63366;
             outline: none;
             }
             ul.streamlit-expander {
