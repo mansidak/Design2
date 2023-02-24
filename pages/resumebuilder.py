@@ -125,7 +125,6 @@ with tab2:
                   width: 100%;
                   font-size: 5em;
                   outline: none;
-                  height: 100%;
                   position: absolute;
                 
                 
@@ -138,7 +137,6 @@ with tab2:
                   width: 100%;
                   font-size: 5em;
                   outline: none;
-                  height: 100%;
                   position: absolute;
             }
             </style>
