@@ -106,7 +106,8 @@ with tab2:
             border-radius:5px;
             -moz-border-radius:5px;
             -webkit-border-radius:5px;
-            border: 2px solid blue
+            border: 0 none;
+            outline: none;
             }
             
             ul.streamlit-expander {
