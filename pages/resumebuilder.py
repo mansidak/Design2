@@ -102,6 +102,9 @@ with tab2:
     with col1:
         st.markdown("""
             <style>
+            ul.streamlit-expander {
+            border-radius: 20px !important;
+            }
             .stTextInput [data-baseweb=base-input] {
                 background-color: #0d0d0d;
                 -webkit-text-fill-color: white;
