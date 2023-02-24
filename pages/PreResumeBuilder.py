@@ -27,9 +27,7 @@ hide_streamlit_style = """
                 width: 50%;
               }
               
-              .css-5y9es8 {
-                border-radius:100px;
-               }
+       
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
