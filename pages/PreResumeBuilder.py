@@ -28,7 +28,7 @@ hide_streamlit_style = """
               }
               
               .css-5y9es8{
-              width:100px;
+              width:300px;
               }
        
               </style>
