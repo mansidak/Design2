@@ -112,25 +112,13 @@ with tab2:
             }
             
             .st-br{
-            border-radius:0px;
-            -moz-border-radius:30px;
-            -webkit-border-radius:0px;
-            border-top: 0 none;
-            border-left: 0 none;
-            border-right: 0 none;
-            border-bottom: 1px solid white;
+            border-radius:20px;
+            -moz-border-radius:20px;
+            -webkit-border-radius:20px;
+
             outline: none;
             }
-            .st-br:focus{
-            border-radius:5px;
-            -moz-border-radius:5px;
-            -webkit-border-radius:5px;
-            border-top: 0 none;
-            border-left: 0 none;
-            border-right: 0 none;
-            border: 1px solid #F63366;
-            outline: none;
-            }
+      
             ul.streamlit-expander {
             border-radius: 20px !important;
             }
