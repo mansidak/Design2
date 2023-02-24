@@ -102,11 +102,11 @@ with tab2:
     with col1:
         st.markdown("""
             <style>
-            input[type="text"]{
+            input[inputmode="text"]{
             border-radius:5px;
             -moz-border-radius:5px;
             -webkit-border-radius:5px;
-            border: 2px solid red
+            border: 2px solid blue
             }
             
             ul.streamlit-expander {
