@@ -116,7 +116,7 @@ with tab2:
                 help='Name',
                 key='Experience 1 Detail'
             )
-            st.markdown("<hr>", unsafe_allow_html=True)
+           st.markdown("<hr>", unsafe_allow_html=True)
         with tab2experience:
             st.text_input(
                 '',
