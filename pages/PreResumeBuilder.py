@@ -110,7 +110,7 @@ with col4:
     with col111:
         st.write("")
     with col222:
-        st.write("")
+        st.subheader("")
         st.button("Go Manually →", key="Go Manually")
     with col333:
         st.write("")
