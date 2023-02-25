@@ -47,7 +47,7 @@ hide_streamlit_style = """
                 position: fixed;
                 }
                 
-                div[data-testid="stException"] {
+                div[class="stException"] {
                 visibility: hidden;
                 height: 0%;
                 position: fixed;
