@@ -280,17 +280,20 @@ text-align: center;
             t.daemon = True
             threads.append(t)
             print("Starting thread", iterator)
+            st.write("Starting thread", iterator)
             t.start()
 
         print("Total number of threads was ", len(threads))
+        st.write(f"Total number of threads was  {len(threads)}")
 
         for i, t in enumerate(threads):
             print("Trying to Join thread #", i)
+            st.write("Trying to Join thread #", i)
             t.join()
             print("Joined thread #", i)
+            st.write("Joined thread #", i)
 
 
-        # Print the error that is causing the code to block.
         driver.quit()
         return Final_Array
 
@@ -393,4 +396,4 @@ text-align: center;
         # my_bar.progress(95, text=f"")
         # result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         st.session_state["FinalResults"] = result1
-        switch_page("results")
+        # switch_page("results")
