@@ -270,20 +270,19 @@ text-align: center;
                 driver.close()
                 driver.quit()
 
-        pool = Pool()
-        pool.starmap(get_links, (links, resumeContent))
-        pool.close()
-        pool.join()
-
-        # threads = []
-        # for i in links:
-        #     t = threading.Thread(target=get_links, args=(i, resumeContent))
-        #     t.daemon = True
-        #     threads.append(t)
-        #     t.start()
-        # for t in threads:
-        #     t.join()
-
+        try:
+            threads = []
+            for i in links:
+                t = threading.Thread(target=get_links, args=(i, resumeContent))
+                t.daemon = True
+                threads.append(t)
+                t.start()
+            for t in threads:
+                t.join()
+        except:
+            for t in threads:
+                t.join()
+            print("Threads destroyed")
         driver.quit()
         return Final_Array
 
