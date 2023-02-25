@@ -185,7 +185,7 @@ text-align: center;
 
         # lock = threading.Lock()
         @st.cache_data(show_spinner=False)
-        def get_links(i, resumeContent):
+        def get_links(iterator, i, resumeContent):
             Final_Links = []
             Final_Titles = []
             Final_Company = []
@@ -241,15 +241,15 @@ text-align: center;
 
                 for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description, Final_Location, Final_Skills):
                     Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
-                print("About to close ", i)
+                print("About to close ", iterator)
                 driver.close()
                 driver.quit()
-                print("Closed and quit ", i)
+                print("Closed and quit ", iterator)
             except:
-                print("Error on ", i)
+                print("Error on ", iterator)
                 driver.close()
                 driver.quit()
-                print("Error closed and quit ", i)
+                print("Error closed and quit ", iterator)
 
 
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
@@ -275,18 +275,22 @@ text-align: center;
                 driver.quit()
 
         threads = []
-        for i in links:
-            t = threading.Thread(target=get_links, args=(i, resumeContent))
+        for iterator, i in enumerate(links):
+            t = threading.Thread(target=get_links, args=(iterator, i, resumeContent))
             t.daemon = True
             threads.append(t)
+            print("Starting thread", iterator)
             t.start()
+
+        print("Total number of threads was ", len(threads))
+
         for i, t in enumerate(threads):
             print("Trying to Join thread #", i)
             t.join()
-            print("Threads destroyed")
+            print("Joined thread #", i)
 
 
-              # Print the error that is causing the code to block.
+        # Print the error that is causing the code to block.
         driver.quit()
         return Final_Array
 
@@ -384,9 +388,9 @@ text-align: center;
         result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
-        result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
-        my_bar.progress(95, text=f"")
-        result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-        st.session_state["FinalResults"] = result1 + result2 + result3
+        # result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
+        # my_bar.progress(95, text=f"")
+        # result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+        st.session_state["FinalResults"] = result1
         switch_page("results")
