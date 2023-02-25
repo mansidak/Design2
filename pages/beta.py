@@ -156,6 +156,8 @@ text-align: center;
 
     with Pool(2) as p:
 
+
+        @st.cache
         def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
             name = str()
             Final_Array = []
@@ -172,7 +174,7 @@ text-align: center;
             options.add_argument('--ignore-certificate-errors')
 
             # lock = threading.Lock()
-            @st.cache_data
+            @st.cache
             def get_links(i, resumeContent):
                 Final_Links = []
                 Final_Titles = []
@@ -251,7 +253,6 @@ text-align: center;
             # driver.close()
             # driver.quit()
 
-
             threads = []
             for i in links:
                 t = threading.Thread(target=get_links, args=(i, resumeContent))
@@ -260,12 +261,10 @@ text-align: center;
             for t in threads:
                 t.join()
 
-            # st.write(Final_Array)
-            # st.stop()
             driver.quit()
             return Final_Array
 
-        @st.cache_data
+        @st.cache
         def openAIGetRelevantJobTitles(resumeContent):
             response = openai.Completion.create(
                 model="text-davinci-003",
@@ -285,6 +284,8 @@ text-align: center;
             softSkills = Titles.split('4.')[1]
             newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
             newSkills = [item.replace(" ", "-") for item in Skills]
+            st.write(newJobtitles)
+            st.write(newSkills)
             return newJobtitles, newSkills
 
         col1, col2, col3 = st.columns([2, 1, 2])
