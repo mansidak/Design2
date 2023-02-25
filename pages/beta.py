@@ -172,6 +172,7 @@ text-align: center;
             options.add_argument('--ignore-certificate-errors')
 
             # lock = threading.Lock()
+            @st.cache_data
             def get_links(i, resumeContent):
                 Final_Links = []
                 Final_Titles = []
@@ -264,7 +265,7 @@ text-align: center;
             driver.quit()
             return Final_Array
 
-
+        @st.cache_data
         def openAIGetRelevantJobTitles(resumeContent):
             response = openai.Completion.create(
                 model="text-davinci-003",
