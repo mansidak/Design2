@@ -179,9 +179,9 @@ text-align: center;
                 Final_Description = []
                 Final_Location = []
                 shortened_summary = []
-                skillUsed = []
                 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
                 driver.get(i)
+                # time.sleep(2)
                 elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
                 for a in elements:
                     if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
@@ -194,7 +194,6 @@ text-align: center;
                 Final_Location.append(location)
                 company = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
                 Final_Company.append(company)
-                skillUsed.append(skill1)
                 description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
                 Final_Description.append(description)
                 words = description.split()
@@ -223,10 +222,10 @@ text-align: center;
                     )
                     shortened_summary.append(response3["choices"][0]["text"])
 
-                for links, titles, companies, summaries, descriptions, locations, skill in zip(Final_Links, Final_Titles,
+                for links, titles, companies, summaries, descriptions, locations in zip(Final_Links, Final_Titles,
                                                                              Final_Company, shortened_summary,
-                                                                             Final_Description, Final_Location, skillUsed):
-                    Final_Array.append((links, titles, companies, summaries, descriptions, locations, skill))
+                                                                             Final_Description, Final_Location):
+                    Final_Array.append((links, titles, companies, summaries, descriptions, locations))
 
                 # driver.close()
 
