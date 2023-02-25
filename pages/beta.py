@@ -195,75 +195,80 @@ text-align: center;
                 Final_Location = []
                 shortened_summary = []
                 Final_Skills = []
-                driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-                driver.get(i)
+                try:
+                    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+                    driver.get(i)
                 # time.sleep(2)
-                elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
-                for a in elements:
-                    if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
+                    elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
+                    for a in elements:
+                        if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
                             'href') not in Final_Links:
-                        Final_Links.append(a.get_attribute('href'))
-                title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
-                st.write(title)
-                Final_Titles.append(title)
-                location = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
-                Final_Location.append(location)
-                Final_Skills.append(skill1)
-                company = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
-                Final_Company.append(company)
+                            Final_Links.append(a.get_attribute('href'))
+                    title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
+                    st.write(title)
+                    Final_Titles.append(title)
+                    location = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
+                    Final_Location.append(location)
+                    Final_Skills.append(skill1)
+                    company = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
+                    Final_Company.append(company)
 
-                description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
-                Final_Description.append(description)
-                words = description.split()
-                description_length = len(words)
-                if description_length > 950:
-                    sliced_description = ''.join(words[:950])
-                    response3 = openai.Completion.create(
-                        model="text-curie-001",
-                        prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{sliced_description}\n\nNow summarize it:\n\n\n",
-                        temperature=0.31,
-                        max_tokens=90,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    shortened_summary.append(response3["choices"][0]["text"])
-                else:
-                    response3 = openai.Completion.create(
-                        model="text-curie-001",
-                        prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{description}\n\nNow summarize it:\n\n\n",
-                        temperature=0.31,
-                        max_tokens=90,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    shortened_summary.append(response3["choices"][0]["text"])
+                    description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
+                    Final_Description.append(description)
+                    words = description.split()
+                    description_length = len(words)
+                    if description_length > 950:
+                        sliced_description = ''.join(words[:950])
+                        response3 = openai.Completion.create(
+                            model="text-curie-001",
+                            prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{sliced_description}\n\nNow summarize it:\n\n\n",
+                            temperature=0.31,
+                            max_tokens=90,
+                            top_p=1,
+                            frequency_penalty=0,
+                            presence_penalty=0
+                        )
+                        shortened_summary.append(response3["choices"][0]["text"])
+                    else:
+                        response3 = openai.Completion.create(
+                            model="text-curie-001",
+                            prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{description}\n\nNow summarize it:\n\n\n",
+                            temperature=0.31,
+                            max_tokens=90,
+                            top_p=1,
+                            frequency_penalty=0,
+                            presence_penalty=0
+                        )
+                        shortened_summary.append(response3["choices"][0]["text"])
 
-                for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description, Final_Location, Final_Skills):
-                    Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
-                driver.quit()
+                    for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description, Final_Location, Final_Skills):
+                        Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+                except:
+                    driver.close()
+                    driver.quit()
 
-                # driver.close()
 
             with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
-                driver.get(
+                try:
+                    driver.get(
                     f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")
-                jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
-                time.sleep(1)
-                links = []
-                jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")
+                    jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
+                    time.sleep(1)
+                    links = []
+                    jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")
 
-                for job in jobs_list1:
-                    all_links = job.find_elements(By.TAG_NAME, "a")
-                    for a in all_links:
-                        if str(a.get_attribute('href')).startswith(
+                    for job in jobs_list1:
+                        all_links = job.find_elements(By.TAG_NAME, "a")
+                        for a in all_links:
+                            if str(a.get_attribute('href')).startswith(
                                 "https://search.linkup.com/details/") and a.get_attribute('href') not in links:
-                            links.append(a.get_attribute('href'))
-                            print(links)
-                        else:
-                            pass
-                driver.quit()
+                                links.append(a.get_attribute('href'))
+                                print(links)
+                            else:
+                                pass
+                except:
+                    driver.close()
+                    driver.quit()
 
             threads = []
             for i in links:
