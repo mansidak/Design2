@@ -344,7 +344,10 @@ text-align: center;
             holder.empty()
             resumeContent = extract_text_from_pdf(ResumePDF)
             Name, newJobtitles, newSkills = openAIGetRelevantJobTitles(resumeContent)
-            st.session_state['Name'] = Name
+            if 'Name' not in st.session_state:
+                st.session_state['Name'] = Name
+            if 'resumeContent' not in st.session_state:
+                st.session_state["resumeContent"] = resumeContent
             result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
             result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
             result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
