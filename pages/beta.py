@@ -292,8 +292,10 @@ text-align: center;
             t.join()
             print("Joined thread #", i)
             st.write("Joined thread #", i)
-
-
+        print("All threads have now been joined")
+        st.write("All threads have now been joined")
+        threads = []
+        t = None
         driver.quit()
         return Final_Array
 
