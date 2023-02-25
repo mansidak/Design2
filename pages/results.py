@@ -148,6 +148,7 @@ for element in st.session_state['FinalResults']:
             unsafe_allow_html=True)
 
         with st.expander(f"{location}"):
+            st.markdown(f"[Apply]({link})")
             st.write(f"{shortSummary}")
             col1, col2, col3 = st.columns([1, 1, 1])
 
