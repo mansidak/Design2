@@ -327,21 +327,25 @@ text-align: center;
                 help="As we develop this program more, we'll add more filter"
             )
 
-        if ResumePDF is not None and ExperienceLevel is not None:
-            SubTitle.empty()
-            Credits.empty()
-            holder.empty()
-            pdfReader = PyPDF2.PdfReader(ResumePDF)
+        @st.cache
+        def extract_text_from_pdf(pdf_file):
+            pdfReader = PyPDF2.PdfReader(pdf_file)
             txtFile = open('sample.txt', 'w')
             num_pages = len(pdfReader.pages)
             for page_num in range(num_pages):
                 pageObj = pdfReader.pages[page_num]
                 txtFile.write(pageObj.extract_text())
                 resumeContent = pageObj.extract_text()
-                st.session_state["resumeContent"] = resumeContent
-                newJobtitles, newSkills = openAIGetRelevantJobTitles(resumeContent)
-                result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1,resumeContent)
-                result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1,resumeContent)
-                result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1,resumeContent)
-                st.session_state["FinalResults"] = result1 + result2 + result3
-                switch_page("results")
+            return resumeContent
+
+        if ResumePDF is not None and ExperienceLevel is not None:
+            SubTitle.empty()
+            Credits.empty()
+            holder.empty()
+            resumeContent = extract_text_from_pdf(ResumePDF)
+            newJobtitles, newSkills = openAIGetRelevantJobTitles(resumeContent)
+            result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+            result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+            result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+            st.session_state["FinalResults"] = result1 + result2 + result3
+            switch_page("results")
