@@ -1,5 +1,6 @@
 import os
 import random
+
 import streamlit as st
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -7,10 +8,11 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
-from docx import Document
 import threading
-import multiprocessing
+from multiprocessing import Pool
+
 import PyPDF2
+from docx import Document
 import openai
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
@@ -219,7 +221,7 @@ text-align: center;
                         model="text-curie-001",
                         prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{sliced_description}\n\nNow summarize it:\n\n\n",
                         temperature=0.31,
-                        max_tokens=200,
+                        max_tokens=90,
                         top_p=1,
                         frequency_penalty=0,
                         presence_penalty=0
@@ -230,7 +232,7 @@ text-align: center;
                         model="text-curie-001",
                         prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{description}\n\nNow summarize it:\n\n\n",
                         temperature=0.31,
-                        max_tokens=200,
+                        max_tokens=90,
                         top_p=1,
                         frequency_penalty=0,
                         presence_penalty=0
@@ -268,18 +270,26 @@ text-align: center;
                 driver.close()
                 driver.quit()
 
-        processes = []
-        for i in links:
-            p = multiprocessing.Process(target=get_links, args=(i, resumeContent))
-            p.daemon = True
-            processes.append(p)
-            p.start()
-        for p in processes:
-            p.join()
+        try:
+            threads = []
+            for i in links:
+                t = threading.Thread(target=get_links, args=(i, resumeContent))
+                t.daemon = True
+                threads.append(t)
+                t.start()
+            for t in threads:
+                t.join()
+        except Exception as e:
+            print("Error: " + str(e))
+            for t in threads:
+                try:
+                    t.join(timeout=10)
+                except Exception as e:
+                    print(e)
+                    pass
             print("Threads destroyed")
               # Print the error that is causing the code to block.
         driver.quit()
-        print(Final_Array)
         return Final_Array
 
     @st.cache_data(show_spinner=False)
