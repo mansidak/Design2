@@ -368,6 +368,12 @@ text-align: center;
             (None, 'Intern', 'Entry-Level', 'Associate'),
             help='Experience Level'
         )
+
+        holder3 = st.empty()
+        LocationPreference = holder3.text_input(
+            'Enter City or State',
+        )
+
         # my_bar = st.progress(0, text=progress_text)
         with st.sidebar:
             undesired = st.text_input(
