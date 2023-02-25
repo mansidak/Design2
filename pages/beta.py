@@ -298,6 +298,7 @@ text-align: center;
         with col3:
             st.write("")
 
+        NameHolder = st.empty()
         progressText = st.empty()
         my_bar = st.empty()
 
@@ -349,7 +350,7 @@ text-align: center;
                 st.session_state['Name'] = Name
             if 'resumeContent' not in st.session_state:
                 st.session_state["resumeContent"] = resumeContent
-            st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
+            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {newSkills}etc...</h6>",unsafe_allow_html=True)
             my_bar.progress(25, text=f"")
             result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
