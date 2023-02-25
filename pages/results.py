@@ -144,10 +144,10 @@ for element in st.session_state['FinalResults']:
             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>  {title}→ </h4></a>",
             unsafe_allow_html=True)
         st.markdown(
-            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>  {companyName},  {location}</h6>",
+            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>  {companyName}</h6>",
             unsafe_allow_html=True)
 
-        with st.expander(f""):
+        with st.expander(f"{location}"):
             st.write(f"{shortSummary}")
             col1, col2, col3 = st.columns([1, 1, 1])
 
