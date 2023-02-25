@@ -4,7 +4,7 @@ st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽", init
 import openai
 from docx import Document
 from PIL import Image
-from random import shuffle
+import random
 from streamlit_extras.switch_page_button import switch_page
 
 hide_menu_style = """
@@ -92,9 +92,9 @@ st.write("")
 
 col111, col222 = st.columns([1,1])
 with col111:
-    options = st.multiselect('Filter through location', set([item[5] for item in st.session_state['FinalResults']]), None, key="option1")
+    options = st.multiselect('Filter by location', set([item[5] for item in st.session_state['FinalResults']]), None, key="option1")
 with col222:
-    options2 = st.multiselect('Filter from your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key = "option2")
+    options2 = st.multiselect('Filter by your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key = "option2")
 
 
 st.write("")
