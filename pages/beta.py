@@ -313,7 +313,7 @@ text-align: center;
             my_bar.progress(60, text=f"")
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
 
-            result3 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+            result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
             my_bar.progress(75, text="")
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold Tight! We're doing one last search...</h6>",unsafe_allow_html=True)
 
