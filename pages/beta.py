@@ -232,11 +232,8 @@ text-align: center;
 
             with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
                 driver.get(
-                    f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")  # st.write( driver.find_element(By.XPATH, "/html/body").text)
-                # st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")
-                # st.write("Ran Selenium 1")
+                    f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
-                # st.write(jobs_block[0].text)
                 time.sleep(1)
                 links = []
                 jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")
@@ -267,7 +264,7 @@ text-align: center;
             driver.quit()
             return Final_Array
 
-        @st.cache_data
+
         def openAIGetRelevantJobTitles(resumeContent):
             response = openai.Completion.create(
                 model="text-davinci-003",
@@ -285,52 +282,9 @@ text-align: center;
             Name = Titles.split('3.')[1].split('4.')[0]
             st.session_state["Name"] = Name
             softSkills = Titles.split('4.')[1]
-
             newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
             newSkills = [item.replace(" ", "-") for item in Skills]
-            st.write()
-
-            st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
-            progressText = st.empty()
-            write_cover_letter = st.empty()
-
-            progressText.markdown(
-                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Great job, {str(Name).split(' ')[1]}! Your resume is being parsed. Choose your desired type of level</h6>", unsafe_allow_html=True)
-
-
-            # if ExperienceLevel is not None:
-            my_bar = st.progress(0, text=progress_text)
-            my_bar.progress(30, text=f"")
-            holder2.empty()
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {Titles.split('2.')[1].split('3.')[0]}etc...</h6>",unsafe_allow_html=True)
-
-            result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-            my_bar.progress(50, text=f"")
-
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
-
-            result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-            my_bar.progress(60, text=f"")
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
-
-            result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-            my_bar.progress(75, text="")
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold Tight! We're doing one last search...</h6>",unsafe_allow_html=True)
-
-            st.session_state["FinalResults"] = result1 + result2 + result3
-
-            progressText.markdown(
-                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Almost there...</h6>",
-                    unsafe_allow_html=True)
-
-            my_bar.progress(100, text="")
-            progressText.markdown(
-                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Now just apply! Good Luck :)</h6>",
-                    unsafe_allow_html=True)
-            switch_page("results")
-
-            delete_selenium_log()
-
+            return newJobtitles, newSkills
 
         col1, col2, col3 = st.columns([2, 1, 2])
 
@@ -383,4 +337,9 @@ text-align: center;
                 txtFile.write(pageObj.extract_text())
                 resumeContent = pageObj.extract_text()
                 st.session_state["resumeContent"] = resumeContent
-                openAIGetRelevantJobTitles(resumeContent)
+                newJobtitles, newSkills = openAIGetRelevantJobTitles(resumeContent)
+                result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1,resumeContent)
+                result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1,resumeContent)
+                result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1,resumeContent)
+                st.session_state["FinalResults"] = result1 + result2 + result3
+                switch_page("results")
