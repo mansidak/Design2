@@ -151,6 +151,7 @@ text-align: center;
             #MainMenu {visibility: hidden;}
             .css-c0yjmw e1fqkh3o9 {visibility: hidden;}
             .css-1lamwuk e1fqkh3o8 {visibility: hidden;}
+            .css-1helkxk e1fqkh3o9{visibility: hidden;}
             </style>
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
