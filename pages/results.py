@@ -134,8 +134,10 @@ for element in st.session_state['FinalResults']:
         shortSummary = element[3]
         fullDescription = element[4]
         location = element[5]
-        with st.expander(f"{title} at {companyName}"):
+        with st.expander(f" Summary: {shortSummary}"):
             st.write(f"{shortSummary}")
+
+
         st.markdown(
             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>{title}→ </h4></a>",
             unsafe_allow_html=True)
