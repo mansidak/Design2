@@ -4,7 +4,6 @@ st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽")
 import openai
 from docx import Document
 from PIL import Image
-import uuid
 from streamlit_extras.switch_page_button import switch_page
 
 hide_menu_style = """
@@ -108,10 +107,10 @@ for element in st.session_state['FinalResults']:
 
             with col1:
                 container_2 = st.empty()
-                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} + {uuid.uuid1()}")
+                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary}")
                 if button_A:
                     container_2.empty()
-                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
+                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}")
                     responseJob = openai.Completion.create(
                         model="text-davinci-003",
                         prompt=f"summarize the job: {fullDescription}",
@@ -169,10 +168,10 @@ for element in st.session_state['FinalResults']:
 
             with col1:
                 container_2 = st.empty()
-                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} + {uuid.uuid1()}")
+                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary}")
                 if button_A:
                     container_2.empty()
-                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
+                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}")
                     responseJob = openai.Completion.create(
                         model="text-davinci-003",
                         prompt=f"summarize the job: {fullDescription}",
@@ -230,10 +229,10 @@ for element in st.session_state['FinalResults']:
 
             with col1:
                 container_2 = st.empty()
-                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} +{uuid.uuid1()}")
+                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary}")
                 if button_A:
                     container_2.empty()
-                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
+                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}")
                     responseJob = openai.Completion.create(
                         model="text-davinci-003",
                         prompt=f"summarize the job: {fullDescription}",
@@ -291,7 +290,7 @@ for element in st.session_state['FinalResults']:
 
             with col1:
                 container_2 = st.empty()
-                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} + {uuid.uuid1()}")
+                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary}")
                 if button_A:
                     container_2.empty()
                     button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
