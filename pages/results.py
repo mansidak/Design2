@@ -30,6 +30,11 @@ hide_streamlit_style = """
                 transform: translate(-50%, -50%);
                 width: 50%;
               }
+              div[data-testid="stSidebarNav"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
 
               </style>
               """
