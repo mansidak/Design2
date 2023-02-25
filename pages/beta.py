@@ -70,7 +70,7 @@ if __name__ == "__main__":
                     width: 50%;
                   }
                   .st-be{
-                  border-radius: 10px;
+                  border-radius: 50px;
                   }
                   </style>
                   """
