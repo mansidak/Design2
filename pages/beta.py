@@ -281,10 +281,7 @@ text-align: center;
             if t.is_alive():
                 print("thread is not done, setting event to kill thread.")
                 threading.Event().set()
-                # The thread can still be running at this point. For example, if the
-                # thread's call to isSet() returns right before this call to set(), then
-                # the thread will still perform the full 1 second sleep and the rest of
-                # the loop before finally stopping.
+
             else:
                 print
                 "thread has already finished."
