@@ -270,14 +270,19 @@ text-align: center;
                 driver.close()
                 driver.quit()
 
-        threads = []
-        for i in links:
-            t = threading.Thread(target=get_links, args=(i, resumeContent))
-            t.daemon = True
-            threads.append(t)
-            t.start()
-        for t in threads:
-            t.join()
+        pool = Pool()
+        pool.starmap(get_links, (links, resumeContent))
+        pool.close()
+        pool.join()
+
+        # threads = []
+        # for i in links:
+        #     t = threading.Thread(target=get_links, args=(i, resumeContent))
+        #     t.daemon = True
+        #     threads.append(t)
+        #     t.start()
+        # for t in threads:
+        #     t.join()
 
         driver.quit()
         return Final_Array
