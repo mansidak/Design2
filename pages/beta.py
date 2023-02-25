@@ -299,7 +299,7 @@ text-align: center;
             st.write("")
 
         progressText = st.empty()
-        my_bar = st.progress(0, text=progress_text)
+        my_bar = st.empty()
 
         SubTitle = st.empty()
         SubTitle.markdown(
