@@ -4,7 +4,7 @@ st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽")
 import openai
 from docx import Document
 from PIL import Image
-import random
+from random import shuffle
 from streamlit_extras.switch_page_button import switch_page
 
 hide_menu_style = """
@@ -84,7 +84,8 @@ st.write("")
 
 
 st.write(type(st.session_state['FinalResults']))
-for element in st.session_state['FinalResults']:
+
+for element in shuffle(st.session_state['FinalResults']):
     if element[5] in options and element[6] in options2:
         link = element[0]
         title = element[1]
