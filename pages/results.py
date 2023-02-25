@@ -87,7 +87,7 @@ col111, col222 = st.columns([1,1])
 with col111:
     options = st.multiselect('Filter through location', set([item[5] for item in st.session_state['FinalResults']]), None, key="option1")
 with col222:
-    options2 = st.multiselect('Skills you want to use', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key = "option2")
+    options2 = st.multiselect('Filter from your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key = "option2")
 
 
 st.write("")
