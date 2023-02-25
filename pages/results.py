@@ -90,7 +90,8 @@ st.write("")
 st.write("")
 st.write("")
 
-for element in st.session_state['FinalResults']:
+unique_results = set(st.session_state['FinalResults'])
+for element in unique_results:
     if element[5] in options and element[6] in options2:
         link = element[0]
         title = element[1]
