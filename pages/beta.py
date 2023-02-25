@@ -1,6 +1,5 @@
 import os
 import random
-
 import streamlit as st
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -8,11 +7,10 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
-import threading
-from multiprocessing import Pool
-
-import PyPDF2
 from docx import Document
+import threading
+import multiprocessing
+import PyPDF2
 import openai
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
@@ -270,26 +268,18 @@ text-align: center;
                 driver.close()
                 driver.quit()
 
-        try:
-            threads = []
-            for i in links:
-                t = threading.Thread(target=get_links, args=(i, resumeContent))
-                t.daemon = True
-                threads.append(t)
-                t.start()
-            for t in threads:
-                t.join()
-        except Exception as e:
-            print("Error: " + str(e))
-            for t in threads:
-                try:
-                    t.join(timeout=10)
-                except Exception as e:
-                    print(e)
-                    pass
+        processes = []
+        for i in links:
+            p = multiprocessing.Process(target=get_links, args=(i, resumeContent))
+            p.daemon = True
+            processes.append(p)
+            p.start()
+        for p in processes:
+            p.join()
             print("Threads destroyed")
               # Print the error that is causing the code to block.
         driver.quit()
+        print(Final_Array)
         return Final_Array
 
     @st.cache_data(show_spinner=False)
