@@ -84,8 +84,7 @@ st.write("")
 
 
 st.write(type(st.session_state['FinalResults']))
-for element in shuffle(st.session_state['FinalResults']):
-
+st.write(shuffle(list(st.session_state['FinalResults'])))
 for element in st.session_state['FinalResults']:
     if element[5] in options and element[6] in options2:
         link = element[0]
