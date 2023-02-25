@@ -371,7 +371,7 @@ text-align: center;
 
         holder3 = st.empty()
         LocationPreference = holder3.text_input(
-            'Enter City or State',
+            'Location Preferences (City or State)',
         )
 
         # my_bar = st.progress(0, text=progress_text)
