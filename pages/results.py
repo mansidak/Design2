@@ -41,7 +41,7 @@ hide_streamlit_style = """
                 height: 0%;
                 position: fixed;
                 }
-                .css-13e20ss e16nr0p32{
+                .css-13e20ss{
                 visibility: hidden;
                 height: 0%;
                 position: fixed;
