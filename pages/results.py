@@ -77,9 +77,9 @@ with st.sidebar:
 
 col111, col222 = st.columns([1,1])
 with col111:
-    options = st.multiselect('Filter through location', set([item[5] for item in st.session_state['FinalResults']]), None)
+    options = st.multiselect('Filter through location', set([item[5] for item in st.session_state['FinalResults']]), None, key="option1")
 with col222:
-    options2 = st.multiselect('Skills you want to use', set([item[6] for item in st.session_state['FinalResults']]), None)
+    options2 = st.multiselect('Skills you want to use', set([item[6] for item in st.session_state['FinalResults']]), None, key = "option2")
 
 for element in st.session_state['FinalResults']:
     if element[5] in options and element[6] in options2:
