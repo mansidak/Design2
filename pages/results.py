@@ -111,7 +111,7 @@ for element in st.session_state['FinalResults']:
                 button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} + {uuid.uuid1()}")
                 if button_A:
                     container_2.empty()
-                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}")
+                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
                     responseJob = openai.Completion.create(
                         model="text-davinci-003",
                         prompt=f"summarize the job: {fullDescription}",
@@ -172,7 +172,7 @@ for element in st.session_state['FinalResults']:
                 button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} + {uuid.uuid1()}")
                 if button_A:
                     container_2.empty()
-                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}")
+                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
                     responseJob = openai.Completion.create(
                         model="text-davinci-003",
                         prompt=f"summarize the job: {fullDescription}",
@@ -233,7 +233,7 @@ for element in st.session_state['FinalResults']:
                 button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} +{uuid.uuid1()}")
                 if button_A:
                     container_2.empty()
-                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}")
+                    button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
                     responseJob = openai.Completion.create(
                         model="text-davinci-003",
                         prompt=f"summarize the job: {fullDescription}",
