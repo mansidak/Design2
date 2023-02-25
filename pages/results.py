@@ -101,7 +101,6 @@ for element in st.session_state['FinalResults']:
         with st.expander(f"{location}"):
             st.markdown(f"[Apply]({link})")
             st.write(f"{shortSummary}")
-            st.write(f"{skills}")
 
             col1, col2, col3 = st.columns([1, 1, 1])
 
@@ -162,7 +161,6 @@ for element in st.session_state['FinalResults']:
         with st.expander(f"{location}"):
             st.markdown(f"[Apply]({link})")
             st.write(f"{shortSummary}")
-            st.write(f"{skills}")
 
             col1, col2, col3 = st.columns([1, 1, 1])
 
@@ -223,7 +221,6 @@ for element in st.session_state['FinalResults']:
         with st.expander(f"{location}"):
             st.markdown(f"[Apply]({link})")
             st.write(f"{shortSummary}")
-            st.write(f"{skills}")
 
             col1, col2, col3 = st.columns([1, 1, 1])
 
@@ -284,7 +281,6 @@ for element in st.session_state['FinalResults']:
         with st.expander(f"{location}"):
             st.markdown(f"[Apply]({link})")
             st.write(f"{shortSummary}")
-            st.write(f"{skills}")
 
             col1, col2, col3 = st.columns([1, 1, 1])
 
