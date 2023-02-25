@@ -279,10 +279,12 @@ text-align: center;
                 t.start()
             for t in threads:
                 t.join()
-        except:
+        except Exception as e:
+            print("Error: " + str(e))
             for t in threads:
-                t.join()
+                t.join(timeout=10)
             print("Threads destroyed")
+              # Print the error that is causing the code to block.
         driver.quit()
         return Final_Array
 
