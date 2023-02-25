@@ -279,6 +279,7 @@ text-align: center;
             print("Threads destroyed")
               # Print the error that is causing the code to block.
         driver.quit()
+        print(Final_Array)
         return Final_Array
 
     @st.cache_data(show_spinner=False)
