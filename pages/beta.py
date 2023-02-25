@@ -149,6 +149,8 @@ text-align: center;
     hide_menu_style = """
             <style>
             #MainMenu {visibility: hidden;}
+            .css-c0yjmw {visibility: hidden;}
+        
             </style>
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
@@ -360,8 +362,8 @@ text-align: center;
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
             my_bar.progress(50, text=f"")
             result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight!Doing one last search....</h6>",unsafe_allow_html=True)
-            my_bar.progress(75, text=f"")
+            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
+            my_bar.progress(95, text=f"")
             result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
             st.session_state["FinalResults"] = result1 + result2 + result3
             switch_page("results")
