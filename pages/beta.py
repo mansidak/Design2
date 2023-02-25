@@ -286,7 +286,7 @@ text-align: center;
             newSkills = [item.replace(" ", "-") for item in Skills]
             st.write(newJobtitles)
             st.write(newSkills)
-            return newJobtitles, newSkills
+            return Name, newJobtitles, newSkills
 
         col1, col2, col3 = st.columns([2, 1, 2])
 
