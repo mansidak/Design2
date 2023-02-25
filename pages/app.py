@@ -369,12 +369,7 @@ text-align: center;
             help='Experience Level'
         )
 
-        holder3 = st.empty()
-        LocationPreference = holder3.text_input(
-            'Location Preferences (City or State)',
-        )
 
-        # my_bar = st.progress(0, text=progress_text)
         with st.sidebar:
             undesired = st.text_input(
                 'Enter upto one company you wish to be excluded',
@@ -382,7 +377,7 @@ text-align: center;
                 help="As we develop this program more, we'll add more filter"
             )
 
-        if ResumePDF is not None and ExperienceLevel is not None:
+        if ResumePDF is not None and ExperienceLevel is not None and LocationPreference is not None:
             SubTitle.empty()
             Credits.empty()
             holder.empty()
