@@ -82,9 +82,8 @@ st.write("")
 st.write("")
 st.write("")
 
-FinalResultsBaby = st.session_state['FinalResults']
-Hell = random.shuffle(FinalResultsBaby)
-st.write(Hell)
+
+st.write(type(st.session_state['FinalResults']))
 for element in st.session_state['FinalResults']:
     if element[5] in options and element[6] in options2:
         link = element[0]
