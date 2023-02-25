@@ -103,10 +103,10 @@ for element in unique_results:
 
         st.markdown(
             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-            unsafe_allow_html=True)
+            unsafe_allow_html=True, anchor=None)
         st.markdown(
             f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-            unsafe_allow_html=True)
+            unsafe_allow_html=True, anchor=None)
 
         with st.expander(f"{location}"):
             st.markdown(f"[Apply]({link})")
