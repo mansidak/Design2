@@ -190,7 +190,7 @@ for element in st.session_state['FinalResults']:
 
         st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-    elif element[5] in options and element[6] in options2:
+    elif element[5] in options or element[6] in options2:
         link = element[0]
         title = element[1]
         companyName = element[2]
