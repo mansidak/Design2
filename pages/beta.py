@@ -344,12 +344,14 @@ text-align: center;
             SubTitle.empty()
             Credits.empty()
             holder.empty()
+            holder2.empty()
             resumeContent = extract_text_from_pdf(ResumePDF)
             Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(resumeContent)
             if 'Name' not in st.session_state:
                 st.session_state['Name'] = Name
             if 'resumeContent' not in st.session_state:
                 st.session_state["resumeContent"] = resumeContent
+            holder2.empty()
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {newSkills}etc...</h6>",unsafe_allow_html=True)
             my_bar.progress(25, text=f"")
