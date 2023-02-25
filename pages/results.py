@@ -35,11 +35,13 @@ hide_streamlit_style = """
                 height: 0%;
                 position: fixed;
                 }
-                .css-leojxt edgvbvh3{
+                
+              div[data-testid="collapsedControl"] {
                 visibility: hidden;
                 height: 0%;
                 position: fixed;
                 }
+                
 
               </style>
               """
