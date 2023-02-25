@@ -225,9 +225,7 @@ text-align: center;
                     )
                     shortened_summary.append(response3["choices"][0]["text"])
 
-                for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles,
-                                                                             Final_Company, shortened_summary,
-                                                                             Final_Description, Final_Location, Final_Skills):
+                for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description, Final_Location, Final_Skills):
                     Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
 
                 # driver.close()
