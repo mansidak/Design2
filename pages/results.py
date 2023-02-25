@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽")
+st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽", initial_sidebar_state="collapsed")
 # st.title("CoverLetter")
 import openai
 from docx import Document
@@ -35,6 +35,11 @@ hide_streamlit_style = """
                 height: 0%;
                 position: fixed;
                 }
+                .css-leojxt edgvbvh3{
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
 
               </style>
               """
@@ -66,10 +71,6 @@ button[title="View fullscreen"]{
 '''
 
 st.markdown(hide_img_fs, unsafe_allow_html=True)
-
-with st.sidebar:
-    if st.button("Run Again"):
-        switch_page("streamlit_app")
 
 
 st.write("")
