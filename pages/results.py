@@ -147,7 +147,7 @@ for element in st.session_state['FinalResults']:
             f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>  {companyName},  {location}</h6>",
             unsafe_allow_html=True)
 
-        with st.expander(f"Summary"):
+        with st.expander(f""):
             st.write(f"{shortSummary}")
 
         # st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: normal;'>{shortSummary}</h6>",
