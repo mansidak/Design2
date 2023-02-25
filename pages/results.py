@@ -41,6 +41,11 @@ hide_streamlit_style = """
                 height: 0%;
                 position: fixed;
                 }
+                .css-13e20ss e16nr0p32{
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
                 
 
               </style>
@@ -103,10 +108,10 @@ for element in unique_results:
 
         st.markdown(
             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-            unsafe_allow_html=True, anchor=None)
+            unsafe_allow_html=True)
         st.markdown(
             f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-            unsafe_allow_html=True, anchor=None)
+            unsafe_allow_html=True)
 
         with st.expander(f"{location}"):
             st.markdown(f"[Apply]({link})")
