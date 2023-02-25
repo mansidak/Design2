@@ -243,6 +243,8 @@ text-align: center;
 
                     for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description, Final_Location, Final_Skills):
                         Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+                    driver.close()
+                    driver.quit()
                 except:
                     driver.close()
                     driver.quit()
@@ -276,7 +278,7 @@ text-align: center;
                 threads.append(t)
                 t.daemon = True
                 t.start()
-            for t in threads:
+            # for t in threads:
                 t.join()
 
             driver.quit()
