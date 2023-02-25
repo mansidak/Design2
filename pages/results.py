@@ -53,6 +53,9 @@ hide_img_fs = '''
 <style>
 button[title="View fullscreen"]{
     visibility: hidden;}
+    ul.streamlit-expander {
+            border: 0 None !important;
+            }
 </style>
 '''
 
