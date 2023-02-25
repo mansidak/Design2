@@ -72,11 +72,11 @@ st.write("")
 st.write("")
 with st.sidebar:
     options = st.multiselect('Filter through location', [item[5] for item in st.session_state['FinalResults']], None)
-    options2 = st.multiselect('Skills you want to use', [item[6] for item in st.session_state['FinalResults']], None)
+    options2 = st.multiselect('Filter through location', [item[6] for item in st.session_state['FinalResults']], None)
 
 
 for element in st.session_state['FinalResults']:
-    if element[5] in options:
+    if element[5] in options and element[6] in options2:
         link = element[0]
         title = element[1]
         companyName = element[2]
@@ -85,167 +85,47 @@ for element in st.session_state['FinalResults']:
         location = element[5]
         skills = element[6]
 
-        st.markdown(
-            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-            unsafe_allow_html=True)
-        st.markdown(
-            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-            unsafe_allow_html=True)
-
-        with st.expander(f"{location}"):
-            st.markdown(f"[Apply]({link})")
+        with st.expander(f"{title} at {companyName}"):
             st.write(f"{shortSummary}")
-            st.write(f"{skills}")
 
-            col1, col2, col3 = st.columns([1, 1, 1])
+        st.markdown(f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>{title}→ </h4></a>", unsafe_allow_html=True)
+        st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{companyName},  {location}</h6>", unsafe_allow_html=True)
+        st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: lighter;'>{shortSummary}</h6>", unsafe_allow_html=True)
 
-            with col1:
-                if st.button("Generate Cover Letter", key=f"{link}+{title}+{shortSummary}"):
-                    responseJob = openai.Completion.create(
-                        model="text-davinci-003",
-                        prompt=f"summarize the job: {fullDescription}",
-                        temperature=0.7,
-                        max_tokens=556,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    jobSummary = responseJob["choices"][0]["text"]
-                    CoverLetterResponse = openai.Completion.create(
-                        model="text-davinci-003",
-                        prompt=f"I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. \n\n\nHere's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}",
-                        temperature=0.7,
-                        max_tokens=563,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    cover_letter_file = CoverLetterResponse["choices"][0]["text"]
-                    st.download_button('Download Cover Letter', cover_letter_file)
+        col1, col2, col3 = st.columns([1, 1, 1])
 
-            with col2:
-                st.write("")
-                # if st.button("Apply", key=f"{link}+{title}+Apply"):
-                #     js = f"window.open('{link}')"  # New tab or window
+        with col1:
+            if st.button("Generate Cover Letter", key=f"{link}+{title}"):
+                responseJob = openai.Completion.create(
+                    model="text-davinci-003",
+                    prompt=f"summarize the job: {fullDescription}",
+                    temperature=0.7,
+                    max_tokens=556,
+                    top_p=1,
+                    frequency_penalty=0,
+                    presence_penalty=0
+                )
+                jobSummary = responseJob["choices"][0]["text"]
+                CoverLetterResponse = openai.Completion.create(
+                    model="text-davinci-003",
+                    prompt=f"I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. \n\n\nHere's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}",
+                    temperature=0.7,
+                    max_tokens=563,
+                    top_p=1,
+                    frequency_penalty=0,
+                    presence_penalty=0
+                )
+                cover_letter_file = CoverLetterResponse["choices"][0]["text"]
+                st.download_button('Download Cover Letter', cover_letter_file)
 
-            with col3:
-                st.write("")
+        with col2:
+            st.write("")
+
+        with col3:
+            st.write("")
 
         st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-    elif element[6] in options2:
-        link = element[0]
-        title = element[1]
-        companyName = element[2]
-        shortSummary = element[3]
-        fullDescription = element[4]
-        location = element[5]
-        skills = element[6]
-
-        st.markdown(
-            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-            unsafe_allow_html=True)
-        st.markdown(
-            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-            unsafe_allow_html=True)
-
-        with st.expander(f"{location}"):
-            st.markdown(f"[Apply]({link})")
-            st.write(f"{shortSummary}")
-            st.write(f"{skills}")
-
-            col1, col2, col3 = st.columns([1, 1, 1])
-
-            with col1:
-                if st.button("Generate Cover Letter", key=f"{link}+{title}+{shortSummary}"):
-                    responseJob = openai.Completion.create(
-                        model="text-davinci-003",
-                        prompt=f"summarize the job: {fullDescription}",
-                        temperature=0.7,
-                        max_tokens=556,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    jobSummary = responseJob["choices"][0]["text"]
-                    CoverLetterResponse = openai.Completion.create(
-                        model="text-davinci-003",
-                        prompt=f"I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. \n\n\nHere's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}",
-                        temperature=0.7,
-                        max_tokens=563,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    cover_letter_file = CoverLetterResponse["choices"][0]["text"]
-                    st.download_button('Download Cover Letter', cover_letter_file)
-
-            with col2:
-                st.write("")
-                # if st.button("Apply", key=f"{link}+{title}+Apply"):
-                #     js = f"window.open('{link}')"  # New tab or window
-
-            with col3:
-                st.write("")
-
-        st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
-
-    elif element[5] in options or element[6] in options2:
-        link = element[0]
-        title = element[1]
-        companyName = element[2]
-        shortSummary = element[3]
-        fullDescription = element[4]
-        location = element[5]
-        skills = element[6]
-
-        st.markdown(
-            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-            unsafe_allow_html=True)
-        st.markdown(
-            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-            unsafe_allow_html=True)
-
-        with st.expander(f"{location}"):
-            st.markdown(f"[Apply]({link})")
-            st.write(f"{shortSummary}")
-            st.write(f"{skills}")
-
-            col1, col2, col3 = st.columns([1, 1, 1])
-
-            with col1:
-                if st.button("Generate Cover Letter", key=f"{link}+{title}+{shortSummary}"):
-                    responseJob = openai.Completion.create(
-                        model="text-davinci-003",
-                        prompt=f"summarize the job: {fullDescription}",
-                        temperature=0.7,
-                        max_tokens=556,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    jobSummary = responseJob["choices"][0]["text"]
-                    CoverLetterResponse = openai.Completion.create(
-                        model="text-davinci-003",
-                        prompt=f"I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. \n\n\nHere's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}",
-                        temperature=0.7,
-                        max_tokens=563,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    cover_letter_file = CoverLetterResponse["choices"][0]["text"]
-                    st.download_button('Download Cover Letter', cover_letter_file)
-
-            with col2:
-                st.write("")
-                # if st.button("Apply", key=f"{link}+{title}+Apply"):
-                #     js = f"window.open('{link}')"  # New tab or window
-
-            with col3:
-                st.write("")
-
-        st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
     elif not options:
         link = element[0]
