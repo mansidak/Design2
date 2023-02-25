@@ -51,7 +51,6 @@ openai.api_key = os.environ.get("openai_api_key")
 
 
 if __name__ == "__main__":
-    # faviconImage = Image.open('Favicon.ico')
     st.set_page_config(page_title="19th Street", page_icon='⓵⓽',
                        initial_sidebar_state='collapsed')
     hide_streamlit_style = """
@@ -274,8 +273,8 @@ text-align: center;
         threads = []
         for i in links:
             t = threading.Thread(target=get_links, args=(i, resumeContent))
-            threads.append(t)
             t.daemon = True
+            threads.append(t)
             t.start()
         for t in threads:
             t.join()
