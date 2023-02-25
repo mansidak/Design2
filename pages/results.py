@@ -81,6 +81,12 @@ with col111:
 with col222:
     options2 = st.multiselect('Skills you want to use', set([item[6] for item in st.session_state['FinalResults']]), None, key = "option2")
 
+
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+
 for element in st.session_state['FinalResults']:
     if element[5] in options and element[6] in options2:
         link = element[0]
