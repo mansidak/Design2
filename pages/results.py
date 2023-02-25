@@ -5,7 +5,6 @@ import openai
 from docx import Document
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
-import uuid
 
 hide_menu_style = """
          <style>
@@ -107,7 +106,7 @@ for element in st.session_state['FinalResults']:
 
             with col1:
                 container_2 = st.empty()
-                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} + {uuid.uuid1()}")
+                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary}")
                 if button_A:
                     container_2.empty()
                     button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
@@ -167,7 +166,7 @@ for element in st.session_state['FinalResults']:
 
             with col1:
                 container_2 = st.empty()
-                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} + {uuid.uuid1()}")
+                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary}")
                 if button_A:
                     container_2.empty()
                     button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
@@ -202,11 +201,6 @@ for element in st.session_state['FinalResults']:
                 st.write("")
 
         st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
-
-
-
-
-
 
     elif not options2 and element[5] in options:
         link = element[0]
@@ -232,7 +226,7 @@ for element in st.session_state['FinalResults']:
 
             with col1:
                 container_2 = st.empty()
-                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} +{uuid.uuid1()}")
+                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary}")
                 if button_A:
                     container_2.empty()
                     button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
@@ -268,8 +262,6 @@ for element in st.session_state['FinalResults']:
 
         st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-
-
     elif not options and not options2:
         link = element[0]
         title = element[1]
@@ -294,7 +286,7 @@ for element in st.session_state['FinalResults']:
 
             with col1:
                 container_2 = st.empty()
-                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary} ")
+                button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary}")
                 if button_A:
                     container_2.empty()
                     button_B = container_2.button('Generating... Please wait.', key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
