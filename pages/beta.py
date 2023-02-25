@@ -157,7 +157,7 @@ text-align: center;
     with Pool(2) as p:
 
 
-        @st.cache
+        @st.cache(suppress_st_warning= True)
         def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
             name = str()
             Final_Array = []
@@ -174,7 +174,7 @@ text-align: center;
             options.add_argument('--ignore-certificate-errors')
 
             # lock = threading.Lock()
-            @st.cache
+            @st.cache(suppress_st_warning=True)
             def get_links(i, resumeContent):
                 Final_Links = []
                 Final_Titles = []
@@ -264,7 +264,7 @@ text-align: center;
             driver.quit()
             return Final_Array
 
-        @st.cache
+        @st.cache(suppress_st_warning=True)
         def openAIGetRelevantJobTitles(resumeContent):
             response = openai.Completion.create(
                 model="text-davinci-003",
@@ -327,7 +327,7 @@ text-align: center;
                 help="As we develop this program more, we'll add more filter"
             )
 
-        @st.cache
+        @st.cache(suppress_st_warning=True)
         def extract_text_from_pdf(pdf_file):
             pdfReader = PyPDF2.PdfReader(pdf_file)
             txtFile = open('sample.txt', 'w')
