@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 import time
 import threading
 from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor
 
 import PyPDF2
 from docx import Document
@@ -154,7 +155,7 @@ text-align: center;
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 
-    with Pool(2) as p:
+    with ProcessPoolExecutor() as executor:
 
         def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
             name = str()
@@ -267,7 +268,7 @@ text-align: center;
             driver.quit()
             return Final_Array
 
-        @st.cache
+        # @st.cache
         def openAIGetRelevantJobTitles(resumeContent):
             response = openai.Completion.create(
                 model="text-davinci-003",
@@ -304,23 +305,20 @@ text-align: center;
             holder2.empty()
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {Titles.split('2.')[1].split('3.')[0]}etc...</h6>",unsafe_allow_html=True)
 
-            result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+            result1 = executor.submit(run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent))
             my_bar.progress(50, text=f"")
 
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
 
-            result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+            result2 = executor.submit(run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent))
             my_bar.progress(60, text=f"")
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
 
-            result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+            result3 = executor.submit(run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent))
             my_bar.progress(75, text="")
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold Tight! We're doing one last search...</h6>",unsafe_allow_html=True)
 
-            result4 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-            my_bar.progress(90, text="")
-
-            st.session_state["FinalResults"] = result1 + result2 + result3 +result4
+            st.session_state["FinalResults"] = result1 + result2 + result3
 
             progressText.markdown(
                     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Almost there...</h6>",
