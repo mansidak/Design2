@@ -69,6 +69,9 @@ if __name__ == "__main__":
                     transform: translate(-50%, -50%);
                     width: 50%;
                   }
+                  .st-be{
+                  border-radius: 10px;
+                  }
                   </style>
                   """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
