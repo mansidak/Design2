@@ -134,8 +134,7 @@ for element in st.session_state['FinalResults']:
         shortSummary = element[3]
         fullDescription = element[4]
         location = element[5]
-        with st.expander(f" Summary: {shortSummary}"):
-            st.write(f"{shortSummary}")
+
 
 
         st.markdown(
@@ -144,8 +143,12 @@ for element in st.session_state['FinalResults']:
         st.markdown(
             f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{companyName},  {location}</h6>",
             unsafe_allow_html=True)
-        st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: normal;'>{shortSummary}</h6>",
-                    unsafe_allow_html=True)
+
+        with st.expander(f"Summary"):
+            st.write(f"{shortSummary}")
+
+        # st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: normal;'>{shortSummary}</h6>",
+        #             unsafe_allow_html=True)
         # st.write(shortSummary)
         col1, col2, col3 = st.columns([1, 1, 1])
 
