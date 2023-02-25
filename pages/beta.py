@@ -335,6 +335,7 @@ text-align: center;
 
 
         with st.sidebar:
+            st.subheader("")
             undesired = st.text_input(
                 'Enter upto one company/keyword you wish to be excluded',
                 placeholder='Excluded Keywords (Upto one)',            )
