@@ -179,6 +179,7 @@ text-align: center;
                 Final_Description = []
                 Final_Location = []
                 shortened_summary = []
+                Final_Skills = []
                 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
                 driver.get(i)
                 # time.sleep(2)
@@ -192,8 +193,10 @@ text-align: center;
                 Final_Titles.append(title)
                 location = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
                 Final_Location.append(location)
+                Final_Skills.append(skill1)
                 company = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
                 Final_Company.append(company)
+
                 description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
                 Final_Description.append(description)
                 words = description.split()
@@ -222,10 +225,10 @@ text-align: center;
                     )
                     shortened_summary.append(response3["choices"][0]["text"])
 
-                for links, titles, companies, summaries, descriptions, locations in zip(Final_Links, Final_Titles,
+                for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles,
                                                                              Final_Company, shortened_summary,
-                                                                             Final_Description, Final_Location):
-                    Final_Array.append((links, titles, companies, summaries, descriptions, locations))
+                                                                             Final_Description, Final_Location, Final_Skills):
+                    Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
 
                 # driver.close()
 

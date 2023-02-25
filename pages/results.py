@@ -82,10 +82,11 @@ for element in st.session_state['FinalResults']:
         shortSummary = element[3]
         fullDescription = element[4]
         location = element[5]
+        skills = element[6]
 
         with st.expander(f"{title} at {companyName}"):
             st.write(f"{shortSummary}")
-
+            st.write(f"{skills}")
 
         st.markdown(f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>{title}→ </h4></a>", unsafe_allow_html=True)
         st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{companyName},  {location}</h6>", unsafe_allow_html=True)
