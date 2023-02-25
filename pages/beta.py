@@ -242,7 +242,7 @@ text-align: center;
 
                 for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description, Final_Location, Final_Skills):
                     Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
-
+                driver.quit()
                 # driver.close()
 
             with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
@@ -263,7 +263,7 @@ text-align: center;
                         else:
                             pass
             # driver.close()
-            # driver.quit()
+            driver.quit()
 
             threads = []
             for i in links:
