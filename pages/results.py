@@ -133,6 +133,7 @@ for element in st.session_state['FinalResults']:
         shortSummary = element[3]
         fullDescription = element[4]
         location = element[5]
+        skills = element[6]
 
         st.markdown(
             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
