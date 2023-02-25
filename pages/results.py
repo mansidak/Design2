@@ -109,9 +109,7 @@ for element in unique_results:
         st.markdown(
             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
             unsafe_allow_html=True)
-        st.markdown(
-            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-            unsafe_allow_html=True)
+        st.markdown(f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6></a>",unsafe_allow_html=True)
 
         with st.expander(f"{location}"):
             st.markdown(f"[Apply]({link})")
@@ -169,9 +167,7 @@ for element in unique_results:
         st.markdown(
             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
             unsafe_allow_html=True)
-        st.markdown(
-            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-            unsafe_allow_html=True)
+        st.markdown(f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6></a>",unsafe_allow_html=True)
 
         with st.expander(f"{location}"):
             st.markdown(f"[Apply]({link})")
@@ -230,7 +226,7 @@ for element in unique_results:
             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
             unsafe_allow_html=True)
         st.markdown(
-            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6></a>",
             unsafe_allow_html=True)
 
         with st.expander(f"{location}"):
@@ -290,7 +286,7 @@ for element in unique_results:
             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
             unsafe_allow_html=True)
         st.markdown(
-            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6></a>",
             unsafe_allow_html=True)
 
         with st.expander(f"{location}"):
