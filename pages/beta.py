@@ -241,11 +241,15 @@ text-align: center;
 
                 for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description, Final_Location, Final_Skills):
                     Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+                print("About to close ", i)
                 driver.close()
                 driver.quit()
+                print("Closed and quit ", i)
             except:
+                print("Error on ", i)
                 driver.close()
                 driver.quit()
+                print("Error closed and quit ", i)
 
 
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
@@ -276,16 +280,9 @@ text-align: center;
             t.daemon = True
             threads.append(t)
             t.start()
-        for t in threads:
-            t.join(30)
-            if t.is_alive():
-                print("thread is not done, setting event to kill thread.")
-                threading.Event().set()
-
-            else:
-                print
-                "thread has already finished."
-
+        for i, t in enumerate(threads):
+            print("Trying to Join thread #", i)
+            t.join()
             print("Threads destroyed")
 
 
