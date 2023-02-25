@@ -97,7 +97,7 @@ st.write("")
 
 unique_results = set(st.session_state['FinalResults'])
 for element in unique_results:
-    if element[5] in options and element[6] in options2:
+    if element[5] in options and element[6].replace('-', '') in options2:
         link = element[0]
         title = element[1]
         companyName = element[2]
@@ -157,7 +157,7 @@ for element in unique_results:
 
         st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-    elif not options and element[6] in options2:
+    elif not options and element[6].replace('-', '') in options2:
         link = element[0]
         title = element[1]
         companyName = element[2]
