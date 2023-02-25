@@ -270,24 +270,28 @@ text-align: center;
                 driver.close()
                 driver.quit()
 
-        try:
-            threads = []
-            for i in links:
-                t = threading.Thread(target=get_links, args=(i, resumeContent))
-                t.daemon = True
-                threads.append(t)
-                t.start()
-            for t in threads:
-                t.join()
-        except Exception as e:
-            print("Error: " + str(e))
-            for t in threads:
-                try:
-                    t.join(timeout=10)
-                except Exception as e:
-                    print(e)
-                    pass
+        threads = []
+        for i in links:
+            t = threading.Thread(target=get_links, args=(i, resumeContent))
+            t.daemon = True
+            threads.append(t)
+            t.start()
+        for t in threads:
+            t.join(30)
+            if t.is_alive():
+                print("thread is not done, setting event to kill thread.")
+                threading.Event().set()
+                # The thread can still be running at this point. For example, if the
+                # thread's call to isSet() returns right before this call to set(), then
+                # the thread will still perform the full 1 second sleep and the rest of
+                # the loop before finally stopping.
+            else:
+                print
+                "thread has already finished."
+
             print("Threads destroyed")
+
+
               # Print the error that is causing the code to block.
         driver.quit()
         return Final_Array
