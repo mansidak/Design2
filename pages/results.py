@@ -69,6 +69,8 @@ with col2:
 with col3:
     st.write("")
 
+if 'Name' not in st.session_state:
+    switch_page("app")
 st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>", unsafe_allow_html=True)
 st.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>", unsafe_allow_html=True)
 
