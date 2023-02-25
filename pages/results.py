@@ -119,8 +119,6 @@ for element in st.session_state['FinalResults']:
 
         with col2:
             st.write("")
-            # if st.button("Apply", key=f"{link}+{title}+Apply"):
-            #     js = f"window.open('{link}')"  # New tab or window
 
         with col3:
             st.write("")
