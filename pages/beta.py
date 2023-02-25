@@ -336,8 +336,8 @@ text-align: center;
 
         with st.sidebar:
             undesired = st.text_input(
-                'Enter upto one company you wish to be excluded',
-                placeholder='Excluded Keywords [Upto one]',            )
+                'Enter upto one company/keyword you wish to be excluded',
+                placeholder='Excluded Keywords (Upto one)',            )
 
         @st.cache_data(show_spinner=False)
         def extract_text_from_pdf(pdf_file):
