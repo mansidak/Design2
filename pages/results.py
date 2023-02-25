@@ -72,11 +72,11 @@ st.write("")
 st.write("")
 with st.sidebar:
     options = st.multiselect('Filter through location', [item[5] for item in st.session_state['FinalResults']], None)
-    options2 = st.multiselect('Filter through location', [item[6] for item in st.session_state['FinalResults']], None)
+    options2 = st.multiselect('Skills you want to use', [item[6] for item in st.session_state['FinalResults']], None)
 
 
 for element in st.session_state['FinalResults']:
-    if element[5] in options:
+    if element[5] in options and element[6] in options2:
         link = element[0]
         title = element[1]
         companyName = element[2]
