@@ -141,10 +141,10 @@ for element in st.session_state['FinalResults']:
 
 
         st.markdown(
-            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>{title}→ </h4></a>",
+            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>  {title}→ </h4></a>",
             unsafe_allow_html=True)
         st.markdown(
-            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{companyName},  {location}</h6>",
+            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>  {companyName},  {location}</h6>",
             unsafe_allow_html=True)
 
         with st.expander(f"Summary"):
