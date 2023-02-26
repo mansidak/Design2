@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 import threading
+from streamlit.ReportThread import add_report_ctx
 from multiprocessing import Pool
 from concurrent.futures import ThreadPoolExecutor
 import PyPDF2
@@ -376,6 +377,7 @@ if __name__ == "__main__":
         threads =[]
         for i in links1:
             t = threading.Thread(target=get_links, args=(i,newSkills[0], resumeContent))
+            add_report_ctx(t)
             t.daemon = True
             threads.append(t)
             t.start()
