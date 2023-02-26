@@ -281,7 +281,7 @@ text-align: center;
             threads.append(t)
             t.start()
             for t in threads:
-                t.join(100)
+                t.join(10)
 
         gc.enable()
 
