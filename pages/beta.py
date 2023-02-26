@@ -165,7 +165,7 @@ text-align: center;
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 
-    @st.cache_data(show_spinner=False)
+    # @st.cache_data(show_spinner=False)
     def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
         name = str()
         Final_Array = []
@@ -182,7 +182,7 @@ text-align: center;
         options.add_argument('--ignore-certificate-errors')
 
         # lock = threading.Lock()
-        @st.cache_data(show_spinner=False)
+        # @st.cache_data(show_spinner=False)
         def get_links(i, resumeContent):
             Final_Links = []
             Final_Titles = []
@@ -288,7 +288,7 @@ text-align: center;
         return Final_Array
 
 
-    @st.cache_data(show_spinner=False)
+    # @st.cache_data(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -353,7 +353,7 @@ text-align: center;
             placeholder='Excluded Keywords (Upto one)', )
 
 
-    @st.cache_data(show_spinner=False)
+    # @st.cache_data(show_spinner=False)
     def extract_text_from_pdf(pdf_file):
         pdfReader = PyPDF2.PdfReader(pdf_file)
         txtFile = open('sample.txt', 'w')
