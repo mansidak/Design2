@@ -281,7 +281,6 @@ text-align: center;
         threads = []
         for iterator, i in enumerate(links):
             t = threading.Thread(target=get_links, args=(iterator, i, resumeContent))
-            t.daemon = True
             threads.append(t)
             print("Starting thread", iterator)
             st.write("Starting thread", iterator)
