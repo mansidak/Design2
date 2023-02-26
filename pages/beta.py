@@ -241,19 +241,12 @@ text-align: center;
 
                 for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description, Final_Location, Final_Skills):
                     Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
-                print("About to close ", iterator)
-                st.write("About to close", iterator)
                 driver.close()
                 driver.quit()
-                print("Closed and quit ", iterator)
-                st.write("Closed and quit ", iterator)
             except:
-                print("Error on ", iterator)
-                st.write("Error on ", iterator)
                 driver.close()
                 driver.quit()
-                print("Error closed and quit ", iterator)
-                st.write("Error closed and quit ", iterator)
+
 
 
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
