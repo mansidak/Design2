@@ -287,18 +287,10 @@ text-align: center;
                 for i in links:
                     executor.map(get_links, i, resumeContent)
         finally:
-            driver.quit()
+            # driver.quit()
             executor.shutdown(wait=True)
             gc.enable()
-        # return Final_Array
 
-        # with ThreadPoolExecutor(max_workers=25) as executor:
-        #     for i in links:
-        #         executor.submit(get_links, i, resumeContent)
-        # executor.shutdown()
-        # gc.enable()
-        #
-        # driver.quit()
         return Final_Array
 
 
