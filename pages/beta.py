@@ -285,7 +285,6 @@ text-align: center;
         with ThreadPoolExecutor(max_workers=3) as executor:
             for i in links:
                 task = executor.submit(get_links, i, resumeContent)
-                task.join()
         executor.shutdown()
         gc.enable()
 
