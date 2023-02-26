@@ -368,9 +368,9 @@ text-align: center;
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",unsafe_allow_html=True)
 
-        thread1 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}",1, f"{undesired}"))
-        thread2 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}",1, f"{undesired}"))
-        thread3 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[2]}-{ExperienceLevel}", f"{newSkills[2]}",1, f"{undesired}"))
+        thread1 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}",1,resumeContent))
+        thread2 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}",1, resumeContent))
+        thread3 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[2]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}",1, resumeContent))
 
         thread1.start()
         thread2.start()
