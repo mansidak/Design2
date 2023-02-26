@@ -380,10 +380,6 @@ text-align: center;
         thread2.join()
         thread3.join()
 
-        result1 = thread1.result1
-        result2 = thread2.result1
-        result3 = thread3.result1
-
         # my_bar.progress(25, text=f"")
         # result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
         # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
