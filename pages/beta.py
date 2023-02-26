@@ -241,12 +241,19 @@ text-align: center;
 
                 for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links, Final_Titles, Final_Company, shortened_summary, Final_Description, Final_Location, Final_Skills):
                     Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+                print("About to close ", iterator)
+                st.write("About to close", iterator)
                 driver.close()
                 driver.quit()
+                print("Closed and quit ", iterator)
+                st.write("Closed and quit ", iterator)
             except:
+                print("Error on ", iterator)
+                st.write("Error on ", iterator)
                 driver.close()
                 driver.quit()
-
+                print("Error closed and quit ", iterator)
+                st.write("Error closed and quit ", iterator)
 
 
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
@@ -271,15 +278,12 @@ text-align: center;
                 driver.close()
                 driver.quit()
 
+        threads = []
         for i in links:
             get_links(i, resumeContent)
 
         driver.quit()
         return Final_Array
-
-
-    run_selenium_wrapper = lambda args: run_selenium1(*args)
-
 
     @st.cache_data(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
@@ -371,28 +375,13 @@ text-align: center;
         DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",unsafe_allow_html=True)
-
-        pool = Pool()
-
-        args_list = [(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent),(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent), (f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent) ]
-        results = pool.map(run_selenium_wrapper , args_list)
-
-        # Close the pool
-        pool.close()
-        pool.join()
-
-        # Access the returned values
-        result1 = results[0]
-        result2 = results[1]
-        result3 = results[2]
-
-        # my_bar.progress(25, text=f"")
-        # result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-        # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
-        # my_bar.progress(50, text=f"")
-        # result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
-        # my_bar.progress(95, text=f"")
-        # result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+        my_bar.progress(25, text=f"")
+        result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
+        my_bar.progress(50, text=f"")
+        result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
+        my_bar.progress(95, text=f"")
+        result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         st.session_state["FinalResults"] = result1 + result2 + result3
         # switch_page("results")
