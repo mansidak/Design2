@@ -277,6 +277,8 @@ text-align: center;
         driver.quit()
         return Final_Array
 
+
+
     @st.cache_data(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
@@ -371,7 +373,8 @@ text-align: center;
         pool = Pool()
 
         args_list = [(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent),(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent), (f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent) ]
-        results = pool.map(run_selenium1, args_list)
+        run_selenium_wrapper = lambda args: run_selenium1(*args)
+        results = pool.map(run_selenium_wrapper , args_list)
 
         # Close the pool
         pool.close()
