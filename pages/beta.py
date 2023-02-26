@@ -167,12 +167,10 @@ text-align: center;
 
     # @st.cache_data(show_spinner=False)
     def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
-        name = str()
         Final_Array = []
         options = Options()
         options.add_argument("--headless")
-        options.add_argument(
-            "user-agent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36")
+        options.add_argument("user-agent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--disable-gpu")
@@ -181,76 +179,6 @@ text-align: center;
         options.add_argument("--disable-features=VizDisplayCompositor")
         options.add_argument('--ignore-certificate-errors')
 
-        # lock = threading.Lock()
-        # @st.cache_data(show_spinner=False)
-        def get_links(i, resumeContent):
-            Final_Links = []
-            Final_Titles = []
-            Final_Company = []
-            Final_Description = []
-            Final_Location = []
-            shortened_summary = []
-            Final_Skills = []
-            try:
-                driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-                driver.get(i)
-                # time.sleep(2)
-                elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
-                for a in elements:
-                    if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
-                            'href') not in Final_Links:
-                        Final_Links.append(a.get_attribute('href'))
-                title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
-                st.write(title)
-                Final_Titles.append(title)
-                location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
-                Final_Location.append(location)
-                Final_Skills.append(skill1)
-                company = driver.find_element(By.XPATH,
-                                              "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
-                Final_Company.append(company)
-
-                description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
-                Final_Description.append(description)
-                words = description.split()
-                description_length = len(words)
-                if description_length > 950:
-                    sliced_description = ''.join(words[:950])
-                    response3 = openai.Completion.create(
-                        model="text-curie-001",
-                        prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{sliced_description}\n\nNow summarize it:\n\n\n",
-                        temperature=0.31,
-                        max_tokens=90,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    shortened_summary.append(response3["choices"][0]["text"])
-                else:
-                    response3 = openai.Completion.create(
-                        model="text-curie-001",
-                        prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{description}\n\nNow summarize it:\n\n\n",
-                        temperature=0.31,
-                        max_tokens=90,
-                        top_p=1,
-                        frequency_penalty=0,
-                        presence_penalty=0
-                    )
-                    shortened_summary.append(response3["choices"][0]["text"])
-
-                for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
-                                                                                                Final_Titles,
-                                                                                                Final_Company,
-                                                                                                shortened_summary,
-                                                                                                Final_Description,
-                                                                                                Final_Location,
-                                                                                                Final_Skills):
-                    Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
-                driver.close()
-                driver.quit()
-            except:
-                driver.close()
-                driver.quit()
 
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
             try:
@@ -272,26 +200,84 @@ text-align: center;
             except:
                 driver.close()
                 driver.quit()
+        return links
 
-        # threads = []
-        # for i in links:
-        #     t = threading.Thread(target=get_links, args=(i, resumeContent))
-        #     t.daemon = True
-        #     threads.append(t)
-        #     t.start()
-        # for t in threads:
-        #     t.join()
 
+
+    # @st.cache_data(show_spinner=False)
+    def get_links(i, resumeContent):
+        Final_Array = []
+        Final_Links = []
+        Final_Titles = []
+        Final_Company = []
+        Final_Description = []
+        Final_Location = []
+        shortened_summary = []
+        Final_Skills = []
         try:
-            with ThreadPoolExecutor(max_workers=25) as executor:
-                for i in links:
-                    executor.map(get_links, i, resumeContent)
-        finally:
-            # driver.quit()
-            executor.shutdown(wait=True)
-            gc.enable()
+            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+            driver.get(i)
+            # time.sleep(2)
+            elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
+            for a in elements:
+                if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
+                        'href') not in Final_Links:
+                    Final_Links.append(a.get_attribute('href'))
+            title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
+            st.write(title)
+            Final_Titles.append(title)
+            location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
+            Final_Location.append(location)
+            Final_Skills.append(skill1)
+            company = driver.find_element(By.XPATH,
+                                          "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
+            Final_Company.append(company)
 
+            description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
+            Final_Description.append(description)
+            words = description.split()
+            description_length = len(words)
+            if description_length > 950:
+                sliced_description = ''.join(words[:950])
+                response3 = openai.Completion.create(
+                    model="text-curie-001",
+                    prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{sliced_description}\n\nNow summarize it:\n\n\n",
+                    temperature=0.31,
+                    max_tokens=90,
+                    top_p=1,
+                    frequency_penalty=0,
+                    presence_penalty=0
+                )
+                shortened_summary.append(response3["choices"][0]["text"])
+            else:
+                response3 = openai.Completion.create(
+                    model="text-curie-001",
+                    prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{description}\n\nNow summarize it:\n\n\n",
+                    temperature=0.31,
+                    max_tokens=90,
+                    top_p=1,
+                    frequency_penalty=0,
+                    presence_penalty=0
+                )
+                shortened_summary.append(response3["choices"][0]["text"])
+
+            for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
+                                                                                            Final_Titles,
+                                                                                            Final_Company,
+                                                                                            shortened_summary,
+                                                                                            Final_Description,
+                                                                                            Final_Location,
+                                                                                            Final_Skills):
+                Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+
+            driver.close()
+            driver.quit()
+        except:
+            driver.close()
+            driver.quit()
         return Final_Array
+
+
 
 
     # @st.cache_data(show_spinner=False)
@@ -384,25 +370,27 @@ text-align: center;
             st.session_state["resumeContent"] = resumeContent
         holder2.empty()
         DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
-        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
-                            unsafe_allow_html=True)
-        progressText.markdown(
-            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
-            unsafe_allow_html=True)
+        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
+        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
         my_bar.progress(25, text=f"")
-        result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1,
-                                resumeContent)
-        progressText.markdown(
-            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",
-            unsafe_allow_html=True)
+        links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+        with ThreadPoolExecutor(max_workers=25) as executor:
+            for i in links1:
+                task1 = executor.submit(get_links, i, resumeContent)
+                result1 = task1.result()
+        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
-        result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1,
-                                resumeContent)
-        progressText.markdown(
-            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",
-            unsafe_allow_html=True)
+        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        with ThreadPoolExecutor(max_workers=25) as executor:
+            for i in links2:
+                task1 = executor.submit(get_links, i, resumeContent)
+                result2 = task1.result()
+        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>", unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
-        result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1,
-                                resumeContent)
+        links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+        with ThreadPoolExecutor(max_workers=25) as executor:
+            for i in links3:
+                task1 = executor.submit(get_links, i, resumeContent)
+                result3 = task1.result()
         st.session_state["FinalResults"] = result1 + result2 + result3
         switch_page("results")
