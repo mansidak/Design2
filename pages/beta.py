@@ -280,8 +280,12 @@ text-align: center;
 
         threads = []
         for i in links:
-            get_links(i, resumeContent)
-
+            t = threading.Thread(target=get_links, args=(i, resumeContent))
+            threads.append(t)
+            t.start()
+        for t in threads:
+            t.join()
+            print("Threads destroyed")
         driver.quit()
         return Final_Array
 
