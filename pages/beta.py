@@ -284,7 +284,8 @@ text-align: center;
 
         try:
             with ThreadPoolExecutor(max_workers=25) as executor:
-                executor.map(get_links, links)
+                for i in links:
+                    executor.map(get_links, i, resumeContent)
         finally:
             driver.quit()
             executor.shutdown(wait=True)
