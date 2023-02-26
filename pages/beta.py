@@ -368,17 +368,19 @@ text-align: center;
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",unsafe_allow_html=True)
 
-        thread1 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent))
-        thread2 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}",1, resumeContent))
-        thread3 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[2]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}",1, resumeContent))
+        pool = Pool()
 
-        thread1.start()
-        thread2.start()
-        thread3.start()
+        args_list = [(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent),(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent), (f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent) ]
+        results = pool.map(run_selenium1, args_list)
 
-        thread1.join()
-        thread2.join()
-        thread3.join()
+        # Close the pool
+        pool.close()
+        pool.join()
+
+        # Access the returned values
+        result1 = results[0]
+        result2 = results[1]
+        result3 = results[2]
 
         # my_bar.progress(25, text=f"")
         # result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
@@ -388,5 +390,5 @@ text-align: center;
         # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
         # my_bar.progress(95, text=f"")
         # result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-        # st.session_state["FinalResults"] = result1 + result2 + result3
+        st.session_state["FinalResults"] = result1 + result2 + result3
         # switch_page("results")
