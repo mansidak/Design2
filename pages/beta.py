@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 import time
 import threading
 from multiprocessing import Pool
-
+from concurrent.futures import ThreadPoolExecutor
 import PyPDF2
 from docx import Document
 import openai
@@ -273,14 +273,17 @@ text-align: center;
                 driver.close()
                 driver.quit()
 
-        threads = []
-        for i in links:
-            t = threading.Thread(target=get_links, args=(i, resumeContent))
-            t.daemon = True
-            threads.append(t)
-            t.start()
-        for t in threads:
-            t.join()
+        # threads = []
+        # for i in links:
+        #     t = threading.Thread(target=get_links, args=(i, resumeContent))
+        #     t.daemon = True
+        #     threads.append(t)
+        #     t.start()
+        # for t in threads:
+        #     t.join()
+
+        with ThreadPoolExecutor(max_workers=25) as executor:
+            executor.map(get_links, links)
 
         gc.enable()
 
