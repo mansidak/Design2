@@ -355,6 +355,8 @@ if __name__ == "__main__":
 
 
     if ResumePDF is not None and ExperienceLevel is not None:
+        print(threading.enumerate())
+        st.write(threading.enumerate())
         SubTitle.empty()
         Credits.empty()
         holder.empty()
