@@ -282,13 +282,22 @@ text-align: center;
         # for t in threads:
         #     t.join()
 
-        with ThreadPoolExecutor(max_workers=25) as executor:
-            for i in links:
-                executor.submit(get_links, i, resumeContent)
-        executor.shutdown()
-        gc.enable()
+        try:
+            with ThreadPoolExecutor(max_workers=25) as executor:
+                executor.map(get_links, links)
+        finally:
+            driver.quit()
+            executor.shutdown(wait=True)
+            gc.enable()
+        # return Final_Array
 
-        driver.quit()
+        # with ThreadPoolExecutor(max_workers=25) as executor:
+        #     for i in links:
+        #         executor.submit(get_links, i, resumeContent)
+        # executor.shutdown()
+        # gc.enable()
+        #
+        # driver.quit()
         return Final_Array
 
 
