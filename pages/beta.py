@@ -371,23 +371,36 @@ if __name__ == "__main__":
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
         my_bar.progress(25, text=f"")
         links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-        with ThreadPoolExecutor(max_workers=25) as executor:
-            for i in links1:
-                for result in executor.map(get_links, i, newSkills[0],  resumeContent):
-                    print(result)
+        threads =[]
+        for i in links1:
+            t = threading.Thread(target=get_links, args=(i,newSkills[0], resumeContent))
+            t.daemon = True
+            threads.append(t)
+            t.start()
+        for t in threads:
+            t.join()
+            print("Threads destroyed")
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
         links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        with ThreadPoolExecutor(max_workers=25) as executor:
-            for i in links2:
-                for result in executor.map(get_links, i, newSkills[0], resumeContent):
-                    print(result)
+        for i in links2:
+            t = threading.Thread(target=get_links, args=(i, newSkills[1], resumeContent))
+            t.daemon = True
+            threads.append(t)
+            t.start()
+        for t in threads:
+            t.join()
+            print("Threads destroyed")
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>", unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-        with ThreadPoolExecutor(max_workers=25) as executor:
-            for i in links3:
-                for result in executor.map(get_links, i, newSkills[0], resumeContent):
-                    print(result)
+        for i in links3:
+            t = threading.Thread(target=get_links, args=(i, newSkills[3], resumeContent))
+            t.daemon = True
+            threads.append(t)
+            t.start()
+        for t in threads:
+            t.join()
+            print("Threads destroyed")
         # st.session_state["FinalResults"] = result1 + result2 + result3
         # switch_page("results")
