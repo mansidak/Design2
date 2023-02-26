@@ -278,6 +278,8 @@ text-align: center;
         return Final_Array
 
 
+    run_selenium_wrapper = lambda args: run_selenium1(*args)
+
 
     @st.cache_data(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
@@ -373,7 +375,6 @@ text-align: center;
         pool = Pool()
 
         args_list = [(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent),(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent), (f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent) ]
-        run_selenium_wrapper = lambda args: run_selenium1(*args)
         results = pool.map(run_selenium_wrapper , args_list)
 
         # Close the pool
