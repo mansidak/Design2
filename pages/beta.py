@@ -297,7 +297,7 @@ text-align: center;
             st.write("Joined thread #", i)
         print("All threads have now been joined")
         st.write("All threads have now been joined")
-        threads.append(None)
+        threads.append([])
         t = None
         driver.quit()
         return Final_Array
