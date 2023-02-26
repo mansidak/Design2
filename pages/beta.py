@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 import time
 import threading
 from multiprocessing import Pool
-
+#v1.8.0
 import PyPDF2
 from docx import Document
 import openai
