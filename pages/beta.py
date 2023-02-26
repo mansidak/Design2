@@ -10,7 +10,6 @@ from selenium.webdriver.common.by import By
 import time
 import threading
 from multiprocessing import Pool
-import multiprocessing
 from concurrent.futures import ThreadPoolExecutor
 import PyPDF2
 from docx import Document
@@ -282,10 +281,10 @@ text-align: center;
         #     t.start()
         # for t in threads:
         #     t.join()
-        max_workers = min(len(links), multiprocessing.cpu_count())
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+
+        with ThreadPoolExecutor(max_workers=25) as executor:
             for i in links:
-                task = executor.submit(get_links, i, resumeContent)
+                executor.submit(get_links, i, resumeContent)
         executor.shutdown()
         gc.enable()
 
