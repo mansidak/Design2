@@ -395,7 +395,7 @@ if __name__ == "__main__":
         my_bar.progress(95, text=f"")
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         for i in links3:
-            t = threading.Thread(target=get_links, args=(i, newSkills[3], resumeContent))
+            t = threading.Thread(target=get_links, args=(i, newSkills[2], resumeContent))
             t.daemon = True
             threads.append(t)
             t.start()
