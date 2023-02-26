@@ -374,20 +374,20 @@ if __name__ == "__main__":
         with ThreadPoolExecutor(max_workers=25) as executor:
             for i in links1:
                 for result in executor.map(get_links, i, newSkills[0],  resumeContent):
-                    result1 = result
+                    print(result)
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
         links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor(max_workers=25) as executor:
             for i in links2:
                 for result in executor.map(get_links, i, newSkills[0], resumeContent):
-                    result2 = result
+                    print(result)
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>", unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor(max_workers=25) as executor:
             for i in links3:
                 for result in executor.map(get_links, i, newSkills[0], resumeContent):
-                    result3 = result
-        st.session_state["FinalResults"] = result1 + result2 + result3
-        switch_page("results")
+                    print(result)
+        # st.session_state["FinalResults"] = result1 + result2 + result3
+        # switch_page("results")
