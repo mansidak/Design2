@@ -1,6 +1,6 @@
 import os
 import random
-
+import gc
 import streamlit as st
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -290,12 +290,11 @@ text-align: center;
                 # the thread will still perform the full 1 second sleep and the rest of
                 # the loop before finally stopping.
             else:
-                print
-                "thread has already finished."
+                print("thread has already finished.")
 
             print("Threads destroyed")
+        gc.enable()
 
-            # Print the error that is causing the code to block.
         driver.quit()
         return Final_Array
 
