@@ -16,7 +16,6 @@ from docx import Document
 import openai
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
-from streamlit.report_thread import ReportThread
 
 css = """
 .uploadedFiles {
@@ -376,7 +375,6 @@ if __name__ == "__main__":
         threads =[]
         for i in links1:
             t = threading.Thread(target=get_links, args=(i,newSkills[0], resumeContent))
-            add_report_ctx(t)
             t.daemon = True
             threads.append(t)
             t.start()
@@ -390,7 +388,6 @@ if __name__ == "__main__":
         links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
         for i in links2:
             t = threading.Thread(target=get_links, args=(i, newSkills[1], resumeContent))
-            add_report_ctx(t)
             t.daemon = True
             threads.append(t)
             t.start()
@@ -404,7 +401,6 @@ if __name__ == "__main__":
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         for i in links3:
             t = threading.Thread(target=get_links, args=(i, newSkills[2], resumeContent))
-            add_report_ctx(t)
             t.daemon = True
             threads.append(t)
             t.start()
