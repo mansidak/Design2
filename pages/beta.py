@@ -283,15 +283,8 @@ text-align: center;
         #     t.join()
 
         with ThreadPoolExecutor(max_workers=25) as executor:
-            threads = []
             for i in links:
-                t = threading.Thread(target=get_links, args=(i, resumeContent))
-                t.daemon = True
-                threads.append(t)
-                t.start()
-            for t in threads:
-                t.join()
-            executor.map(get_links, links)
+                executor.submit(get_links, i, resumeContent)
 
         gc.enable()
 
