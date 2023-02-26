@@ -16,8 +16,8 @@ from docx import Document
 import openai
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
-import streamlit.report_thread as ReportThread
-from streamlit.report_thread import add_report_ctx
+from streamlit.report_thread import ReportThread
+
 css = """
 .uploadedFiles {
     display: none;
