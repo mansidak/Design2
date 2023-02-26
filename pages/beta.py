@@ -280,19 +280,9 @@ text-align: center;
             t.daemon = True
             threads.append(t)
             t.start()
-        for t in threads:
-            t.join(30)
-            if t.is_alive():
-                print("thread is not done, setting event to kill thread.")
-                threading.Event().set()
-                # The thread can still be running at this point. For example, if the
-                # thread's call to isSet() returns right before this call to set(), then
-                # the thread will still perform the full 1 second sleep and the rest of
-                # the loop before finally stopping.
-            else:
-                print("thread has already finished.")
+            for t in threads:
+                t.join(100)
 
-            print("Threads destroyed")
         gc.enable()
 
         driver.quit()
