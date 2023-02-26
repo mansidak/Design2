@@ -291,8 +291,7 @@ text-align: center;
                 t.start()
             for t in threads:
                 t.join()
-
-        executor.map(get_links, links)
+            executor.map(get_links, links)
 
         gc.enable()
 
