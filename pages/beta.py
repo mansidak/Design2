@@ -117,32 +117,32 @@ if __name__ == "__main__":
         """, unsafe_allow_html=True)
 
     footer = """<style>
-a:link , a:visited{
-color: blue;
-background-color: transparent;
-text-decoration: underline;
-}
-
-a:hover,  a:active {
-color: red;
-background-color: transparent;
-text-decoration: underline;
-}
-
-.footer {
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: 0d0d0d;
-color: 2A2A2A;
-text-align: center;
-}
-</style>
-<div class="footer" font-family: Sans-Serif;font-weight: lighter;>
-<p>A Mansidak Singh Production</p>
-</div>
-"""
+    a:link , a:visited{
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+    }
+    
+    a:hover,  a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+    }
+    
+    .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: 0d0d0d;
+    color: 2A2A2A;
+    text-align: center;
+    }
+    </style>
+    <div class="footer" font-family: Sans-Serif;font-weight: lighter;>
+    <p>A Mansidak Singh Production</p>
+    </div>
+    """
     st.markdown(footer, unsafe_allow_html=True)
 
     progress_text = "See your search progress here."
@@ -205,7 +205,7 @@ text-align: center;
 
 
     # @st.cache_data(show_spinner=False)
-    def get_links(i, resumeContent):
+    def get_links(i, skill1, resumeContent):
         Final_Array = []
         Final_Links = []
         Final_Titles = []
@@ -276,9 +276,6 @@ text-align: center;
             driver.close()
             driver.quit()
         return Final_Array
-
-
-
 
     # @st.cache_data(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
@@ -376,21 +373,21 @@ text-align: center;
         links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor(max_workers=25) as executor:
             for i in links1:
-                task1 = executor.submit(get_links, i, resumeContent)
+                task1 = executor.map(get_links, i, newSkills[0],  resumeContent)
                 result1 = task1.result()
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
         links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor(max_workers=25) as executor:
             for i in links2:
-                task1 = executor.submit(get_links, i, resumeContent)
+                task1 = executor.map(get_links, i, newSkills[1], resumeContent)
                 result2 = task1.result()
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>", unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor(max_workers=25) as executor:
             for i in links3:
-                task1 = executor.submit(get_links, i, resumeContent)
+                task1 = executor.map(get_links, i, newSkills[2], resumeContent)
                 result3 = task1.result()
         st.session_state["FinalResults"] = result1 + result2 + result3
         switch_page("results")
