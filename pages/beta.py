@@ -388,5 +388,5 @@ text-align: center;
         # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
         # my_bar.progress(95, text=f"")
         # result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-        st.session_state["FinalResults"] = result1 + result2 + result3
+        # st.session_state["FinalResults"] = result1 + result2 + result3
         # switch_page("results")
