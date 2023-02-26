@@ -278,27 +278,9 @@ text-align: center;
                 driver.close()
                 driver.quit()
 
-        threads = []
-        for iterator, i in enumerate(links):
-            t = threading.Thread(target=get_links, args=(iterator, i, resumeContent))
-            threads.append(t)
-            print("Starting thread", iterator)
-            st.write("Starting thread", iterator)
-            t.start()
+        for i in links:
+            get_links(i, resumeContent)
 
-        print("Total number of threads was ", len(threads))
-        st.write(f"Total number of threads was  {len(threads)}")
-
-        for i, t in enumerate(threads):
-            print("Trying to Join thread #", i)
-            st.write("Trying to Join thread #", i)
-            t.join()
-            print("Joined thread #", i)
-            st.write("Joined thread #", i)
-        print("All threads have now been joined")
-        st.write("All threads have now been joined")
-        threads.append([])
-        t = None
         driver.quit()
         return Final_Array
 
@@ -392,13 +374,30 @@ text-align: center;
         DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",unsafe_allow_html=True)
-        my_bar.progress(25, text=f"")
-        result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
-        my_bar.progress(50, text=f"")
-        result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
-        my_bar.progress(95, text=f"")
-        result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+
+        thread1 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}",1, f"{undesired}"))
+        thread2 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}",1, f"{undesired}"))
+        thread3 = threading.Thread(target=run_selenium1, args=(f"{newJobtitles[2]}-{ExperienceLevel}", f"{newSkills[2]}",1, f"{undesired}"))
+
+        thread1.start()
+        thread2.start()
+        thread3.start()
+
+        thread1.join()
+        thread2.join()
+        thread3.join()
+
+        result1 = thread1.result1
+        result2 = thread2.result1
+        result3 = thread3.result1
+
+        # my_bar.progress(25, text=f"")
+        # result1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+        # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",unsafe_allow_html=True)
+        # my_bar.progress(50, text=f"")
+        # result2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
+        # my_bar.progress(95, text=f"")
+        # result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         st.session_state["FinalResults"] = result1 + result2 + result3
         # switch_page("results")
