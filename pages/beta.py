@@ -254,8 +254,7 @@ text-align: center;
 
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
             try:
-                driver.get(
-                    f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")
+                driver.get(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                 time.sleep(1)
                 links = []
@@ -280,8 +279,8 @@ text-align: center;
             t.daemon = True
             threads.append(t)
             t.start()
-            for t in threads:
-                t.join(10)
+        for t in threads:
+            t.join()
 
         gc.enable()
 
