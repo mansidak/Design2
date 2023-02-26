@@ -398,4 +398,4 @@ text-align: center;
         my_bar.progress(95, text=f"")
         result3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         st.session_state["FinalResults"] = result1 + result2 + result3
-        switch_page("results")
+        # switch_page("results")
