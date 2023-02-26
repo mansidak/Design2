@@ -408,5 +408,6 @@ if __name__ == "__main__":
             print("Threads destroyed")
 
         print(threading.enumerate())
+        st.write(threading.enumerate())
         # st.session_state["FinalResults"] = result1 + result2 + result3
         # switch_page("results")
