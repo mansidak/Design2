@@ -353,7 +353,6 @@ if __name__ == "__main__":
             resumeContent = pageObj.extract_text()
         return resumeContent
 
-
     if ResumePDF is not None and ExperienceLevel is not None:
         print(threading.enumerate())
         st.write(threading.enumerate())
