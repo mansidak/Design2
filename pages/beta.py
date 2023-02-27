@@ -362,8 +362,6 @@ if __name__ == "__main__":
 
 
     if ResumePDF is not None and ExperienceLevel is not None:
-        st.write("When Resume started to be parsed")
-
         SubTitle.empty()
         Credits.empty()
         holder.empty()
@@ -397,7 +395,6 @@ if __name__ == "__main__":
             st.write(newSkills[1])
             futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
             result2 = [future.result() for future in futures]
-            st.write(result2)
             result22 = sum(result2, [])
             st.write(sum(result2, []))
 
@@ -410,7 +407,6 @@ if __name__ == "__main__":
             st.write(newSkills[2])
             futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
             result3 = [future.result() for future in futures]
-            st.write(result3)
             result33 = sum(result3, [])
             st.write(sum(result3, []))
 
@@ -419,4 +415,4 @@ if __name__ == "__main__":
 
         st.session_state["FinalResults"] = result11 + result22 + result33
         # st.write(st.session_state["FinalResults"])
-        # switch_page("results")
+        switch_page("results")
