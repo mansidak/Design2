@@ -375,6 +375,7 @@ if st.button("Download Items", key="Download PDF"):
         pdf.setFont("Helvetica", 12)
         pdf.drawString(100, 650, companyName)
         pdf.drawString(100, 650, companyName)
+        pdf.save()
         st.download_button(label="Download PDF", data=pdf, file_name="my_pdf.pdf", mime="application/pdf", key= "hanji download")
 
 
