@@ -16,7 +16,7 @@ from docx import Document
 import openai
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
-
+print(threading.enumerate())
 css = """
 .uploadedFiles {
     display: none;
