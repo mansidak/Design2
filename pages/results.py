@@ -353,7 +353,7 @@ if st.button("Download Items", key="Download PDF"):
     pdf = canvas.Canvas("my_pdf.pdf", pagesize=letter)
     pdf.showPage()
     pdf.setFillColor(blue)
-    for element in unique_results:
+
         link = element[0]
         title = element[1]
         companyName = element[2]
@@ -361,20 +361,18 @@ if st.button("Download Items", key="Download PDF"):
         fullDescription = element[4]
         location = element[5]
         skills = element[6]
+        for element in unique_results:
+            pdf.setFillColor(blue)
+            hyperlink_text = title
+            text_width = stringWidth(hyperlink_text, "Helvetica", 20)
+            pdf.rect(100, 700, text_width, 20, fill=1)
+            pdf.setFillColor(black)
+            pdf.linkURL(link, (100, 700, text_width, 20))
 
-        pdf.setFont("Helvetica", 20)
-        pdf.drawString(100, 700, title)
-        pdf.setFillColor(blue)
-        hyperlink_text = title
-        text_width = stringWidth(hyperlink_text, "Helvetica", 20)
-        pdf.rect(100, 700, text_width, 20, fill=1)
-        pdf.setFillColor(black)
-        pdf.linkURL(link, (100, 700, text_width, 20))
-
-        # Set item2 as a body
-        pdf.setFont("Helvetica", 12)
-        pdf.drawString(100, 650, companyName)
-        pdf.drawString(100, 650, companyName)
-        pdf.save()
-        st.download_button(label="Download PDF", data=pdf.getpdfdata(), file_name="my_pdf.pdf", mime="application/pdf", key= "hanji download")
+            # Set item2 as a body
+            pdf.setFont("Helvetica", 12)
+            pdf.drawString(100, 650, companyName)
+            pdf.drawString(100, 650, companyName)
+            pdf.save()
+            st.download_button(label="Download PDF", data=pdf.getpdfdata(), file_name="my_pdf.pdf", mime="application/pdf", key= "hanji download")
 
