@@ -390,12 +390,12 @@ if __name__ == "__main__":
         threads =[]
         with ThreadPoolExecutor(max_workers=75) as executor:
             st.write(newSkills[0])
-            future1 = executor.submit(get_links, links1, newSkills[0], resumeContent)
-            future2 = executor.submit(get_links, links2, newSkills[1], resumeContent)
-            future3 = executor.submit(get_links, links3, newSkills[2], resumeContent)
-            result1 = (future1)
-            result2 = (future2)
-            result3 = (future3)
+            future2 = executor.map(get_links, links2, newSkills[1], resumeContent)
+            future1 = executor.map(get_links, links1, newSkills[0], resumeContent)
+            future3 = executor.map(get_links, links3, newSkills[2], resumeContent)
+            result1 = list(future1)
+            result2 = list(future2)
+            result3 = list(future3)
 
 
 
