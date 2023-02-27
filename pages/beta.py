@@ -282,6 +282,7 @@ if __name__ == "__main__":
         except:
             driver.close()
             driver.quit()
+            st.write(Final_Array)
         return Final_Array
 
     # @st.cache_data(show_spinner=False)
@@ -385,7 +386,6 @@ if __name__ == "__main__":
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[0])
             future1 = executor.map(get_links, links1, newSkills[0], resumeContent)
-            st.write(future1)
             result1= list((future1))
 
 
@@ -407,7 +407,6 @@ if __name__ == "__main__":
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[1])
             future2 = executor.map(get_links, links2, newSkills[1], resumeContent)
-            st.write(future2)
             result2 = list((future2))
 
 
@@ -429,7 +428,6 @@ if __name__ == "__main__":
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[2])
             future3 = executor.map(get_links, links3, newSkills[2], resumeContent)
-            st.write(future3)
             result3 = list((future3))
 
         # for i in links3:
