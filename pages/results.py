@@ -56,6 +56,10 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 with st.sidebar:
+
+    st.subheader("")
+    st.subheader("")
+
     undesired = st.text_input(
         'Enter upto one company/keyword you wish to be excluded',
         placeholder='Excluded Keywords (Upto one)', )
