@@ -102,8 +102,8 @@ st.write("")
 st.write("")
 st.write("")
 
-unique_results = set(st.session_state['FinalResults'])
-for element in unique_results:
+# unique_results = set(st.session_state['FinalResults'])
+for element in st.session_state['FinalResults']:
     link = element[0]
     title = element[1]
     companyName = element[2]
