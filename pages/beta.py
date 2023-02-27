@@ -51,10 +51,11 @@ def show_selenium_log():
 openai.api_key = os.environ.get("openai_api_key")
 
 if __name__ == "__main__":
-    print(threading.enumerate())
-    st.write(threading.enumerate())
+
     st.set_page_config(page_title="19th Street", page_icon='⓵⓽',
                        initial_sidebar_state='collapsed')
+    print(threading.enumerate())
+    st.write(threading.enumerate())
     hide_streamlit_style = """
                   <style>
                   div[class='css-4z1n4l ehezqtx5']{
