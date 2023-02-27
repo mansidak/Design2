@@ -122,7 +122,7 @@ if __name__ == "__main__":
         <style>
         """, unsafe_allow_html=True)
 
-    footer = """<style>
+    footer22 = """<style>
     a:link , a:visited{
     color: blue;
     background-color: transparent;
@@ -149,7 +149,7 @@ if __name__ == "__main__":
     <p>A Mansidak Singh Production</p>
     </div>
     """
-    st.markdown(footer, unsafe_allow_html=True)
+    st.markdown(footer22, unsafe_allow_html=True)
 
     progress_text = "See your search progress here."
     progress_text_2 = "Hola"
