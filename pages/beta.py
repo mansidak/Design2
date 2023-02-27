@@ -142,9 +142,10 @@ if __name__ == "__main__":
         <style>
             .css-9ycgxx::after {
                 content: " as a single-page PDF";
+                }
             .css-leojxt::after{
             content: "Filters"
-            }
+            
             }
         <style>
         """, unsafe_allow_html=True)
