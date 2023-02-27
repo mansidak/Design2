@@ -438,5 +438,6 @@ if __name__ == "__main__":
 
         print(threading.enumerate())
         st.write(threading.enumerate())
+        st.write(st.session_state["FinalResults"])
         st.session_state["FinalResults"] = result1 + result2 + result3
-        switch_page("results")
+        # switch_page("results")
