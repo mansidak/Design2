@@ -423,4 +423,4 @@ if __name__ == "__main__":
 
         st.session_state["FinalResults"] = result1 + result2 + result3
         st.write(st.session_state["FinalResults"])
-        # switch_page("results")
+        switch_page("results")
