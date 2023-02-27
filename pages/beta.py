@@ -17,6 +17,7 @@ import openai
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 import psutil
+
 css = """
 .uploadedFiles {
     display: none;
@@ -129,13 +130,13 @@ if __name__ == "__main__":
     background-color: transparent;
     text-decoration: underline;
     }
-    
+
     a:hover,  a:active {
     color: red;
     background-color: transparent;
     text-decoration: underline;
     }
-    
+
     .footer {
     position: fixed;
     left: 0;
@@ -177,7 +178,8 @@ if __name__ == "__main__":
         Final_Array = []
         options = Options()
         options.add_argument("--headless")
-        options.add_argument("user-agent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36")
+        options.add_argument(
+            "user-agent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--disable-gpu")
@@ -186,10 +188,10 @@ if __name__ == "__main__":
         options.add_argument("--disable-features=VizDisplayCompositor")
         options.add_argument('--ignore-certificate-errors')
 
-
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
             try:
-                driver.get(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")
+                driver.get(
+                    f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                 time.sleep(1)
                 links = []
@@ -208,7 +210,6 @@ if __name__ == "__main__":
                 driver.close()
                 driver.quit()
         return links
-
 
 
     # @st.cache_data(show_spinner=False)
@@ -283,6 +284,7 @@ if __name__ == "__main__":
             driver.close()
             driver.quit()
         return Final_Array
+
 
     # @st.cache_data(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
@@ -360,6 +362,7 @@ if __name__ == "__main__":
             resumeContent = pageObj.extract_text()
         return resumeContent
 
+
     if ResumePDF is not None and ExperienceLevel is not None:
         st.write("When Resume started to be parsed")
         st.write(process.memory_info().rss)
@@ -377,56 +380,83 @@ if __name__ == "__main__":
             st.session_state["resumeContent"] = resumeContent
         holder2.empty()
         DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
-        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
-        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
+        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
+                            unsafe_allow_html=True)
+        progressText.markdown(
+            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
+            unsafe_allow_html=True)
         my_bar.progress(25, text=f"")
-        links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-        threads =[]
-        for i in links1:
-            t = threading.Thread(target=get_links, args=(i,newSkills[0], resumeContent))
-            t.daemon = True
-            threads.append(t)
-            t.start()
-        for t in threads:
-            t.join()
-            print("Threads destroyed")
+        links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1,
+                               resumeContent)
+        threads = []
+        with ThreadPoolExecutor() as executor:
+            st.write(newSkills[0])
+            future1 = executor.map(get_links, links1, newSkills[0], resumeContent)
+            result1 = list(future1)
+            st.write(result1)
 
-        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
+        # for i in links1:
+        #     t = threading.Thread(target=get_links, args=(i,newSkills[0], resumeContent))
+        #     t.daemon = True
+        #     threads.append(t)
+        #     t.start()
+        # for t in threads:
+        #     t.join()
+        #     print("Threads destroyed")
+
+        progressText.markdown(
+            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",
+            unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
         st.write("Finished First Result")
         st.write(process.memory_info().rss)
 
-        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        for i in links2:
-            t = threading.Thread(target=get_links, args=(i, newSkills[1], resumeContent))
-            t.daemon = True
-            threads.append(t)
-            t.start()
-        for t in threads:
-            t.join()
-            print("Threads destroyed")
-        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>", unsafe_allow_html=True)
+        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1,
+                               resumeContent)
+        with ThreadPoolExecutor() as executor:
+            st.write(newSkills[1])
+            future2 = executor.map(get_links, links2, newSkills[1], resumeContent)
+            result2 = list(future2)
+            st.write(result2)
+
+
+        # for i in links2:
+        #     t = threading.Thread(target=get_links, args=(i, newSkills[1], resumeContent))
+        #     t.daemon = True
+        #     threads.append(t)
+        #     t.start()
+        # for t in threads:
+        #     t.join()
+        #     print("Threads destroyed")
+        progressText.markdown(
+            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",
+            unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
         st.write("Finished Second Result")
         st.write(process.memory_info().rss)
 
+        links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1,
+                               resumeContent)
+        with ThreadPoolExecutor() as executor:
+            st.write(newSkills[2])
+            future3 = executor.map(get_links, links3, newSkills[2], resumeContent)
+            result3 = list(future3)
+            st.write(result3)
 
-        links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-        for i in links3:
-            t = threading.Thread(target=get_links, args=(i, newSkills[2], resumeContent))
-            t.daemon = True
-            threads.append(t)
-            t.start()
-        for t in threads:
-            t.join()
-            print("Threads destroyed")
+        # for i in links3:
+        #     t = threading.Thread(target=get_links, args=(i, newSkills[2], resumeContent))
+        #     t.daemon = True
+        #     threads.append(t)
+        #     t.start()
+        # for t in threads:
+        #     t.join()
+        #     print("Threads destroyed")
         st.write("Finished Third Result")
         st.write(process.memory_info().rss)
-
 
         print(threading.enumerate())
         st.write(threading.enumerate())
 
-        # st.session_state["FinalResults"] = result1 + result2 + result3
-        # st.write(st.session_state["FinalResults"])
+        st.session_state["FinalResults"] = result1 + result2 + result3
+        st.write(st.session_state["FinalResults"])
         # switch_page("results")
