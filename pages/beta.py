@@ -58,7 +58,7 @@ if __name__ == "__main__":
     st.write(threading.enumerate())
 
     process = psutil.Process(os.getpid())
-    print(process.memory_info().rss/1024 ** 2)
+    print(process.memory_info().rss)
     st.write(process.memory_info().rss)
     hide_streamlit_style = """
                   <style>
