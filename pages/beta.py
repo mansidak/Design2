@@ -85,6 +85,16 @@ if __name__ == "__main__":
                   visibility:hidden;
                   height:0px;
                   }
+                  .css-1nsk2xq{
+                  visibility:hidden;
+                  height:0px;
+                  }
+                  
+                  .css-14x9thb
+                  {
+                  visibility:hidden;
+                  height:0px;
+                  }
                   .st-be{
                   border-radius: 50px;
                   }
