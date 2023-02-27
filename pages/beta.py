@@ -416,7 +416,6 @@ text-align: center;
         executor.shutdown(wait=True)
 
         with ThreadPoolExecutor() as executor:
-            st.write(newSkills[2])
             futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
             result3 = [future.result() for future in futures]
             result33 = sum(result3, [])
