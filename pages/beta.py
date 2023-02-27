@@ -385,7 +385,9 @@ if __name__ == "__main__":
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[0])
             future1 = executor.map(get_links, links1, newSkills[0], resumeContent)
-            result1= list(future1)
+            st.write(future1)
+            result1= list((future1))
+
 
         # for i in links1:
         #     t = threading.Thread(target=get_links, args=(i,newSkills[0], resumeContent))
@@ -405,7 +407,9 @@ if __name__ == "__main__":
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[1])
             future2 = executor.map(get_links, links2, newSkills[1], resumeContent)
-            result2 = list(future2)
+            st.write(future2)
+            result2 = list((future2))
+
 
         # for i in links2:
         #     t = threading.Thread(target=get_links, args=(i, newSkills[1], resumeContent))
@@ -425,7 +429,8 @@ if __name__ == "__main__":
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[2])
             future3 = executor.map(get_links, links3, newSkills[2], resumeContent)
-            result3 = list(future3)
+            st.write(future3)
+            result3 = list((future3))
 
         # for i in links3:
         #     t = threading.Thread(target=get_links, args=(i, newSkills[2], resumeContent))
