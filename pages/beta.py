@@ -166,6 +166,12 @@ if __name__ == "__main__":
                 height: 0%;
                 position: fixed;
                 }
+                
+                div[class="stAlert"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
             </style>
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
