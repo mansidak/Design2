@@ -170,7 +170,7 @@ if __name__ == "__main__":
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-    @st.cache_data()
+    @st.cache()
     def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
         Final_Array = []
         options = Options()
@@ -209,7 +209,7 @@ if __name__ == "__main__":
         return links
 
 
-    @st.cache_data()
+    @st.cache()
     def get_links(i, skill1, resumeContent):
         Final_Array = []
         Final_Links = []
@@ -283,7 +283,7 @@ if __name__ == "__main__":
         return Final_Array
 
 
-    @st.cache_data()
+    @st.cache()
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -323,9 +323,13 @@ if __name__ == "__main__":
     my_bar = st.empty()
 
     SubTitle = st.empty()
-    SubTitle.markdown(f"<h4 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'>Use AI to discover personalized real-time jobs — by simply scanning your resume.</h4>",unsafe_allow_html=True)
+    SubTitle.markdown(
+        f"<h4 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'>Use AI to discover personalized real-time jobs — by simply scanning your resume.</h4>",
+        unsafe_allow_html=True)
     Credits = st.empty()
-    Credits.markdown(f"<h6 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'> </h6>", unsafe_allow_html=True)
+    Credits.markdown(
+        f"<h6 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'> </h6>",
+        unsafe_allow_html=True)
     holder = st.empty()
     ResumePDF = holder.file_uploader(
         ''
@@ -344,7 +348,7 @@ if __name__ == "__main__":
             placeholder='Excluded Keywords (Upto one)', )
 
 
-    @st.cache_data()
+    @st.cache()
     def extract_text_from_pdf(pdf_file):
         pdfReader = PyPDF2.PdfReader(pdf_file)
         txtFile = open('sample.txt', 'w')
@@ -375,23 +379,23 @@ if __name__ == "__main__":
 
 
 
-        links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+        # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+        # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
 
-        # with ThreadPoolExecutor(max_workers=3) as executor:
-        #     future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-        #     future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        #     future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-        #
-        # # Get the results
-        # links1 = future1.result()
-        # links2 = future2.result()
-        # links3 = future3.result()
-        # executor.shutdown(wait=True)
-        # st.write(links1)
-        # st.write(links2)
-        # st.write(links3)
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+            future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+            future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+
+        # Get the results
+        links1 = future1.result()
+        links2 = future2.result()
+        links3 = future3.result()
+        executor.shutdown(wait=True)
+        st.write(links1)
+        st.write(links2)
+        st.write(links3)
 
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[0])
