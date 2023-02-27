@@ -224,7 +224,6 @@ if __name__ == "__main__":
         try:
             driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
             driver.get(i)
-            # time.sleep(2)
             elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
             for a in elements:
                 if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
@@ -235,9 +234,10 @@ if __name__ == "__main__":
             Final_Titles.append(title)
             location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
             Final_Location.append(location)
+
             Final_Skills.append(skill1)
-            company = driver.find_element(By.XPATH,
-                                          "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
+
+            company = driver.find_element(By.XPATH,"/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
             Final_Company.append(company)
 
             description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
@@ -282,7 +282,7 @@ if __name__ == "__main__":
         except:
             driver.close()
             driver.quit()
-            st.write(Final_Array)
+        st.write(Final_Array)
         return Final_Array
 
     # @st.cache_data(show_spinner=False)
