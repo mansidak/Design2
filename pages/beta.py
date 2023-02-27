@@ -174,7 +174,7 @@ text-align: center;
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-    @st.cache()
+    @st.cache_data()
     def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
         Final_Array = []
         options = Options()
@@ -213,7 +213,7 @@ text-align: center;
         return links
 
 
-    @st.cache()
+    @st.cache_data()
     def get_links(i, skill1, resumeContent):
         Final_Array = []
         Final_Links = []
@@ -233,7 +233,6 @@ text-align: center;
                         'href') not in Final_Links:
                     Final_Links.append(a.get_attribute('href'))
             title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
-            st.write(title)
             Final_Titles.append(title)
             location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
             Final_Location.append(location)
@@ -287,7 +286,7 @@ text-align: center;
         return Final_Array
 
 
-    @st.cache()
+    @st.cache_data()
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -303,7 +302,6 @@ text-align: center;
         Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
         Skills = Titles.split('2.')[1].split('3.')[0].split(',')
         Name = Titles.split('3.')[1].split('4.')[0]
-        st.session_state["Name"] = Name
         softSkills = Titles.split('4.')[1]
         newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
         newSkills = [item.replace(" ", "-") for item in Skills]
@@ -352,7 +350,7 @@ text-align: center;
             placeholder='Excluded Keywords (Upto one)', )
 
 
-    @st.cache()
+    @st.cache_data()
     def extract_text_from_pdf(pdf_file):
         pdfReader = PyPDF2.PdfReader(pdf_file)
         txtFile = open('sample.txt', 'w')
@@ -381,33 +379,31 @@ text-align: center;
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
         my_bar.progress(25, text=f"")
 
+        links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
 
-
-        # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-        # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-
-        with ThreadPoolExecutor(max_workers=3) as executor:
-            future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-            future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-            future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-        executor.shutdown(wait=True)
-
-        # Get the results
-        links1 = future1.result()
-        links2 = future2.result()
-        links3 = future3.result()
-        executor.shutdown(wait=True)
-        st.write(links1)
-        st.write(links2)
-        st.write(links3)
+        # with ThreadPoolExecutor(max_workers=3) as executor:
+        #     future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+        #     future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        #     future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+        # executor.shutdown(wait=True)
+        #
+        # # Get the results
+        # links1 = future1.result()
+        # links2 = future2.result()
+        # links3 = future3.result()
+        # executor.shutdown(wait=True)
+        # st.write(links1)
+        # st.write(links2)
+        # st.write(links3)
 
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[0])
             futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
             result1 = [future.result() for future in futures]
             result11 = sum(result1, [])
-            st.write(sum(result1, []))
+            # st.write(sum(result1, []))
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
         executor.shutdown(wait=True)
@@ -418,7 +414,7 @@ text-align: center;
             futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
             result2 = [future.result() for future in futures]
             result22 = sum(result2, [])
-            st.write(sum(result2, []))
+            # st.write(sum(result2, []))
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
         executor.shutdown(wait=True)
@@ -428,11 +424,11 @@ text-align: center;
             futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
             result3 = [future.result() for future in futures]
             result33 = sum(result3, [])
-            st.write(sum(result3, []))
+            # st.write(sum(result3, []))
         executor.shutdown(wait=True)
 
         print(threading.enumerate())
-        st.write(threading.enumerate())
+        # st.write(threading.enumerate())
 
         st.session_state["FinalResults"] = result11 + result22 + result33
         switch_page("results")
