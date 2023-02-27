@@ -55,8 +55,8 @@ if __name__ == "__main__":
 
     st.set_page_config(page_title="19th Street", page_icon='⓵⓽',
                        initial_sidebar_state='collapsed')
-    print(threading.enumerate())
-    st.write(threading.enumerate())
+    # print(threading.enumerate())
+    # st.write(threading.enumerate())
 
 
     hide_streamlit_style = """
@@ -379,6 +379,8 @@ if __name__ == "__main__":
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
         my_bar.progress(25, text=f"")
+
+
         links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[0])
@@ -388,13 +390,9 @@ if __name__ == "__main__":
             st.write(sum(result1, []))
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
-        st.write("Finished First Result")
 
 
-
-
-        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1,
-                               resumeContent)
+        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[1])
             futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
@@ -406,7 +404,6 @@ if __name__ == "__main__":
 
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
-        st.write("Finished Second Result")
 
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor() as executor:
@@ -417,10 +414,8 @@ if __name__ == "__main__":
             result33 = sum(result3, [])
             st.write(sum(result3, []))
 
-        st.write("Finished Third Result")
-
-        print(threading.enumerate())
-        st.write(threading.enumerate())
+        # print(threading.enumerate())
+        # st.write(threading.enumerate())
 
         st.session_state["FinalResults"] = result11 + result22 + result33
         # st.write(st.session_state["FinalResults"])
