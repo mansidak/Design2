@@ -16,7 +16,7 @@ from docx import Document
 import openai
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
-
+import psutil
 css = """
 .uploadedFiles {
     display: none;
@@ -281,13 +281,13 @@ text-align: center;
             t.start()
         for t in threads:
             t.join()
-        #
-        # with ThreadPoolExecutor(max_workers=25) as executor:
-        #     executor.map(get_links, links)
 
         gc.enable()
 
         driver.quit()
+        process = psutil.Process(os.getpid())
+        print(process.memory_info().rss)
+        st.write(process.memory_info().rss)
         return Final_Array
 
 
