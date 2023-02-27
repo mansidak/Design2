@@ -10,6 +10,7 @@ from streamlit_extras.switch_page_button import switch_page
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
+         .css-j7qwjs {visibility: hidden;}
          footer {visibility: hidden;}
          </style>
          """
@@ -29,11 +30,7 @@ hide_streamlit_style = """
                 transform: translate(-50%, -50%);
                 width: 50%;
               }
-              div[data-testid="stSidebarNav"] {
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
+    
                 
               div[data-testid="collapsedControl"] {
                 visibility: hidden;
