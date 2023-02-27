@@ -63,6 +63,10 @@ with st.sidebar:
     locationpreference = st.text_input(
         'Enter Location Preference',
         placeholder='Enter City or State (upto 1)', )
+
+    if st.button("Run Again"):
+        switch_page("app.py")
+
 col1, col2, col3 = st.columns([2, 1, 2])
 
 with col1:
