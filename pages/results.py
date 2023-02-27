@@ -374,6 +374,6 @@ if st.button("Download Items", key="Download PDF"):
         # Set item2 as a body
         pdf.setFont("Helvetica", 12)
         pdf.drawString(100, 650, companyName)
-        st.download_button('Download Cover Letter', pdf, key="Job List", data = pdf)
+        st.download_button('Download Cover Letter', key="Job List", data = pdf)
 
 
