@@ -382,11 +382,19 @@ if __name__ == "__main__":
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
         my_bar.progress(25, text=f"")
         links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         threads =[]
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[0])
             future1 = executor.map(get_links, links1, newSkills[0], resumeContent)
-            result1= list(future1)
+            future2 = executor.map(get_links, links2, newSkills[1], resumeContent)
+            future3 = executor.map(get_links, links3, newSkills[2], resumeContent)
+            result1 = list(future1)
+            result2 = list(future2)
+            result3 = list(future3)
+
+
 
 
         # for i in links1:
@@ -401,13 +409,7 @@ if __name__ == "__main__":
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
         st.write("Finished First Result")
-        st.write(process.memory_info().rss)
 
-        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        with ThreadPoolExecutor() as executor:
-            st.write(newSkills[1])
-            future2 = executor.map(get_links, links2, newSkills[1], resumeContent)
-            result2 = list(future2)
 
 
         # for i in links2:
@@ -421,14 +423,7 @@ if __name__ == "__main__":
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>", unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
         st.write("Finished Second Result")
-        st.write(process.memory_info().rss)
 
-
-        links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
-        with ThreadPoolExecutor() as executor:
-            st.write(newSkills[2])
-            future3 = executor.map(get_links, links3, newSkills[2], resumeContent)
-            result3 = list(future3)
 
         # for i in links3:
         #     t = threading.Thread(target=get_links, args=(i, newSkills[2], resumeContent))
@@ -439,7 +434,6 @@ if __name__ == "__main__":
         #     t.join()
         #     print("Threads destroyed")
         st.write("Finished Third Result")
-        st.write(process.memory_info().rss)
 
 
         print(threading.enumerate())
