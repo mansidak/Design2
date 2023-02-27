@@ -10,7 +10,6 @@ from streamlit_extras.switch_page_button import switch_page
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
-         .css-j7qwjs {visibility: hidden;}
          footer {visibility: hidden;}
          </style>
          """
