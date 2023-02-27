@@ -361,6 +361,8 @@ if __name__ == "__main__":
         return resumeContent
 
     if ResumePDF is not None and ExperienceLevel is not None:
+        st.write("When Resume started to be parsed")
+        st.write(process.memory_info().rss)
         print(threading.enumerate())
         st.write(threading.enumerate())
         SubTitle.empty()
@@ -390,7 +392,8 @@ if __name__ == "__main__":
             print("Threads destroyed")
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
-
+        st.write("Finished First Result")
+        st.write(process.memory_info().rss)
 
         links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
         for i in links2:
@@ -403,6 +406,8 @@ if __name__ == "__main__":
             print("Threads destroyed")
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>", unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
+        st.write("Finished Second Result")
+        st.write(process.memory_info().rss)
 
 
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
@@ -414,6 +419,8 @@ if __name__ == "__main__":
         for t in threads:
             t.join()
             print("Threads destroyed")
+        st.write("Finished Third Result")
+        st.write(process.memory_info().rss)
 
         print(threading.enumerate())
         st.write(threading.enumerate())
