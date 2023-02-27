@@ -75,6 +75,9 @@ if __name__ == "__main__":
                     width: 50%;
                   }
                   
+                  css-klqnuk ehezqtx4{
+                  
+                  }
                   .css-1nsk2xq edgvbvh3{
                   visibility:hidden;
                   height:0px;
@@ -195,7 +198,7 @@ text-align: center;
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-    # @st.cache(show_spinner=False)
+    @st.cache(show_spinner=False)
     def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
         Final_Array = []
         options = Options()
@@ -234,7 +237,7 @@ text-align: center;
         return links
 
 
-    # @st.cache(show_spinner=False)
+    @st.cache(show_spinner=False)
     def get_links(i, skill1, resumeContent):
         Final_Array = []
         Final_Links = []
