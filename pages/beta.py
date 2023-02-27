@@ -16,7 +16,7 @@ from docx import Document
 import openai
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
-print(threading.enumerate())
+import psutil
 css = """
 .uploadedFiles {
     display: none;
@@ -56,6 +56,10 @@ if __name__ == "__main__":
                        initial_sidebar_state='collapsed')
     print(threading.enumerate())
     st.write(threading.enumerate())
+
+    process = psutil.Process(os.getpid())
+    print(process.memory_info().rss)
+    st.write(process.memory_info().rss)
     hide_streamlit_style = """
                   <style>
                   div[class='css-4z1n4l ehezqtx5']{
