@@ -350,11 +350,9 @@ for element in unique_results:
         st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
 pdf = canvas.Canvas("my_pdf.pdf", pagesize=letter)
-
-# Create a new page in the PDF
 pdf.showPage()
-
 pdf.setFillColor(blue)
+
 for element in unique_results:
     link = element[0]
     title = element[1]
@@ -363,6 +361,10 @@ for element in unique_results:
     fullDescription = element[4]
     location = element[5]
     skills = element[6]
+
+    pdf.setFont("Helvetica", 20)
+    pdf.drawString(100, 700, title)
+    pdf.setFillColor(blue)
     hyperlink_text = title
     text_width = stringWidth(hyperlink_text, "Helvetica", 20)
     pdf.rect(100, 700, text_width, 20, fill=1)
