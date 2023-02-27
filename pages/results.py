@@ -349,31 +349,31 @@ for element in unique_results:
 
         st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-pdf = canvas.Canvas("my_pdf.pdf", pagesize=letter)
-pdf.showPage()
-pdf.setFillColor(blue)
-
-for element in unique_results:
-    link = element[0]
-    title = element[1]
-    companyName = element[2]
-    shortSummary = element[3]
-    fullDescription = element[4]
-    location = element[5]
-    skills = element[6]
-
-    pdf.setFont("Helvetica", 20)
-    pdf.drawString(100, 700, title)
+if st.button("Download Items", key="Download PDF"):
+    pdf = canvas.Canvas("my_pdf.pdf", pagesize=letter)
+    pdf.showPage()
     pdf.setFillColor(blue)
-    hyperlink_text = title
-    text_width = stringWidth(hyperlink_text, "Helvetica", 20)
-    pdf.rect(100, 700, text_width, 20, fill=1)
-    pdf.setFillColor(black)
-    pdf.linkURL(link, (100, 700, text_width, 20))
+    for element in unique_results:
+        link = element[0]
+        title = element[1]
+        companyName = element[2]
+        shortSummary = element[3]
+        fullDescription = element[4]
+        location = element[5]
+        skills = element[6]
 
-    # Set item2 as a body
-    pdf.setFont("Helvetica", 12)
-    pdf.drawString(100, 650, companyName)
-    st.download_button('Download Cover Letter', pdf, key="Job List")
+        pdf.setFont("Helvetica", 20)
+        pdf.drawString(100, 700, title)
+        pdf.setFillColor(blue)
+        hyperlink_text = title
+        text_width = stringWidth(hyperlink_text, "Helvetica", 20)
+        pdf.rect(100, 700, text_width, 20, fill=1)
+        pdf.setFillColor(black)
+        pdf.linkURL(link, (100, 700, text_width, 20))
+
+        # Set item2 as a body
+        pdf.setFont("Helvetica", 12)
+        pdf.drawString(100, 650, companyName)
+        st.download_button('Download Cover Letter', pdf, key="Job List")
 
 
