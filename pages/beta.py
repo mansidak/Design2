@@ -394,9 +394,9 @@ text-align: center;
         links2 = future2.result()
         links3 = future3.result()
         executor.shutdown(wait=True)
-        st.write(links1)
-        st.write(links2)
-        st.write(links3)
+        # st.write(links1)
+        # st.write(links2)
+        # st.write(links3)
 
         with ThreadPoolExecutor() as executor:
             futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
@@ -425,4 +425,5 @@ text-align: center;
         # st.write(threading.enumerate())
 
         st.session_state["FinalResults"] = result11 + result22 + result33
+        executor.shutdown()
         switch_page("results")
