@@ -385,7 +385,7 @@ if __name__ == "__main__":
         links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         threads =[]
-        with ThreadPoolExecutor() as executor:
+        with ThreadPoolExecutor(max_workers=75) as executor:
             st.write(newSkills[0])
             future1 = executor.map(get_links, links1, newSkills[0], resumeContent)
             future2 = executor.map(get_links, links2, newSkills[1], resumeContent)
