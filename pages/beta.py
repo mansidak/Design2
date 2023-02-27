@@ -170,7 +170,7 @@ if __name__ == "__main__":
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-    @st.cache_data(show_spinner=False, suppress_st_warning=True)
+    @st.cache_data(show_spinner=False)
     def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
         Final_Array = []
         options = Options()
@@ -209,7 +209,7 @@ if __name__ == "__main__":
         return links
 
 
-    @st.cache_data(show_spinner=False, suppress_st_warning=True)
+    @st.cache_data(show_spinner=False)
     def get_links(i, skill1, resumeContent):
         Final_Array = []
         Final_Links = []
@@ -283,7 +283,7 @@ if __name__ == "__main__":
         return Final_Array
 
 
-    @st.cache_data(show_spinner=False,  suppress_st_warning=True)
+    @st.cache_data(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -348,7 +348,7 @@ if __name__ == "__main__":
             placeholder='Excluded Keywords (Upto one)', )
 
 
-    @st.cache_data(show_spinner=False,  suppress_st_warning=True)
+    @st.cache_data(show_spinner=False)
     def extract_text_from_pdf(pdf_file):
         pdfReader = PyPDF2.PdfReader(pdf_file)
         txtFile = open('sample.txt', 'w')
