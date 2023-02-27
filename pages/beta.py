@@ -67,7 +67,7 @@ if __name__ == "__main__":
                     backdrop-filter: blur(10px);
                     border-radius: 10px;
                     height: 40px;
-                    max-width: 150px;
+                    max-width: 175px;
                     position: fixed;
                     top: 50%;
                     left: 50%;
