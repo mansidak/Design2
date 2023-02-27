@@ -76,7 +76,14 @@ if __name__ == "__main__":
                   }
                   
                   .css-1nsk2xq edgvbvh3{
-                  content: ""
+                  visibility:hidden;
+                  height:0px;
+                  }
+                  
+                  .css-14x9thb ehezqtx3
+                  {
+                  visibility:hidden;
+                  height:0px;
                   }
                   .st-be{
                   border-radius: 50px;
