@@ -198,8 +198,8 @@ text-align: center;
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-    @st.cache(show_spinner=False)
-    def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
+    # @st.cache(show_spinner=False)
+    def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent, locationpreference):
         Final_Array = []
         options = Options()
         options.add_argument("--headless")
@@ -216,7 +216,7 @@ text-align: center;
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
             try:
                 driver.get(
-                    f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&pageNum={pageNumber}")
+                    f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                 time.sleep(1)
                 links = []
@@ -237,7 +237,7 @@ text-align: center;
         return links
 
 
-    @st.cache(show_spinner=False)
+    # @st.cache(show_spinner=False)
     def get_links(i, skill1, resumeContent):
         Final_Array = []
         Final_Links = []
@@ -373,6 +373,10 @@ text-align: center;
             'Enter upto one company/keyword you wish to be excluded',
             placeholder='Excluded Keywords (Upto one)', )
 
+        locationpreference = st.text_input(
+            'Enter Location Preference',
+            placeholder='Enter City or State (upto 1)', )
+
 
     # @st.cache(show_spinner=False)
     def extract_text_from_pdf(pdf_file):
@@ -408,9 +412,9 @@ text-align: center;
         # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
 
         with ThreadPoolExecutor(max_workers=3) as executor:
-            future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-            future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-            future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+            future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference)
+            future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference)
+            future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference)
         executor.shutdown(wait=True)
 
         # Get the results
