@@ -382,8 +382,11 @@ if __name__ == "__main__":
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
         my_bar.progress(25, text=f"")
         links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+        st.write(links1)
         links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        st.write(links2)
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+        st.write(links3)
         threads =[]
         with ThreadPoolExecutor(max_workers=75) as executor:
             st.write(newSkills[0])
