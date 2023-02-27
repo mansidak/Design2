@@ -58,9 +58,7 @@ if __name__ == "__main__":
     print(threading.enumerate())
     st.write(threading.enumerate())
 
-    process = psutil.Process(os.getpid())
-    print(process.memory_info().rss)
-    st.write(process.memory_info().rss)
+
     hide_streamlit_style = """
                   <style>
                   div[class='css-4z1n4l ehezqtx5']{
@@ -365,9 +363,7 @@ if __name__ == "__main__":
 
     if ResumePDF is not None and ExperienceLevel is not None:
         st.write("When Resume started to be parsed")
-        st.write(process.memory_info().rss)
-        print(threading.enumerate())
-        st.write(threading.enumerate())
+
         SubTitle.empty()
         Credits.empty()
         holder.empty()
