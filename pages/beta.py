@@ -390,9 +390,15 @@ if __name__ == "__main__":
         # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
 
         with ThreadPoolExecutor(max_workers=3) as executor:
-            future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+            future1 = executor.submit(run_selenium1, f"", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+            st.write(f"https://search.linkup.com/search/results/{newJobtitles[0]}-{ExperienceLevel}-jobs?all={newSkills[0]}&none={undesired}&pageNum={1}")
+
             future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+            st.write(f"https://search.linkup.com/search/results/{newJobtitles[1]}-{ExperienceLevel}-jobs?all={newSkills[1]}&none={undesired}&pageNum={1}")
+
             future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+            st.write(f"https://search.linkup.com/search/results/{newJobtitles[0]}-{ExperienceLevel}-jobs?all={newSkills[2]}&none={undesired}&pageNum={1}")
+
 
         # Get the results
         links1 = future1.result()
