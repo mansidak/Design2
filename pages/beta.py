@@ -384,7 +384,7 @@ if __name__ == "__main__":
         threads =[]
         with ThreadPoolExecutor() as executor:
             future1 = executor.map(get_links, links1, newSkills[0], resumeContent)
-            result1= list(future1)
+            result1= future1
 
         # for i in links1:
         #     t = threading.Thread(target=get_links, args=(i,newSkills[0], resumeContent))
@@ -403,7 +403,7 @@ if __name__ == "__main__":
         links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor() as executor:
             future2 = executor.map(get_links, links2, newSkills[1], resumeContent)
-            result2 = list(future2)
+            result2 = future2
 
         # for i in links2:
         #     t = threading.Thread(target=get_links, args=(i, newSkills[1], resumeContent))
@@ -422,7 +422,7 @@ if __name__ == "__main__":
         links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor() as executor:
             future3 = executor.map(get_links, links3, newSkills[2], resumeContent)
-            result3 = list(future3)
+            result3 = future3
 
         # for i in links3:
         #     t = threading.Thread(target=get_links, args=(i, newSkills[2], resumeContent))
