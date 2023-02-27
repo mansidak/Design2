@@ -6,11 +6,6 @@ from docx import Document
 from PIL import Image
 import random
 from streamlit_extras.switch_page_button import switch_page
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-from reportlab.lib.colors import blue
-from reportlab.lib.colors import black
-from reportlab.pdfbase.pdfmetrics import stringWidth
 
 hide_menu_style = """
          <style>
