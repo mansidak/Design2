@@ -75,7 +75,7 @@ if __name__ == "__main__":
                     width: 50%;
                   }
                   
-                  button[class ='css-1nsk2xq edgvbvh3']{
+                  .css-1nsk2xq edgvbvh3{
                   content: ""
                   }
                   .st-be{
