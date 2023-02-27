@@ -49,6 +49,15 @@ hide_streamlit_style = """
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
+
+with st.sidebar:
+    undesired = st.text_input(
+        'Enter upto one company/keyword you wish to be excluded',
+        placeholder='Excluded Keywords (Upto one)', )
+
+    locationpreference = st.text_input(
+        'Enter Location Preference',
+        placeholder='Enter City or State (upto 1)', )
 col1, col2, col3 = st.columns([2, 1, 2])
 
 with col1:
