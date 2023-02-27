@@ -384,7 +384,7 @@ if __name__ == "__main__":
             st.write(newSkills[0])
             futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
             result1 = [future.result() for future in futures]
-            st.write(result1)
+            st.write(sum(result1, []))
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
         my_bar.progress(50, text=f"")
         st.write("Finished First Result")
