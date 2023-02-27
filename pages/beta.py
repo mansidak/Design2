@@ -170,8 +170,7 @@ if __name__ == "__main__":
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-
-    # @st.cache_data(show_spinner=False)
+    @st.cache_data(show_spinner=False)
     def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent):
         Final_Array = []
         options = Options()
@@ -210,7 +209,7 @@ if __name__ == "__main__":
         return links
 
 
-    # @st.cache_data(show_spinner=False)
+    @st.cache_data(show_spinner=False)
     def get_links(i, skill1, resumeContent):
         Final_Array = []
         Final_Links = []
@@ -284,7 +283,7 @@ if __name__ == "__main__":
         return Final_Array
 
 
-    # @st.cache_data(show_spinner=False)
+    @st.cache_data(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -349,7 +348,7 @@ if __name__ == "__main__":
             placeholder='Excluded Keywords (Upto one)', )
 
 
-    # @st.cache_data(show_spinner=False)
+    @st.cache_data(show_spinner=False)
     def extract_text_from_pdf(pdf_file):
         pdfReader = PyPDF2.PdfReader(pdf_file)
         txtFile = open('sample.txt', 'w')
@@ -379,7 +378,24 @@ if __name__ == "__main__":
         my_bar.progress(25, text=f"")
 
 
-        links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+
+        # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+        # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+        # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+            future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+            future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+
+        # Get the results
+        links1 = future1.result()
+        links2 = future2.result()
+        links3 = future3.result()
+        st.write(links1)
+        st.write(links2)
+        st.write(links3)
+
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[0])
             futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
@@ -390,7 +406,6 @@ if __name__ == "__main__":
         my_bar.progress(50, text=f"")
 
 
-        links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[1])
             futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
@@ -402,7 +417,6 @@ if __name__ == "__main__":
         progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
         my_bar.progress(95, text=f"")
 
-        links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
         with ThreadPoolExecutor() as executor:
             st.write(newSkills[2])
             futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
@@ -410,8 +424,8 @@ if __name__ == "__main__":
             result33 = sum(result3, [])
             st.write(sum(result3, []))
 
-        # print(threading.enumerate())
-        # st.write(threading.enumerate())
+        print(threading.enumerate())
+        st.write(threading.enumerate())
 
         st.session_state["FinalResults"] = result11 + result22 + result33
         # st.write(st.session_state["FinalResults"])
