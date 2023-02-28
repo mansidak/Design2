@@ -365,7 +365,7 @@ for element in unique_results:
 
 html_string = "<ul>"
 for lists in unique_results:
-    html_string += "<li>" + list[0] + "</li>"
+    html_string += "<li>" + lists[0] + "</li>"
 html_string += "</ul>"
 
 # generate the pdf
