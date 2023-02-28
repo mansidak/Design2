@@ -434,12 +434,12 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
-                div[class="row-widget.stTextInput"] {
+                div[class="row-widget stTextInput"] {
                 visibility: hidden;
                 height: 0%;
                 position: fixed;
                 }
-                div[class="row-widget.stSelectbox"] {
+                div[class="row-widget stSelectbox"] {
                 visibility: hidden;
                 height: 0%;
                 position: fixed;
