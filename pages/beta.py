@@ -434,6 +434,18 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
+                div[class="row-widget.stTextInput"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                div[class="row-widget.stSelectbox"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                
+                
             </style>
                 """, unsafe_allow_html= True)
             # holder2.empty()
