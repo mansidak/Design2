@@ -528,5 +528,6 @@ text-align: center;
             # st.write(threading.enumerate())
 
             st.session_state["FinalResults"] = result11 + result22 + result33
+            st.write(result11 + result22 + result33)
             executor.shutdown()
-            switch_page("results")
+            # switch_page("results")
