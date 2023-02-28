@@ -414,6 +414,7 @@ text-align: center;
             (OldSkillsBullet.split(',')),
             key="Undesired"
         )
+        st.write(undesired)
 
         holder4 = st.empty()
         locationpreference = holder4.text_input(
