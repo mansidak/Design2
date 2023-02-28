@@ -342,10 +342,10 @@ text-align: center;
         Name = Titles.split('3.')[1].split('4.')[0]
         softSkills = Titles.split('4.')[1].split('5.')[0]
         OldSkills = Titles.split('5.')[1]
+
         newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
         newSkills = [item.replace(" ", "-") for item in Skills]
-        OldSkillsBullet = [item.replace(" ", "-") for item in OldSkills]
-        return Name, newJobtitles, newSkills, softSkills, OldSkillsBullet
+        return Name, newJobtitles, newSkills, softSkills, OldSkills
 
 
     col1, col2, col3 = st.columns([2, 1, 2])
