@@ -411,11 +411,12 @@ text-align: center;
             key="ExperienceLevel"
         )
         holder3 = st.empty()
-        undesired = holder3.selectbox(
+        undesired3 = holder3.selectbox(
             "Choose what you don't wanna do again",
             (OldSkillsBullet.split(',')),
             key="Undesired"
         )
+        undesired = undesired3.replace(" ", "")
         holder4 = st.empty()
         locationpreference = holder4.text_input(
             'Enter Location Preference',
