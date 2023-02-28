@@ -340,16 +340,6 @@ text-align: center;
             presence_penalty=0
         )
         Name = response["choices"][0]["text"]
-        # print(Titles)
-        # Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
-        # Skills = Titles.split('2.')[1].split('3.')[0].split(',')
-        # Name = Titles.split('3.')[1].split('4.')[0]
-        # softSkills = Titles.split('4.')[1].split('5.')[0]
-        # OldSkills = Titles.split('5.')[1]
-        #
-        # newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
-        # newSkills =[re.sub(r'\s+', '-', item) for item in Skills]
-
         return Name
 
 
@@ -730,30 +720,24 @@ text-align: center;
                 unsafe_allow_html=True)
             my_bar.progress(25, text=f"")
 
-            links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-            links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-            links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
 
-            # with ThreadPoolExecutor(max_workers=3) as executor:
-            #     future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}",
-            #                               f"{undesired}", 1, resumeContent, locationpreference)
-            #     future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}",
-            #                               f"{undesired}", 1, resumeContent, locationpreference)
-            #     future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}",
-            #                               f"{undesired}", 1, resumeContent, locationpreference)
-            # executor.shutdown(wait=True)
-            #
-            # # Get the results
-            # links1 = future1.result()
-            # links2 = future2.result()
-            # links3 = future3.result()
-            # executor.shutdown(wait=True)
+            with ThreadPoolExecutor(max_workers=3) as executor:
+                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}",
+                                          f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}",
+                                          f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}",
+                                          f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            executor.shutdown(wait=True)
 
-
-
-            # st.write(links1)
-            # st.write(links2)
-            # st.write(links3)
+            # Get the results
+            links1 = future1.result()
+            links2 = future2.result()
+            links3 = future3.result()
+            executor.shutdown(wait=True)
 
             with ThreadPoolExecutor() as executor:
                 futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
@@ -782,7 +766,7 @@ text-align: center;
             executor.shutdown(wait=True)
 
             print(threading.enumerate())
-            # st.write(threading.enumerate())
+            st.write(threading.enumerate())
 
             st.session_state["FinalResults"] = result11 + result22 + result33
             executor.shutdown()
