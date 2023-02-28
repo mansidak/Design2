@@ -401,17 +401,22 @@ text-align: center;
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
             (None, 'Intern', 'Entry-Level', 'Associate'),
-            help='* Required', key = "ExperienceLevel"
-        )
+            help='* Required', key = "ExperienceLevel")
+        st.session_state['ExperienceLevel'] = ExperienceLevel
+
         holder3 = st.empty()
         undesired = holder3.text_input(
             'Enter upto one company/keyword you wish to be excluded',
             placeholder='Excluded Keywords (Upto one)', key = "undesired" )
+        st.session_state['undesired'] = undesired
+
         holder4 = st.empty()
         locationpreference = holder4.text_input(
             'Enter Location Preference',
             placeholder='Enter City or State (upto 1)', key = "locationPreference")
-        col1a, col2a,col3a = st.columns([1,1,1])
+        st.session_state['locationpreference'] = locationpreference
+
+        col1a, col2a, col3a = st.columns([1,1,1])
         with col1a:
             st.write("")
         with col2a:
@@ -421,7 +426,7 @@ text-align: center;
             st.write("")
 
         if ExperienceLevel is not None and Search:
-            Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
+            Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(st.session_state['undesired'], resumeContent)
             if 'Name' not in st.session_state:
                 st.session_state['Name'] = Name
             if 'resumeContent' not in st.session_state:
@@ -441,9 +446,9 @@ text-align: center;
             # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
 
             with ThreadPoolExecutor(max_workers=3) as executor:
-                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference)
-                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference)
-                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference)
+                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{st.session_state['ExperienceLevel']}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, st.session_state['locationpreference'])
+                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{st.session_state['ExperienceLevel']}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, st.session_state['locationpreference'])
+                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{st.session_state['ExperienceLevel']}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, st.session_state['locationpreference'])
             executor.shutdown(wait=True)
 
             # Get the results
