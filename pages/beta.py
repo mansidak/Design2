@@ -229,8 +229,8 @@ text-align: center;
 
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
             try:
-                driver.get(
-                    f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                driver.get(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                 time.sleep(1)
                 links = []
