@@ -438,6 +438,10 @@ text-align: center;
             st.session_state['newSkills'] = newSkills
             st.session_state['softSkills'] = softSkills
             st.session_state['OldSkillsBullet'] = OldSkillsBullet
+        newSkills = st.session_state['newSkills']
+        newJobtitles = st.session_state['newJobtitles']
+        OldSkillsBullet = st.session_state['OldSkillsBullet']
+        softSkills = st.session_state['softSkills']
         st.write(newSkills)
         st.write(newJobtitles)
         holder2 = st.empty()
