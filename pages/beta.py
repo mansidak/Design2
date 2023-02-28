@@ -396,7 +396,6 @@ text-align: center;
         holder.empty()
         resumeContent = extract_text_from_pdf(ResumePDF)
         Name, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitles(resumeContent)
-        st.write(OldSkillsBullet)
         if 'Name' not in st.session_state:
             st.session_state['Name'] = Name
         if 'resumeContent' not in st.session_state:
@@ -426,6 +425,8 @@ text-align: center;
             st.write("")
 
         if ExperienceLevel is not None and Search:
+            st.write(OldSkillsBullet)
+
             st.markdown("""
             <style>
              div[data-baseweb="select"] {
