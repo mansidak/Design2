@@ -401,6 +401,7 @@ text-align: center;
         resumeContent = extract_text_from_pdf(ResumePDF)
         Name, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitles(resumeContent)
         st.write(newSkills)
+        st.write(newJobtitles)
         if 'Name' not in st.session_state:
             st.session_state['Name'] = Name
         if 'resumeContent' not in st.session_state:
