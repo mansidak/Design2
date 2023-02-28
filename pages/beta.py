@@ -444,6 +444,19 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
+                
+                .css-17z41qg.e16nr0p34{
+                 visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                
+                .css-17z41qg.e16nr0p34{
+                 visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                
                 div[class="row-widget stSelectbox"] {
                 visibility: hidden;
                 height: 0%;
