@@ -347,9 +347,8 @@ text-align: center;
         OldSkills = Titles.split('5.')[1]
 
         newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
-        newSkills = [item.replace(" ", "-") for item in Skills]
-        newSkills2 = [re.sub(r'\s+', '-', item) for item in Skills]
-        st.write(newSkills2)
+        newSkills =[re.sub(r'\s+', '-', item) for item in Skills]
+        st.write(newSkills)
 
         return Name, newJobtitles, newSkills, softSkills, OldSkills
 
