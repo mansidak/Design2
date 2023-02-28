@@ -6,6 +6,9 @@ from docx import Document
 from PIL import Image
 import random
 from streamlit_extras.switch_page_button import switch_page
+import pdfkit
+from jinja2 import Environment, FileSystemLoader
+
 
 hide_menu_style = """
          <style>
@@ -358,29 +361,21 @@ for element in unique_results:
 
         st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-# if st.button("Download Items", key="Download PDF"):
-#     pdf = canvas.Canvas("my_pdf.pdf", pagesize=letter)
-#     pdf.showPage()
-#     pdf.setFillColor(blue)
-#     for element in unique_results:
-#         link = element[0]
-#         title = element[1]
-#         companyName = element[2]
-#         shortSummary = element[3]
-#         fullDescription = element[4]
-#         location = element[5]
-#         skills = element[6]
-#         pdf.setFillColor(blue)
-#         hyperlink_text = title
-#         text_width = stringWidth(hyperlink_text, "Helvetica", 20)
-#         pdf.rect(100, 700, text_width, 20, fill=1)
-#         pdf.setFillColor(black)
-#         pdf.linkURL(link, (100, 700, text_width, 20))
-#
-#         # Set item2 as a body
-#         pdf.setFont("Helvetica", 12)
-#         pdf.drawString(100, 650, companyName)
-#         pdf.drawString(100, 650, companyName)
-#         pdf.save()
-#         st.download_button(label="Download PDF", data=pdf.getpdfdata(), file_name="my_pdf.pdf", mime="application/pdf", key= "hanji download")
-#
+
+
+env = Environment(loader=FileSystemLoader('.'))
+
+# Create the template
+template = env.get_template("template.html")
+
+# Render the template with the list of lists
+html_out = template.render(lists=[l[0] for l in unique_results])
+
+# Create the PDF
+pdfkit.from_string(html_out, 'output.pdf')
+
+st.download_button(label="Download PDF",
+                   data=pdfkit.from_string(html_out, 'output.pdf'),
+                   file_name="output.pdf",
+                   mime="application/pdf",
+                   key="download_pdf_button")
