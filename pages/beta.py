@@ -399,18 +399,19 @@ text-align: center;
             st.session_state['Name'] = Name
         if 'resumeContent' not in st.session_state:
             st.session_state["resumeContent"] = resumeContent
-        holder2 = st.empty()
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
+        holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
             (None, 'Intern', 'Entry-Level', 'Associate'),
-            help='Experience Level', key = "ExperienceLevel"
+            help='* Required', key = "ExperienceLevel"
         )
-        undesired = st.text_input(
+        holder3 = st.empty()
+        undesired = holder3.text_input(
             'Enter upto one company/keyword you wish to be excluded',
             placeholder='Excluded Keywords (Upto one)', key = "undesired" )
-
-        locationpreference = st.text_input(
+        holder4 = st.empty()
+        locationpreference = holder4.text_input(
             'Enter Location Preference',
             placeholder='Enter City or State (upto 1)', key = "locationPreference")
         col1a, col2a,col3a = st.columns([1,1,1])
