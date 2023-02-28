@@ -372,7 +372,7 @@ for list in unique_results:
     fullDescription = list[4]
     location = list[5]
     skills = list[6]
-    html_string += "<li><a href='" + link + "'>" + title + "at" + companyName +"</a></li>"
+    html_string += "<li><a href='" + link + "'>" + title + " at " + companyName +"</a><ul><li>" + shortSummary+ "</li></ul></li>"
 html_string += "</ul>"
 
 # generate the pdf
