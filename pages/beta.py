@@ -411,7 +411,7 @@ text-align: center;
             key="ExperienceLevel"
         )
         holder3 = st.empty()
-        undesired = holder3.multiselect(
+        undesired = holder3.selectbox(
             "Choose what you don't wanna do again",
             (OldSkillsBullet.split(',')),
             key="Undesired"
