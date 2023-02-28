@@ -232,7 +232,7 @@ text-align: center;
             try:
                 driver.get(
                     f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
-                st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                # st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                 time.sleep(1)
                 links = []
@@ -341,14 +341,12 @@ text-align: center;
         print(Titles)
         Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
         Skills = Titles.split('2.')[1].split('3.')[0].split(',')
-        st.write(Skills)
         Name = Titles.split('3.')[1].split('4.')[0]
         softSkills = Titles.split('4.')[1].split('5.')[0]
         OldSkills = Titles.split('5.')[1]
 
         newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
         newSkills =[re.sub(r'\s+', '-', item) for item in Skills]
-        st.write(newSkills)
 
         return Name, newJobtitles, newSkills, softSkills, OldSkills
 
@@ -545,6 +543,5 @@ text-align: center;
             # st.write(threading.enumerate())
 
             st.session_state["FinalResults"] = result11 + result22 + result33
-            st.write(result11 + result22 + result33)
             executor.shutdown()
-            # switch_page("results")
+            switch_page("results")
