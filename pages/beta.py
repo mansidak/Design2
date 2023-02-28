@@ -428,11 +428,13 @@ text-align: center;
                 st.session_state["resumeContent"] = resumeContent
 
             st.markdown("""
+            <style>
              div[data-baseweb="select"] {
                 visibility: hidden;
                 height: 0%;
                 position: fixed;
                 }
+            </style>
                 """, unsafe_allow_html= True)
             # holder2.empty()
             # holder3.empty()
