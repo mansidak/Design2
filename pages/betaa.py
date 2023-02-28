@@ -426,11 +426,13 @@ text-align: center;
         if 'newSkills' not in st.session_state:
             NameDuplicate, newJobtitles, newSkillsall, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
             st.session_state['newJobtitles'] = newJobtitles
+            st.session_state['newSkillsall'] = newSkillsall
             newSkills = random.sample(newSkillsall, 3)
             st.session_state['newSkills'] = newSkills
             st.session_state['softSkills'] = softSkills
             st.session_state['OldSkillsBullet'] = OldSkillsBullet
-        newSkills = st.session_state['newSkills']
+        newSkillsall = st.session_state['newSkillsall']
+        newSkills = random.sample(newSkillsall,3)
         newJobtitles = st.session_state['newJobtitles']
         OldSkillsBullet = st.session_state['OldSkillsBullet']
         softSkills = st.session_state['softSkills']
