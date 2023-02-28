@@ -343,7 +343,7 @@ text-align: center;
         Name = response["choices"][0]["text"]
         return Name
 
-
+    @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -424,8 +424,9 @@ text-align: center;
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                             unsafe_allow_html=True)
         if 'newSkills' not in st.session_state:
-            NameDuplicate, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
+            NameDuplicate, newJobtitles, newSkillsall, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
             st.session_state['newJobtitles'] = newJobtitles
+            newSkills = random.sample(newSkillsall, 3)
             st.session_state['newSkills'] = newSkills
             st.session_state['softSkills'] = softSkills
             st.session_state['OldSkillsBullet'] = OldSkillsBullet
@@ -433,6 +434,7 @@ text-align: center;
         newJobtitles = st.session_state['newJobtitles']
         OldSkillsBullet = st.session_state['OldSkillsBullet']
         softSkills = st.session_state['softSkills']
+        st.write(newSkillsall)
         st.write(newSkills)
         st.write(newJobtitles)
         holder2 = st.empty()
