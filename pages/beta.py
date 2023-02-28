@@ -651,7 +651,7 @@ text-align: center;
 
         st.markdown("""
         <style>
-            div[data-baseweb="select"] {
+            .st-au {
             border-radius:30px; 
             }
         </style>""", unsafe_allow_html=True)
