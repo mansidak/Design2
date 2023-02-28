@@ -18,7 +18,7 @@ import openai
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 import psutil
-
+from streamlit.components.v1 import html
 css = """
 .uploadedFiles {
     display: none;
@@ -37,7 +37,19 @@ options.add_argument("--window-size=1920x1080")
 options.add_argument("--disable-features=VizDisplayCompositor")
 options.add_argument('--ignore-certificate-errors')
 
+my_js = """
+const inputs = document.querySelectorAll('input');
 
+inputs.forEach(input => {
+  input.setAttribute('autocomplete', 'one')
+  input.setAttribute('autocorrect', 'on')
+  input.setAttribute('autocapitalize', 'on')
+  input.setAttribute('spellcheck', true)
+})
+"""
+
+my_html = f"<script>{my_js}</script>"
+html(my_html)
 def delete_selenium_log():
     if os.path.exists('selenium.log'):
         os.remove('selenium.log')
