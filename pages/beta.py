@@ -376,15 +376,7 @@ text-align: center;
     )
 
 
-    with st.sidebar:
-        st.subheader("")
-        undesired = st.text_input(
-            'Enter upto one company/keyword you wish to be excluded',
-            placeholder='Excluded Keywords (Upto one)', )
 
-        locationpreference = st.text_input(
-            'Enter Location Preference',
-            placeholder='Enter City or State (upto 1)', )
 
 
     @st.cache(show_spinner=False)
