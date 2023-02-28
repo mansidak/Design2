@@ -425,8 +425,7 @@ text-align: center;
         holder.empty()
         resumeContent = extract_text_from_pdf(ResumePDF)
         Name = openAIGetRelevantJobTitles(resumeContent)
-        st.write(newSkills)
-        st.write(newJobtitles)
+
         if 'Name' not in st.session_state:
             st.session_state['Name'] = Name
         if 'resumeContent' not in st.session_state:
@@ -434,6 +433,8 @@ text-align: center;
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                             unsafe_allow_html=True)
         NameDuplicate, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
+        st.write(newSkills)
+        st.write(newJobtitles)
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
