@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
+import re
 import threading
 from multiprocessing import Pool
 from concurrent.futures import ThreadPoolExecutor
@@ -347,7 +348,8 @@ text-align: center;
 
         newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
         newSkills = [item.replace(" ", "-") for item in Skills]
-        st.write(newSkills)
+        newSkills2 = [re.sub(r'\s+', '-', item) for item in Skills]
+        st.write(newSkills2)
 
         return Name, newJobtitles, newSkills, softSkills, OldSkills
 
