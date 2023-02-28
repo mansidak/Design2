@@ -233,7 +233,7 @@ text-align: center;
             try:
                 driver.get(
                     f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
-                # st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                 time.sleep(1)
                 links = []
@@ -741,4 +741,4 @@ text-align: center;
 
             st.session_state["FinalResults"] = result11 + result22 + result33
             executor.shutdown()
-            switch_page("results")
+            # switch_page("results")
