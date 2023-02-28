@@ -58,7 +58,6 @@ if __name__ == "__main__":
     # print(threading.enumerate())
     # st.write(threading.enumerate())
 
-
     hide_streamlit_style = """
                   <style>
                   div[class='css-4z1n4l ehezqtx5']{
@@ -74,15 +73,15 @@ if __name__ == "__main__":
                     transform: translate(-50%, -50%);
                     width: 50%;
                   }
-                  
+
                   css-klqnuk ehezqtx4{
-                  
+
                   }
                   .css-1nsk2xq edgvbvh3{
                   visibility:hidden;
                   height:0px;
                   }
-                  
+
                   .css-14x9thb ehezqtx3
                   {
                   visibility:hidden;
@@ -92,7 +91,7 @@ if __name__ == "__main__":
                   visibility:hidden;
                   height:0px;
                   }
-                  
+
                   .css-14x9thb
                   {
                   visibility:hidden;
@@ -151,7 +150,7 @@ if __name__ == "__main__":
                 height: 0%;
                 position: fixed;
                 }
-                
+
               div[data-testid="collapsedControl"] {
                 visibility: hidden;
                 height: 0%;
@@ -202,7 +201,7 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
-                
+
                 div[class="stAlert"] {
                 visibility: hidden;
                 height: 0%;
@@ -212,7 +211,8 @@ text-align: center;
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-    # @st.cache(show_spinner=False)
+
+    @st.cache(show_spinner=False)
     def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent, locationpreference):
         Final_Array = []
         options = Options()
@@ -229,8 +229,8 @@ text-align: center;
 
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
             try:
-                driver.get(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
-                st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                driver.get(
+                    f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                 time.sleep(1)
                 links = []
@@ -251,7 +251,7 @@ text-align: center;
         return links
 
 
-    # @st.cache(show_spinner=False)
+    @st.cache(show_spinner=False)
     def get_links(i, skill1, resumeContent):
         Final_Array = []
         Final_Links = []
@@ -324,11 +324,11 @@ text-align: center;
         return Final_Array
 
 
-    # @st.cache(show_spinner=False)
-    def openAIGetRelevantJobTitles(undesired, resumeContent):
+    @st.cache(show_spinner=False)
+    def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n1. In addition to what they've already done, what jobs roles could they be a good candidate for if they're not looking to do {undesired} ? List 3 and separate them by commas.\n\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas. \n\n 3. Their Full Name \n\n 4.Their top 3 soft skills  \n\n {resumeContent} \n",
+            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n1. In addition to what they've already done, what jobs roles could they apply for? List 3 and separate them by commas.\n\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas. \n\n 3. Their Full Name \n\n 4.Their top 3 soft skills  \n\n {resumeContent} \n",
             temperature=0.7,
             max_tokens=146,
             top_p=1,
@@ -376,10 +376,7 @@ text-align: center;
     )
 
 
-
-
-
-    # @st.cache(show_spinner=False)
+    @st.cache(show_spinner=False)
     def extract_text_from_pdf(pdf_file):
         pdfReader = PyPDF2.PdfReader(pdf_file)
         txtFile = open('sample.txt', 'w')
@@ -396,27 +393,28 @@ text-align: center;
         Credits.empty()
         holder.empty()
         resumeContent = extract_text_from_pdf(ResumePDF)
-
+        Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(resumeContent)
+        if 'Name' not in st.session_state:
+            st.session_state['Name'] = Name
+        if 'resumeContent' not in st.session_state:
+            st.session_state["resumeContent"] = resumeContent
+        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
+                            unsafe_allow_html=True)
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
             (None, 'Intern', 'Entry-Level', 'Associate'),
-             key = "ExperienceLevel")
-
-
+            key="ExperienceLevel"
+        )
         holder3 = st.empty()
         undesired = holder3.text_input(
             'Enter upto one company/keyword you wish to be excluded',
-            placeholder='Excluded Keywords (Upto one)', key = "undesired" )
-
-
+            placeholder='Excluded Keywords (Upto one)', key="undesired")
         holder4 = st.empty()
         locationpreference = holder4.text_input(
             'Enter Location Preference',
-            placeholder='Enter City or State (upto 1)', key = "locationPreference")
-
-
-        col1a, col2a,col3a = st.columns([1,1,1])
+            placeholder='Enter City or State (upto 1)', key="locationPreference")
+        col1a, col2a, col3a = st.columns([1, 1, 1])
         with col1a:
             st.write("")
         with col2a:
@@ -425,14 +423,6 @@ text-align: center;
             st.write("")
 
         if ExperienceLevel is not None and Search:
-            Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
-            st.write(newJobtitles)
-            st.write(newSkills)
-            if 'Name' not in st.session_state:
-                st.session_state['Name'] = Name
-            if 'resumeContent' not in st.session_state:
-                st.session_state["resumeContent"] = resumeContent
-
             st.markdown("""
             <style>
              div[data-baseweb="select"] {
@@ -450,13 +440,13 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
-                
+
                 .css-17z41qg.e16nr0p34{
                  visibility: hidden;
                 height: 0%;
                 position: fixed;
                 }
-                
+
                 .css-17z41qg.e16nr0p34{
                  visibility: hidden;
                 height: 0%;
@@ -472,15 +462,18 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
-                
-                
+
+
             </style>
-                """, unsafe_allow_html= True)
+                """, unsafe_allow_html=True)
 
             # SearchHolder.empty()
-            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
+            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
+                                unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
+            progressText.markdown(
+                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
+                unsafe_allow_html=True)
             my_bar.progress(25, text=f"")
 
             # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
@@ -488,9 +481,12 @@ text-align: center;
             # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
 
             with ThreadPoolExecutor(max_workers=3) as executor:
-                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference)
-                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference)
-                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference)
+                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}",
+                                          f"{undesired}", 1, resumeContent, locationpreference)
+                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}",
+                                          f"{undesired}", 1, resumeContent, locationpreference)
+                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}",
+                                          f"{undesired}", 1, resumeContent, locationpreference)
             executor.shutdown(wait=True)
 
             # Get the results
@@ -506,17 +502,20 @@ text-align: center;
                 futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
                 result1 = [future.result() for future in futures]
                 result11 = sum(result1, [])
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
+            progressText.markdown(
+                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",
+                unsafe_allow_html=True)
             my_bar.progress(50, text=f"")
             executor.shutdown(wait=True)
-
 
             with ThreadPoolExecutor() as executor:
                 futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
                 result2 = [future.result() for future in futures]
                 result22 = sum(result2, [])
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
-            my_bar.progress(80, text=f"")
+            progressText.markdown(
+                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",
+                unsafe_allow_html=True)
+            my_bar.progress(95, text=f"")
             executor.shutdown(wait=True)
 
             with ThreadPoolExecutor() as executor:
@@ -529,6 +528,5 @@ text-align: center;
             # st.write(threading.enumerate())
 
             st.session_state["FinalResults"] = result11 + result22 + result33
-            st.write(result11 + result22 + result33)
             executor.shutdown()
-            # switch_page("results")
+            switch_page("results")
