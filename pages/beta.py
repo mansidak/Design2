@@ -364,12 +364,7 @@ text-align: center;
     ResumePDF = holder.file_uploader(
         ''
     )
-    holder2 = st.empty()
-    ExperienceLevel = holder2.selectbox(
-        'Select Experience Level',
-        (None, 'Intern', 'Entry-Level', 'Associate'),
-        help='Experience Level'
-    )
+
 
     with st.sidebar:
         st.subheader("")
@@ -394,68 +389,80 @@ text-align: center;
         return resumeContent
 
 
-    if ResumePDF is not None and ExperienceLevel is not None:
+    if ResumePDF is not None:
         SubTitle.empty()
         Credits.empty()
         holder.empty()
-        holder2.empty()
         resumeContent = extract_text_from_pdf(ResumePDF)
         Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
         if 'Name' not in st.session_state:
             st.session_state['Name'] = Name
         if 'resumeContent' not in st.session_state:
             st.session_state["resumeContent"] = resumeContent
-        holder2.empty()
-        DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
-        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
-        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
-        my_bar.progress(25, text=f"")
+        holder2 = st.empty()
+        ExperienceLevel = holder2.selectbox(
+            'Select Experience Level',
+            (None, 'Intern', 'Entry-Level', 'Associate'),
+            help='Experience Level'
+        )
+        undesired = st.text_input(
+            'Enter upto one company/keyword you wish to be excluded',
+            placeholder='Excluded Keywords (Upto one)', )
 
-        # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-        # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-        # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+        locationpreference = st.text_input(
+            'Enter Location Preference',
+            placeholder='Enter City or State (upto 1)', )
+        if ExperienceLevel is not  None:
+            DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
+            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
+            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
+            my_bar.progress(25, text=f"")
 
-        with ThreadPoolExecutor(max_workers=3) as executor:
-            future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference)
-            future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference)
-            future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference)
-        executor.shutdown(wait=True)
+            # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
+            # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
+            # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
 
-        # Get the results
-        links1 = future1.result()
-        links2 = future2.result()
-        links3 = future3.result()
-        executor.shutdown(wait=True)
-        # st.write(links1)
-        # st.write(links2)
-        # st.write(links3)
+            with ThreadPoolExecutor(max_workers=3) as executor:
+                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference)
+                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference)
+                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference)
+            executor.shutdown(wait=True)
 
-        with ThreadPoolExecutor() as executor:
-            futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
-            result1 = [future.result() for future in futures]
-            result11 = sum(result1, [])
-        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
-        my_bar.progress(50, text=f"")
-        executor.shutdown(wait=True)
+            # Get the results
+            links1 = future1.result()
+            links2 = future2.result()
+            links3 = future3.result()
+            executor.shutdown(wait=True)
+            # st.write(links1)
+            # st.write(links2)
+            # st.write(links3)
+
+            with ThreadPoolExecutor() as executor:
+                futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
+                result1 = [future.result() for future in futures]
+                result11 = sum(result1, [])
+            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
+            my_bar.progress(50, text=f"")
+            executor.shutdown(wait=True)
 
 
-        with ThreadPoolExecutor() as executor:
-            futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
-            result2 = [future.result() for future in futures]
-            result22 = sum(result2, [])
-        progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
-        my_bar.progress(95, text=f"")
-        executor.shutdown(wait=True)
+            with ThreadPoolExecutor() as executor:
+                futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
+                result2 = [future.result() for future in futures]
+                result22 = sum(result2, [])
+            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
+            my_bar.progress(95, text=f"")
+            executor.shutdown(wait=True)
 
-        with ThreadPoolExecutor() as executor:
-            futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
-            result3 = [future.result() for future in futures]
-            result33 = sum(result3, [])
-        executor.shutdown(wait=True)
+            with ThreadPoolExecutor() as executor:
+                futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
+                result3 = [future.result() for future in futures]
+                result33 = sum(result3, [])
+            executor.shutdown(wait=True)
 
-        print(threading.enumerate())
-        # st.write(threading.enumerate())
+            print(threading.enumerate())
+            # st.write(threading.enumerate())
 
-        st.session_state["FinalResults"] = result11 + result22 + result33
-        executor.shutdown()
-        switch_page("results")
+            st.session_state["FinalResults"] = result11 + result22 + result33
+            executor.shutdown()
+            switch_page("results")
