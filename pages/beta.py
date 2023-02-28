@@ -419,7 +419,7 @@ text-align: center;
         with col3a:
             st.write("")
 
-        if ExperienceLevel is not None and Search:
+        if Search:
             Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
             if 'Name' not in st.session_state:
                 st.session_state['Name'] = Name
