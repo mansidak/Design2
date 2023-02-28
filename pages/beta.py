@@ -434,7 +434,7 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
-                .row-widget stTextInput css-pb6fr7 edfmue0{
+                .row-widget.stTextInput.css-pb6fr7.edfmue0 {
                 visibility: hidden;
                 height: 0%;
                 position: fixed;
