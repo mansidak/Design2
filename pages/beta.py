@@ -326,7 +326,7 @@ text-align: center;
         return Final_Array
 
 
-    # @st.cache(show_spinner=False)
+    @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
