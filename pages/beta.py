@@ -331,25 +331,25 @@ text-align: center;
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n1.In addition to what they've already done, what other jobs titles would they like to pursue? List 3 and separate them by commas.\n\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas. \n\n 3. Their Full Name \n\n 4.Their top 3 soft skills\n\n5. All the technical skills they've used in the past. Separate them by commas.  \n\n {resumeContent} \n",
+            prompt=f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nI want you tell me their full name:",
             temperature=0.7,
             max_tokens=146,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0
         )
-        Titles = response["choices"][0]["text"]
-        print(Titles)
-        Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
-        Skills = Titles.split('2.')[1].split('3.')[0].split(',')
-        Name = Titles.split('3.')[1].split('4.')[0]
-        softSkills = Titles.split('4.')[1].split('5.')[0]
-        OldSkills = Titles.split('5.')[1]
+        Name = response["choices"][0]["text"]
+        # print(Titles)
+        # Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
+        # Skills = Titles.split('2.')[1].split('3.')[0].split(',')
+        # Name = Titles.split('3.')[1].split('4.')[0]
+        # softSkills = Titles.split('4.')[1].split('5.')[0]
+        # OldSkills = Titles.split('5.')[1]
+        #
+        # newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
+        # newSkills =[re.sub(r'\s+', '-', item) for item in Skills]
 
-        newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
-        newSkills =[re.sub(r'\s+', '-', item) for item in Skills]
-
-        return Name, newJobtitles, newSkills, softSkills, OldSkills
+        return Name
 
 
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
@@ -423,7 +423,7 @@ text-align: center;
         Credits.empty()
         holder.empty()
         resumeContent = extract_text_from_pdf(ResumePDF)
-        Name, newJobtitlesDuplicate, newSkillsDuplicate, softSkillsDuplicate, OldSkillsBulletDuplicate = openAIGetRelevantJobTitles(resumeContent)
+        Name = openAIGetRelevantJobTitles(resumeContent)
         NameDuplicate, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
         st.write(newSkills)
         st.write(newJobtitles)
