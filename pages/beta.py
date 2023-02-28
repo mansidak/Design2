@@ -416,8 +416,6 @@ text-align: center;
             (OldSkillsBullet.split(',')),
             key="Undesired"
         )
-        st.write(undesired)
-
         holder4 = st.empty()
         locationpreference = holder4.text_input(
             'Enter Location Preference',
@@ -486,9 +484,9 @@ text-align: center;
                 unsafe_allow_html=True)
             my_bar.progress(25, text=f"")
 
-            links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent)
-            links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent)
-            links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent)
+            links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference)
+            links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference)
+            links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference)
 
             # with ThreadPoolExecutor(max_workers=3) as executor:
             #     future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}",
