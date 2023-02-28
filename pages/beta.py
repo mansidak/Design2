@@ -424,6 +424,7 @@ text-align: center;
             holder2.empty()
             holder3.empty()
             holder4.empty()
+            Searchholder.empty()
             Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
             if 'Name' not in st.session_state:
                 st.session_state['Name'] = Name
