@@ -420,7 +420,8 @@ text-align: center;
         holder4 = st.empty()
         locationpreference = holder4.text_input(
             'Enter Location Preference',
-            placeholder='Enter City or State (upto 1)', key="locationPreference")
+            placeholder='Enter City or State (upto 1)', key="locationPreference").replace(" ", "_")
+
         col1a, col2a, col3a = st.columns([1, 1, 1])
         with col1a:
             st.write("")
