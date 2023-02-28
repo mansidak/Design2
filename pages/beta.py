@@ -429,7 +429,7 @@ text-align: center;
             holder2.empty()
             holder3.empty()
             holder4.empty()
-            SearchHolder.empty()
+            # SearchHolder.empty()
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
             # NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
