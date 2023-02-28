@@ -425,7 +425,6 @@ text-align: center;
         holder.empty()
         resumeContent = extract_text_from_pdf(ResumePDF)
         Name = openAIGetRelevantJobTitles(resumeContent)
-        NameDuplicate, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
         st.write(newSkills)
         st.write(newJobtitles)
         if 'Name' not in st.session_state:
@@ -434,6 +433,7 @@ text-align: center;
             st.session_state["resumeContent"] = resumeContent
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                             unsafe_allow_html=True)
+        NameDuplicate, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
@@ -711,8 +711,7 @@ text-align: center;
                 """, unsafe_allow_html=True)
 
             # SearchHolder.empty()
-            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
-                                unsafe_allow_html=True)
+            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
             progressText.markdown(
                 f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
