@@ -363,11 +363,11 @@ for element in unique_results:
 
 
 
-#creating a dataframe from the array of lists
-df = pd.DataFrame(unique_results)
+html_string = "<ul>"
+for lists in unique_results:
+    html_string += "<li>" + list[0] + "</li>"
+html_string += "</ul>"
 
-#Using pdfkit to generate the pdf document
-PDFFile = pdfkit.from_string(df.to_html(index=False, header=False, columns=['item1']), "output.pdf")
-
-st.download_button(label='Download PDF',
-                   data= PDFFile, mime='application/PDF')
+# generate the pdf
+PDFFile = pdfkit.from_string(html_string, "output.pdf")
+st.download_button(label='Download PDF', data= PDFFile, mime='application/PDF')
