@@ -410,9 +410,12 @@ text-align: center;
             key="ExperienceLevel"
         )
         holder3 = st.empty()
-        undesired = holder3.text_input(
-            'Enter upto one company/keyword you wish to be excluded',
-            placeholder='Excluded Keywords (Upto one)', key="undesired")
+        undesired = holder3.selectbox(
+            "Choose what you don't wanna do again",
+            (OldSkillsBullet.split(',')),
+            key="Undesired"
+        )
+
         holder4 = st.empty()
         locationpreference = holder4.text_input(
             'Enter Location Preference',
