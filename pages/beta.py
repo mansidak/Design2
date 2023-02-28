@@ -328,7 +328,7 @@ text-align: center;
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n1. In addition to what they've already done, what jobs roles could they apply for? List 3 and separate them by commas.\n\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas. \n\n 3. Their Full Name \n\n 4.Their top 3 soft skills  \n\n {resumeContent} \n",
+            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n1. In addition to what they've already done, what jobs roles could they apply for? List 3 and separate them by commas.\n\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas. \n\n 3. Their Full Name \n\n 4.Their top 3 soft skills\n\n5. All the skills they've used in the past. \n\n {resumeContent} \n",
             temperature=0.7,
             max_tokens=146,
             top_p=1,
@@ -340,10 +340,12 @@ text-align: center;
         Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
         Skills = Titles.split('2.')[1].split('3.')[0].split(',')
         Name = Titles.split('3.')[1].split('4.')[0]
-        softSkills = Titles.split('4.')[1]
+        softSkills = Titles.split('4.')[1].split('5.')[0]
+        OldSkills = Titles.split('5.')[1]
         newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
         newSkills = [item.replace(" ", "-") for item in Skills]
-        return Name, newJobtitles, newSkills, softSkills
+        OldSkillsBullet = [item.replace(" ", "-") for item in OldSkills]
+        return Name, newJobtitles, newSkills, softSkills, OldSkillsBullet
 
 
     col1, col2, col3 = st.columns([2, 1, 2])
@@ -393,7 +395,8 @@ text-align: center;
         Credits.empty()
         holder.empty()
         resumeContent = extract_text_from_pdf(ResumePDF)
-        Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(resumeContent)
+        Name, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitles(resumeContent)
+        st.write(OldSkillsBullet)
         if 'Name' not in st.session_state:
             st.session_state['Name'] = Name
         if 'resumeContent' not in st.session_state:
