@@ -484,12 +484,14 @@ text-align: center;
                 future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference)
                 future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference)
                 future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference)
+                future4 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"", 1, resumeContent, locationpreference)
             executor.shutdown(wait=True)
 
             # Get the results
             links1 = future1.result()
             links2 = future2.result()
             links3 = future3.result()
+            links4 = future4.result()
             executor.shutdown(wait=True)
             # st.write(links1)
             # st.write(links2)
@@ -518,9 +520,18 @@ text-align: center;
                 result33 = sum(result3, [])
             executor.shutdown(wait=True)
 
+            if len(result11+result22+result33)<50:
+                with ThreadPoolExecutor() as executor:
+                    futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links4]
+                    result4 = [future.result() for future in futures]
+                    result44 = sum(result3, [])
+                executor.shutdown(wait=True)
+            else:
+                result44 = None
+
             print(threading.enumerate())
             # st.write(threading.enumerate())
 
-            st.session_state["FinalResults"] = result11 + result22 + result33
+            st.session_state["FinalResults"] = result11 + result22 + result33 + result44
             executor.shutdown()
             switch_page("results")
