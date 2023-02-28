@@ -401,7 +401,7 @@ text-align: center;
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
             (None, 'Intern', 'Entry-Level', 'Associate'),
-            help='* Required', key = "ExperienceLevel"
+             key = "ExperienceLevel"
         )
         holder3 = st.empty()
         undesired = holder3.text_input(
