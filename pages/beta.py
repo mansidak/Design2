@@ -418,16 +418,16 @@ text-align: center;
             Search = st.button("Take me to 19th Street", key="SearchButton")
         with col3a:
             st.write("")
-        Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
-        if 'Name' not in st.session_state:
-            st.session_state['Name'] = Name
-        if 'resumeContent' not in st.session_state:
-            st.session_state["resumeContent"] = resumeContent
-        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
-                            unsafe_allow_html=True)
+
         if Search and ExperienceLevel is not None:
-            DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
+            Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
+            if 'Name' not in st.session_state:
+                st.session_state['Name'] = Name
+            if 'resumeContent' not in st.session_state:
+                st.session_state["resumeContent"] = resumeContent
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
+            DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
+            # NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
             my_bar.progress(25, text=f"")
 
