@@ -402,7 +402,7 @@ text-align: center;
         holder2 = st.empty()
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
         ExperienceLevel = holder2.selectbox(
-            'Select Experience Level',
+            'Select Experience Level*',
             (None, 'Intern', 'Entry-Level', 'Associate'),
             help='Experience Level', key = "ExperienceLevel"
         )
@@ -413,7 +413,14 @@ text-align: center;
         locationpreference = st.text_input(
             'Enter Location Preference',
             placeholder='Enter City or State (upto 1)', key = "locationPreference")
-        if ExperienceLevel is not  None:
+        col1a, col2a,col3a = st.columns([1,1,1])
+        with col1a:
+            st.write("")
+        with col2a:
+            Search = st.button("Take me to 19th Street", key="SearchButton")
+        with col3a:
+            st.write("")
+        if Search:
             DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
