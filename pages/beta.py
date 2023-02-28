@@ -415,8 +415,7 @@ text-align: center;
         with col1a:
             st.write("")
         with col2a:
-            SearchHolder = st.empty()
-            Search = SearchHolder.button("Take me to 19th Street", key="SearchButton")
+            Search = st.button("Take me to 19th Street", key="SearchButton")
         with col3a:
             st.write("")
 
