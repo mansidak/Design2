@@ -466,13 +466,10 @@ text-align: center;
                 
             </style>
                 """, unsafe_allow_html= True)
-            # holder2.empty()
-            # holder3.empty()
-            # holder4.empty()
-            SearchHolder.empty()
+
+            # SearchHolder.empty()
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
-            # NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
             my_bar.progress(25, text=f"")
 
