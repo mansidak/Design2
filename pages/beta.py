@@ -209,9 +209,7 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
-                div[data-baseweb="select"] {
-               border-radius:30px;
-                }
+
             </style>
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
@@ -649,6 +647,13 @@ text-align: center;
 " Allentown, Pennsylvania ",
 " Surprise, Arizona ",
 " Evansville, Indiana",), key="locationPreference")
+
+        st.markdown("""
+        <style>
+            div[data-baseweb="select"] {
+            border-radius:30px; 
+            }
+        </style>""")
 
         col1a, col2a, col3a = st.columns([1, 1, 1])
         with col1a:
