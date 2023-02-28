@@ -325,10 +325,10 @@ text-align: center;
 
 
     @st.cache(show_spinner=False)
-    def openAIGetRelevantJobTitles(resumeContent):
+    def openAIGetRelevantJobTitles(undesired, resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n1. In addition to what they've already done, what jobs roles could they apply for? List 3 and separate them by commas.\n\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas. \n\n 3. Their Full Name \n\n 4.Their top 3 soft skills  \n\n {resumeContent} \n",
+            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n1. In addition to what they've already done, what jobs roles could they be a good candidate for if they're not looking to do {undesired} ? List 3 and separate them by commas.\n\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas. \n\n 3. Their Full Name \n\n 4.Their top 3 soft skills  \n\n {resumeContent} \n",
             temperature=0.7,
             max_tokens=146,
             top_p=1,
@@ -396,27 +396,26 @@ text-align: center;
         Credits.empty()
         holder.empty()
         resumeContent = extract_text_from_pdf(ResumePDF)
-        Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(resumeContent)
-        if 'Name' not in st.session_state:
-            st.session_state['Name'] = Name
-        if 'resumeContent' not in st.session_state:
-            st.session_state["resumeContent"] = resumeContent
-            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
 
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
             (None, 'Intern', 'Entry-Level', 'Associate'),
-             key = "ExperienceLevel"
-        )
+             key = "ExperienceLevel")
+
+
         holder3 = st.empty()
         undesired = holder3.text_input(
             'Enter upto one company/keyword you wish to be excluded',
             placeholder='Excluded Keywords (Upto one)', key = "undesired" )
+
+
         holder4 = st.empty()
         locationpreference = holder4.text_input(
             'Enter Location Preference',
             placeholder='Enter City or State (upto 1)', key = "locationPreference")
+
+
         col1a, col2a,col3a = st.columns([1,1,1])
         with col1a:
             st.write("")
@@ -426,6 +425,11 @@ text-align: center;
             st.write("")
 
         if ExperienceLevel is not None and Search:
+            Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
+            if 'Name' not in st.session_state:
+                st.session_state['Name'] = Name
+            if 'resumeContent' not in st.session_state:
+                st.session_state["resumeContent"] = resumeContent
 
             st.markdown("""
             <style>
