@@ -402,7 +402,6 @@ text-align: center;
             st.session_state["resumeContent"] = resumeContent
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                             unsafe_allow_html=True)
-        st.write(OldSkillsBullet)
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
@@ -410,7 +409,7 @@ text-align: center;
             key="ExperienceLevel"
         )
         holder3 = st.empty()
-        undesired = holder3.selectbox(
+        undesired = holder3.multiselect(
             "Choose what you don't wanna do again",
             (OldSkillsBullet.split(',')),
             key="Undesired"
