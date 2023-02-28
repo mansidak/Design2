@@ -654,7 +654,7 @@ text-align: center;
             div[data-baseweb="select"] {
             border-radius:30px; 
             }
-        </style>""")
+        </style>""", unsafe_allow_html=True)
 
         col1a, col2a, col3a = st.columns([1, 1, 1])
         with col1a:
