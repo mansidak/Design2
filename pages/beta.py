@@ -209,6 +209,9 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
+                div[data-baseweb="select"] {
+               border-radius:30px;
+                }
             </style>
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
@@ -431,7 +434,7 @@ text-align: center;
             st.session_state['Name'] = Name
         if 'resumeContent' not in st.session_state:
             st.session_state["resumeContent"] = resumeContent
-        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name.replace(' ', '')}</h2>",
+        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                             unsafe_allow_html=True)
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
