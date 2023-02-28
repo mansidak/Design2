@@ -415,15 +415,11 @@ text-align: center;
         with col1a:
             st.write("")
         with col2a:
-            Searchholder = st.empty()
-            Search = Searchholder.button("Take me to 19th Street", key="SearchButton")
+            Search = st.button("Take me to 19th Street", key="SearchButton")
         with col3a:
             st.write("")
 
         if ExperienceLevel is not None and Search:
-            holder2.empty()
-            holder3.empty()
-            holder4.empty()
             Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
             if 'Name' not in st.session_state:
                 st.session_state['Name'] = Name
