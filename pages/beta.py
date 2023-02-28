@@ -420,7 +420,7 @@ text-align: center;
             Search = st.button("Take me to 19th Street", key="SearchButton")
         with col3a:
             st.write("")
-        if Search:
+        if Search and ExperienceLevel is not None:
             DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>", unsafe_allow_html=True)
