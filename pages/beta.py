@@ -402,6 +402,7 @@ text-align: center;
             st.session_state["resumeContent"] = resumeContent
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                             unsafe_allow_html=True)
+        st.write(OldSkillsBullet)
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
@@ -425,7 +426,7 @@ text-align: center;
             st.write("")
 
         if ExperienceLevel is not None and Search:
-            st.write(OldSkillsBullet)
+
 
             st.markdown("""
             <style>
