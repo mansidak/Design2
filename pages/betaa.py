@@ -349,7 +349,7 @@ text-align: center;
             model="text-davinci-003",
             prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n1.In addition to what they've already done, what other jobs titles would they like to pursue? List 3 and separate them by commas.\n\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas. \n\n 3. Their Full Name \n\n 4.Their top 3 soft skills\n\n5. All the technical skills they've used in the past. Separate them by commas.  \n\n {resumeContent} \n",
             temperature=0.7,
-            max_tokens=146,
+            max_tokens=200,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0
