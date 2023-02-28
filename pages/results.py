@@ -379,3 +379,18 @@ st.download_button(label="Export_Report",
                     data=PDFbyte,
                     file_name="test.pdf",
                     mime='application/octet-stream')
+
+html_string = "<ul>"
+for list in unique_results:
+    link = list[0]
+    title = list[1]
+    companyName = list[2]
+    shortSummary = list[3]
+    fullDescription = list[4]
+    location = list[5]
+    skills = list[6]
+    html_string += "<li><a href='" + link + "'>" + title + "at" + companyName +"</a></li>"
+html_string += "</ul>"
+
+# generate the pdf
+pdfkit.from_string(html_string, "output.pdf")
