@@ -456,7 +456,11 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
-                
+                .css-1db87p3.edgvbvh10{
+                 visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
                 div[class="row-widget stSelectbox"] {
                 visibility: hidden;
                 height: 0%;
