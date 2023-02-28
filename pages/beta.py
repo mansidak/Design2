@@ -400,7 +400,7 @@ text-align: center;
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
-            (None, 'Intern', 'Entry-Level'),
+            (None, 'Intern', 'Entry-Level', 'Associate'),
             help='* Required', key = "ExperienceLevel"
         )
         holder3 = st.empty()
@@ -415,7 +415,8 @@ text-align: center;
         with col1a:
             st.write("")
         with col2a:
-            Search = st.button("Take me to 19th Street", key="SearchButton")
+            SearchHolder = st.empty()
+            Search = SearchHolder.button("Take me to 19th Street", key="SearchButton")
         with col3a:
             st.write("")
 
@@ -428,6 +429,7 @@ text-align: center;
             holder2.empty()
             holder3.empty()
             holder4.empty()
+            SearchHolder.empty()
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
             # NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
