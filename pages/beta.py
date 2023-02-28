@@ -442,8 +442,8 @@ text-align: center;
         newJobtitles = st.session_state['newJobtitles']
         OldSkillsBullet = st.session_state['OldSkillsBullet']
         softSkills = st.session_state['softSkills']
-        st.write(newSkills)
-        st.write(newJobtitles)
+        # st.write(newSkills)
+        # st.write(newJobtitles)
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level*',
@@ -786,4 +786,4 @@ text-align: center;
 
             st.session_state["FinalResults"] = result11 + result22 + result33
             executor.shutdown()
-            # switch_page("results")
+            switch_page("results")
