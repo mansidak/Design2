@@ -340,12 +340,15 @@ text-align: center;
         print(Titles)
         Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
         Skills = Titles.split('2.')[1].split('3.')[0].split(',')
+        st.write(Skills)
         Name = Titles.split('3.')[1].split('4.')[0]
         softSkills = Titles.split('4.')[1].split('5.')[0]
         OldSkills = Titles.split('5.')[1]
 
         newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
         newSkills = [item.replace(" ", "-") for item in Skills]
+        st.write(newSkills)
+
         return Name, newJobtitles, newSkills, softSkills, OldSkills
 
 
