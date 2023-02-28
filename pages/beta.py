@@ -412,7 +412,7 @@ text-align: center;
 
         locationpreference = st.text_input(
             'Enter Location Preference',
-            placeholder='Enter City or State (upto 1)', )
+            placeholder='Enter City or State (upto 1)', key = "locationPreference")
         if ExperienceLevel is not  None:
             DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
