@@ -434,7 +434,7 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
-                div[class="row-widget stTextInput"] {
+                div[class="row-widget.stTextInput.css-pb6fr7.edfmue0"] {
                 visibility: hidden;
                 height: 0%;
                 position: fixed;
