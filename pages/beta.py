@@ -145,8 +145,18 @@ if __name__ == "__main__":
                 }
             .css-leojxt::before{
             content: "Filters"
-            
             }
+            div[data-testid="stSidebarNav"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                
+              div[data-testid="collapsedControl"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
         <style>
         """, unsafe_allow_html=True)
 
