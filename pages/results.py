@@ -8,7 +8,7 @@ import random
 from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from jinja2 import Environment, FileSystemLoader
-
+import pandas as pd
 
 hide_menu_style = """
          <style>
@@ -363,19 +363,11 @@ for element in unique_results:
 
 
 
-env = Environment(loader=FileSystemLoader('.'))
+#creating a dataframe from the array of lists
+df = pd.DataFrame(unique_results)
 
-# Create the template
-template = env.get_template("template.html")
+#Using pdfkit to generate the pdf document
+PDFFile = pdfkit.from_string(df.to_html(index=False, header=False, columns=['item1']), "output.pdf")
 
-# Render the template with the list of lists
-html_out = template.render(lists=[l[0] for l in unique_results])
-
-# Create the PDF
-pdfkit.from_string(html_out, 'output.pdf')
-
-st.download_button(label="Download PDF",
-                   data=pdfkit.from_string(html_out, 'output.pdf'),
-                   file_name="output.pdf",
-                   mime="application/pdf",
-                   key="download_pdf_button")
+st.download_button(label='Download PDF',
+                   data= PDFFile, mime='application/PDF')

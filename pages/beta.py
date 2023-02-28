@@ -443,14 +443,14 @@ text-align: center;
         )
         holder3 = st.empty()
         undesired3 = holder3.selectbox(
-            "Choose what you don't wanna do again",
+            "Is there something you don't wanna do again?",
             (OldSkillsBullet.split(',')),
             key="Undesired"
         )
         undesired = undesired3.replace(" ", "")
         holder4 = st.empty()
         locationpreference = holder4.selectbox(
-            'Enter Location Preference', ("",
+            'Location Preferences, if any', ("",
                                           " New York, New York",
                                           " Los Angeles, California",
                                           " Chicago, Illinois",
