@@ -419,12 +419,15 @@ text-align: center;
         with col3a:
             st.write("")
 
-        if Search:
+        if ExperienceLevel is not None and Search:
             Name, newJobtitles, newSkills, softSkills = openAIGetRelevantJobTitles(undesired, resumeContent)
             if 'Name' not in st.session_state:
                 st.session_state['Name'] = Name
             if 'resumeContent' not in st.session_state:
                 st.session_state["resumeContent"] = resumeContent
+            holder2.empty()
+            holder3.empty()
+            holder4.empty()
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', '') for item in newSkills])
             # NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
