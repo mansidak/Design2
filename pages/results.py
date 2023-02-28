@@ -370,4 +370,10 @@ html_string += "</ul>"
 
 # generate the pdf
 PDFFile = pdfkit.from_string(html_string, "output.pdf")
-st.download_button(label='Download PDF', data= PDFFile)
+
+# st.download_button(label='Download PDF', data= PDFFile)
+
+st.download_button(label="Export_Report",
+                    data=PDFFile,
+                    file_name="test.pdf",
+                    mime='application/octet-stream')
