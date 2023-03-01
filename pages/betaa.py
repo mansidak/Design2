@@ -448,7 +448,7 @@ text-align: center;
         holder3 = st.empty()
         undesired3 = holder3.selectbox(
             "Is there something you don't wanna do again?",
-            (OldSkillsBullet.split(',').extend("")),
+            (OldSkillsBullet.extend(",").split(',')),
             key="Undesired"
         )
         undesired = undesired3.replace(" ", "")
