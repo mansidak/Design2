@@ -771,8 +771,7 @@ text-align: center;
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', ' ') for item in newSkillsall])
             progressText.markdown(
-                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
-                unsafe_allow_html=True)
+                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",unsafe_allow_html=True)
             my_bar.progress(25, text=f"")
 
             # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
@@ -800,9 +799,7 @@ text-align: center;
                 futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
                 result1 = [future.result() for future in futures]
                 result11 = sum(result1, [])
-            progressText.markdown(
-                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",
-                unsafe_allow_html=True)
+            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
             my_bar.progress(50, text=f"")
             executor.shutdown(wait=True)
 
@@ -810,7 +807,9 @@ text-align: center;
                 futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
                 result2 = [future.result() for future in futures]
                 result22 = sum(result2, [])
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>The wait will pay off...</h6>", unsafe_allow_html=True)
+            progressText.markdown(
+                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",
+                unsafe_allow_html=True)
             my_bar.progress(75, text=f"")
             executor.shutdown(wait=True)
 
@@ -818,19 +817,14 @@ text-align: center;
                 futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
                 result3 = [future.result() for future in futures]
                 result33 = sum(result3, [])
-                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",unsafe_allow_html=True)
-                my_bar.progress(75, text=f"")
+                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Done</h6>",unsafe_allow_html=True)
+                my_bar.progress(100, text=f"")
             executor.shutdown(wait=True)
 
-            # with ThreadPoolExecutor() as executor:
-            #     futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links4]
-            #     result4 = [future.result() for future in futures]
-            #     result44 = sum(result4, [])
-            # executor.shutdown(wait=True)
 
             print(threading.enumerate())
             st.write(threading.enumerate())
 
             st.session_state["FinalResults"] = result11 + result22 + result33
             executor.shutdown()
-            # switch_page("results")
+            switch_page("results")
