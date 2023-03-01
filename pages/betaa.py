@@ -720,7 +720,6 @@ text-align: center;
             Search = st.button("Take me to 19th Street", key="SearchButton")
         with col3a:
             st.write("")
-        st.stop()
         if ExperienceLevel is not None and Search:
 
 
