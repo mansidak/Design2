@@ -347,7 +347,7 @@ text-align: center;
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other jobs titles would they like to pursue? List 2 and separate them by commas.\n2. If you were to choose only top six strongest technical skills of this person, what would those six be? Only list skills this person has given description about.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
+            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other jobs titles would they like to pursue? List 3 and separate them by commas.\n2. If you were to choose only top six strongest technical skills of this person, what would those six be? Only list skills this person has given description about.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
             temperature=0.7,
             max_tokens=200,
             top_p=1,
