@@ -835,4 +835,4 @@ text-align: center;
 
             st.session_state["FinalResults"] = result11 + result22 + result33 + result44
             executor.shutdown()
-            switch_page("results")
+            # switch_page("results")
