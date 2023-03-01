@@ -779,9 +779,13 @@ text-align: center;
             links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
             links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
             links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            if ExperienceLevel is "Entry Level":
+                links4 = run_selenium1(f"{newJobtitles[1]}-New_Grad", f"{newSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+
             st.write(links1)
             st.write(links2)
             st.write(links3)
+            st.write(links4)
             # with ThreadPoolExecutor(max_workers=3) as executor:
             #     future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}",
             #                               f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
@@ -823,10 +827,17 @@ text-align: center;
                 result33 = sum(result3, [])
             executor.shutdown(wait=True)
 
+            if ExperienceLevel is "Entry Level":
+                with ThreadPoolExecutor() as executor:
+                    futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links4]
+                    result4 = [future.result() for future in futures]
+                    result44 = sum(result4, [])
+                executor.shutdown(wait=True)
+
             print(threading.enumerate())
             st.write(threading.enumerate())
 
-            st.session_state["FinalResults"] = result11 + result22 + result33
+            st.session_state["FinalResults"] = result11 + result22 + result33 + result44
             executor.shutdown()
             if st.button("LETS GO", key="Letsgo"):
                 switch_page("results")
