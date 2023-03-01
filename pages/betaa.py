@@ -436,9 +436,9 @@ text-align: center;
         newJobtitles = st.session_state['newJobtitles']
         OldSkillsBullet = st.session_state['OldSkillsBullet']
         softSkills = st.session_state['softSkills']
-        st.write(newSkillsall)
-        st.write(newSkills)
-        st.write(newJobtitles)
+        # st.write(newSkillsall)
+        # st.write(newSkills)
+        # st.write(newJobtitles)
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
             'Select Experience Level (Required)',
