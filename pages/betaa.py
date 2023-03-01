@@ -779,7 +779,7 @@ text-align: center;
             links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
             links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
             links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-            if ExperienceLevel is "Entry Level":
+            if ExperienceLevel is "Entry-Level":
                 links4 = run_selenium1(f"{newJobtitles[1]}-New_Grad", f"{newSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
 
             st.write(links1)
@@ -827,7 +827,7 @@ text-align: center;
                 result33 = sum(result3, [])
             executor.shutdown(wait=True)
 
-            if ExperienceLevel is "Entry Level":
+            if ExperienceLevel is "Entry-Level":
                 with ThreadPoolExecutor() as executor:
                     futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links4]
                     result4 = [future.result() for future in futures]
