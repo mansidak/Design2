@@ -347,7 +347,7 @@ text-align: center;
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other generic jobs titles would they like to pursue? List 3 and separate them by commas.\n2. If you were to choose only top six strongest technical skills of this person, what would those six be? Only list skills this person has given description about.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
+            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other generic jobs titles would they like to pursue? List 3 and separate them by commas.\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
             temperature=0.7,
             max_tokens=200,
             top_p=1,
@@ -424,15 +424,12 @@ text-align: center;
         NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                             unsafe_allow_html=True)
         if 'newSkills' not in st.session_state:
-            NameDuplicate, newJobtitles, newSkillsall, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
+            NameDuplicate, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
             st.session_state['newJobtitles'] = newJobtitles
-            st.session_state['newSkillsall'] = newSkillsall
-            newSkills = random.sample(newSkillsall, 3)
             st.session_state['newSkills'] = newSkills
             st.session_state['softSkills'] = softSkills
             st.session_state['OldSkillsBullet'] = OldSkillsBullet
-        newSkillsall = st.session_state['newSkillsall']
-        newSkills = random.sample(newSkillsall,3)
+        newSkills = st.session_state['newSkills']
         newJobtitles = st.session_state['newJobtitles']
         OldSkillsBullet = st.session_state['OldSkillsBullet']
         softSkills = st.session_state['softSkills']
