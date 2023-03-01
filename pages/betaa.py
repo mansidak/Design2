@@ -828,5 +828,4 @@ text-align: center;
 
             st.session_state["FinalResults"] = result11 + result22 + result33
             executor.shutdown()
-            if st.button("LETS GO", key="Letsgo"):
-                switch_page("results")
+            switch_page("results")
