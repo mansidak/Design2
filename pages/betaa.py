@@ -441,7 +441,7 @@ text-align: center;
         st.write(newJobtitles)
         holder2 = st.empty()
         ExperienceLevel = holder2.selectbox(
-            'Select Experience Level*',
+            'Select Experience Level (Required)',
             (None, 'Intern', 'Entry-Level', 'Associate'),
             key="ExperienceLevel"
         )
@@ -454,7 +454,7 @@ text-align: center;
         undesired = undesired3.replace(" ", "")
         holder4 = st.empty()
         locationpreference = holder4.selectbox(
-            'Location Preferences, if any (This might limit your search results. We )', ("",
+            'Location Preferences, if any. (This might limit your search results.)', ("",
                                           " New York, New York",
                                           " Los Angeles, California",
                                           " Chicago, Illinois",
