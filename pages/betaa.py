@@ -454,7 +454,7 @@ text-align: center;
         undesired = undesired3.replace(" ", "")
         holder4 = st.empty()
         locationpreference = holder4.selectbox(
-            'Location Preferences, if any', ("",
+            'Location Preferences, if any (This might limit your search results. We )', ("",
                                           " New York, New York",
                                           " Los Angeles, California",
                                           " Chicago, Illinois",
