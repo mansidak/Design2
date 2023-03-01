@@ -235,7 +235,7 @@ text-align: center;
             try:
                 driver.get(
                     f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
-                # st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                 time.sleep(1)
                 links = []
@@ -775,26 +775,28 @@ text-align: center;
                 unsafe_allow_html=True)
             my_bar.progress(25, text=f"")
 
-            # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-            # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-            # links3 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-            # st.write(links1)
-            # st.write(links2)
-            # st.write(links3)
-            with ThreadPoolExecutor(max_workers=3) as executor:
-                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                future4 = executor.submit(run_selenium1, f"-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-
-            executor.shutdown(wait=True)
-
-            # Get the results
-            links1 = future1.result()
-            links2 = future2.result()
-            links3 = future3.result()
-            links4 = future4.result()
-            executor.shutdown(wait=True)
+            links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            links3 = run_selenium1(f"-{ExperienceLevel}", f"{newSkills[0]}%2C+{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            links4 = run_selenium1(f"-{ExperienceLevel}", f"{newSkills[1]}%2C+{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            st.write(links1)
+            st.write(links2)
+            st.write(links3)
+            st.write(links4)
+            # with ThreadPoolExecutor(max_workers=3) as executor:
+            #     future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            #     future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            #     future3 = executor.submit(run_selenium1, f"-{ExperienceLevel}", f"{newSkills[0]}%2C+{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            #     future4 = executor.submit(run_selenium1, f"-{ExperienceLevel}", f"{newSkills[1]}%2C+{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            #
+            # executor.shutdown(wait=True)
+            #
+            # # Get the results
+            # links1 = future1.result()
+            # links2 = future2.result()
+            # links3 = future3.result()
+            # links4 = future4.result()
+            # executor.shutdown(wait=True)
 
             with ThreadPoolExecutor() as executor:
                 futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
