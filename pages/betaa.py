@@ -347,7 +347,7 @@ text-align: center;
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other jobs titles would they like to pursue? List 3 and separate them by commas.\n2. If you were to choose only top six strongest technical skills of this person, what would those six be? Only list skills this person has given description about.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
+            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other jobs titles would they like to pursue? List 4 and separate them by commas.\n2. If you were to choose only top six strongest technical skills of this person, what would those six be? Only list skills this person has given description about.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
             temperature=0.7,
             max_tokens=200,
             top_p=1,
@@ -782,18 +782,18 @@ text-align: center;
             # st.write(links2)
             # st.write(links3)
             with ThreadPoolExecutor(max_workers=3) as executor:
-                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}",
-                                          f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}",
-                                          f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}",
-                                          f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future4 = executor.submit(run_selenium1, f"-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+
             executor.shutdown(wait=True)
 
             # Get the results
             links1 = future1.result()
             links2 = future2.result()
             links3 = future3.result()
+            links4 = future4.result()
             executor.shutdown(wait=True)
 
             with ThreadPoolExecutor() as executor:
@@ -822,9 +822,15 @@ text-align: center;
                 result33 = sum(result3, [])
             executor.shutdown(wait=True)
 
+            with ThreadPoolExecutor() as executor:
+                futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links4]
+                result4 = [future.result() for future in futures]
+                result44 = sum(result4, [])
+            executor.shutdown(wait=True)
+
             print(threading.enumerate())
             st.write(threading.enumerate())
 
-            st.session_state["FinalResults"] = result11 + result22 + result33
+            st.session_state["FinalResults"] = result11 + result22 + result33 + result44
             executor.shutdown()
             switch_page("results")
