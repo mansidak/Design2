@@ -329,7 +329,7 @@ text-align: center;
         return Final_Array
 
 
-    # @st.cache(show_spinner=False)
+    @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -343,7 +343,7 @@ text-align: center;
         Name = response["choices"][0]["text"]
         return Name
 
-    # @st.cache(show_spinner=False)
+    @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
