@@ -333,7 +333,7 @@ text-align: center;
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nI want you tell me their full name: \n",
+            prompt=f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nTheir full name is: \n",
             temperature=0.7,
             max_tokens=146,
             top_p=1,
