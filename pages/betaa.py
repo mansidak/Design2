@@ -402,18 +402,22 @@ text-align: center;
     def extract_text_from_pdf(pdf_file):
 
         # creating a pdf reader object
+
+
+        # creating a pdf reader object
         pdfReader = PyPDF2.PdfReader(pdf_file)
 
         # printing number of pages in pdf file
+        print(len(pdfReader.pages))
 
         # creating a page object
-        pageObj = pdfReader.getPage(0)
+        pageObj = pdfReader.pages[0]
 
         # extracting text from page
-        resumeContent = pageObj.extractText()
+        print(pageObj.extractText())
 
         # closing the pdf file object
-        pdf_file.close()
+        pdfFileObj.close()
         return resumeContent
 
         #
