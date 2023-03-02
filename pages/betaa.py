@@ -297,7 +297,7 @@ text-align: center;
                      "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n2. Job Summary \n 3. Salary/Pay (is listed)"},
                     {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
-                shortened_summary.append(response3["choices"][0]["text"])
+                shortened_summary.append(response3["choices"][0]["message"]["content"])
             else:
                 response3 = openai.Completion.create(
                     model="gpt-3.5-turbo",
@@ -305,7 +305,7 @@ text-align: center;
                         {"role": "system",
                          "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n2. Job Summary \n 3. Salary/Pay (is listed)"},
                         {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
-                shortened_summary.append(response3["choices"][0]["text"])
+                shortened_summary.append(response3["choices"][0]["message"]["content"])
 
             for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
                                                                                             Final_Titles,
