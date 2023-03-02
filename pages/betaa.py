@@ -290,7 +290,7 @@ text-align: center;
                         model="gpt-3.5-turbo",
                         messages=[
                             {"role": "system",
-                             "content": "You are an AI Assistant that summarizes job postings. in less than  150 words"},
+                             "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
                             {"role": "user",
                              "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
@@ -301,7 +301,7 @@ text-align: center;
                         model="gpt-3.5-turbo",
                         messages=[
                             {"role": "system",
-                             "content": "You are an AI Assistant that summarizes job postings. in less than  150 words"},
+                             "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
                             {"role": "user",
                              "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
                     shortened_summary.append(response3["choices"][0]["message"]["content"])
