@@ -836,14 +836,14 @@ text-align: center;
 
             print(threading.enumerate())
             st.write(threading.enumerate())
+            #
+            # combinations = set()
+            # for list in result11:
+            #     if tuple((list[1], list[2])) not in combinations:
+            #         combinations.add(tuple((list[1], list[2])))
+            #         st.write(list)
 
-            combinations = set()
-            for list in result11:
-                if tuple((list[1], list[2])) not in combinations:
-                    combinations.add(tuple((list[1], list[2])))
-                    st.write(list)
-
-            st.session_state["FinalResults"] = list
+            st.session_state["FinalResults"] = result11
 
             executor.shutdown()
             switch_page("results")
