@@ -402,7 +402,7 @@ text-align: center;
     def extract_text_from_pdf(pdf_file):
 
         # creating a pdf reader object
-        pdfReader = PyPDF2.PdfFileReader(pdf_file)
+        pdfReader = PyPDF2.PdfReader(pdf_file)
 
         # printing number of pages in pdf file
         print(pdfReader.numPages)
