@@ -430,15 +430,6 @@ text-align: center;
         pdf_file.close()
         return resumeContent
 
-        #
-        # pdfReader = PyPDF2.PdfReader(pdf_file)
-        # txtFile = open('sample.txt', 'w')
-        # num_pages = len(pdfReader.pages)
-        # for page_num in range(num_pages):
-        #     pageObj = pdfReader.pages[page_num]
-        #     txtFile.write(pageObj.extract_text())
-        #     resumeContent = pageObj.extract_text()
-        # return resumeContent
 
 
     if ResumePDF is not None:
@@ -816,40 +807,13 @@ text-align: center;
 
             executor.shutdown(wait=True)
 
-            # Get the results
             links1 = future1.result()
             links2 = future2.result()
             links3 = future3.result()
             executor.shutdown(wait=True)
-            st.write(links1)
-            st.write(links2)
-            st.write(links3)
-
-            # with ThreadPoolExecutor() as executor:
-            #     futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
-            #     result1 = [future.result() for future in futures]
-            #     result11 = sum(result1, [])
-            # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
-            # my_bar.progress(50, text=f"")
-            # executor.shutdown(wait=True)
-
-            # with ThreadPoolExecutor() as executor:
-            #     futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
-            #     result2 = [future.result() for future in futures]
-            #     result22 = sum(result2, [])
-            # progressText.markdown(
-            #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",
-            #     unsafe_allow_html=True)
-            # my_bar.progress(75, text=f"")
-            # executor.shutdown(wait=True)
-            #
-            # with ThreadPoolExecutor() as executor:
-            #     futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
-            #     result3 = [future.result() for future in futures]
-            #     result33 = sum(result3, [])
-            #     progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Done</h6>",unsafe_allow_html=True)
-            #     my_bar.progress(100, text=f"")
-            # executor.shutdown(wait=True)
+            # st.write(links1)
+            # st.write(links2)
+            # st.write(links3)
 
 
             print(threading.enumerate())
