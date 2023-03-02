@@ -294,7 +294,7 @@ text-align: center;
                 model = "gpt-3.5-turbo",
                 messages = [
                     {"role": "system",
-                     "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Job Summary (no more than 150 words) \n\n 2. Salary/Pay (if listed) \n\n 3. Remote/On-Site (if listed)"},
+                     "content": "You are an AI Assistant that summarizes job postings. Your response format consists of three bullet points: \n1. Job Summary (no more than 150 words) \n\n 2. Salary/Pay (if listed) \n\n 3. Remote/On-Site (if listed)"},
                     {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
                 shortened_summary.append(response3["choices"][0]["message"]["content"])
@@ -304,7 +304,7 @@ text-align: center;
                     model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system",
-                         "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Job Summary (no more than 150 words) \n\n 2. Salary/Pay (if listed) \n\n 3. Remote/On-Site (if listed)"},
+                         "content": "You are an AI Assistant that summarizes job postings. Your response format consists of three bullet points: \n1. Job Summary (no more than 150 words) \n\n 2. Salary/Pay (if listed) \n\n 3. Remote/On-Site (if listed)"},
                         {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
                 shortened_summary.append(response3["choices"][0]["message"]["content"])
                 print(response3["usage"]["total_tokens"])
