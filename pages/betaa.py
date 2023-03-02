@@ -864,4 +864,4 @@ text-align: center;
             st.session_state["FinalResults"] = links1 + links2 + links3
 
             # executor.shutdown()
-            # switch_page("results")
+            switch_page("results")
