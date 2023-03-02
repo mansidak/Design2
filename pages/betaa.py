@@ -806,4 +806,4 @@ text-align: center;
 
 
             # executor.shutdown()
-            switch_page("results")
+            # switch_page("results")
