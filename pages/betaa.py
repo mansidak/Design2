@@ -331,16 +331,13 @@ text-align: center;
 
     @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nTheir full name is: \n",
-            temperature=0.7,
-            max_tokens=146,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-        )
-        Name = response["choices"][0]["text"]
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            message=[
+                {"role": "system", "content": "You are an AI Assistant that grabs the name of a person from resume data"},
+                {"role": "user", "content": f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nTheir full name is: \n"}])
+
+        Name = response["choices"][0]["message"]["content"]
         return Name
 
     @st.cache(show_spinner=False)
@@ -354,7 +351,7 @@ text-align: center;
             frequency_penalty=0,
             presence_penalty=0
         )
-        Titles = response["choices"][0]["text"]
+        Titles = response["choices"][0]["message"]["content"]
         print(Titles)
         Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
         Skills = Titles.split('2.')[1].split('3.')[0].split(',')
