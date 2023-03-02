@@ -294,7 +294,7 @@ text-align: center;
                 model = "gpt-3.5-turbo",
                 messages = [
                     {"role": "system",
-                     "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n\n2. Job Summary (no more than 200 words) \n\n 3. Salary/Pay (if listed)"},
+                     "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Summarized Skills required (comma separated; in one bullet point) \n\n2. Job Summary (no more than 150 words) \n\n 3. Salary/Pay (if listed) \n\n 4. Remote/On-Site (if listed)"},
                     {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
                 shortened_summary.append(response3["choices"][0]["message"]["content"])
@@ -303,7 +303,7 @@ text-align: center;
                     model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system",
-                         "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n\n2. Job Summary (no more than 200 words) \n\n 3. Salary/Pay (if listed)"},
+                         "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Summarized Skills required (comma separated; in one bullet point) \n\n2. Job Summary (no more than 150 words) \n\n 3. Salary/Pay (if listed) \n\n 4. Remote/On-Site (if listed)"},
                         {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
                 shortened_summary.append(response3["choices"][0]["message"]["content"])
 
@@ -834,6 +834,20 @@ text-align: center;
             print(threading.enumerate())
             st.write(threading.enumerate())
 
+            # for jobs in result11:
+            #     if jobs[1] == jobs[2]:
+            #         result11cleaned = result11.remove(jobs)
+            #
+            # for jobs in result22:
+            #     if jobs[1] == jobs[2]:
+            #         result11cleaned = result11.remove(jobs)
+            #
+            # for jobs in result22:
+            #     if jobs[1] == jobs[2]:
+            #         result11cleaned = result11.remove(jobs)
+
+
             st.session_state["FinalResults"] = result11
+
             executor.shutdown()
             switch_page("results")
