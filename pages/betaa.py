@@ -343,15 +343,12 @@ text-align: center;
     @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
         response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other generic jobs titles would they like to pursue? List 3 and separate them by commas.\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
-            temperature=0.7,
-            max_tokens=200,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-        )
-        Titles = response["choices"][0]["text"]
+        model = "gpt-3.5-turbo",
+        messages = [
+            {"role": "system", "content": "You are an AI Assistant that is able to parse through the resume of a job seeker"},
+            {"role": "user", "content": f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other generic jobs titles would they like to pursue? List 3 and separate them by commas.\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n"}])
+
+        Titles = response["choices"][0]["message"]["content"]
         print(Titles)
         Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
         Skills = Titles.split('2.')[1].split('3.')[0].split(',')
