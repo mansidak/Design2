@@ -351,7 +351,7 @@ text-align: center;
             frequency_penalty=0,
             presence_penalty=0
         )
-        Titles = response["choices"][0]["message"]["content"]
+        Titles = response["choices"][0]["text"]
         print(Titles)
         Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
         Skills = Titles.split('2.')[1].split('3.')[0].split(',')
