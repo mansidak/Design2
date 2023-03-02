@@ -333,7 +333,7 @@ text-align: center;
     def openAIGetRelevantJobTitles(resumeContent):
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            message=[
+            messages=[
                 {"role": "system", "content": "You are an AI Assistant that grabs the name of a person from resume data"},
                 {"role": "user", "content": f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nTheir full name is: \n"}])
 
