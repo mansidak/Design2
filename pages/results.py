@@ -74,56 +74,59 @@ with st.sidebar:
     if st.button("Run Again"):
         switch_page("beta.py")
 
-col1, col2, col3 = st.columns([2, 1, 2])
-
-with col1:
-    st.write("")
-
-with col2:
-    image = Image.open('PenManLogo.png')
-    st.image(image)
-
-with col3:
-    st.write("")
-
-if 'Name' not in st.session_state:
-    switch_page("app")
-st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>", unsafe_allow_html=True)
-st.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>", unsafe_allow_html=True)
-
-hide_img_fs = '''
-<style>
-button[title="View fullscreen"]{
-    visibility: hidden;}
-    ul.streamlit-expander {
-            border: 0 None !important;
-            }
-</style>
-'''
-
-st.markdown(hide_img_fs, unsafe_allow_html=True)
-
-
-st.write("")
-st.write("")
-
-col111, col222 = st.columns([1,1])
-with col111:
-    options = st.multiselect('Filter by location', set([item[5] for item in st.session_state['FinalResults']]), None, key="option1")
-with col222:
-    options2 = st.multiselect('Filter by your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key = "option2")
-
-
-st.write("")
-st.write("")
-st.write("")
-st.write("")
-
-
 colresult1, colresult2, colresult3 = st.columns([0.5,1,0.5])
 with colresult1:
     st.write("")
 with colresult2:
+    col1, col2, col3 = st.columns([2, 1, 2])
+
+    with col1:
+        st.write("")
+
+    with col2:
+        image = Image.open('PenManLogo.png')
+        st.image(image)
+
+    with col3:
+        st.write("")
+
+    if 'Name' not in st.session_state:
+        switch_page("app")
+    st.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
+                unsafe_allow_html=True)
+    st.markdown(
+        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>",
+        unsafe_allow_html=True)
+
+    hide_img_fs = '''
+    <style>
+    button[title="View fullscreen"]{
+        visibility: hidden;}
+        ul.streamlit-expander {
+                border: 0 None !important;
+                }
+    </style>
+    '''
+
+    st.markdown(hide_img_fs, unsafe_allow_html=True)
+
+    st.write("")
+    st.write("")
+
+    col111, col222 = st.columns([1, 1])
+    with col111:
+        options = st.multiselect('Filter by location', set([item[5] for item in st.session_state['FinalResults']]),
+                                 None, key="option1")
+    with col222:
+        options2 = st.multiselect('Filter by your strongest skills',
+                                  set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None,
+                                  key="option2")
+
+    st.write("")
+    st.write("")
+    st.write("")
+    st.write("")
+
     unique_results = set(st.session_state['FinalResults'])
     for element in unique_results:
         if element[5] in options and element[6].replace('-', '') in options2:
