@@ -839,8 +839,8 @@ text-align: center;
 
             combinations = set()
             for list in result11:
-                if tuple((list[0], list[1])) not in combinations:
-                    combinations.add(tuple((list[0], list[1])))
+                if tuple((list[1], list[2])) not in combinations:
+                    combinations.add(tuple((list[1], list[2])))
                     st.write(list)
 
             st.session_state["FinalResults"] = list
