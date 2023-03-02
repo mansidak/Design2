@@ -861,7 +861,7 @@ text-align: center;
             #         combinations.add(tuple((list[1], list[2])))
             #         st.write(list)
 
-            # st.session_state["FinalResults"] = result11
+            st.session_state["FinalResults"] = links1 + links2 + links3
 
             # executor.shutdown()
             # switch_page("results")
