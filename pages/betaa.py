@@ -788,9 +788,9 @@ text-align: center;
             links2 = future2.result()
             links3 = future3.result()
             executor.shutdown(wait=True)
-            # st.write(links1)
-            # st.write(links2)
-            # st.write(links3)
+            st.write(links1)
+            st.write(links2)
+            st.write(links3)
 
 
             print(threading.enumerate())
@@ -803,8 +803,7 @@ text-align: center;
             #         st.write(list)
 
             st.session_state["FinalResults"] = links1 + links2 + links3
-            st.write(st.session_state["FinalResults"])
 
 
             # executor.shutdown()
-            # switch_page("results")
+            switch_page("results")
