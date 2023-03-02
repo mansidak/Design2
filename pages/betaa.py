@@ -327,11 +327,12 @@ text-align: center;
             futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links]
             result1 = [future.result() for future in futures]
             result11 = sum(result1, [])
-        progressText.markdown(
-            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",
-            unsafe_allow_html=True)
-        my_bar.progress(50, text=f"")
+        # progressText.markdown(
+        #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",
+        #     unsafe_allow_html=True)
+        # my_bar.progress(50, text=f"")
         executor.shutdown(wait=True)
+
         return result11
 
         # return links
