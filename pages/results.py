@@ -378,8 +378,8 @@ html_string += "</ul>"
 # generate the pdf
 PDFFile = pdfkit.from_string(html_string, "output.pdf")
 
-# with open("output.pdf", "rb") as pdf_file:
-PDFbyte = PDFFile.read()
+with open("output.pdf", "rb") as pdf_file:
+    PDFbyte = pdf_file.read()
 # st.download_button(label='Download PDF', data= PDFFile)
 
 st.download_button(label="Export_Report",
