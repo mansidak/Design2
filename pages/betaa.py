@@ -803,9 +803,7 @@ text-align: center;
             #         st.write(list)
 
             st.session_state["FinalResults"] = links1 + links2 + links3
-            options2 = st.multiselect('Filter by your strongest skills',
-                                      set([item[6].replace('-', '') for item in st.session_state['FinalResults']]),
-                                      None, key="option2")
+
 
             # executor.shutdown()
-            # switch_page("results")
+            switch_page("results")
