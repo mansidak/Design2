@@ -414,7 +414,7 @@ text-align: center;
         pageObj = pdfReader.pages[0]
 
         # extracting text from page
-        print(pageObj.extractText())
+        print(pageObj.extract_text())
 
         # closing the pdf file object
         pdf_file.close()
