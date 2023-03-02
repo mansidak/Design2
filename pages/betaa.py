@@ -291,25 +291,20 @@ text-align: center;
             if description_length > 950:
                 sliced_description = ''.join(words[:950])
                 response3 = openai.Completion.create(
-                    model="text-curie-001",
-                    prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{sliced_description}\n\nNow summarize it:\n\n\n",
-                    temperature=0.31,
-                    max_tokens=90,
-                    top_p=1,
-                    frequency_penalty=0,
-                    presence_penalty=0
-                )
+                model = "gpt-3.5-turbo",
+                messages = [
+                    {"role": "system",
+                     "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n2. Job Summary \n 3. Salary/Pay (is listed)"},
+                    {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+
                 shortened_summary.append(response3["choices"][0]["text"])
             else:
                 response3 = openai.Completion.create(
-                    model="text-curie-001",
-                    prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{description}\n\nNow summarize it:\n\n\n",
-                    temperature=0.31,
-                    max_tokens=90,
-                    top_p=1,
-                    frequency_penalty=0,
-                    presence_penalty=0
-                )
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n2. Job Summary \n 3. Salary/Pay (is listed)"},
+                        {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
                 shortened_summary.append(response3["choices"][0]["text"])
 
             for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
