@@ -765,9 +765,9 @@ text-align: center;
             # SearchHolder.empty()
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', ' ') for item in newSkills])
-            progressText.markdown(
-                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",unsafe_allow_html=True)
-            my_bar.progress(25, text=f"")
+
+
+
 
             # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
             # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
@@ -776,13 +776,31 @@ text-align: center;
             # st.write(links1)
             # st.write(links2)
             # st.write(links3)
-            with st.spinner(f"Please wait while we load jobs that match your background in {DisplaySkills}"):
-                with ThreadPoolExecutor(max_workers=3) as executor:
-                    future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
 
-                executor.shutdown(wait=True)
+
+            def progress_shit():
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(25, text=f"")
+                time.sleep(10)
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Finding more jobs</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(50, text=f"")
+                time.sleep(15)
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(75, text=f"")
+
+            with ThreadPoolExecutor(max_workers=3) as executor:
+                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future4 = executor.submit(progress_shit())
+
+            executor.shutdown(wait=True)
 
             links1 = future1.result()
             links2 = future2.result()
@@ -795,7 +813,7 @@ text-align: center;
 
             print(threading.enumerate())
             st.write(threading.enumerate())
-            #
+
             # combinations = set()
             # for list in result11:
             #     if tuple((list[1], list[2])) not in combinations:
