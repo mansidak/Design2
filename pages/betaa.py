@@ -298,6 +298,7 @@ text-align: center;
                     {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
                 shortened_summary.append(response3["choices"][0]["message"]["content"])
+                print(response3["usage"]["total_tokens"])
             else:
                 response3 = openai.ChatCompletion.create(
                     model="gpt-3.5-turbo",
@@ -306,6 +307,8 @@ text-align: center;
                          "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Summarized Skills required (comma separated; in one bullet point) \n\n2. Job Summary (no more than 150 words) \n\n 3. Salary/Pay (if listed) \n\n 4. Remote/On-Site (if listed)"},
                         {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
                 shortened_summary.append(response3["choices"][0]["message"]["content"])
+                print(response3["usage"]["total_tokens"])
+
 
             for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
                                                                                             Final_Titles,
