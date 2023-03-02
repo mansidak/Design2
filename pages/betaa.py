@@ -417,7 +417,7 @@ text-align: center;
         print(pageObj.extractText())
 
         # closing the pdf file object
-        pdfFileObj.close()
+        pdf_file.close()
         return resumeContent
 
         #
