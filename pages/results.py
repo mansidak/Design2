@@ -385,7 +385,9 @@ with colresult2:
     html_string += "</ul>"
 
     # generate the pdf
-    PDFFile = pdfkit.from_string(html_string, "19thStreet.pdf")
+    # PDFFile = pdfkit.from_string(html_string, "19thStreet.pdf")
+    config = pdfkit.configuration(wkhtmltopdf=bytes('/opt/bin/wkhtmltopdf', 'utf-8'))
+    PDFFile = pdfkit.from_string(html_string,"output.pdf",configuration=config)
 
     with open("output.pdf", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
