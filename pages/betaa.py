@@ -324,7 +324,7 @@ text-align: center;
             return Final_Array
 
         with ThreadPoolExecutor() as executor:
-            futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links]
+            futures = [executor.submit(get_links, link, skill1, resumeContent) for link in links]
             result1 = [future.result() for future in futures]
             result11 = sum(result1, [])
         executor.shutdown(wait=True)
