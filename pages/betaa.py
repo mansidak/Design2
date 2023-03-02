@@ -400,14 +400,32 @@ text-align: center;
 
     # @st.cache(show_spinner=False)
     def extract_text_from_pdf(pdf_file):
-        pdfReader = PyPDF2.PdfReader(pdf_file)
-        txtFile = open('sample.txt', 'w')
-        num_pages = len(pdfReader.pages)
-        for page_num in range(num_pages):
-            pageObj = pdfReader.pages[page_num]
-            txtFile.write(pageObj.extract_text())
-            resumeContent = pageObj.extract_text()
+
+        # creating a pdf reader object
+        pdfReader = PyPDF2.PdfFileReader(pdf_file)
+
+        # printing number of pages in pdf file
+        print(pdfReader.numPages)
+
+        # creating a page object
+        pageObj = pdfReader.getPage(0)
+
+        # extracting text from page
+        resumeContent = pageObj.extractText()
+
+        # closing the pdf file object
+        pdf_file.close()
         return resumeContent
+
+        #
+        # pdfReader = PyPDF2.PdfReader(pdf_file)
+        # txtFile = open('sample.txt', 'w')
+        # num_pages = len(pdfReader.pages)
+        # for page_num in range(num_pages):
+        #     pageObj = pdfReader.pages[page_num]
+        #     txtFile.write(pageObj.extract_text())
+        #     resumeContent = pageObj.extract_text()
+        # return resumeContent
 
 
     if ResumePDF is not None:
