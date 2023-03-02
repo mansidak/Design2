@@ -837,20 +837,13 @@ text-align: center;
             print(threading.enumerate())
             st.write(threading.enumerate())
 
-            # for jobs in result11:
-            #     if jobs[1] == jobs[2]:
-            #         result11cleaned = result11.remove(jobs)
-            #
-            # for jobs in result22:
-            #     if jobs[1] == jobs[2]:
-            #         result11cleaned = result11.remove(jobs)
-            #
-            # for jobs in result22:
-            #     if jobs[1] == jobs[2]:
-            #         result11cleaned = result11.remove(jobs)
+            combinations = set()
+            for list in result11:
+                if tuple((list[0], list[1])) not in combinations:
+                    combinations.add(tuple((list[0], list[1])))
+                    st.write(list)
 
-
-            st.session_state["FinalResults"] = result11
+            st.session_state["FinalResults"] = list
 
             executor.shutdown()
             switch_page("results")
