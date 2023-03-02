@@ -400,22 +400,10 @@ text-align: center;
     # @st.cache(show_spinner=False)
     def extract_text_from_pdf(pdf_file):
 
-        # creating a pdf reader object
-
-
-        # creating a pdf reader object
         pdfReader = PyPDF2.PdfReader(pdf_file)
-
-        # printing number of pages in pdf file
         print(len(pdfReader.pages))
-
-        # creating a page object
         pageObj = pdfReader.pages[0]
-
-        # extracting text from page
         resumeContent = pageObj.extract_text()
-
-        # closing the pdf file object
         pdf_file.close()
         return resumeContent
 
@@ -815,6 +803,9 @@ text-align: center;
             #         st.write(list)
 
             st.session_state["FinalResults"] = links1 + links2 + links3
+            options2 = st.multiselect('Filter by your strongest skills',
+                                      set([item[6].replace('-', '') for item in st.session_state['FinalResults']]),
+                                      None, key="option2")
 
             # executor.shutdown()
-            switch_page("results")
+            # switch_page("results")
