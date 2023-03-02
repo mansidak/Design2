@@ -405,7 +405,6 @@ text-align: center;
         pdfReader = PyPDF2.PdfReader(pdf_file)
 
         # printing number of pages in pdf file
-        print(pdfReader.numPages)
 
         # creating a page object
         pageObj = pdfReader.getPage(0)
