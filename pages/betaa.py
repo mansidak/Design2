@@ -290,7 +290,7 @@ text-align: center;
             description_length = len(words)
             if description_length > 950:
                 sliced_description = ''.join(words[:950])
-                response3 = openai.Completion.create(
+                response3 = openai.ChatCompletion.create(
                 model = "gpt-3.5-turbo",
                 messages = [
                     {"role": "system",
@@ -299,7 +299,7 @@ text-align: center;
 
                 shortened_summary.append(response3["choices"][0]["message"]["content"])
             else:
-                response3 = openai.Completion.create(
+                response3 = openai.ChatCompletion.create(
                     model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system",
