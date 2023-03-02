@@ -803,7 +803,8 @@ text-align: center;
             #         st.write(list)
 
             st.session_state["FinalResults"] = links1 + links2 + links3
+            st.write(st.session_state["FinalResults"])
 
 
             # executor.shutdown()
-            switch_page("results")
+            # switch_page("results")
