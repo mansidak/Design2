@@ -793,6 +793,11 @@ text-align: center;
                     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
                     unsafe_allow_html=True)
                 my_bar.progress(75, text=f"")
+                time.sleep(15)
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(75, text=f"")
 
             with ThreadPoolExecutor(max_workers=3) as executor:
                 future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
