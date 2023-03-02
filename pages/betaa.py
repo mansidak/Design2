@@ -342,7 +342,7 @@ text-align: center;
 
     @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
         model = "gpt-3.5-turbo",
         messages = [
             {"role": "system", "content": "You are an AI Assistant that is able to parse through the resume of a job seeker"},
