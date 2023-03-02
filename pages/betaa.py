@@ -253,78 +253,92 @@ text-align: center;
             except:
                 driver.close()
                 driver.quit()
-        return links
+
+        def get_links(i, skill1, resumeContent):
+            Final_Links = []
+            Final_Titles = []
+            Final_Company = []
+            Final_Description = []
+            Final_Location = []
+            shortened_summary = []
+            Final_Skills = []
+            try:
+                driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+                driver.get(i)
+                # time.sleep(2)
+                elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
+                for a in elements:
+                    if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
+                            'href') not in Final_Links:
+                        Final_Links.append(a.get_attribute('href'))
+                title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
+                Final_Titles.append(title)
+                location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
+                Final_Location.append(location)
+                Final_Skills.append(skill1)
+                company = driver.find_element(By.XPATH,
+                                              "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
+                Final_Company.append(company)
+
+                description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
+                Final_Description.append(description)
+                words = description.split()
+                description_length = len(words)
+                if description_length > 950:
+                    sliced_description = ''.join(words[:950])
+                    response3 = openai.ChatCompletion.create(
+                        model="gpt-3.5-turbo",
+                        messages=[
+                            {"role": "system",
+                             "content": "You are an AI Assistant that summarizes job postings. Your response format consists of three bullet points(but don't label the bullet points as 1,2,3): \n1. Job Summary (no more than 150 words): \n\n 2. Salary (Keep it concise. No more than 5 words; if listed, write it as a number; if number is not listed, say not listed): \n\n 3. Remote/On-Site (if on-site specify City, State; if remote, say 'Remote'; if not listed, say 'not listed'):"},
+                            {"role": "user",
+                             "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+
+                    shortened_summary.append(response3["choices"][0]["message"]["content"])
+                    print(response3["usage"]["total_tokens"])
+                else:
+                    response3 = openai.ChatCompletion.create(
+                        model="gpt-3.5-turbo",
+                        messages=[
+                            {"role": "system",
+                             "content": "You are an AI Assistant that summarizes job postings. Your response format consists of three bullet points(but don't label the bullet points as 1,2,3): \n1. Job Summary (no more than 150 words): \n\n 2. Salary (Keep it concise. No more than 5 words; if listed, write it as a number; if number is not listed, say not listed): \n\n 3. Remote/On-Site (if on-site specify City, State; if remote, say 'Remote'; if not listed, say 'not listed'):"},
+                            {"role": "user",
+                             "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+                    shortened_summary.append(response3["choices"][0]["message"]["content"])
+                    print(response3["usage"]["total_tokens"])
+
+                for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
+                                                                                                Final_Titles,
+                                                                                                Final_Company,
+                                                                                                shortened_summary,
+                                                                                                Final_Description,
+                                                                                                Final_Location,
+                                                                                                Final_Skills):
+                    Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+
+                driver.close()
+                driver.quit()
+            except:
+                driver.close()
+                driver.quit()
+            return Final_Array
+
+        with ThreadPoolExecutor() as executor:
+            futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
+            result1 = [future.result() for future in futures]
+            result11 = sum(result1, [])
+        progressText.markdown(
+            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>",
+            unsafe_allow_html=True)
+        my_bar.progress(50, text=f"")
+        executor.shutdown(wait=True)
+        return result11
+
+        # return links
 
 
     # @st.cache(show_spinner=False)
-    def get_links(i, skill1, resumeContent):
-        Final_Array = []
-        Final_Links = []
-        Final_Titles = []
-        Final_Company = []
-        Final_Description = []
-        Final_Location = []
-        shortened_summary = []
-        Final_Skills = []
-        try:
-            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-            driver.get(i)
-            # time.sleep(2)
-            elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
-            for a in elements:
-                if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
-                        'href') not in Final_Links:
-                    Final_Links.append(a.get_attribute('href'))
-            title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
-            Final_Titles.append(title)
-            location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
-            Final_Location.append(location)
-            Final_Skills.append(skill1)
-            company = driver.find_element(By.XPATH,
-                                          "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
-            Final_Company.append(company)
 
-            description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
-            Final_Description.append(description)
-            words = description.split()
-            description_length = len(words)
-            if description_length > 950:
-                sliced_description = ''.join(words[:950])
-                response3 = openai.ChatCompletion.create(
-                model = "gpt-3.5-turbo",
-                messages = [
-                    {"role": "system",
-                     "content": "You are an AI Assistant that summarizes job postings. Your response format consists of three bullet points(but don't label the bullet points as 1,2,3): \n1. Job Summary (no more than 150 words): \n\n 2. Salary (Keep it concise. No more than 5 words; if listed, write it as a number; if number is not listed, say not listed): \n\n 3. Remote/On-Site (if on-site specify City, State; if remote, say 'Remote'; if not listed, say 'not listed'):"},
-                    {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
-
-                shortened_summary.append(response3["choices"][0]["message"]["content"])
-                print(response3["usage"]["total_tokens"])
-            else:
-                response3 = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
-                    messages=[
-                        {"role": "system",
-                         "content": "You are an AI Assistant that summarizes job postings. Your response format consists of three bullet points(but don't label the bullet points as 1,2,3): \n1. Job Summary (no more than 150 words): \n\n 2. Salary (Keep it concise. No more than 5 words; if listed, write it as a number; if number is not listed, say not listed): \n\n 3. Remote/On-Site (if on-site specify City, State; if remote, say 'Remote'; if not listed, say 'not listed'):"},
-                        {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
-                shortened_summary.append(response3["choices"][0]["message"]["content"])
-                print(response3["usage"]["total_tokens"])
-
-
-            for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
-                                                                                            Final_Titles,
-                                                                                            Final_Company,
-                                                                                            shortened_summary,
-                                                                                            Final_Description,
-                                                                                            Final_Location,
-                                                                                            Final_Skills):
-                Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
-
-            driver.close()
-            driver.quit()
-        except:
-            driver.close()
-            driver.quit()
-        return Final_Array
 
 
     @st.cache(show_spinner=False)
@@ -807,13 +821,13 @@ text-align: center;
             # links3 = future3.result()
             # executor.shutdown(wait=True)
 
-            with ThreadPoolExecutor() as executor:
-                futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
-                result1 = [future.result() for future in futures]
-                result11 = sum(result1, [])
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
-            my_bar.progress(50, text=f"")
-            executor.shutdown(wait=True)
+            # with ThreadPoolExecutor() as executor:
+            #     futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
+            #     result1 = [future.result() for future in futures]
+            #     result11 = sum(result1, [])
+            # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
+            # my_bar.progress(50, text=f"")
+            # executor.shutdown(wait=True)
 
             # with ThreadPoolExecutor() as executor:
             #     futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
@@ -843,7 +857,7 @@ text-align: center;
             #         combinations.add(tuple((list[1], list[2])))
             #         st.write(list)
 
-            st.session_state["FinalResults"] = result11
+            # st.session_state["FinalResults"] = result11
 
-            executor.shutdown()
-            switch_page("results")
+            # executor.shutdown()
+            # switch_page("results")
