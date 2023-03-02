@@ -294,7 +294,7 @@ text-align: center;
                 model = "gpt-3.5-turbo",
                 messages = [
                     {"role": "system",
-                     "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n2. Job Summary \n 3. Salary/Pay (is listed)"},
+                     "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n\n2. Job Summary (no more than 200 words) \n\n 3. Salary/Pay (if listed)"},
                     {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
                 shortened_summary.append(response3["choices"][0]["message"]["content"])
@@ -303,7 +303,7 @@ text-align: center;
                     model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system",
-                         "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n2. Job Summary \n 3. Salary/Pay (is listed)"},
+                         "content": "You are an AI Assistant that summarizes job postings. Your summary format is as follows: \n1. Skills required \n\n2. Job Summary (no more than 200 words) \n\n 3. Salary/Pay (if listed)"},
                         {"role": "user", "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
                 shortened_summary.append(response3["choices"][0]["message"]["content"])
 
@@ -812,28 +812,28 @@ text-align: center;
             my_bar.progress(50, text=f"")
             executor.shutdown(wait=True)
 
-            with ThreadPoolExecutor() as executor:
-                futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
-                result2 = [future.result() for future in futures]
-                result22 = sum(result2, [])
-            progressText.markdown(
-                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",
-                unsafe_allow_html=True)
-            my_bar.progress(75, text=f"")
-            executor.shutdown(wait=True)
-
-            with ThreadPoolExecutor() as executor:
-                futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
-                result3 = [future.result() for future in futures]
-                result33 = sum(result3, [])
-                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Done</h6>",unsafe_allow_html=True)
-                my_bar.progress(100, text=f"")
-            executor.shutdown(wait=True)
+            # with ThreadPoolExecutor() as executor:
+            #     futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
+            #     result2 = [future.result() for future in futures]
+            #     result22 = sum(result2, [])
+            # progressText.markdown(
+            #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",
+            #     unsafe_allow_html=True)
+            # my_bar.progress(75, text=f"")
+            # executor.shutdown(wait=True)
+            #
+            # with ThreadPoolExecutor() as executor:
+            #     futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
+            #     result3 = [future.result() for future in futures]
+            #     result33 = sum(result3, [])
+            #     progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Done</h6>",unsafe_allow_html=True)
+            #     my_bar.progress(100, text=f"")
+            # executor.shutdown(wait=True)
 
 
             print(threading.enumerate())
             st.write(threading.enumerate())
 
-            st.session_state["FinalResults"] = result11 + result22 + result33
+            st.session_state["FinalResults"] = result11
             executor.shutdown()
             switch_page("results")
