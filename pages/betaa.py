@@ -290,7 +290,7 @@ text-align: center;
                         model="gpt-3.5-turbo",
                         messages=[
                             {"role": "system",
-                             "content": "You are an AI Assistant that summarizes job postings. Your response format consists of three bullet points(but don't label the bullet points as 1,2,3): \n1. Job Summary (no more than 150 words): \n\n 2. Salary (Keep it concise. No more than 5 words; if listed, write it as a number; if number is not listed, say not listed): \n\n 3. Remote/On-Site (if on-site specify City, State; if remote, say 'Remote'; if not listed, say 'not listed'):"},
+                             "content": "You are an AI Assistant that summarizes job postings. in less than  150 words"},
                             {"role": "user",
                              "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
@@ -301,7 +301,7 @@ text-align: center;
                         model="gpt-3.5-turbo",
                         messages=[
                             {"role": "system",
-                             "content": "You are an AI Assistant that summarizes job postings. Your response format consists of three bullet points(but don't label the bullet points as 1,2,3): \n1. Job Summary (no more than 150 words): \n\n 2. Salary (Keep it concise. No more than 5 words; if listed, write it as a number; if number is not listed, say not listed): \n\n 3. Remote/On-Site (if on-site specify City, State; if remote, say 'Remote'; if not listed, say 'not listed'):"},
+                             "content": "You are an AI Assistant that summarizes job postings. in less than  150 words"},
                             {"role": "user",
                              "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
                     shortened_summary.append(response3["choices"][0]["message"]["content"])
