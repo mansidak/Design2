@@ -71,7 +71,7 @@ if __name__ == "__main__":
                     height: 40px;
                     max-width: 175px;
                     position: fixed;
-                    top: 50%;
+                    top: 80%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                     width: 50%;
