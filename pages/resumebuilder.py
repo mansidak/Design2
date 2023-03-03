@@ -474,7 +474,7 @@ with tab5:
                              You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle} in less than 50 words.
                              """},
                 {"role": "user",
-                 "content": f"The following is description of a project of a job seeker.\n{Project2Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+                 "content": f"The following is description of a project of a job seeker.\n{Project3Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
         NewProjectThreeDescription = NewProjectThreeDescriptionResponse["choices"][0]["message"]["content"]
 
         NewProjectFourDescriptionResponse = openai.ChatCompletion.create(
@@ -485,7 +485,7 @@ with tab5:
                              You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle} in less than 50 words.
                              """},
                 {"role": "user",
-                 "content": f"The following is description of a project of a job seeker.\n{Project2Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+                 "content": f"The following is description of a project of a job seeker.\n{Project4Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
         NewProjectFourDescription = NewProjectFourDescriptionResponse["choices"][0]["message"]["content"]
 
         html_string = ""
@@ -534,7 +534,7 @@ with tab5:
         new_parser = HtmlToDocx()
         headingExperiences = document.add_heading(f'Experiences', 1)
         new_parser.add_html_to_document(html_string, document)
-        headingProjects = document.add_heading(f'Experiences', 1)
+        headingProjects = document.add_heading(f'Projects', 1)
         new_parser.add_html_to_document(html_string2, document)
 
 
