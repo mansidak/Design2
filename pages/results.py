@@ -387,8 +387,8 @@ with colresult2:
     # generate the pdf
     # PDFFile = pdfkit.from_string(html_string, "19thStreet.pdf")
 
-    config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64', 'utf-8'))
-    PDFFile = pdfkit.from_string(html_string,"output.pdf",configuration=config)
+    # config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64', 'utf-8'))
+    PDFFile = pdfkit.from_string(html_string,"output.pdf")
 
     with open("output.pdf", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
