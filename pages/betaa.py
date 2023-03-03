@@ -392,443 +392,441 @@ text-align: center;
         f"<h6 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'> </h6>",
         unsafe_allow_html=True)
     holder = st.empty()
-
-    if 'resumeContent' not in st.session_state:
-        ResumePDF = holder.file_uploader(
-            ''
-        )
+    ResumePDF = holder.file_uploader(
+        ''
+    )
 
 
     # @st.cache(show_spinner=False)
-        def extract_text_from_pdf(pdf_file):
+    def extract_text_from_pdf(pdf_file):
 
-            pdfReader = PyPDF2.PdfReader(pdf_file)
-            print(len(pdfReader.pages))
-            pageObj = pdfReader.pages[0]
-            resumeContent = pageObj.extract_text()
-            pdf_file.close()
-            return resumeContent
+        pdfReader = PyPDF2.PdfReader(pdf_file)
+        print(len(pdfReader.pages))
+        pageObj = pdfReader.pages[0]
+        resumeContent = pageObj.extract_text()
+        pdf_file.close()
+        return resumeContent
 
 
 
-        if ResumePDF is not None:
-            SubTitle.empty()
-            Credits.empty()
-            holder.empty()
-            resumeContent = extract_text_from_pdf(ResumePDF)
-            Name = openAIGetRelevantJobTitles(resumeContent)
+    if ResumePDF is not None:
+        SubTitle.empty()
+        Credits.empty()
+        holder.empty()
+        resumeContent = extract_text_from_pdf(ResumePDF)
+        Name = openAIGetRelevantJobTitles(resumeContent)
 
-            if 'Name' not in st.session_state:
-                st.session_state['Name'] = Name
-            if 'resumeContent' not in st.session_state:
-                st.session_state["resumeContent"] = resumeContent
-            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
-                                unsafe_allow_html=True)
-            if 'newSkills' not in st.session_state:
-                NameDuplicate, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
-                st.session_state['newJobtitles'] = newJobtitles
-                st.session_state['newSkills'] = newSkills
-                st.session_state['softSkills'] = softSkills
-                st.session_state['OldSkillsBullet'] = OldSkillsBullet
-            newSkills = st.session_state['newSkills']
-            newJobtitles = st.session_state['newJobtitles']
-            OldSkillsBullet = st.session_state['OldSkillsBullet']
-            softSkills = st.session_state['softSkills']
-            # st.write(newSkills)
-            # st.write(newJobtitles)
-            holder2 = st.empty()
-            ExperienceLevel = holder2.selectbox(
-                'Select Experience Level (Required)',
-                (None, 'Intern', 'Entry-Level', 'Associate'),
-                key="ExperienceLevel"
-            )
-            holder3 = st.empty()
-            undesired3 = holder3.selectbox(
-                "Is there something you don't wanna do again?",
-                ((" ," + OldSkillsBullet).split(',')),
-                key="Undesired"
-            )
-            undesired = undesired3.replace(" ", "")
-            holder4 = st.empty()
-            locationpreference = holder4.selectbox(
-                'Location Preferences, if any. (This might limit your search results.)', ("",
-                                              " New York, New York",
-                                              " Los Angeles, California",
-                                              " Chicago, Illinois",
-                                              " Houston, Texas",
-                                              " Phoenix, Arizona",
-                                              " Philadelphia, Pennsylvania",
-                                              " San Antonio, Texas",
-                                              " San Diego, California",
-                                              " Dallas, Texas ",
-                                              " San Jose, California ",
-                                              " Austin, Texas ",
-                                              " Jacksonville, Florida ",
-                                              " Fort Worth, Texas ",
-                                              " Columbus, Ohio ",
-                                              " San Francisco, California ",
-                                              " Charlotte, North Carolina ",
-                                              " Indianapolis, Indiana ",
-                                              " Seattle, Washington ",
-                                              " Denver, Colorado ",
-                                              " Washington, DC ",
-                                              " Boston, Massachusetts ",
-                                              " El Paso, Texas ",
-                                              " Detroit, Michigan ",
-                                              " Nashville, Tennessee ",
-                                              " Portland, Oregon ",
-                                              " Memphis, Tennessee ",
-                                              " Oklahoma City, Oklahoma ",
-                                              " Las Vegas, Nevada ",
-                                              " Louisville, Kentucky ",
-                                              " Baltimore, Maryland ",
-                                              " Milwaukee, Wisconsin ",
-                                              " Albuquerque, New Mexico ",
-                                              " Tucson, Arizona ",
-                                              " Fresno, California ",
-                                              " Sacramento, California ",
-                                              " Long Beach, California ",
-                                              " Kansas City, Missouri ",
-                                              " Mesa, Arizona ",
-                                              " Virginia Beach, Virginia ",
-                                              " Atlanta, Georgia ",
-                                              " Colorado Springs, Colorado ",
-                                              " Omaha, Nebraska ",
-                                              " Raleigh, North Carolina ",
-                                              " Miami, Florida ",
-                                              " Oakland, California ",
-                                              " Minneapolis, Minnesota ",
-                                              " Tulsa, Oklahoma ",
-                                              " Cleveland, Ohio ",
-                                              " Wichita, Kansas ",
-                                              " New Orleans, Louisiana ",
-                                              " Arlington, Texas ",
-                                              " Bakersfield, California ",
-                                              " Tampa, Florida ",
-                                              " Honolulu, Hawaii ",
-                                              " Aurora, Colorado ",
-                                              " Anaheim, California ",
-                                              " Santa Ana, California ",
-                                              " St.  Louis, Missouri ",
-                                              " Riverside, California ",
-                                              " Corpus Christi, Texas ",
-                                              " Lexington, Kentucky ",
-                                              " Pittsburgh, Pennsylvania ",
-                                              " Anchorage, Alaska ",
-                                              " Stockton, California ",
-                                              " Cincinnati, Ohio ",
-                                              " Saint Paul, Minnesota ",
-                                              " Toledo, Ohio ",
-                                              " Newark, New Jersey ",
-                                              " Greensboro, North Carolina ",
-                                              " Plano, Texas ",
-                                              " Henderson, Nevada ",
-                                              " Lincoln, Nebraska ",
-                                              " Buffalo, New York ",
-                                              " Fort Wayne, Indiana ",
-                                              " Jersey City, New Jersey ",
-                                              " Chula Vista, California ",
-                                              " Orlando, Florida ",
-                                              " St. Petersburg, Florida ",
-                                              " Norfolk, Virginia ",
-                                              " Chandler, Arizona ",
-                                              " Laredo, Texas ",
-                                              " Madison, Wisconsin ",
-                                              " Durham, North Carolina ",
-                                              " Lubbock, Texas ",
-                                              " Garland, Texas ",
-                                              " Glendale, Arizona ",
-                                              " Winston-Salem, North Carolina ",
-                                              " Reno, Nevada ",
-                                              " Hialeah, Florida ",
-                                              " Baton Rouge, Louisiana ",
-                                              " Irving, Texas ",
-                                              " Scottsdale, Arizona ",
-                                              " North Las Vegas, Nevada ",
-                                              " Fremont, California ",
-                                              " Chesapeake, Virginia ",
-                                              " Gilbert, Arizona ",
-                                              " Akron, Ohio ",
-                                              " Rochester, New York ",
-                                              " Bois, Idaho ",
-                                              " Modesto, California ",
-                                              " Montgomery, Alabama ",
-                                              " Spokane, Washington ",
-                                              " Des Moines, Iowa ",
-                                              " Richmond, Virginia ",
-                                              " Yonkers, New York ",
-                                              " Tacoma, Washington ",
-                                              " Glendale, California ",
-                                              " Irvine, California ",
-                                              " Shreveport, Louisiana ",
-                                              " Grand Rapids, Michigan ",
-                                              " Birmingham, Alabama ",
-                                              " Knoxville, Tennessee ",
-                                              " Amarillo, Texas ",
-                                              " Huntington Beach, California ",
-                                              " Columbus, Georgia ",
-                                              " Salt Lake City, Utah ",
-                                              " Augusta, Georgia ",
-                                              " Mobile, Alabama ",
-                                              " Little Rock, Arkansas ",
-                                              " Moreno Valley, California ",
-                                              " Boise, Idaho ",
-                                              " Alexandria, Virginia ",
-                                              " Providence, Rhode Island ",
-                                              " Grand Prairie, Texas ",
-                                              " Newport News, Virginia ",
-                                              " Clarksville, Tennessee ",
-                                              " Wichita Falls, Texas ",
-                                              " Springfield, Missouri ",
-                                              " Huntington, West Virginia ",
-                                              " Oceanside, California ",
-                                              " Garden Grove, California ",
-                                              " Santa Rosa, California ",
-                                              " Santa Clarita, California ",
-                                              " Fort Lauderdale, Florida ",
-                                              " Rancho Cucamonga, California ",
-                                              " Port St.  Lucie, Florida ",
-                                              " Ontario, California ",
-                                              " Tempe, Arizona ",
-                                              " Vancouver, Washington ",
-                                              " Cape Coral, Florida ",
-                                              " Sioux Falls, South Dakota ",
-                                              " Peoria, Arizona ",
-                                              " Eugene, Oregon ",
-                                              " Lancaster, California ",
-                                              " Hayward, California ",
-                                              " Salinas, California ",
-                                              " Palmdale, California ",
-                                              " Pomona, California ",
-                                              " Pasadena, Texas ",
-                                              " Joliet, Illinois ",
-                                              " Paterson, New Jersey ",
-                                              " Kansas City, Kansas ",
-                                              " Torrance, California ",
-                                              " Syracuse, New York ",
-                                              " Bridgeport, Connecticut ",
-                                              " Hayward, Wisconsin ",
-                                              " Fort Collins, Colorado ",
-                                              " Escondido, California ",
-                                              " Lakewood, Colorado ",
-                                              " Naperville, Illinois ",
-                                              " Dayton, Ohio ",
-                                              " Hollywood, Florida ",
-                                              " Sunnyvale, California ",
-                                              " Alexandria, Louisiana ",
-                                              " Mesquite, Texas ",
-                                              " Savannah, Georgia ",
-                                              " Cary, North Carolina ",
-                                              " Fullerton, California ",
-                                              " Warren, Michigan ",
-                                              " Clarksville, Indiana ",
-                                              " McAllen, Texas ",
-                                              " New Haven, Connecticut ",
-                                              " Sterling Heights, Michigan ",
-                                              " West Valley City, Utah ",
-                                              " Columbia, South Carolina ",
-                                              " Killeen, Texas ",
-                                              " Topeka, Kansas ",
-                                              " Thousand Oaks, California ",
-                                              " Cedar Rapids, Iowa ",
-                                              " Olathe, Kansas ",
-                                              " Elizabeth, New Jersey ",
-                                              " Waco, Texas ",
-                                              " Hartford, Connecticut ",
-                                              " Visalia, California ",
-                                              " Gainesville, Florida ",
-                                              " Simi Valley, California ",
-                                              " Stamford, Connecticut ",
-                                              " Bellevue, Washington ",
-                                              " Concord, California ",
-                                              " Miramar, Florida ",
-                                              " Coral Springs, Florida ",
-                                              " Lafayette, Louisiana ",
-                                              " Charleston, South Carolina ",
-                                              " Carrollton, Texas ",
-                                              " Roseville, California ",
-                                              " Thornton, Colorado ",
-                                              " Beaumont, Texas ",
-                                              " Allentown, Pennsylvania ",
-                                              " Surprise, Arizona ",
-                                              " Evansville, Indiana","Alabama",
-                                                 "Alaska",
-                                                 "Arizona",
-                                                 "Arkansas",
-                                                 "California",
-                                                 "Colorado",
-                                                 "Connecticut",
-                                                 "Delaware",
-                                                 "District of Columbia",
-                                                 "Florida",
-                                                 "Georgia",
-                                                 "Hawaii",
-                                                 "Idaho",
-                                                 "Illinois",
-                                                 "Indiana",
-                                                 "Iowa",
-                                                 "Kansas",
-                                                 "Kentucky",
-                                                 "Louisiana",
-                                                 "Maine",
-                                                 "Montana",
-                                                 "Nebraska",
-                                                 "Nevada",
-                                                 "New Hampshire",
-                                                 "New Jersey",
-                                                 "New Mexico",
-                                                 "New York",
-                                                 "North Carolina",
-                                                 "North Dakota",
-                                                 "Ohio",
-                                                 "Oklahoma",
-                                                 "Oregon",
-                                                 "Maryland",
-                                                 "Massachusetts",
-                                                 "Michigan",
-                                                 "Minnesota",
-                                                 "Mississippi",
-                                                 "Missouri",
-                                                 "Pennsylvania",
-                                                 "Rhode Island",
-                                                 "South Carolina",
-                                                 "South Dakota",
-                                                 "Tennessee",
-                                                 "Texas",
-                                                 "Utah",
-                                                 "Vermont",
-                                                 "Virginia",
-                                                 "Washington",
-                                                 "West Virginia",
-                                                 "Wisconsin",
-                                                 "Wyoming",), key="locationPreference")
+        if 'Name' not in st.session_state:
+            st.session_state['Name'] = Name
+        if 'resumeContent' not in st.session_state:
+            st.session_state["resumeContent"] = resumeContent
+        NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
+                            unsafe_allow_html=True)
+        if 'newSkills' not in st.session_state:
+            NameDuplicate, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(resumeContent)
+            st.session_state['newJobtitles'] = newJobtitles
+            st.session_state['newSkills'] = newSkills
+            st.session_state['softSkills'] = softSkills
+            st.session_state['OldSkillsBullet'] = OldSkillsBullet
+        newSkills = st.session_state['newSkills']
+        newJobtitles = st.session_state['newJobtitles']
+        OldSkillsBullet = st.session_state['OldSkillsBullet']
+        softSkills = st.session_state['softSkills']
+        # st.write(newSkills)
+        # st.write(newJobtitles)
+        holder2 = st.empty()
+        ExperienceLevel = holder2.selectbox(
+            'Select Experience Level (Required)',
+            (None, 'Intern', 'Entry-Level', 'Associate'),
+            key="ExperienceLevel"
+        )
+        holder3 = st.empty()
+        undesired3 = holder3.selectbox(
+            "Is there something you don't wanna do again?",
+            ((" ," + OldSkillsBullet).split(',')),
+            key="Undesired"
+        )
+        undesired = undesired3.replace(" ", "")
+        holder4 = st.empty()
+        locationpreference = holder4.selectbox(
+            'Location Preferences, if any. (This might limit your search results.)', ("",
+                                          " New York, New York",
+                                          " Los Angeles, California",
+                                          " Chicago, Illinois",
+                                          " Houston, Texas",
+                                          " Phoenix, Arizona",
+                                          " Philadelphia, Pennsylvania",
+                                          " San Antonio, Texas",
+                                          " San Diego, California",
+                                          " Dallas, Texas ",
+                                          " San Jose, California ",
+                                          " Austin, Texas ",
+                                          " Jacksonville, Florida ",
+                                          " Fort Worth, Texas ",
+                                          " Columbus, Ohio ",
+                                          " San Francisco, California ",
+                                          " Charlotte, North Carolina ",
+                                          " Indianapolis, Indiana ",
+                                          " Seattle, Washington ",
+                                          " Denver, Colorado ",
+                                          " Washington, DC ",
+                                          " Boston, Massachusetts ",
+                                          " El Paso, Texas ",
+                                          " Detroit, Michigan ",
+                                          " Nashville, Tennessee ",
+                                          " Portland, Oregon ",
+                                          " Memphis, Tennessee ",
+                                          " Oklahoma City, Oklahoma ",
+                                          " Las Vegas, Nevada ",
+                                          " Louisville, Kentucky ",
+                                          " Baltimore, Maryland ",
+                                          " Milwaukee, Wisconsin ",
+                                          " Albuquerque, New Mexico ",
+                                          " Tucson, Arizona ",
+                                          " Fresno, California ",
+                                          " Sacramento, California ",
+                                          " Long Beach, California ",
+                                          " Kansas City, Missouri ",
+                                          " Mesa, Arizona ",
+                                          " Virginia Beach, Virginia ",
+                                          " Atlanta, Georgia ",
+                                          " Colorado Springs, Colorado ",
+                                          " Omaha, Nebraska ",
+                                          " Raleigh, North Carolina ",
+                                          " Miami, Florida ",
+                                          " Oakland, California ",
+                                          " Minneapolis, Minnesota ",
+                                          " Tulsa, Oklahoma ",
+                                          " Cleveland, Ohio ",
+                                          " Wichita, Kansas ",
+                                          " New Orleans, Louisiana ",
+                                          " Arlington, Texas ",
+                                          " Bakersfield, California ",
+                                          " Tampa, Florida ",
+                                          " Honolulu, Hawaii ",
+                                          " Aurora, Colorado ",
+                                          " Anaheim, California ",
+                                          " Santa Ana, California ",
+                                          " St.  Louis, Missouri ",
+                                          " Riverside, California ",
+                                          " Corpus Christi, Texas ",
+                                          " Lexington, Kentucky ",
+                                          " Pittsburgh, Pennsylvania ",
+                                          " Anchorage, Alaska ",
+                                          " Stockton, California ",
+                                          " Cincinnati, Ohio ",
+                                          " Saint Paul, Minnesota ",
+                                          " Toledo, Ohio ",
+                                          " Newark, New Jersey ",
+                                          " Greensboro, North Carolina ",
+                                          " Plano, Texas ",
+                                          " Henderson, Nevada ",
+                                          " Lincoln, Nebraska ",
+                                          " Buffalo, New York ",
+                                          " Fort Wayne, Indiana ",
+                                          " Jersey City, New Jersey ",
+                                          " Chula Vista, California ",
+                                          " Orlando, Florida ",
+                                          " St. Petersburg, Florida ",
+                                          " Norfolk, Virginia ",
+                                          " Chandler, Arizona ",
+                                          " Laredo, Texas ",
+                                          " Madison, Wisconsin ",
+                                          " Durham, North Carolina ",
+                                          " Lubbock, Texas ",
+                                          " Garland, Texas ",
+                                          " Glendale, Arizona ",
+                                          " Winston-Salem, North Carolina ",
+                                          " Reno, Nevada ",
+                                          " Hialeah, Florida ",
+                                          " Baton Rouge, Louisiana ",
+                                          " Irving, Texas ",
+                                          " Scottsdale, Arizona ",
+                                          " North Las Vegas, Nevada ",
+                                          " Fremont, California ",
+                                          " Chesapeake, Virginia ",
+                                          " Gilbert, Arizona ",
+                                          " Akron, Ohio ",
+                                          " Rochester, New York ",
+                                          " Bois, Idaho ",
+                                          " Modesto, California ",
+                                          " Montgomery, Alabama ",
+                                          " Spokane, Washington ",
+                                          " Des Moines, Iowa ",
+                                          " Richmond, Virginia ",
+                                          " Yonkers, New York ",
+                                          " Tacoma, Washington ",
+                                          " Glendale, California ",
+                                          " Irvine, California ",
+                                          " Shreveport, Louisiana ",
+                                          " Grand Rapids, Michigan ",
+                                          " Birmingham, Alabama ",
+                                          " Knoxville, Tennessee ",
+                                          " Amarillo, Texas ",
+                                          " Huntington Beach, California ",
+                                          " Columbus, Georgia ",
+                                          " Salt Lake City, Utah ",
+                                          " Augusta, Georgia ",
+                                          " Mobile, Alabama ",
+                                          " Little Rock, Arkansas ",
+                                          " Moreno Valley, California ",
+                                          " Boise, Idaho ",
+                                          " Alexandria, Virginia ",
+                                          " Providence, Rhode Island ",
+                                          " Grand Prairie, Texas ",
+                                          " Newport News, Virginia ",
+                                          " Clarksville, Tennessee ",
+                                          " Wichita Falls, Texas ",
+                                          " Springfield, Missouri ",
+                                          " Huntington, West Virginia ",
+                                          " Oceanside, California ",
+                                          " Garden Grove, California ",
+                                          " Santa Rosa, California ",
+                                          " Santa Clarita, California ",
+                                          " Fort Lauderdale, Florida ",
+                                          " Rancho Cucamonga, California ",
+                                          " Port St.  Lucie, Florida ",
+                                          " Ontario, California ",
+                                          " Tempe, Arizona ",
+                                          " Vancouver, Washington ",
+                                          " Cape Coral, Florida ",
+                                          " Sioux Falls, South Dakota ",
+                                          " Peoria, Arizona ",
+                                          " Eugene, Oregon ",
+                                          " Lancaster, California ",
+                                          " Hayward, California ",
+                                          " Salinas, California ",
+                                          " Palmdale, California ",
+                                          " Pomona, California ",
+                                          " Pasadena, Texas ",
+                                          " Joliet, Illinois ",
+                                          " Paterson, New Jersey ",
+                                          " Kansas City, Kansas ",
+                                          " Torrance, California ",
+                                          " Syracuse, New York ",
+                                          " Bridgeport, Connecticut ",
+                                          " Hayward, Wisconsin ",
+                                          " Fort Collins, Colorado ",
+                                          " Escondido, California ",
+                                          " Lakewood, Colorado ",
+                                          " Naperville, Illinois ",
+                                          " Dayton, Ohio ",
+                                          " Hollywood, Florida ",
+                                          " Sunnyvale, California ",
+                                          " Alexandria, Louisiana ",
+                                          " Mesquite, Texas ",
+                                          " Savannah, Georgia ",
+                                          " Cary, North Carolina ",
+                                          " Fullerton, California ",
+                                          " Warren, Michigan ",
+                                          " Clarksville, Indiana ",
+                                          " McAllen, Texas ",
+                                          " New Haven, Connecticut ",
+                                          " Sterling Heights, Michigan ",
+                                          " West Valley City, Utah ",
+                                          " Columbia, South Carolina ",
+                                          " Killeen, Texas ",
+                                          " Topeka, Kansas ",
+                                          " Thousand Oaks, California ",
+                                          " Cedar Rapids, Iowa ",
+                                          " Olathe, Kansas ",
+                                          " Elizabeth, New Jersey ",
+                                          " Waco, Texas ",
+                                          " Hartford, Connecticut ",
+                                          " Visalia, California ",
+                                          " Gainesville, Florida ",
+                                          " Simi Valley, California ",
+                                          " Stamford, Connecticut ",
+                                          " Bellevue, Washington ",
+                                          " Concord, California ",
+                                          " Miramar, Florida ",
+                                          " Coral Springs, Florida ",
+                                          " Lafayette, Louisiana ",
+                                          " Charleston, South Carolina ",
+                                          " Carrollton, Texas ",
+                                          " Roseville, California ",
+                                          " Thornton, Colorado ",
+                                          " Beaumont, Texas ",
+                                          " Allentown, Pennsylvania ",
+                                          " Surprise, Arizona ",
+                                          " Evansville, Indiana","Alabama",
+                                             "Alaska",
+                                             "Arizona",
+                                             "Arkansas",
+                                             "California",
+                                             "Colorado",
+                                             "Connecticut",
+                                             "Delaware",
+                                             "District of Columbia",
+                                             "Florida",
+                                             "Georgia",
+                                             "Hawaii",
+                                             "Idaho",
+                                             "Illinois",
+                                             "Indiana",
+                                             "Iowa",
+                                             "Kansas",
+                                             "Kentucky",
+                                             "Louisiana",
+                                             "Maine",
+                                             "Montana",
+                                             "Nebraska",
+                                             "Nevada",
+                                             "New Hampshire",
+                                             "New Jersey",
+                                             "New Mexico",
+                                             "New York",
+                                             "North Carolina",
+                                             "North Dakota",
+                                             "Ohio",
+                                             "Oklahoma",
+                                             "Oregon",
+                                             "Maryland",
+                                             "Massachusetts",
+                                             "Michigan",
+                                             "Minnesota",
+                                             "Mississippi",
+                                             "Missouri",
+                                             "Pennsylvania",
+                                             "Rhode Island",
+                                             "South Carolina",
+                                             "South Dakota",
+                                             "Tennessee",
+                                             "Texas",
+                                             "Utah",
+                                             "Vermont",
+                                             "Virginia",
+                                             "Washington",
+                                             "West Virginia",
+                                             "Wisconsin",
+                                             "Wyoming",), key="locationPreference")
+
+        st.markdown("""
+        <style>
+            .st-au {
+            border-radius:30px; 
+            }
+        </style>""", unsafe_allow_html=True)
+
+        col1a, col2a, col3a = st.columns([1, 1, 1])
+        with col1a:
+            st.write("")
+        with col2a:
+            Search = st.button("Take me to 19th Street", key="SearchButton")
+        with col3a:
+            st.write("")
+        if ExperienceLevel is not None and Search:
+
 
             st.markdown("""
             <style>
-                .st-au {
-                border-radius:30px; 
+             div[data-baseweb="select"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
                 }
-            </style>""", unsafe_allow_html=True)
+                .row-widget.stTextInput.css-pb6fr7.edfmue0 {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                .css-17z41qg.e16nr0p34{
+                 visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
 
-            col1a, col2a, col3a = st.columns([1, 1, 1])
-            with col1a:
-                st.write("")
-            with col2a:
-                Search = st.button("Take me to 19th Street", key="SearchButton")
-            with col3a:
-                st.write("")
-            if ExperienceLevel is not None and Search:
+                .css-17z41qg.e16nr0p34{
+                 visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+
+                .css-17z41qg.e16nr0p34{
+                 visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                .css-1db87p3.edgvbvh10{
+                 visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+                div[class="row-widget stSelectbox"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
 
 
-                st.markdown("""
-                <style>
-                 div[data-baseweb="select"] {
-                    visibility: hidden;
-                    height: 0%;
-                    position: fixed;
-                    }
-                    .row-widget.stTextInput.css-pb6fr7.edfmue0 {
-                    visibility: hidden;
-                    height: 0%;
-                    position: fixed;
-                    }
-                    .css-17z41qg.e16nr0p34{
-                     visibility: hidden;
-                    height: 0%;
-                    position: fixed;
-                    }
-    
-                    .css-17z41qg.e16nr0p34{
-                     visibility: hidden;
-                    height: 0%;
-                    position: fixed;
-                    }
-    
-                    .css-17z41qg.e16nr0p34{
-                     visibility: hidden;
-                    height: 0%;
-                    position: fixed;
-                    }
-                    .css-1db87p3.edgvbvh10{
-                     visibility: hidden;
-                    height: 0%;
-                    position: fixed;
-                    }
-                    div[class="row-widget stSelectbox"] {
-                    visibility: hidden;
-                    height: 0%;
-                    position: fixed;
-                    }
-    
-    
-                </style>
-                    """, unsafe_allow_html=True)
+            </style>
+                """, unsafe_allow_html=True)
 
-                # SearchHolder.empty()
-                NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
-                DisplaySkills = ', '.join([item.replace('-', ' ') for item in newSkills])
+            # SearchHolder.empty()
+            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
+            DisplaySkills = ', '.join([item.replace('-', ' ') for item in newSkills])
 
 
 
 
-                # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                # links3 = run_selenium1(f"-{ExperienceLevel}", f"{newSkills[0]}%2C+{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                #
-                # st.write(links1)
-                # st.write(links2)
-                # st.write(links3)
+            # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            # links3 = run_selenium1(f"-{ExperienceLevel}", f"{newSkills[0]}%2C+{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+            #
+            # st.write(links1)
+            # st.write(links2)
+            # st.write(links3)
 
 
-                def progress_shit():
-                    progressText.markdown(
-                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
-                        unsafe_allow_html=True)
-                    my_bar.progress(25, text=f"")
-                    time.sleep(10)
-                    progressText.markdown(
-                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Finding more jobs</h6>",
-                        unsafe_allow_html=True)
-                    my_bar.progress(50, text=f"")
-                    time.sleep(15)
-                    progressText.markdown(
-                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
-                        unsafe_allow_html=True)
-                    my_bar.progress(75, text=f"")
-                    time.sleep(15)
-                    progressText.markdown(
-                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
-                        unsafe_allow_html=True)
-                    my_bar.progress(75, text=f"")
+            def progress_shit():
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(25, text=f"")
+                time.sleep(10)
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Finding more jobs</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(50, text=f"")
+                time.sleep(15)
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(75, text=f"")
+                time.sleep(15)
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(75, text=f"")
 
-                with ThreadPoolExecutor(max_workers=3) as executor:
-                    future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    future4 = executor.submit(progress_shit())
+            with ThreadPoolExecutor(max_workers=3) as executor:
+                future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future4 = executor.submit(progress_shit())
 
-                executor.shutdown(wait=True)
+            executor.shutdown(wait=True)
 
-                links1 = future1.result()
-                links2 = future2.result()
-                links3 = future3.result()
-                executor.shutdown(wait=True)
-                # st.write(links1)
-                # st.write(links2)
-                # st.write(links3)
-
-
-                print(threading.enumerate())
-                st.write(threading.enumerate())
-
-                # combinations = set()
-                # for list in result11:
-                #     if tuple((list[1], list[2])) not in combinations:
-                #         combinations.add(tuple((list[1], list[2])))
-                #         st.write(list)
-
-                st.session_state["FinalResults"] = links1 + links2 + links3
+            links1 = future1.result()
+            links2 = future2.result()
+            links3 = future3.result()
+            executor.shutdown(wait=True)
+            # st.write(links1)
+            # st.write(links2)
+            # st.write(links3)
 
 
-                # executor.shutdown()
-                switch_page("results")
+            print(threading.enumerate())
+            st.write(threading.enumerate())
+
+            # combinations = set()
+            # for list in result11:
+            #     if tuple((list[1], list[2])) not in combinations:
+            #         combinations.add(tuple((list[1], list[2])))
+            #         st.write(list)
+
+            st.session_state["FinalResults"] = links1 + links2 + links3
+
+
+            # executor.shutdown()
+            switch_page("results")
