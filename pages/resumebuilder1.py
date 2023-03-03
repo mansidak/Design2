@@ -40,7 +40,7 @@ hide_streamlit_style = """
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-col1, col2, col3, col4, col5 = st.columns9([0.25,1,0.1,1,0.25])
+col1, col2, col3, col4, col5 = st.columns([0.25,1,0.1,1,0.25])
 with col1:
     st.write("")
 with col2:
