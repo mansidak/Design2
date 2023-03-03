@@ -360,8 +360,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                 You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
-                 You don't say extra fluff in the output.
+                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}
                  You end every bullet point with a semi colon.
                  """},
                 {"role": "user",
@@ -375,8 +374,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                 You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
-                 You don't say extra fluff in the output.
+                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}
                  You end every bullet point with a semi colon.
                  """},
                 {"role": "user",
@@ -390,8 +388,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                 You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
-                 You don't say extra fluff in the output.
+                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}
                  You end every bullet point with a semi colon.
                  """},
                 {"role": "user",
@@ -405,8 +402,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                 You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
-                 You don't say extra fluff in the output.
+                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}
                  You end every bullet point with a semi colon.
                  """},
                 {"role": "user",
