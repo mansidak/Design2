@@ -432,11 +432,15 @@ with tab5:
         for item in NewExperienceFourDescription.split(";"):
             html_string += "<li>" + item + "</li>"
 
+        #
+        # PDFFile = pdfkit.from_string(html_string, "resume.pdf")
+        # with open("resume.pdf", "rb") as pdf_file:
+        #     PDFbyte = pdf_file.read()
 
-        PDFFile = pdfkit.from_string(html_string, "resume.pdf")
-        with open("resume.pdf", "rb") as pdf_file:
-            PDFbyte = pdf_file.read()
+        document = Document()
+        document.add_paragraph(html_string)
+
         st.download_button(label="Proceed",
-                           data=PDFbyte,
-                           file_name="resume.pdf",
-                           mime='application/octet-stream')
+                           data=document,
+                           file_name="resume.docx",
+                           mime='docx')
