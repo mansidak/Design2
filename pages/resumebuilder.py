@@ -447,7 +447,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                         You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle} in less than 50 words.
+                             You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
                          """},
                 {"role": "user",
                  "content": f"The following is description of a project of a job seeker.\n{Project1Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
@@ -460,7 +460,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                             You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle} in less than 50 words.
+                             You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
                              """},
                 {"role": "user",
                  "content": f"The following is description of a project of a job seeker.\n{Project2Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
@@ -471,7 +471,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                             You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle} in less than 50 words.
+                             You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
                              """},
                 {"role": "user",
                  "content": f"The following is description of a project of a job seeker.\n{Project3Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
@@ -482,7 +482,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                             You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle} in less than 50 words.
+                             You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
                              """},
                 {"role": "user",
                  "content": f"The following is description of a project of a job seeker.\n{Project4Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
