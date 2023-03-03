@@ -433,6 +433,9 @@ with tab5:
 
         html_string = ""
 
+        html_string += "<h1 align='center' >" + CandidateName + "</h1>"
+        html_string += "<h3 align='center' >" + CandidateName + '|' + CandidatePhone + '|' + CandidateEmail + "</h3>"
+
         html_string += "<h3>" + Experience1Name + "</h3>"
         for item in NewExperienceOneDescription.split(";"):
             html_string += "<li>" + item + "</li>"
@@ -444,6 +447,9 @@ with tab5:
         html_string += "<h3>" + Experience3Name + "</h3>"
         for item in NewExperienceThreeDescription.split(";"):
             html_string += "<li>" + item + "</li>"
+
+        html_string += "<h3>" + FinalSkills + "</h3>"
+
 
         document = Document()
         new_parser = HtmlToDocx()
