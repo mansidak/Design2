@@ -404,15 +404,15 @@ with tab5:
         for item in NewExperienceOneDescription.split("-"):
             html_string += "<li>" + item + "</li>"
 
-        html_string += "<h3>" + Experience1Name + "</h3>"
+        html_string += "<h3>" + Experience2Name + "</h3>"
         for item in NewExperienceTwoDescription.split("-"):
             html_string += "<li>" + item + "</li>"
 
-        html_string += "<h3>" + Experience1Name + "</h3>"
+        html_string += "<h3>" + Experience3Name + "</h3>"
         for item in NewExperienceThreeDescription.split("-"):
             html_string += "<li>" + item + "</li>"
 
-        html_string += "<h3>" + Experience1Name + "</h3>"
+        html_string += "<h3>" + Experience4Name + "</h3>"
         for item in NewExperienceFourDescription.split("-"):
             html_string += "<li>" + item + "</li>"
 
