@@ -449,11 +449,13 @@ with tab5:
 
         html_string += "<h3>" + FinalSkills + "</h3>"
 
-
         document = Document()
-        new_parser = HtmlToDocx()
         document.add_heading(f'{CandidateName}')
-        document = new_parser.parse_html_string(html_string)
+        new_parser = HtmlToDocx()
+        new_parser.add_html_to_document(html_string, document)
+
+        # do more stuff to document
+        document.save('your_file_name')
 
         # document.save('your_file_name')
 
