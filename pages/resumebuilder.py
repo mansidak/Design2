@@ -353,7 +353,7 @@ with tab5:
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}. Make sure to generate bullet points and that they sound like an experienced and polished {ChosenJobTitle}"},
+                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}.You ouput consists of no more than 3 bullet points that like an experienced and polished {ChosenJobTitle}. You don't add extra fluff to the response."},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience1Description}"}])
         NewExperienceOneDescription = NewExperienceOneDescriptionResponse["choices"][0]["message"]["content"]
@@ -364,7 +364,7 @@ with tab5:
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}. Make sure to generate bullet points and that they sound like an experienced and polished {ChosenJobTitle}"},
+                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}.You ouput consists of no more than 3 bullet points that like an experienced and polished {ChosenJobTitle}. You don't add extra fluff to the response."},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience2Description}"}])
         NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
@@ -375,7 +375,7 @@ with tab5:
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}. Make sure to generate bullet points and that they sound like an experienced and polished {ChosenJobTitle}"},
+                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}.You ouput consists of no more than 3 bullet points that like an experienced and polished {ChosenJobTitle}. You don't add extra fluff to the response."},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience3Description}"}])
         NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
@@ -386,7 +386,7 @@ with tab5:
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}. Make sure to generate bullet points and that they sound like an experienced and polished {ChosenJobTitle}"},
+                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}.You ouput consists of no more than 3 bullet points that like an experienced and polished {ChosenJobTitle}. You don't add extra fluff to the response."},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience4Description}"}])
         NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
