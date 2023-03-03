@@ -451,7 +451,8 @@ with tab5:
         document = Document()
         heading = document.add_heading(f'{CandidateName}', 0)
         heading.alignment = 1
-        subheading = document.add_heading(f'{CandidateEmail} | {CandidatePhone}', 2)
+        subheading = document.add_heading(f'{CandidateEmail} | {CandidatePhone}', 1)
+        heading.alignment = 1
 
         new_parser = HtmlToDocx()
         new_parser.add_html_to_document(html_string, document)
