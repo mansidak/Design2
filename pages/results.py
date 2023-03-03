@@ -10,6 +10,9 @@ import pdfkit
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
 
+import io
+from reportlab.pdfgen import canvas
+
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
@@ -384,19 +387,45 @@ with colresult2:
         html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
     html_string += "</ul>"
 
-    # generate the pdf
-    # PDFFile = pdfkit.from_string(html_string, "19thStreet.pdf")
 
-    # config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64', 'utf-8'))
-    PDFFile = pdfkit.from_string(html_string,"output.pdf")
 
-    with open("output.pdf", "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
-    # st.download_button(label='Download PDF', data= PDFFi
+    # Create the buffer for the PDF
+    buffer = io.BytesIO()
+
+    # Create the Canvas object
+    pdf_canvas = canvas.Canvas(buffer)
+
+    # Loop over each list in Array1
+    for list_item in unique_results:
+        item2 = list_item[1]
+        pdf_canvas.beginText()
+        pdf_canvas.textOut(20, 800, item2)
+        pdf_canvas.endText()
+
+    # Save the PDF
+    pdf_canvas.save()
+
+    with open('my_pdf.pdf', 'wb') as f:
+        f.write(buffer.getvalue())
+
+
 
     st.download_button(label="Export_Report",
-                       data=PDFbyte,
-                       file_name="test.pdf",
+                       data=pdf_canvas,
+                       file_name="my_pdf.pdf",
                        mime='application/octet-stream')
+
+
+
+
+
+
+
+
+
+
+
+
+
 with colresult3:
     st.write("")
