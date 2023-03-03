@@ -361,7 +361,7 @@ with tab5:
                 {"role": "system",
                  "content": f"""
                                   You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
-                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. 
+                                  Your response consists of 3-4 revised resume bullet points. You end every bullet point with a semi colon. 
                                   You don't add extra fluff to your response.
                                   Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
                                   """},
@@ -377,7 +377,7 @@ with tab5:
                 {"role": "system",
                  "content": f"""
                                 You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
-                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. 
+                                  Your response consists of 3-4 revised resume bullet points. You end every bullet point with a semi colon. 
                                   You don't add extra fluff to your response.
                                   Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
                                   """},
@@ -393,7 +393,7 @@ with tab5:
                 {"role": "system",
                  "content": f"""
                                   You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
-                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. 
+                                  Your response consists of 3-4 revised resume bullet points. You end every bullet point with a semi colon. 
                                   You don't add extra fluff to your response.
                                   Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
                                   """},
@@ -409,7 +409,7 @@ with tab5:
                 {"role": "system",
                  "content": f"""
                                   You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
-                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. 
+                                  Your response consists of 3-4 revised resume bullet points. You end every bullet point with a semi colon. 
                                   You don't add extra fluff to your response.
                                   Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
                                   """},
