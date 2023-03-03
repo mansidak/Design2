@@ -5,6 +5,7 @@ st.set_page_config(page_title="19th Street | Resume Builder", page_icon="📜", 
 # st.title("CoverLetter")
 import openai
 from docx import Document
+import pdfkit
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 
@@ -332,23 +333,17 @@ with tab4:
 
 with tab5:
     st.write("")
-    # from docx import Document
-    # from docx.shared import Inches
-    #
-    # document = Document()
-    #
-    # document.sections[0].margin_left = Inches(1.25)
-    # document.sections[0].margin_right = Inches(1.25)
-    #
-    # for page_num in range(1, document.sections[0].page_width):
-    #     section = document.sections[0]
-    #     header = section.header
-    #     footer = section.footer
-    #
-    # header.paragraphs[0].text = 'Header for Page ' + str(page_num)
-    # footer.paragraphs[0].text = 'Footer for Page ' + str(page_num)
-    #
-    # document.add_paragraph('This is a string in a Word document!')
-    #
-    # document.save('my_document.docx')
-    # st.download_button("Donwload Word Doc", document, file_name="Word Doc")
+    html_string = ""
+    html_string += "<h3>Job Title: " + Experience1Name + "</h3><p><b>Description:</b> " + Experience1Description + "</p>"
+    html_string += "<h3>Job Title: " + Experience2Name + "</h3><p><b>Description:</b> " + Experience2Description + "</p>"
+    html_string += "<h3>Job Title: " + Experience3Name + "</h3><p><b>Description:</b> " + Experience3Description + "</p>"
+    html_string += "<h3>Job Title: " + Experience4Name + "</h3><p><b>Description:</b> " + Experience4Description + "</p><p><b>Skills:</b> " + FinalSkills + "</p><hr>"
+
+
+    PDFFile = pdfkit.from_string(html_string, "resume.pdf")
+    with open("resume.pdf", "rb") as pdf_file:
+        PDFbyte = pdf_file.read()
+    st.download_button(label="Proceed",
+                       data=PDFbyte,
+                       file_name="resume.pdf",
+                       mime='application/octet-stream')
