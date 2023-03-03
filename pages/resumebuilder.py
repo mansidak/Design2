@@ -363,6 +363,8 @@ with tab5:
                  You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
                  You don't provide any feedback to the user or add extra fluff.
                  You end every bullet point with a semi colon.
+                 All of your bullet points are no more than 15 words. 
+                 All of your bullet points have upto one sentence.
                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -378,6 +380,8 @@ with tab5:
                  You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
                  You don't provide any feedback to the user or add extra fluff.
                  You end every bullet point with a semi colon.
+                 All of your bullet points are no more than 15 words. 
+                 All of your bullet points have upto one sentence.
                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -393,6 +397,8 @@ with tab5:
                  You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
                  You don't provide any feedback to the user or add extra fluff.
                  You end every bullet point with a semi colon.
+                 All of your bullet points are no more than 15 words. 
+                 All of your bullet points have upto one sentence.
                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -408,6 +414,8 @@ with tab5:
                  You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
                  You don't provide any feedback to the user or add extra fluff.
                  You end every bullet point with a semi colon.
+                 All of your bullet points are no more than 15 words. 
+                 All of your bullet points have upto one sentence.
                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
