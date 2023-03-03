@@ -360,11 +360,10 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
-                                  Your response consists of 3-4 revised resume bullet points. You end every bullet point with a semi colon. 
-                                  You don't add extra fluff to your response.
-                                  Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
-                                  """},
+                 You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
+                 You don't provide any feedback to the user or add extra fluff.
+                 You end every bullet point with a semi colon.
+                 """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceOneDescription = NewExperienceOneDescriptionResponse["choices"][0]["message"]["content"]
@@ -376,11 +375,10 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
-                                  Your response consists of 3-4 revised resume bullet points. You end every bullet point with a semi colon. 
-                                  You don't add extra fluff to your response.
-                                  Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
-                                  """},
+                 You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
+                 You don't provide any feedback to the user or add extra fluff.
+                 You end every bullet point with a semi colon.
+                 """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
@@ -392,11 +390,10 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
-                                  Your response consists of 3-4 revised resume bullet points. You end every bullet point with a semi colon. 
-                                  You don't add extra fluff to your response.
-                                  Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
-                                  """},
+                 You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
+                 You don't provide any feedback to the user or add extra fluff.
+                 You end every bullet point with a semi colon.
+                 """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
@@ -408,11 +405,10 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
-                                  Your response consists of 3-4 revised resume bullet points. You end every bullet point with a semi colon. 
-                                  You don't add extra fluff to your response.
-                                  Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
-                                  """},
+                 You're an AI bot that takes in resume experience and rewrites them to sound like an experienced {ChosenJobTitle}
+                 You don't provide any feedback to the user or add extra fluff.
+                 You end every bullet point with a semi colon.
+                 """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
