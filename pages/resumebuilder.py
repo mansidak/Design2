@@ -453,10 +453,9 @@ with tab5:
 
         document = Document()
         new_parser = HtmlToDocx()
-        new_parser.add_html_to_document(html_string, document)
+        document = new_parser.parse_html_string(html_string)
 
-        # do more stuff to document
-        document.save('your_file_name')
+        # document.save('your_file_name')
 
         doc_download = document
 
@@ -469,10 +468,3 @@ with tab5:
                 file_name="19th_Street_Resume_Edits.docx",
                 mime="docx"
             )
-
-        #
-        #
-        # st.download_button(label="Proceed",
-        #                    data=document,
-        #                    file_name="resume.docx",
-        #                    mime='docx')
