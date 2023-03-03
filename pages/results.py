@@ -65,7 +65,7 @@ with st.sidebar:
 
     options = st.multiselect('Filter by location', set([item[5] for item in st.session_state['FinalResults']]), None, key="option1")
     options2 = st.multiselect('Filter by your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key="option2")
-    options3 = st.multiselect('Filter by company name', set([item[2].replace('-', '') for item in st.session_state['FinalResults']]), None, key="option3")
+    # options3 = st.multiselect('Filter by company name', set([item[2].replace('-', '') for item in st.session_state['FinalResults']]), None, key="option3")
 
 
 colresult1, colresult2, colresult3 = st.columns([0.25,1,0.25])
