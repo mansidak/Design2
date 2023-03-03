@@ -40,8 +40,19 @@ hide_streamlit_style = """
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-st.header("Does everything look good?")
-st.subheader("Experiences")
-st.text_area(label="",value = st.session_state['OldExperiences'])
-st.subheader("Projects")
-st.text_area(label="",value = st.session_state['OldProjects'])
+col1, col2, col3, col4, col5 = st.columns9([0.25,1,0.1,1,0.25])
+with col1:
+    st.write("")
+with col2:
+    st.header("Does everything look good?")
+    st.subheader("Experiences")
+    st.text_area(label="", value=st.session_state['OldExperiences'])
+with col3:
+    st.write("")
+with col4:
+    st.subheader("Projects")
+    st.text_area(label="", value=st.session_state['OldProjects'])
+with col5:
+    st.write("")
+
+
