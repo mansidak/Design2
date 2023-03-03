@@ -9,7 +9,7 @@ import pdfkit
 import io
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
-
+from htmldocx import HtmlToDocx
 
 hide_menu_style = """
          <style>
@@ -433,13 +433,16 @@ with tab5:
         for item in NewExperienceFourDescription.split(";"):
             html_string += "<li>" + item + "</li>"
 
-
-        PDFFile = pdfkit.from_string(html_string, "resume.pdf")
-        with open("resume.pdf", "rb") as pdf_file:
-            PDFbyte = pdf_file.read()
+        new_parser = HtmlToDocx()
+        DocX = new_parser.parse_html_file(html_string, "19th_Street_Resume_Edits")
 
 
-        doc_download = PDFbyte
+        # PDFFile = pdfkit.from_string(html_string, "resume.pdf")
+        # with open("resume.pdf", "rb") as pdf_file:
+        #     PDFbyte = pdf_file.read()
+
+
+        doc_download = DocX
 
         bio = io.BytesIO()
         doc_download.save(bio)
