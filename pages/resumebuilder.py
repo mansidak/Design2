@@ -360,7 +360,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
+                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
                                   Your response consists of 3-4 revised resume bullet points separated by semi colon. 
                                   You don't add extra fluff to your response.
                                   Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
@@ -376,7 +376,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
+                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
                                   Your response consists of 3-4 revised resume bullet points separated by semi colon. 
                                   You don't add extra fluff to your response.
                                   Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
@@ -392,7 +392,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
+                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} 
                                   Your response consists of 3-4 revised resume bullet points separated by semi colon. 
                                   You don't add extra fluff to your response.
                                   Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
@@ -408,7 +408,7 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
+                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
                                   Your response consists of 3-4 revised resume bullet points separated by semi colon. 
                                   You don't add extra fluff to your response.
                                   Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
