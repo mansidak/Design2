@@ -433,7 +433,6 @@ with tab5:
 
         html_string = ""
 
-        html_string += "<title>" + CandidateName + "</title>"
         html_string += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
 
         html_string += "<h3>" + Experience1Name + "</h3>"
@@ -453,8 +452,8 @@ with tab5:
 
         document = Document()
         new_parser = HtmlToDocx()
+        document.add_heading(f'{CandidateName}')
         document = new_parser.parse_html_string(html_string)
-
 
         # document.save('your_file_name')
 
