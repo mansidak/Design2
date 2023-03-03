@@ -410,7 +410,7 @@ text-align: center;
 
 
 
-        if ResumePDF is not None:
+    if ResumePDF is not None:
             SubTitle.empty()
             Credits.empty()
             holder.empty()
