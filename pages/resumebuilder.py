@@ -454,6 +454,7 @@ with tab5:
         document = Document()
         new_parser = HtmlToDocx()
         document = new_parser.parse_html_string(html_string)
+        document.style = document.styles['Heading 1']
 
         # document.save('your_file_name')
 
