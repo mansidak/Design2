@@ -58,6 +58,19 @@ with col4:
 with col5:
     st.write("")
 
-st.button("Yes", key="Proceed")
+col11, col22, col33, col44, col55 = st.columns([0.25, 1, 0.5, 1, 0.25])
+
+with col11:
+    st.write("")
+with col22:
+    st.write("")
+with col33:
+    st.button("Yes", key="Proceed")
+with col44:
+    st.write("")
+with col55:
+    st.write("")
+
+
 
 
