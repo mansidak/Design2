@@ -9,6 +9,7 @@ from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
+import reportlab
 
 hide_menu_style = """
          <style>
@@ -389,7 +390,7 @@ with colresult2:
 
     # config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64', 'utf-8'))
     # config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64.deb', 'utf-8'))
-    PDFFile = pdfkit.from_string(html_string,"output.pdf")
+    PDFFile = pdfkit.from_string(html_string, "output.pdf")
 
     with open("output.pdf", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
