@@ -433,8 +433,11 @@ with tab5:
         for item in NewExperienceFourDescription.split(";"):
             html_string += "<li>" + item + "</li>"
 
+        with open("yourhtmlfile.html", "w") as file:
+            file.write(html_string)
+
         new_parser = HtmlToDocx()
-        DocX = new_parser.parse_html_file(html_string, "19th_Street_Resume_Edits")
+        DocX = new_parser.parse_html_file("yourhtmlfile.html", "19th_Street_Resume_Edits")
 
 
         # PDFFile = pdfkit.from_string(html_string, "resume.pdf")
