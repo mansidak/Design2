@@ -336,7 +336,7 @@ text-align: center;
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are an AI Assistant that grabs the name of a person from resume data"},
+                {"role": "system", "content": "You are an AI Assistant that grabs the name of a person from resume data and outputs their first name"},
                 {"role": "user", "content": f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nTheir full name is: \n"}])
 
         Name = response["choices"][0]["message"]["content"]
