@@ -429,23 +429,14 @@ with tab5:
         for item in NewExperienceThreeDescription.split(";"):
             html_string += "<li>" + item + "</li>"
 
-        html_string += "<h3>" + Experience4Name + "</h3>"
-        for item in NewExperienceFourDescription.split(";"):
-            html_string += "<li>" + item + "</li>"
-
-        with open("yourhtmlfile.html", "w") as file:
-            file.write(html_string)
-
+        document = Document()
         new_parser = HtmlToDocx()
-        DocX = new_parser.parse_html_file("yourhtmlfile.html", "19th_Street_Resume_Edits")
+        new_parser.add_html_to_document(html_string, document)
 
+        # do more stuff to document
+        document.save('your_file_name')
 
-        # PDFFile = pdfkit.from_string(html_string, "resume.pdf")
-        # with open("resume.pdf", "rb") as pdf_file:
-        #     PDFbyte = pdf_file.read()
-
-
-        doc_download = DocX
+        doc_download = document
 
         bio = io.BytesIO()
         doc_download.save(bio)
@@ -453,9 +444,10 @@ with tab5:
             st.download_button(
                 label="Click here to download",
                 data=bio.getvalue(),
-                file_name="Report.docx",
+                file_name="19th_Street_Resume_Edits.docx",
                 mime="docx"
             )
+
         #
         #
         # st.download_button(label="Proceed",
