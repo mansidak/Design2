@@ -74,7 +74,7 @@ with st.sidebar:
     if st.button("Run Again"):
         switch_page("beta.py")
 
-colresult1, colresult2, colresult3 = st.columns([0.5,1,0.5])
+colresult1, colresult2, colresult3 = st.columns([0.25,1,0.25])
 with colresult1:
     st.write("")
 with colresult2:
