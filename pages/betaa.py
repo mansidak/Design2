@@ -392,6 +392,7 @@ text-align: center;
         f"<h6 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'> </h6>",
         unsafe_allow_html=True)
     holder = st.empty()
+    ResumePDF = None
     if 'resumeContent' not in st.session_state:
         ResumePDF = holder.file_uploader(
             ''
@@ -410,7 +411,7 @@ text-align: center;
 
 
 
-    if ResumePDF is not None:
+        if ResumePDF is not None:
             SubTitle.empty()
             Credits.empty()
             holder.empty()
