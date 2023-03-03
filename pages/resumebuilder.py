@@ -399,10 +399,22 @@ with tab5:
 
 
         html_string = ""
-        html_string += "<h3>" + Experience1Name + "</h3><p>" + NewExperienceOneDescription.split("-") + "</p>"
-        html_string += "<h3>" + Experience2Name + "</h3><p>" + NewExperienceTwoDescription.split("-") + "</p>"
-        html_string += "<h3>" + Experience3Name + "</h3><p>" + NewExperienceThreeDescription.split("-") + "</p>"
-        html_string += "<h3>" + Experience4Name + "</h3><p>" + NewExperienceFourDescription.split("-") + "</p><p><b>Skills:</b> " + FinalSkills + "</p><hr>"
+
+        html_string += "<h3>" + Experience1Name + "</h3>"
+        for item in NewExperienceOneDescription.split("-"):
+            html_string += "<li>" + item + "</li>"
+
+        html_string += "<h3>" + Experience1Name + "</h3>"
+        for item in NewExperienceTwoDescription.split("-"):
+            html_string += "<li>" + item + "</li>"
+
+        html_string += "<h3>" + Experience1Name + "</h3>"
+        for item in NewExperienceThreeDescription.split("-"):
+            html_string += "<li>" + item + "</li>"
+
+        html_string += "<h3>" + Experience1Name + "</h3>"
+        for item in NewExperienceFourDescription.split("-"):
+            html_string += "<li>" + item + "</li>"
 
 
         PDFFile = pdfkit.from_string(html_string, "resume.pdf")
