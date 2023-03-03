@@ -5,6 +5,7 @@ import openai
 from docx import Document
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
+import pdfkit
 
 hide_menu_style = """
          <style>
@@ -45,7 +46,17 @@ with col1:
     st.write("")
 with col2:
     st.header("Does everything look good?")
-    st.button("Procced →", key="Proceed")
+    # generate the pdf
+    PDFFile = pdfkit.from_url('resumetemplate.html', "resume.pdf")
+
+    with open("resume.pdf", "rb") as pdf_file:
+        PDFbyte = pdf_file.read()
+    # st.download_button(label='Download PDF', data= PDFFile)
+
+    st.download_button(label="Proceed",
+                       data=PDFbyte,
+                       file_name="resume.pdf",
+                       mime='application/octet-stream')
     st.subheader("")
     st.subheader("")
     st.subheader("Experiences")
