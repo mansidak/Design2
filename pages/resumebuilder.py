@@ -433,14 +433,13 @@ with tab5:
         for item in NewExperienceFourDescription.split(";"):
             html_string += "<li>" + item + "</li>"
 
-        #
-        # PDFFile = pdfkit.from_string(html_string, "resume.pdf")
-        # with open("resume.pdf", "rb") as pdf_file:
-        #     PDFbyte = pdf_file.read()
 
-        document = Document()
-        document.add_paragraph(html_string)
-        doc_download = document
+        PDFFile = pdfkit.from_string(html_string, "resume.pdf")
+        with open("resume.pdf", "rb") as pdf_file:
+            PDFbyte = pdf_file.read()
+
+
+        doc_download = PDFbyte
 
         bio = io.BytesIO()
         doc_download.save(bio)
