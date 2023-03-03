@@ -84,7 +84,7 @@ with st.sidebar:
         PDFbyte = pdf_file.read()
     # st.download_button(label='Download PDF', data= PDFFile)
 
-    st.download_button(label="Export_Report",
+    st.download_button(label="Download All Jobs",
                        data=PDFbyte,
                        file_name="test.pdf",
                        mime='application/octet-stream')
@@ -164,26 +164,23 @@ with colresult2:
                         container_2.empty()
                         button_B = container_2.button('Generating... Please wait.',
                                                       key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
-                        responseJob = openai.Completion.create(
-                            model="text-davinci-003",
-                            prompt=f"summarize the job: {fullDescription}",
-                            temperature=0.7,
-                            max_tokens=556,
-                            top_p=1,
-                            frequency_penalty=0,
-                            presence_penalty=0
-                        )
-                        jobSummary = responseJob["choices"][0]["text"]
-                        CoverLetterResponse = openai.Completion.create(
-                            model="text-davinci-003",
-                            prompt=f"I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. \n\n\nHere's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}",
-                            temperature=0.7,
-                            max_tokens=563,
-                            top_p=1,
-                            frequency_penalty=0,
-                            presence_penalty=0
-                        )
-                        cover_letter_file = CoverLetterResponse["choices"][0]["text"]
+                        responseJob = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
+                                {"role": "user",
+                                 "content": f"The following is a job posting I want you to summarize \n\n{fullDescription}\n\n"}])
+
+                        jobSummary = responseJob["choices"][0]["message"]["content"]
+                        CoverLetterResponse = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that writes highly customized cover letters. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
+                                {"role": "user",
+                                 "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
+                        cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
@@ -225,26 +222,23 @@ with colresult2:
                         container_2.empty()
                         button_B = container_2.button('Generating... Please wait.',
                                                       key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
-                        responseJob = openai.Completion.create(
-                            model="text-davinci-003",
-                            prompt=f"summarize the job: {fullDescription}",
-                            temperature=0.7,
-                            max_tokens=556,
-                            top_p=1,
-                            frequency_penalty=0,
-                            presence_penalty=0
-                        )
-                        jobSummary = responseJob["choices"][0]["text"]
-                        CoverLetterResponse = openai.Completion.create(
-                            model="text-davinci-003",
-                            prompt=f"I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. \n\n\nHere's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}",
-                            temperature=0.7,
-                            max_tokens=563,
-                            top_p=1,
-                            frequency_penalty=0,
-                            presence_penalty=0
-                        )
-                        cover_letter_file = CoverLetterResponse["choices"][0]["text"]
+                        responseJob = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
+                                {"role": "user",
+                                 "content": f"The following is a job posting I want you to summarize \n\n{fullDescription}\n\n"}])
+
+                        jobSummary = responseJob["choices"][0]["message"]["content"]
+                        CoverLetterResponse = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that writes highly customized cover letters. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
+                                {"role": "user",
+                                 "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
+                        cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
@@ -286,26 +280,23 @@ with colresult2:
                         container_2.empty()
                         button_B = container_2.button('Generating... Please wait.',
                                                       key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
-                        responseJob = openai.Completion.create(
-                            model="text-davinci-003",
-                            prompt=f"summarize the job: {fullDescription}",
-                            temperature=0.7,
-                            max_tokens=556,
-                            top_p=1,
-                            frequency_penalty=0,
-                            presence_penalty=0
-                        )
-                        jobSummary = responseJob["choices"][0]["text"]
-                        CoverLetterResponse = openai.Completion.create(
-                            model="text-davinci-003",
-                            prompt=f"I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. \n\n\nHere's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}",
-                            temperature=0.7,
-                            max_tokens=563,
-                            top_p=1,
-                            frequency_penalty=0,
-                            presence_penalty=0
-                        )
-                        cover_letter_file = CoverLetterResponse["choices"][0]["text"]
+                        responseJob = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
+                                {"role": "user",
+                                 "content": f"The following is a job posting I want you to summarize \n\n{fullDescription}\n\n"}])
+
+                        jobSummary = responseJob["choices"][0]["message"]["content"]
+                        CoverLetterResponse = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that writes highly customized cover letters. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
+                                {"role": "user",
+                                 "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
+                        cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
@@ -342,32 +333,28 @@ with colresult2:
 
                 with col1:
                     container_2 = st.empty()
-                    button_A = container_2.button('Generate Cover Letter',
-                                                  key=f"{link}+{title}+{shortSummary} + {st.session_state['FinalResults'].index(element)}")
+                    button_A = container_2.button('Generate Cover Letter', key=f"{link}+{title}+{shortSummary}")
                     if button_A:
                         container_2.empty()
                         button_B = container_2.button('Generating... Please wait.',
                                                       key=f"{link}+{title}+{shortSummary}+Generating", disabled=True)
-                        responseJob = openai.Completion.create(
-                            model="text-davinci-003",
-                            prompt=f"summarize the job: {fullDescription}",
-                            temperature=0.7,
-                            max_tokens=556,
-                            top_p=1,
-                            frequency_penalty=0,
-                            presence_penalty=0
-                        )
-                        jobSummary = responseJob["choices"][0]["text"]
-                        CoverLetterResponse = openai.Completion.create(
-                            model="text-davinci-003",
-                            prompt=f"I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. \n\n\nHere's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}",
-                            temperature=0.7,
-                            max_tokens=563,
-                            top_p=1,
-                            frequency_penalty=0,
-                            presence_penalty=0
-                        )
-                        cover_letter_file = CoverLetterResponse["choices"][0]["text"]
+                        responseJob = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
+                                {"role": "user",
+                                 "content": f"The following is a job posting I want you to summarize \n\n{fullDescription}\n\n"}])
+
+                        jobSummary = responseJob["choices"][0]["message"]["content"]
+                        CoverLetterResponse = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that writes highly customized cover letters. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
+                                {"role": "user",
+                                 "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
+                        cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
@@ -399,7 +386,7 @@ with colresult2:
         PDFbyte = pdf_file.read()
     # st.download_button(label='Download PDF', data= PDFFile)
 
-    st.download_button(label="Export_Report",
+    st.download_button(label="Download All Jobs",
                         data=PDFbyte,
                         file_name="test.pdf",
                         mime='application/octet-stream')
