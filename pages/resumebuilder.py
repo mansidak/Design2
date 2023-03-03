@@ -343,7 +343,7 @@ with tab5:
 
     SuggestedJobtitlesResponse = responseProjects["choices"][0]["message"]["content"]
     ChosenJobTitle= st.selectbox(
-            'Select Experience Level (Required)',
+            '',
             SuggestedJobtitlesResponse.split(","),
             key="ChosenJobTitle"
         )
