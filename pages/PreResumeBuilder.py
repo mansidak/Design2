@@ -86,27 +86,28 @@ with col2:
                 txtFile.write(pageObj.extract_text())
                 ResumeToCorrectContent = pageObj.extract_text()
 
-            responseExperiences = openai.Completion.create(
-                model="text-davinci-003",
-                prompt=f"I have the resume of a job seeker as follows:\n\n{ResumeToCorrectContent}\n\nI want you to identifiy which parts of their resume has their experiences and list them as bullet points and their details:\n",
-                temperature=0.7,
-                max_tokens=339,
-                top_p=1,
-                frequency_penalty=0,
-                presence_penalty=0
-            )
-            st.session_state['OldExperiences'] = responseExperiences["choices"][0]["text"]
+            responseExperiences = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system",
+                     "content": "You are an AI Assistant that is able to recognize the Experiences section of a resume when given the data of a resume. Your response is in the following format:\n\n 1. List the title of each Experience. \n 2. List the date of each experience if listed.\n3. List the description of eachh experience"},
+                    {"role": "user",
+                     "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
+            st.session_state['OldExperiences'] = responseExperiences["choices"][0]["message"]["content"]
 
-            responseProjects = openai.Completion.create(
-                model="text-davinci-003",
-                prompt=f"I have the resume of a job seeker as follows:\n\n{ResumeToCorrectContent}\n\nI want you to identifiy which parts of their resume has their Proejcts and list them as bullet points and their details:\n",
-                temperature=0.7,
-                max_tokens=339,
-                top_p=1,
-                frequency_penalty=0,
-                presence_penalty=0
-            )
-            st.session_state['OldProjects'] = responseProjects["choices"][0]["text"]
+            responseProjects = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system",
+                     "content": "You are an AI Assistant that is able to recognize the Projects section of a resume when given the data of a resume. Your response is in the following format:\n\n 1. List the title of each project. \n 2. List the date of each proejct if listed.\n3. List the description of eachj project if listed"},
+                    {"role": "user",
+                     "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
+            st.session_state['OldProjects'] = responseProjects["choices"][0]["message"]["content"]
+
+
+
+
+
             switch_page("resumebuilder1")
 
     with col33:
