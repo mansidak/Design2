@@ -222,19 +222,19 @@ with tab3:
         with st.expander("Project 1", expanded=False):
             col1Project1, col2Project1 = st.columns([1, 1])
             with col1Project1:
-                st.text_input(
+                Projec1Name = st.text_input(
                     '',
                     placeholder='Project Name',
                     key='Project1Name'
                 )
             with col2Project1:
-                st.text_input(
+                Project1Link = st.text_input(
                     '',
                     placeholder='Project Link',
                     key='Project1Link'
                 )
 
-            st.text_area(
+            Project1Description = st.text_area(
                 '',
                 placeholder='Description',
                 key='Project 1 Detail'
@@ -242,19 +242,19 @@ with tab3:
         with st.expander("Project 2", expanded=False):
             col1Project2, col2Project2 = st.columns([1, 1])
             with col1Project2:
-                st.text_input(
+                Projec2Name = st.text_input(
                     '',
                     placeholder='Project Name',
                     key='Project2Name'
                 )
             with col2Project2:
-                st.text_input(
+                Project1Link = st.text_input(
                     '',
                     placeholder='Project Link',
                     key='Project2Link'
                 )
 
-            st.text_area(
+            Project2Description = st.text_area(
                 '',
                 placeholder='Description',
                 key='Project 2 Detail'
@@ -262,19 +262,19 @@ with tab3:
         with st.expander("Project 3", expanded=False):
             col1Project3, col2Project3 = st.columns([1, 1])
             with col1Project3:
-                st.text_input(
+                Projec3Name = st.text_input(
                     '',
                     placeholder='Project Name',
                     key='Project3Name'
                 )
             with col2Project3:
-                st.text_input(
+                Projec3Link = st.text_input(
                     '',
                     placeholder='Project Link',
                     key='Project3Link'
                 )
 
-            st.text_area(
+            Project3Description = st.text_area(
                 '',
                 placeholder='Description',
                 key='Project 3 Detail'
@@ -282,19 +282,19 @@ with tab3:
         with st.expander("Project 4", expanded=False):
             col1Project4, col2Project4 = st.columns([1, 1])
             with col1Project4:
-                st.text_input(
+                Projec4Name = st.text_input(
                     '',
                     placeholder='Project Name',
                     key='Project4Name'
                 )
             with col2Project4:
-                st.text_input(
+                Projec4Link = st.text_input(
                     '',
                     placeholder='Project Link',
                     key='Project4Link'
                 )
 
-            st.text_area(
+            Project4Description = st.text_area(
                 '',
                 placeholder='Description',
                 key='Project 4 Detail'
@@ -431,10 +431,284 @@ with tab5:
                  "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
 
+        NewExperienceOneDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceOneDescription = NewExperienceOneDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceTwoDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceThreeDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceFourDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2 
+                         ;point 3 
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceOneDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceOneDescription = NewExperienceOneDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceTwoDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceThreeDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceFourDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2 
+                         ;point 3 
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceOneDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceOneDescription = NewExperienceOneDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceTwoDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceThreeDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewExperienceFourDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2 
+                         ;point 3 
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+        NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewProjectOneDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                         You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                {"role": "user",
+                 "content": f"The following is description of a project of a job seeker.\n{Experience1Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+        NewProjectOneDescription = NewProjectOneDescriptionResponse["choices"][0]["message"]["content"]
+
+
+
+        NewProjectTwoDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                             You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle}.
+                             Your response isn't in a paragraph form.
+                             You start every bullet point with a semi colon.
+                             Your response should resemble this format:
+                             ;point 1
+                             ;point 2
+                             ;point 3
+                             """},
+                {"role": "user",
+                 "content": f"The following is description of a project of a job seeker.\n{Experience1Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+        NewProjectTwoDescription = NewProjectTwoDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewProjectThreeDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                             You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle}.
+                             Your response isn't in a paragraph form.
+                             You start every bullet point with a semi colon.
+                             Your response should resemble this format:
+                             ;point 1
+                             ;point 2
+                             ;point 3
+                             """},
+                {"role": "user",
+                 "content": f"The following is description of a project of a job seeker.\n{Experience1Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+        NewProjectThreeDescription = NewProjectThreeDescriptionResponse["choices"][0]["message"]["content"]
+
+        NewProjectFourDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"""
+                             You're take in resume project and rewrite it to sound like an experienced {ChosenJobTitle}.
+                             Your response isn't in a paragraph form.
+                             You start every bullet point with a semi colon.
+                             Your response should resemble this format:
+                             ;point 1
+                             ;point 2
+                             ;point 3
+                             """},
+                {"role": "user",
+                 "content": f"The following is description of a project of a job seeker.\n{Experience1Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+        NewProjectFourDescription = NewProjectFourDescriptionResponse["choices"][0]["message"]["content"]
 
         html_string = ""
 
         html_string += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
+
         html_string += "<h3>" + Experience1Name + "</h3>"
         for item in NewExperienceOneDescription.split(";")[1:]:
             html_string += "<li>" + item + "</li>"
@@ -447,7 +721,8 @@ with tab5:
         for item in NewExperienceThreeDescription.split(";")[1:]:
             html_string += "<li>" + item + "</li>"
 
-        html_string += "<h3>" + FinalSkills + "</h3>"
+        html_string += "<h3> Skills:" + FinalSkills + "</h3>"
+
 
         document = Document()
         heading = document.add_heading(f'{CandidateName}', 0)
@@ -457,9 +732,7 @@ with tab5:
             section.bottom_margin = Cm(1.5)
             section.left_margin = Cm(1.5)
             section.right_margin = Cm(1.5)
-        # heading.alignment = 1
-        # subheading = document.add_heading(f'{CandidateEmail} | {CandidatePhone}', 1)
-        # subheading.alignment = 1
+
 
         new_parser = HtmlToDocx()
         new_parser.add_html_to_document(html_string, document)
