@@ -450,6 +450,12 @@ with tab5:
 
         document = Document()
         heading = document.add_heading(f'{CandidateName}', 0)
+        sections = document.sections
+        for section in sections:
+            section.top_margin = 0.5
+            section.bottom_margin = 0.5
+            section.left_margin = 0.5
+            section.right_margin = 0.5
         # heading.alignment = 1
         # subheading = document.add_heading(f'{CandidateEmail} | {CandidatePhone}', 1)
         # subheading.alignment = 1
