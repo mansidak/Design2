@@ -388,7 +388,7 @@ with colresult2:
     # PDFFile = pdfkit.from_string(html_string, "19thStreet.pdf")
 
     # config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64', 'utf-8'))
-    path_wkhtmltopdf = r'/Design2/wkhtmltox-0.12.6-1.amazonlinux2.x86_64.rpm'
+    path_wkhtmltopdf = r'/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64.deb'
     config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
     PDFFile = pdfkit.from_string(html_string,"output.pdf", configuration=config)
 
