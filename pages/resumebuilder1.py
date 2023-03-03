@@ -48,8 +48,8 @@ with col2:
     st.header("Does everything look good?")
 
     html_string = ""
-    html_string += "<h3>Job Title: " + title + "</h3><h4>Company Name: " + companyName + "</h4><h4>Location: " + location + "</h4><p><b>Short Summary:</b> " + shortSummary + "</p><p><b>Full Description:</b> " + fullDescription + "</p><p><b>Skills:</b> " + skills + "</p><hr>"
-    html_string += "</ul>"
+    # html_string += "<h3>Job Title: " + title + "</h3><h4>Company Name: " + companyName + "</h4><h4>Location: " + location + "</h4><p><b>Short Summary:</b> " + shortSummary + "</p><p><b>Full Description:</b> " + fullDescription + "</p><p><b>Skills:</b> " + skills + "</p><hr>"
+    # html_string += "</ul>"
 
     # generate the pdf
     PDFFile = pdfkit.from_string(html_string, "resume.pdf")
