@@ -433,7 +433,6 @@ with tab5:
 
         html_string = ""
 
-        html_string += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
         html_string += "<h3>" + Experience1Name + "</h3>"
         for item in NewExperienceOneDescription.split(";"):
             html_string += "<li>" + item + "</li>"
@@ -452,7 +451,7 @@ with tab5:
         heading = document.add_heading(f'{CandidateName}', 0)
         heading.alignment = 1
         subheading = document.add_heading(f'{CandidateEmail} | {CandidatePhone}', 1)
-        heading.alignment = 1
+        subheading.alignment = 1
 
         new_parser = HtmlToDocx()
         new_parser.add_html_to_document(html_string, document)
