@@ -63,16 +63,8 @@ with st.sidebar:
     st.subheader("")
     st.subheader("")
 
-    undesired = st.text_input(
-        'Enter upto one company/keyword you wish to be excluded',
-        placeholder='Excluded Keywords (Upto one)', )
-
-    locationpreference = st.text_input(
-        'Enter Location Preference',
-        placeholder='Enter City or State (upto 1)', )
-
-    if st.button("Run Again"):
-        switch_page("beta.py")
+    options = st.multiselect('Filter by location', set([item[5] for item in st.session_state['FinalResults']]), None, key="option1")
+    options2 = st.multiselect('Filter by your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key="option2")
 
 colresult1, colresult2, colresult3 = st.columns([0.25,1,0.25])
 with colresult1:
@@ -113,12 +105,12 @@ with colresult2:
     st.write("")
     st.write("")
 
-    col111, col222 = st.columns([1, 1])
-    with col111:
-        options = st.multiselect('Filter by location', set([item[5] for item in st.session_state['FinalResults']]),
-                                 None, key="option1")
-    with col222:
-        options2 = st.multiselect('Filter by your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key="option2")
+    # col111, col222 = st.columns([1, 1])
+    # with col111:
+    #     options = st.multiselect('Filter by location', set([item[5] for item in st.session_state['FinalResults']]),
+    #                              None, key="option1")
+    # with col222:
+    #     options2 = st.multiselect('Filter by your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key="option2")
 
     st.write("")
     st.write("")
