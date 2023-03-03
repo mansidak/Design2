@@ -372,7 +372,7 @@ with colresult2:
 
             st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-    html_string = "<img src='Favicon.png'><ul>"
+    html_string = "<ul>"
     for list in unique_results:
         link = list[0]
         title = list[1]
