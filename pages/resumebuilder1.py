@@ -46,11 +46,16 @@ with col1:
 with col2:
     st.header("Does everything look good?")
     st.button("Procced →", key="Proceed")
+    st.subheader("")
+    st.subheader("")
     st.subheader("Experiences")
     st.text_area(label="", value=st.session_state['OldExperiences'])
 with col3:
     st.write("")
 with col4:
+    st.subheader("")
+    st.subheader("")
+    st.subheader("")
     st.subheader("")
     st.subheader("")
     st.subheader("")
