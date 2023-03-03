@@ -10,6 +10,7 @@ import io
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 from htmldocx import HtmlToDocx
+from docx.shared import Inches, Cm
 
 hide_menu_style = """
          <style>
@@ -452,10 +453,10 @@ with tab5:
         heading = document.add_heading(f'{CandidateName}', 0)
         sections = document.sections
         for section in sections:
-            section.top_margin = 0.5
-            section.bottom_margin = 0.5
-            section.left_margin = 0.5
-            section.right_margin = 0.5
+            section.top_margin = Cm(0.5)
+            section.bottom_margin = Cm(0.5)
+            section.left_margin = Cm(0.5)
+            section.right_margin = Cm(0.5)
         # heading.alignment = 1
         # subheading = document.add_heading(f'{CandidateEmail} | {CandidatePhone}', 1)
         # subheading.alignment = 1
