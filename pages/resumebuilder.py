@@ -361,7 +361,9 @@ with tab5:
                 {"role": "system",
                  "content": f"""
                                   You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
-                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. You don't add extra fluff to your response.
+                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. 
+                                  You don't add extra fluff to your response.
+                                  Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
                                   """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -374,9 +376,11 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                 You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
-                 Your response consists of 3-4 revised resume bullet points separated by semi colon. You don't add extra fluff to your response.
-                 """},
+                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
+                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. 
+                                  You don't add extra fluff to your response.
+                                  Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
+                                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
@@ -389,8 +393,11 @@ with tab5:
                 {"role": "system",
                  "content": f"""
                                   You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
-                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. You don't add extra fluff to your response.
-                                  """},                {"role": "user",
+                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. 
+                                  You don't add extra fluff to your response.
+                                  Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
+                                  """},
+                {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
 
@@ -402,8 +409,11 @@ with tab5:
                 {"role": "system",
                  "content": f"""
                                   You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
-                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. You don't add extra fluff to your response.
-                                  """},                {"role": "user",
+                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. 
+                                  You don't add extra fluff to your response.
+                                  Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
+                                  """},
+                {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
 
