@@ -332,7 +332,7 @@ with tab4:
         value=st.session_state['Skills'])
 
 with tab5:
-    st.write("")
+    st.subheader("Choose the role/industry you wish to tailor your resume to")
     responseProjects = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
