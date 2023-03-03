@@ -348,20 +348,61 @@ with tab5:
             key="ChosenJobTitle"
         )
 
+    if st.button("Proceed →"):
+        NewExperienceOneDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}. Make sure to generate bullet points and that they sound like an experienced and polished {ChosenJobTitle}"},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience1Description}"}])
+        NewExperienceOneDescription = NewExperienceOneDescriptionResponse["choices"][0]["message"]["content"]
 
 
 
-    html_string = ""
-    html_string += "<h3>" + Experience1Name + "</h3><p>" + Experience1Description + "</p>"
-    html_string += "<h3>" + Experience2Name + "</h3><p>" + Experience2Description + "</p>"
-    html_string += "<h3>" + Experience3Name + "</h3><p>" + Experience3Description + "</p>"
-    html_string += "<h3>" + Experience4Name + "</h3><p>" + Experience4Description + "</p><p><b>Skills:</b> " + FinalSkills + "</p><hr>"
+        NewExperienceTwoDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}. Make sure to generate bullet points and that they sound like an experienced and polished {ChosenJobTitle}"},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience2Description}"}])
+        NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
 
 
-    PDFFile = pdfkit.from_string(html_string, "resume.pdf")
-    with open("resume.pdf", "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
-    st.download_button(label="Proceed",
-                       data=PDFbyte,
-                       file_name="resume.pdf",
-                       mime='application/octet-stream')
+
+        NewExperienceThreeDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}. Make sure to generate bullet points and that they sound like an experienced and polished {ChosenJobTitle}"},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience3Description}"}])
+        NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
+
+
+
+        NewExperienceFourDescriptionResponse = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": f"You are an AI Assistant that takes in the experience of a job seeker and make it sound like {ChosenJobTitle}. Make sure to generate bullet points and that they sound like an experienced and polished {ChosenJobTitle}"},
+                {"role": "user",
+                 "content": f"The following is description of experience of a job seeker.\n{Experience4Description}"}])
+        NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
+
+
+        html_string = ""
+        html_string += "<h3>" + Experience1Name + "</h3><p>" + NewExperienceOneDescription + "</p>"
+        html_string += "<h3>" + Experience2Name + "</h3><p>" + NewExperienceTwoDescription + "</p>"
+        html_string += "<h3>" + Experience3Name + "</h3><p>" + NewExperienceThreeDescription + "</p>"
+        html_string += "<h3>" + Experience4Name + "</h3><p>" + NewExperienceFourDescription + "</p><p><b>Skills:</b> " + FinalSkills + "</p><hr>"
+
+
+        PDFFile = pdfkit.from_string(html_string, "resume.pdf")
+        with open("resume.pdf", "rb") as pdf_file:
+            PDFbyte = pdf_file.read()
+        st.download_button(label="Proceed",
+                           data=PDFbyte,
+                           file_name="resume.pdf",
+                           mime='application/octet-stream')
