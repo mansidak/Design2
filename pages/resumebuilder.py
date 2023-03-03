@@ -6,6 +6,7 @@ st.set_page_config(page_title="19th Street | Resume Builder", page_icon="📜", 
 import openai
 from docx import Document
 import pdfkit
+import io
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 
@@ -439,8 +440,20 @@ with tab5:
 
         document = Document()
         document.add_paragraph(html_string)
+        doc_download = document
 
-        st.download_button(label="Proceed",
-                           data=document,
-                           file_name="resume.docx",
-                           mime='docx')
+        bio = io.BytesIO()
+        doc_download.save(bio)
+        if doc_download:
+            st.download_button(
+                label="Click here to download",
+                data=bio.getvalue(),
+                file_name="Report.docx",
+                mime="docx"
+            )
+        #
+        #
+        # st.download_button(label="Proceed",
+        #                    data=document,
+        #                    file_name="resume.docx",
+        #                    mime='docx')
