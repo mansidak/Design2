@@ -57,7 +57,7 @@ hide_streamlit_style = """
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-
+unique_results = set(st.session_state['FinalResults'])
 with st.sidebar:
 
     st.subheader("")
@@ -65,7 +65,29 @@ with st.sidebar:
 
     options = st.multiselect('Filter by location', set([item[5] for item in st.session_state['FinalResults']]), None, key="option1")
     options2 = st.multiselect('Filter by your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key="option2")
-    # options3 = st.multiselect('Filter by company name', set([item[2].replace('-', '') for item in st.session_state['FinalResults']]), None, key="option3")
+    html_string = "<ul>"
+    for list in unique_results:
+        link = list[0]
+        title = list[1]
+        companyName = list[2]
+        shortSummary = list[3]
+        fullDescription = list[4]
+        location = list[5]
+        skills = list[6]
+        html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
+    html_string += "</ul>"
+
+    # generate the pdf
+    PDFFile = pdfkit.from_string(html_string, "output.pdf")
+
+    with open("output.pdf", "rb") as pdf_file:
+        PDFbyte = pdf_file.read()
+    # st.download_button(label='Download PDF', data= PDFFile)
+
+    st.download_button(label="Export_Report",
+                       data=PDFbyte,
+                       file_name="test.pdf",
+                       mime='application/octet-stream')
 
 
 colresult1, colresult2, colresult3 = st.columns([0.25,1,0.25])
@@ -106,20 +128,12 @@ with colresult2:
 
     st.write("")
     st.write("")
-
-    # col111, col222 = st.columns([1, 1])
-    # with col111:
-    #     options = st.multiselect('Filter by location', set([item[5] for item in st.session_state['FinalResults']]),
-    #                              None, key="option1")
-    # with col222:
-    #     options2 = st.multiselect('Filter by your strongest skills', set([item[6].replace('-', '') for item in st.session_state['FinalResults']]), None, key="option2")
-
     st.write("")
     st.write("")
     st.write("")
     st.write("")
 
-    unique_results = set(st.session_state['FinalResults'])
+    # unique_results = set(st.session_state['FinalResults'])
     for element in unique_results:
         if element[5] in options and element[6].replace('-', '') in options2:
             link = element[0]
