@@ -359,7 +359,10 @@ with tab5:
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": f"You are an AI Assistant that takes in the bullet points of a job seeker and make it sound like an experienced {ChosenJobTitle} from a first person-point of view. Your response consists of 3-4 revised resume points separated by semi colon. You don't add extra fluff to your response"},
+                 "content": f"""
+                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
+                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. You don't add extra fluff to your response.
+                                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceOneDescription = NewExperienceOneDescriptionResponse["choices"][0]["message"]["content"]
@@ -370,7 +373,10 @@ with tab5:
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": f"You are an AI Assistant that takes in the bullet points of a job seeker and make it sound like an experienced {ChosenJobTitle} from a first person-point of view. Your response consists of 3-4 revised resume points separated by semi colon. You don't add extra fluff to your response"},
+                 "content": f"""
+                 You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
+                 Your response consists of 3-4 revised resume bullet points separated by semi colon. You don't add extra fluff to your response.
+                 """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
@@ -381,8 +387,10 @@ with tab5:
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": f"You are an AI Assistant that takes in the bullet points of a job seeker and make it sound like an experienced {ChosenJobTitle} from a first person-point of view. Your response consists of 3-4 revised resume points separated by semi colon. You don't add extra fluff to your response"},
-                {"role": "user",
+                 "content": f"""
+                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
+                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. You don't add extra fluff to your response.
+                                  """},                {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
 
@@ -392,8 +400,10 @@ with tab5:
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
-                 "content": f"You are an AI Assistant that takes in the bullet points of a job seeker and make it sound like an experienced {ChosenJobTitle} from a first person-point of view. Your response consists of 3-4 revised resume points separated by semi colon. You don't add extra fluff to your response"},
-                {"role": "user",
+                 "content": f"""
+                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} from a first person-point of view. 
+                                  Your response consists of 3-4 revised resume bullet points separated by semi colon. You don't add extra fluff to your response.
+                                  """},                {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
         NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
 
