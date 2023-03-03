@@ -433,7 +433,7 @@ with tab5:
 
         html_string = ""
 
-        html_string += "<Title>" + f"{CandidateName}" + "</Title>"
+        html_string += "<th>" + f"{CandidateName}" + "</th>"
         html_string += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
 
         html_string += "<h3>" + Experience1Name + "</h3>"
