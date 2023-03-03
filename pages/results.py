@@ -397,6 +397,6 @@ with colresult2:
                            mime='application/octet-stream')
     with colconclusion2:
         if st.button("Not Satisfied? Run Again"):
-            switch_page("betaa.py")
+            switch_page("betaa")
 with colresult3:
     st.write("")
