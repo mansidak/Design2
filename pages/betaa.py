@@ -342,7 +342,7 @@ text-align: center;
         Name = response["choices"][0]["message"]["content"]
         return Name
 
-    @st.cache(show_spinner=False)
+    # @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
