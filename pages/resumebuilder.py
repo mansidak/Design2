@@ -394,10 +394,10 @@ with tab5:
 
 
         html_string = ""
-        html_string += "<h3>" + Experience1Name + "</h3><p>" + NewExperienceOneDescription + "</p>"
-        html_string += "<h3>" + Experience2Name + "</h3><p>" + NewExperienceTwoDescription + "</p>"
-        html_string += "<h3>" + Experience3Name + "</h3><p>" + NewExperienceThreeDescription + "</p>"
-        html_string += "<h3>" + Experience4Name + "</h3><p>" + NewExperienceFourDescription + "</p><p><b>Skills:</b> " + FinalSkills + "</p><hr>"
+        html_string += "<h3>" + Experience1Name + "</h3><p>" + NewExperienceOneDescription.split("-") + "</p>"
+        html_string += "<h3>" + Experience2Name + "</h3><p>" + NewExperienceTwoDescription.split("-") + "</p>"
+        html_string += "<h3>" + Experience3Name + "</h3><p>" + NewExperienceThreeDescription.split("-") + "</p>"
+        html_string += "<h3>" + Experience4Name + "</h3><p>" + NewExperienceFourDescription.split("-") + "</p><p><b>Skills:</b> " + FinalSkills + "</p><hr>"
 
 
         PDFFile = pdfkit.from_string(html_string, "resume.pdf")
