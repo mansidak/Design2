@@ -436,15 +436,15 @@ with tab5:
 
         html_string += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
         html_string += "<h3>" + Experience1Name + "</h3>"
-        for item in NewExperienceOneDescription.split(";"):
+        for item in NewExperienceOneDescription.split(";")[1:]:
             html_string += "<li>" + item + "</li>"
 
         html_string += "<h3>" + Experience2Name + "</h3>"
-        for item in NewExperienceTwoDescription.split(";"):
+        for item in NewExperienceTwoDescription.split(";")[1:]:
             html_string += "<li>" + item + "</li>"
 
         html_string += "<h3>" + Experience3Name + "</h3>"
-        for item in NewExperienceThreeDescription.split(";"):
+        for item in NewExperienceThreeDescription.split(";")[1:]:
             html_string += "<li>" + item + "</li>"
 
         html_string += "<h3>" + FinalSkills + "</h3>"
