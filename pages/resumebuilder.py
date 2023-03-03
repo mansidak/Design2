@@ -364,6 +364,10 @@ with tab5:
                  You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
                  Your response isn't in a paragraph form.
                  You start every bullet point with a semi colon.
+                 Your response should resemble this format:
+                 ;point 1
+                 ;point 2
+                 ;point 3
                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -379,6 +383,10 @@ with tab5:
                  You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
                  Your response isn't in a paragraph form.
                  You start every bullet point with a semi colon.
+                 Your response should resemble this format:
+                 ;point 1
+                 ;point 2
+                 ;point 3
                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -394,6 +402,10 @@ with tab5:
                  You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
                  Your response isn't in a paragraph form.
                  You start every bullet point with a semi colon.
+                 Your response should resemble this format:
+                 ;point 1
+                 ;point 2
+                 ;point 3
                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -409,6 +421,10 @@ with tab5:
                  You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
                  Your response isn't in a paragraph form.
                  You start every bullet point with a semi colon.
+                 Your response should resemble this format:
+                 ;point 1
+                 ;point 2
+                 ;point 3
                  """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
