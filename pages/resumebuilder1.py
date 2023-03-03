@@ -59,8 +59,8 @@ with col4:
     st.subheader("")
     st.subheader("")
     st.subheader("")
-    st.subheader("")
-    st.text("")
+    st.write("")
+    st.write("")
     st.subheader("Projects")
     st.text_area(label="", value=st.session_state['OldProjects'])
 with col5:
