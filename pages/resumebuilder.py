@@ -333,15 +333,18 @@ with tab4:
 
 with tab5:
     st.subheader("Choose the role/industry you wish to tailor your resume to")
-    responseProjects = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system",
-             "content": "You are an AI Assistant that ouputs 7 relevant job titles in addition what the job seeker has already done. Your response is a list of job titles separated by commas. You response doesn't include any extra fluff."},
-            {"role": "user",
-             "content": f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n"}])
+    if 'SuggestedJobtitlesResponse' not in st.session_state:
+        responseProjects = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system",
+                 "content": "You are an AI Assistant that ouputs 7 relevant job titles in addition what the job seeker has already done. Your response is a list of job titles separated by commas. You response doesn't include any extra fluff."},
+                {"role": "user",
+                 "content": f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n"}])
 
-    SuggestedJobtitlesResponse = responseProjects["choices"][0]["message"]["content"]
+        SuggestedJobtitlesResponse = responseProjects["choices"][0]["message"]["content"]
+        st.session_state['SuggestedJobtitlesResponse'] = SuggestedJobtitlesResponse
+    SuggestedJobtitlesResponse = st.session_state['SuggestedJobtitlesResponse']
     ChosenJobTitle= st.selectbox(
             '',
             SuggestedJobtitlesResponse.split(","),
