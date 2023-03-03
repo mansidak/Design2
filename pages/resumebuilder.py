@@ -333,11 +333,29 @@ with tab4:
 
 with tab5:
     st.write("")
+    responseProjects = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system",
+             "content": "You are an AI Assistant that is able to suggest relevant job titles in addition what the job seeker has already done. Your response is a list of job titles separated by commas"},
+            {"role": "user",
+             "content": f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n"}])
+
+    SuggestedJobtitlesResponse = responseProjects["choices"][0]["message"]["content"]
+    ChosenJobTitle= st.selectbox(
+            'Select Experience Level (Required)',
+            SuggestedJobtitlesResponse.split(","),
+            key="ChosenJobTitle"
+        )
+
+
+
+
     html_string = ""
-    html_string += "<h3>Job Title: " + Experience1Name + "</h3><p><b>Description:</b> " + Experience1Description + "</p>"
-    html_string += "<h3>Job Title: " + Experience2Name + "</h3><p><b>Description:</b> " + Experience2Description + "</p>"
-    html_string += "<h3>Job Title: " + Experience3Name + "</h3><p><b>Description:</b> " + Experience3Description + "</p>"
-    html_string += "<h3>Job Title: " + Experience4Name + "</h3><p><b>Description:</b> " + Experience4Description + "</p><p><b>Skills:</b> " + FinalSkills + "</p><hr>"
+    html_string += "<h3>" + Experience1Name + "</h3><p>" + Experience1Description + "</p>"
+    html_string += "<h3>" + Experience2Name + "</h3><p>" + Experience2Description + "</p>"
+    html_string += "<h3>" + Experience3Name + "</h3><p>" + Experience3Description + "</p>"
+    html_string += "<h3>" + Experience4Name + "</h3><p>" + Experience4Description + "</p><p><b>Skills:</b> " + FinalSkills + "</p><hr>"
 
 
     PDFFile = pdfkit.from_string(html_string, "resume.pdf")
