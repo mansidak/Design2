@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
+st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽", initial_sidebar_state="expanded", layout="wide")
 # st.title("CoverLetter")
 import openai
 from docx import Document
