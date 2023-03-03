@@ -360,7 +360,8 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}
+                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                 Your response isn't in a paragraph form.
                  You end every bullet point with a semi colon.
                  """},
                 {"role": "user",
@@ -374,7 +375,8 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}
+                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                 Your response isn't in a paragraph form.
                  You end every bullet point with a semi colon.
                  """},
                 {"role": "user",
@@ -388,7 +390,8 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}
+                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                 Your response isn't in a paragraph form.
                  You end every bullet point with a semi colon.
                  """},
                 {"role": "user",
@@ -402,7 +405,8 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}
+                 You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                 Your response isn't in a paragraph form.
                  You end every bullet point with a semi colon.
                  """},
                 {"role": "user",
