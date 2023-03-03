@@ -69,7 +69,7 @@ with col33:
 with col44:
     st.write("")
 with col55:
-    st.button("Yes", key="Proceed")
+    st.button("Procced →", key="Proceed")
 
 
 
