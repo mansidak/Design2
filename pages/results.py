@@ -9,7 +9,6 @@ from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
-import reportlab
 
 hide_menu_style = """
          <style>
@@ -373,31 +372,44 @@ with colresult2:
 
             st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-    html_string = "<ul>"
-    for list in unique_results:
-        link = list[0]
-        title = list[1]
-        companyName = list[2]
-        shortSummary = list[3]
-        fullDescription = list[4]
-        location = list[5]
-        skills = list[6]
-        html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
-    html_string += "</ul>"
+    # html_string = "<ul>"
+    # for list in unique_results:
+    #     link = list[0]
+    #     title = list[1]
+    #     companyName = list[2]
+    #     shortSummary = list[3]
+    #     fullDescription = list[4]
+    #     location = list[5]
+    #     skills = list[6]
+    #     html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
+    # html_string += "</ul>"
+    #
+    # # generate the pdf
+    # # PDFFile = pdfkit.from_string(html_string, "19thStreet.pdf")
+    #
+    # # config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64', 'utf-8'))
+    # # config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64.deb', 'utf-8'))
+    # PDFFile = pdfkit.from_string(html_string, "output.pdf")
+    #
+    # with open("output.pdf", "rb") as pdf_file:
+    #     PDFbyte = pdf_file.read()
+    # # st.download_button(label='Download PDF', data= PDFFi
 
-    # generate the pdf
-    # PDFFile = pdfkit.from_string(html_string, "19thStreet.pdf")
+    pdf_file = open("my_pdf_file.pdf", "w")
 
-    # config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64', 'utf-8'))
-    # config = pdfkit.configuration(wkhtmltopdf=bytes('/var/cache/apt/archives/wkhtmltopdf_0.12.6-2_amd64.deb', 'utf-8'))
-    PDFFile = pdfkit.from_string(html_string, "output.pdf")
+    # loop through the array of lists
+    for lst in unique_results:
 
-    with open("output.pdf", "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
-    # st.download_button(label='Download PDF', data= PDFFi
+        # check if list has at least 3 items
+        if len(lst) >= 3:
+            # write the item2 to the PDF file
+            pdf_file.write("- " + lst[0] + "\n")
+
+    # close the PDF file
+    pdf_file.close()
 
     st.download_button(label="Export_Report",
-                       data=PDFbyte,
+                       data=pdf_file,
                        file_name="test.pdf",
                        mime='application/octet-stream')
 with colresult3:
