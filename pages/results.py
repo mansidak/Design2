@@ -381,7 +381,7 @@ with colresult2:
         fullDescription = list[4]
         location = list[5]
         skills = list[6]
-        html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
+        html_string += "<li><a href='" + link + "'>" + title + " at " + companyName +"</a><ul><li>" + shortSummary+ "</li></ul></li>"
     html_string += "</ul>"
 
     # generate the pdf
@@ -392,8 +392,8 @@ with colresult2:
     # st.download_button(label='Download PDF', data= PDFFile)
 
     st.download_button(label="Export_Report",
-                       data=PDFFile,
-                       file_name="test.pdf",
-                       mime='application/octet-stream')
+                        data=PDFbyte,
+                        file_name="test.pdf",
+                        mime='application/octet-stream')
 with colresult3:
     st.write("")
