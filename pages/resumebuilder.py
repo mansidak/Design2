@@ -363,7 +363,7 @@ with tab5:
                                   You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
                                   Your response consists of 3-4 revised resume bullet points separated by semi colon. 
                                   You don't add extra fluff to your response.
-                                  Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
+                                  Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
                                   """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -376,10 +376,10 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
+                                You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
                                   Your response consists of 3-4 revised resume bullet points separated by semi colon. 
                                   You don't add extra fluff to your response.
-                                  Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
+                                  Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
                                   """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -392,10 +392,10 @@ with tab5:
             messages=[
                 {"role": "system",
                  "content": f"""
-                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle} 
+                                  You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
                                   Your response consists of 3-4 revised resume bullet points separated by semi colon. 
                                   You don't add extra fluff to your response.
-                                  Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
+                                  Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
                                   """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
@@ -411,7 +411,7 @@ with tab5:
                                   You are an AI Assistant that takes in the bullet points of a job seeker and generate bullet points that sound like an experienced {ChosenJobTitle}. 
                                   Your response consists of 3-4 revised resume bullet points separated by semi colon. 
                                   You don't add extra fluff to your response.
-                                  Also if the experience given doens't sound like a {ChosenJobTitle}. Just return 'couldn't convert; or not relevant'
+                                  Also if the experience given doens't sound like a {ChosenJobTitle}, try to make something up related to that experience but don't go too far.
                                   """},
                 {"role": "user",
                  "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
