@@ -367,28 +367,36 @@ with colresult2:
 
             st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-    html_string = "<ul>"
-    for list in unique_results:
-        link = list[0]
-        title = list[1]
-        companyName = list[2]
-        shortSummary = list[3]
-        fullDescription = list[4]
-        location = list[5]
-        skills = list[6]
-        html_string += "<li><a href='" + link + "'>" + title + " at " + companyName +"</a><ul><li>" + shortSummary+ "</li></ul></li>"
-    html_string += "</ul>"
 
-    # generate the pdf
-    PDFFile = pdfkit.from_string(html_string, "output.pdf")
 
-    with open("output.pdf", "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
-    # st.download_button(label='Download PDF', data= PDFFile)
+    colconclusion1, colconclusion2 = st.columns([1,1])
+    with colconclusion1:
 
-    st.download_button(label="Download All Jobs",
-                        data=PDFbyte,
-                        file_name="test.pdf",
-                        mime='application/octet-stream')
+        html_string = "<ul>"
+        for list in unique_results:
+            link = list[0]
+            title = list[1]
+            companyName = list[2]
+            shortSummary = list[3]
+            fullDescription = list[4]
+            location = list[5]
+            skills = list[6]
+            html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
+        html_string += "</ul>"
+
+        # generate the pdf
+        PDFFile = pdfkit.from_string(html_string, "output.pdf")
+
+        with open("output.pdf", "rb") as pdf_file:
+            PDFbyte = pdf_file.read()
+        # st.download_button(label='Download PDF', data= PDFFile)
+
+        st.download_button(label="Download All Jobs",
+                           data=PDFbyte,
+                           file_name="test.pdf",
+                           mime='application/octet-stream')
+    with colconclusion2:
+        if st.button("Not Satisfied? Run Again"):
+            switch_page("betaa.py")
 with colresult3:
     st.write("")
