@@ -90,7 +90,20 @@ with col2:
                 model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system",
-                     "content": "You are an AI Assistant that is able to recognize the Experiences section of a resume when given the data of a resume. Your response is in the following format:\n\n 1. List the title of each Experience. \n 2. List the date of each experience if listed.\n3. List the description of eachh experience"},
+                     "content": """
+                     You are an AI Assistant that is able to recognize the Experiences section of a resume when given the data of a resume. 
+                     Your response is in the following format:
+                     1a. Experience 1 name and company name (put semicolon at end)
+                     2a. Experience 2 name and company name (put semicolon at end)
+                     3a. Experience 3 name and company name (put semicolon at end)
+                     4a. Experience 4 name and company name (put semicolon at end)
+                     
+                     1b. Experience 1 Description (put semicolon at end)
+                     2b. Experience 2 Description (put semicolon at end)
+                     3b. Experience 3 Description (put semicolon at end)
+                     4b. Experience 4 Description (put semicolon at end)
+                     
+                     """},
                     {"role": "user",
                      "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
             st.session_state['OldExperiences'] = responseExperiences["choices"][0]["message"]["content"]
@@ -99,7 +112,20 @@ with col2:
                 model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system",
-                     "content": "You are an AI Assistant that is able to recognize the Projects section of a resume when given the data of a resume. Your response is in the following format:\n\n 1. List the title of each project. \n 2. List the date of each proejct if listed.\n3. List the description of eachj project if listed"},
+                     "content": """
+                     You are an AI Assistant that is able to recognize the Projects section of a resume when given the data of a resume. 
+                     
+                     Your response is in the following format:
+                     1a. Project 1 name (put semicolon at end)
+                     2a. Project 2 name (put semicolon at end)
+                     3a. Project 3 name (put semicolon at end)
+                     4a. Project 4 name (put semicolon at end)
+                     
+                     1b. Project 1 Description (put semicolon at end)
+                     2b. Project 2 Description (put semicolon at end)
+                     3b. Project 3 Description (put semicolon at end)
+                     4b. Project 4 Description (put semicolon at end)
+                                          """},
                     {"role": "user",
                      "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
             st.session_state['OldProjects'] = responseProjects["choices"][0]["message"]["content"]
