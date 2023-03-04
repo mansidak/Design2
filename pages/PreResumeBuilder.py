@@ -103,6 +103,7 @@ with col2:
                      3b. Experience 3 Description (put semicolon at end)
                      4b. Experience 4 Description (put semicolon at end)
                      
+                     Most importantly, you don't change any of the contents of the description. Report it as is.
                      """},
                     {"role": "user",
                      "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
@@ -125,6 +126,9 @@ with col2:
                      2b. Project 2 Description (put semicolon at end)
                      3b. Project 3 Description (put semicolon at end)
                      4b. Project 4 Description (put semicolon at end)
+                     
+                    Most importantly, you don't change any of the contents of the description. Report it as is.
+
                                           """},
                     {"role": "user",
                      "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
