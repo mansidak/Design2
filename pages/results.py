@@ -278,9 +278,30 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    st.write("")
-                    # if st.button("Apply", key=f"{link}+{title}+Apply"):
-                    #     js = f"window.open('{link}')"  # New tab or window
+                    if st.button("Save to my account", key="Savetoaccount"):
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        user = st.session_state['user']
+                        data = {
+                            str(title): {
+                                "Link": str(link),
+                                "Title": str(title),
+                                "Company Name": str(companyName),
+                                "Short Summary": str(shortSummary),
+                                "Full Description": str(fullDescription),
+                                "Location": str(location),
+                                "Skills": str(skills)
+                            }
+                        }
+                        results = db.child("users").child(str(user["localId"])).child("Jobs").child(
+                            str(title) + str(location) + str(companyName)).set(data)
+                        st.write(user["localId"])
+
+                    if st.button("Retrieve Job", key="Retreive"):
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        user = st.session_state['user']
+                        st.write(db.child("users").child(str(user["localId"])).child("Jobs").get().val())
 
                 with col3:
                     st.write("")
@@ -336,9 +357,30 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    st.write("")
-                    # if st.button("Apply", key=f"{link}+{title}+Apply"):
-                    #     js = f"window.open('{link}')"  # New tab or window
+                    if st.button("Save to my account", key="Savetoaccount"):
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        user = st.session_state['user']
+                        data = {
+                            str(title): {
+                                "Link": str(link),
+                                "Title": str(title),
+                                "Company Name": str(companyName),
+                                "Short Summary": str(shortSummary),
+                                "Full Description": str(fullDescription),
+                                "Location": str(location),
+                                "Skills": str(skills)
+                            }
+                        }
+                        results = db.child("users").child(str(user["localId"])).child("Jobs").child(
+                            str(title) + str(location) + str(companyName)).set(data)
+                        st.write(user["localId"])
+
+                    if st.button("Retrieve Job", key="Retreive"):
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        user = st.session_state['user']
+                        st.write(db.child("users").child(str(user["localId"])).child("Jobs").get().val())
 
                 with col3:
                     st.write("")
@@ -394,10 +436,30 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    st.write("")
+                    if st.button("Save to my account", key="Savetoaccount"):
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        user = st.session_state['user']
+                        data = {
+                            str(title): {
+                                "Link": str(link),
+                                "Title": str(title),
+                                "Company Name": str(companyName),
+                                "Short Summary": str(shortSummary),
+                                "Full Description": str(fullDescription),
+                                "Location": str(location),
+                                "Skills": str(skills)
+                            }
+                        }
+                        results = db.child("users").child(str(user["localId"])).child("Jobs").child(
+                            str(title) + str(location) + str(companyName)).set(data)
+                        st.write(user["localId"])
 
-                    # if st.button("Apply", key=f"{link}+{title}+Apply"):
-                    #     js = f"window.open('{link}')"  # New tab or window
+                    if st.button("Retrieve Job", key="Retreive"):
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        user = st.session_state['user']
+                        st.write(db.child("users").child(str(user["localId"])).child("Jobs").get().val())
 
                 with col3:
                     st.write("")
