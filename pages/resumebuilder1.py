@@ -63,6 +63,66 @@ with tab1:
     )
 with tab2:
     st.text_area(label="", value=st.session_state['OldExperiences'])
+
+    with st.expander("Experience 1", expanded=False):
+        Experience1Name = st.text_input(
+            st.session_state['OldExperiences'].split('1a.')[1].split('2a.')[0],
+            placeholder='Position at Company',
+            key='Experience1'
+        )
+
+        Experience1Description = st.text_area(
+            '',
+            placeholder='Description',
+            key='Experience 1 Detail'
+        )
+    with st.expander("Experience 2", expanded=False):
+        Experience2Name = st.text_input(
+            '',
+            placeholder='Position at Company',
+            key='Experience2'
+        )
+        Experience2Description = st.text_area(
+            '',
+            placeholder='Description',
+            key='Experience 2 Detail'
+        )
+    with st.expander("Experience 3", expanded=False):
+        Experience3Name = st.text_input(
+            '',
+            placeholder='Position at Company',
+            key='Experience3'
+        )
+        Experience3Description = st.text_area(
+            '',
+            placeholder='Description',
+            key='Experience 3 Detail'
+        )
+    with st.expander("Experience 4", expanded=False):
+        Experience4Name = st.text_input(
+            '',
+            placeholder='  Position at Company',
+            key='Experience4'
+        )
+        Experience4Description = st.text_area(
+            '',
+            placeholder='Description',
+            key='Experience 4 Detail'
+        )
+    with st.expander("Experience 5", expanded=False):
+        Experience5Name = st.text_input(
+            '',
+            placeholder='Position at Company',
+            key='Experience5'
+        )
+        Experience5Description = st.text_area(
+            '',
+            placeholder='Description',
+            key='Experience 5 Detail'
+        )
+
+
+
 with tab3:
     st.text_area(label="", value=st.session_state['OldProjects'])
 with tab4:
