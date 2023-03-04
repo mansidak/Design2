@@ -77,7 +77,7 @@ with col2:
         st.write("")
         st.write("")
         st.write("")
-        if st.button("Start with your old resume →", key="Old Resume Begin Button"):
+        if st.button("Upload old resume →", key="Old Resume Begin Button"):
             pdfReader = PyPDF2.PdfReader(ResumeToCorrect)
             txtFile = open('sample.txt', 'w')
             num_pages = len(pdfReader.pages)
