@@ -290,12 +290,13 @@ with tab5:
                                                   Experience2Description, Experience3Name, Experience3Description,
                                                   Experience4Name, Experience4Description)
 
-
             ChosenJobTitle = st.selectbox(
                 '',
-                f"{SuggestedJobTitles.split(','), st.text_input('',key ='custom_title')}",
+                SuggestedJobTitles.split(",") + ["Another option..."],
                 key="ChosenJobTitle"
             )
+            if ChosenJobTitle == "Another option...":
+                otherOption = st.text_input("Enter your other option...")
 
 
             if st.button("Proceed →"):
