@@ -97,7 +97,7 @@ if __name__ == "__main__":
 
 
     if st.button("Reveal ID", key = "dumb"):
-        st.write(user["localId"])
+        st.write(st.session_state['user']["localId"])
 
     hide_streamlit_style = """
                   <style>
