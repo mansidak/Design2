@@ -83,7 +83,7 @@ if __name__ == "__main__":
         data = {
             "name": "Mortimer 'Morty' Smith"
         }
-        results = db.child("users").child(auth.current_user).set(data)
+        results = db.child("users").child(user["localId"]).set(data)
         st.write(user["localId"])
 
 
