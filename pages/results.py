@@ -415,14 +415,15 @@ with colresult2:
             "measurementId": "G-N3TMC7M1WT",
             "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
         }
-        firebase = pyrebase.initialize_app(firebaseconfig)
-        db = firebase.database()
-        user = st.session_state['user']
-        data = {
-            unique_results
-        }
-        results = db.child("users").child(str(user["localId"])).child("Jobs").set(data)
-        st.write(user["localId"])
+        if st.button("Save to my account", key="Savetoaccount"):
+            firebase = pyrebase.initialize_app(firebaseconfig)
+            db = firebase.database()
+            user = st.session_state['user']
+            data = {
+                unique_results
+            }
+            results = db.child("users").child(str(user["localId"])).child("Jobs").set(data)
+            st.write(user["localId"])
 
 
 
