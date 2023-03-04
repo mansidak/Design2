@@ -28,7 +28,8 @@ config = {
   "storageBucket": "nineteenth-street.appspot.com",
   "messagingSenderId": "964724806859",
   "appId": "1:964724806859:web:010841fc337f30b50cb74e",
-  "measurementId": "G-N3TMC7M1WT"
+  "measurementId": "G-N3TMC7M1WT",
+  "databaseURL":""
 }
 
 email = st.text_input('Email', key = 'email')
