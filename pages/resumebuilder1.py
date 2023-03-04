@@ -41,6 +41,7 @@ st.markdown(f"<center> <h1 style='font-family: Sans-Serif; font-weight:lighter; 
 st.markdown(f"<center> <h3 style='font-family: Sans-Serif; font-weight:lighter; color: white'>Does everything look good?</h3>", unsafe_allow_html=True)
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001","\u2001\u2001Skills\u2001\u2001", "\u2001\u2001Result\u2001\u2001"])
 with tab1:
+    st.header("Basic Info")
     CandidateName = st.text_input(
         'Name',
         placeholder='Name ',
