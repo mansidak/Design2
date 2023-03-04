@@ -93,6 +93,7 @@ with st.sidebar:
     st.download_button(label="Download All Jobs",
                        data=PDFbyte,
                        file_name="test.pdf",
+                       key = 'downloadingjobspdf',
                        mime='application/octet-stream')
 
 
