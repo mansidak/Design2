@@ -19,7 +19,6 @@ from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 import psutil
 from streamlit.components.v1 import html
-import pyasn1
 import pyrebase
 
 config = {
