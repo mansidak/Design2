@@ -76,6 +76,18 @@ if __name__ == "__main__":
     email = st.text_input('Email', key='email')
     password = st.text_input('Password', key='password')
 
+    if st.button("Create New Account", key="NewAccount"):
+        firebase = pyrebase.initialize_app(firebaseconfig)
+        auth = firebase.auth()
+        user = auth.create_user_with_email_and_password(email=email, password=password)
+        st.session_state['user'] = user
+        db = firebase.database()
+        data = {
+            "name": "Mortimer 'Morty' Smith"
+        }
+        results = db.child("users").child(str(user["localId"])).set(data)
+        st.write(user["localId"])
+
     if st.button("Login", key="login"):
         firebase = pyrebase.initialize_app(firebaseconfig)
         auth = firebase.auth()
@@ -87,6 +99,7 @@ if __name__ == "__main__":
         }
         results = db.child("users").child(str(user["localId"])).set(data)
         st.write(user["localId"])
+
 
     if st.button("Reveal ID", key = "dumb"):
         st.write(user["localId"])
