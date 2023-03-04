@@ -168,7 +168,7 @@ with col4:
     with col222:
         st.subheader("")
         if st.button("Go Manually →", key="Go Manually"):
-            switch_page("resumebuilder")
+            switch_page("manualresumebuilder")
     with col333:
         st.write("")
 

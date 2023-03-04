@@ -448,7 +448,7 @@ with tab5:
                 for item in filter(None, NewExperienceFourDescription.split(";")[1:]):
                     html_string += "<li>" + item + "</li>"
 
-                html_string_skills += "<h3> Skills:" + FinalSkills + "</h3>"
+                html_string_skills += "<span>" + FinalSkills + "</span>"
 
                 if Projec1Name:
                     html_string2 = ""

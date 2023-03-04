@@ -1,7 +1,7 @@
 import streamlit as st
 import string
 import random
-st.set_page_config(page_title="19th Street | Resume Builder", page_icon="📜", layout="wide", initial_sidebar_state='collapsed')
+st.set_page_config(page_title="19th Street | Manual Resume Builder", page_icon="📜", layout="wide", initial_sidebar_state='collapsed')
 # st.title("CoverLetter")
 import openai
 from docx import Document
