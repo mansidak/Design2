@@ -20,6 +20,7 @@ from streamlit_extras.switch_page_button import switch_page
 import psutil
 from streamlit.components.v1 import html
 import pyrebase
+from collections import Mapping, MutableMapping
 
 config = {
   "apiKey": os.environ.get("firebase_api_key"),
