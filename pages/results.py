@@ -420,15 +420,33 @@ with colresult2:
             db = firebase.database()
             user = st.session_state['user']
             for list in unique_results:
-                data = {
-                    "link" : str(list[0]),
-                    "title" : str(list[1]),
-                    "companyName" : str(list[2]),
-                    "shortSummary" : str(list[3]),
-                    "fullDescription" : str(list[4]),
-                    "location" : str(list[5]),
-                    "skills" : str(list[6]) ,
-                }
+                # data = {
+                #     "link" : str(list[0]),
+                #     "title" : str(list[1]),
+                #     "companyName" : str(list[2]),
+                #     "shortSummary" : str(list[3]),
+                #     "fullDescription" : str(list[4]),
+                #     "location" : str(list[5]),
+                #     "skills" : str(list[6]) ,
+                # }
+
+                data = {}
+                for list in unique_results:
+                    link = list[0]
+                    title = list[1]
+                    companyName = list[2]
+                    shortSummary = list[3]
+                    fullDescription = list[4]
+                    location = list[5]
+                    skills = list[6]
+                    data[link] = {
+                        'title': title,
+                        'companyName': companyName,
+                        'shortSummary': shortSummary,
+                        'fullDescription': fullDescription,
+                        'location': location,
+                        'skills': skills
+                    }
             results = db.child("users").child(str(user["localId"])).child("Jobs").set(data)
             st.write(user["localId"])
 
