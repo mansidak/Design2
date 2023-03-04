@@ -37,7 +37,7 @@ hide_streamlit_style = """
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-st.markdown(f"<center> <h1 style='font-family: Sans-Serif; font-weight:lighter; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> AI Resume Builder.</h1>", unsafe_allow_html=True)
+st.markdown(f"<center> <h1 style='font-family: Sans-Serif; font-weight:medium; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> AI Resume Builder.</h1>", unsafe_allow_html=True)
 st.markdown(f"<center> <h3 style='font-family: Sans-Serif; font-weight:lighter; color: white'>Does everything look good?</h3>", unsafe_allow_html=True)
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001","\u2001\u2001Skills\u2001\u2001", "\u2001\u2001Result\u2001\u2001"])
 with tab1:
