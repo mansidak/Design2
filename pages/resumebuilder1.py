@@ -63,7 +63,7 @@ with tab2:
             '',
             placeholder='Position at Company',
             key='Experience1',
-            value= {st.session_state['OldExperiences'].split('1a.')[1].split('2a.')[0]}
+            value= str(f"{st.session_state['OldExperiences'].split('1a.')[1].split('2a.')[0]}")
         )
 
         Experience1Description = st.text_area(
