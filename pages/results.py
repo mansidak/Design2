@@ -419,9 +419,9 @@ with colresult2:
         db = firebase.database()
         user = st.session_state['user']
         data = {
-            "Jobs": "This is Job"
+            unique_results
         }
-        results = db.child("users").child(str(user["localId"])).set(data)
+        results = db.child("users").child(str(user["localId"])).child("Jobs").set(data)
         st.write(user["localId"])
 
 
