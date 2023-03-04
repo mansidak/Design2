@@ -296,7 +296,7 @@ with tab5:
                 key="ChosenJobTitle"
             )
             if ChosenJobTitle == "Another option...":
-                otherOption = st.text_input("Enter your other option...")
+                otherOption = st.text_input("Enter your other option...", key="custom")
 
 
             if st.button("Proceed →"):
