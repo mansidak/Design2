@@ -80,12 +80,11 @@ if __name__ == "__main__":
         auth = firebase.auth()
         user = auth.create_user_with_email_and_password(email=email, password=password)
         db = firebase.database()
-        if st.button("Save Data", key = "saveshit"):
-            data = {
-                "name": "Mortimer 'Morty' Smith"
-            }
-            results = db.child("users").child(user["localId"]).set(data)
-            st.write(user["localId"])
+        data = {
+            "name": "Mortimer 'Morty' Smith"
+        }
+        results = db.child("users").child(str(user["localId"])).set(data)
+        st.write(user["localId"])
 
 
     hide_streamlit_style = """
