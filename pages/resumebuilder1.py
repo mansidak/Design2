@@ -69,40 +69,53 @@ with tab2:
         Experience1Description = st.text_area(
             '',
             placeholder='Description',
-            key='Experience 1 Detail'
+            key='Experience 1 Detail',
+            value = {st.session_state['OldExperiences'].split('1b.')[1].split('2b.')[0]}
+
         )
     with st.expander("Experience 2", expanded=False):
         Experience2Name = st.text_input(
             '',
             placeholder='Position at Company',
-            key='Experience2'
+            key='Experience2',
+            value={st.session_state['OldExperiences'].split('2a.')[1].split('3a.')[0]}
         )
         Experience2Description = st.text_area(
             '',
             placeholder='Description',
-            key='Experience 2 Detail'
+            key='Experience 2 Detail',
+            value={st.session_state['OldExperiences'].split('2b.')[1].split('3b.')[0]}
+
         )
     with st.expander("Experience 3", expanded=False):
         Experience3Name = st.text_input(
             '',
             placeholder='Position at Company',
-            key='Experience3'
+            key='Experience3',
+            value={st.session_state['OldExperiences'].split('3a.')[1].split('4a.')[0]}
+
         )
         Experience3Description = st.text_area(
             '',
             placeholder='Description',
-            key='Experience 3 Detail'
+            key='Experience 3 Detail',
+            value={st.session_state['OldExperiences'].split('3b.')[1].split('4b.')[0]}
+
         )
     with st.expander("Experience 4", expanded=False):
         Experience4Name = st.text_input(
             '',
             placeholder='  Position at Company',
-            key='Experience4'
+            key='Experience4',
+            value={st.session_state['OldExperiences'].split('4a.')[1].split('1b.')[0]}
+
         )
         Experience4Description = st.text_area(
             '',
             placeholder='Description',
-            key='Experience 4 Detail'
+            key='Experience 4 Detail',
+            value={st.session_state['OldExperiences'].split('4b.')[1]}
+
         )
     with st.expander("Experience 5", expanded=False):
         Experience5Name = st.text_input(
