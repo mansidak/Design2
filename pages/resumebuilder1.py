@@ -65,6 +65,7 @@ with tab1:
 with tab2:
     col1, col2 = st.columns([0.75, 1])
     with col1:
+        st.header("Experience")
         with st.expander("Experience 1", expanded=True):
             Experience1Name = st.text_input(
                 '',
