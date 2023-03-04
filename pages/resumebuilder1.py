@@ -134,7 +134,93 @@ with tab2:
 
 
 with tab3:
-    st.text_area(label="", value=st.session_state['OldProjects'])
+    col1tab3, col2tab3 = st.columns([0.75, 1])
+    with col1tab3:
+        st.header("Projects")
+        st.subheader("Feel free to add any projects you might have")
+        with st.expander("Project 1", expanded=False):
+            col1Project1, col2Project1 = st.columns([1, 1])
+            with col1Project1:
+                Projec1Name = st.text_input(
+                    '',
+                    placeholder='Project Name',
+                    key='Project1Name'
+                )
+            with col2Project1:
+                Project1Link = st.text_input(
+                    '',
+                    placeholder='Project Link',
+                    key='Project1Link'
+                )
+
+            Project1Description = st.text_area(
+                '',
+                placeholder='Description',
+                key='Project 1 Detail'
+            )
+        with st.expander("Project 2", expanded=False):
+            col1Project2, col2Project2 = st.columns([1, 1])
+            with col1Project2:
+                Projec2Name = st.text_input(
+                    '',
+                    placeholder='Project Name',
+                    key='Project2Name'
+                )
+            with col2Project2:
+                Project1Link = st.text_input(
+                    '',
+                    placeholder='Project Link',
+                    key='Project2Link'
+                )
+
+            Project2Description = st.text_area(
+                '',
+                placeholder='Description',
+                key='Project 2 Detail'
+            )
+        with st.expander("Project 3", expanded=False):
+            col1Project3, col2Project3 = st.columns([1, 1])
+            with col1Project3:
+                Projec3Name = st.text_input(
+                    '',
+                    placeholder='Project Name',
+                    key='Project3Name'
+                )
+            with col2Project3:
+                Projec3Link = st.text_input(
+                    '',
+                    placeholder='Project Link',
+                    key='Project3Link'
+                )
+
+            Project3Description = st.text_area(
+                '',
+                placeholder='Description',
+                key='Project 3 Detail'
+            )
+        with st.expander("Project 4", expanded=False):
+            col1Project4, col2Project4 = st.columns([1, 1])
+            with col1Project4:
+                Projec4Name = st.text_input(
+                    '',
+                    placeholder='Project Name',
+                    key='Project4Name'
+                )
+            with col2Project4:
+                Projec4Link = st.text_input(
+                    '',
+                    placeholder='Project Link',
+                    key='Project4Link'
+                )
+
+            Project4Description = st.text_area(
+                '',
+                placeholder='Description',
+                key='Project 4 Detail'
+            )
+
+    with col2tab3:
+        st.write("")
 with tab4:
     if 'Skills' not in st.session_state:
         if st.button("Add Skills"):

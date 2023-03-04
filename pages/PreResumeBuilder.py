@@ -109,35 +109,6 @@ with col2:
                      "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
             st.session_state['OldExperiences'] = responseExperiences["choices"][0]["message"]["content"]
 
-            responseProjects = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system",
-                     "content": """
-                     You are an AI Assistant that is able to recognize the Projects section of a resume when given the data of a resume. 
-                     
-                     Your response is in the following format:
-                     1a. Project 1 name (put semicolon at end)
-                     2a. Project 2 name (put semicolon at end)
-                     3a. Project 3 name (put semicolon at end)
-                     4a. Project 4 name (put semicolon at end)
-                     
-                     1b. Project 1 Description (put semicolon at end)
-                     2b. Project 2 Description (put semicolon at end)
-                     3b. Project 3 Description (put semicolon at end)
-                     4b. Project 4 Description (put semicolon at end)
-                     
-                    Most importantly, you don't change any of the contents of the description. Report it as is.
-
-                                          """},
-                    {"role": "user",
-                     "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
-            st.session_state['OldProjects'] = responseProjects["choices"][0]["message"]["content"]
-
-
-
-
-
             switch_page("resumebuilder1")
 
     with col33:
