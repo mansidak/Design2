@@ -293,7 +293,7 @@ with tab5:
 
             ChosenJobTitle = st.selectbox(
                 '',
-                f"{SuggestedJobTitles.split(','), st.text_input(key ='custom_title')}",
+                f"{SuggestedJobTitles.split(','), st.text_input('',key ='custom_title')}",
                 key="ChosenJobTitle"
             )
 
