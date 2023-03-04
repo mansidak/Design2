@@ -236,8 +236,8 @@ with tab3:
     with col2tab3:
         st.write("")
 with tab4:
+    st.header("Add Skills")
     if 'Skills' not in st.session_state:
-
         if st.button("Add Skills"):
             response = openai.Completion.create(
                 model="text-davinci-003",
@@ -253,7 +253,7 @@ with tab4:
             st.session_state['Skills'] = ','.join(PreSkills)
 
             FinalSkills = st.text_input(
-                'Caption goes here',
+                '',
                 placeholder='Placeholder goes here',
                 help='Help message goes here',
                 value=st.session_state['Skills']
