@@ -84,6 +84,7 @@ if __name__ == "__main__":
             "name": "Mortimer 'Morty' Smith"
         }
         results = db.child("users").child(auth.current_user).set(data)
+        st.write(user["localId"])
 
 
     hide_streamlit_style = """
