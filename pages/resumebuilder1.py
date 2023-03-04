@@ -33,7 +33,7 @@ hide_streamlit_style = """
               
 
             
-            .css-1om1ktf e1y61itm0{
+            .css-1om1ktf.e1y61itm0{
              border-radius:20px;
             -moz-border-radius:20px;
             -webkit-border-radius:20px;
