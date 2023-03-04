@@ -44,19 +44,23 @@ with tab1:
     CandidateName = st.text_input(
         'Name',
         placeholder='Name ',
-        key='Name'
+        key='Name',
+        value= str(f"{st.session_state['BasicInfo'].split('1a.')[1].split('2a.')[0]}")
+
     )
 
     CandidatePhone = st.text_input(
         'Phone',
         placeholder='Phone Number',
-        key='Phone'
+        key='Phone',
+        value=str(f"{st.session_state['BasicInfo'].split('2a.')[1].split('3a.')[0]}")
     )
 
     CandidateEmail = st.text_input(
         'Email',
         placeholder='Email ',
-        key='Email'
+        key='Email',
+        value=str(f"{st.session_state['BasicInfo'].split('3a.')[1]}")
     )
 with tab2:
     col1, col2 = st.columns([0.75, 1])

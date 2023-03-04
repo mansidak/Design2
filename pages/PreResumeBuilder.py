@@ -109,6 +109,26 @@ with col2:
                      "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
             st.session_state['OldExperiences'] = responseExperiences["choices"][0]["message"]["content"]
 
+            responseBasicInfo = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system",
+                     "content": """
+                                 You are an AI Assistant that is able to recognize the Full Name, Phone Number and Email address from a job seeker's resume if they're provided. 
+                                 Your response is in the following format:
+                                 1a. Full Name
+                                 2a. Phone Number (if listed)
+                                 3a. Email Address (if listed)
+
+                                 Most importantly, you don't change any of the contents of the description. Report it as is. And you don't any extra fluff to your response.
+                                 """},
+                    {"role": "user",
+                     "content": f"Here's the resume:\n{ResumeToCorrectContent}"}])
+            st.session_state['BasicInfo'] = responseBasicInfo["choices"][0]["message"]["content"]
+
+
+
+
             switch_page("resumebuilder1")
 
     with col33:
