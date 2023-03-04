@@ -41,28 +41,33 @@ st.markdown(f"<center> <h1 style='font-family: Sans-Serif; font-weight:lighter; 
 st.markdown(f"<center> <h3 style='font-family: Sans-Serif; font-weight:lighter; color: white'>Does everything look good?</h3>", unsafe_allow_html=True)
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001","\u2001\u2001Skills\u2001\u2001", "\u2001\u2001Result\u2001\u2001"])
 with tab1:
-    st.header("Basic Info")
-    CandidateName = st.text_input(
-        'Name',
-        placeholder='Name ',
-        key='Name',
-        value= str(f"{st.session_state['BasicInfo'].split('1a.')[1].split('2a.')[0]}")
+    col1tab3, col2tab3 = st.columns([0.75, 1])
+    with col1tab3:
 
-    )
+        st.header("Basic Info")
+        CandidateName = st.text_input(
+            'Name',
+            placeholder='Name ',
+            key='Name',
+            value= str(f"{st.session_state['BasicInfo'].split('1a.')[1].split('2a.')[0]}")
 
-    CandidatePhone = st.text_input(
-        'Phone',
-        placeholder='Phone Number',
-        key='Phone',
-        value=str(f"{st.session_state['BasicInfo'].split('2a.')[1].split('3a.')[0]}")
-    )
+        )
 
-    CandidateEmail = st.text_input(
-        'Email',
-        placeholder='Email ',
-        key='Email',
-        value=str(f"{st.session_state['BasicInfo'].split('3a.')[1]}")
-    )
+        CandidatePhone = st.text_input(
+            'Phone',
+            placeholder='Phone Number',
+            key='Phone',
+            value=str(f"{st.session_state['BasicInfo'].split('2a.')[1].split('3a.')[0]}")
+        )
+
+        CandidateEmail = st.text_input(
+            'Email',
+            placeholder='Email ',
+            key='Email',
+            value=str(f"{st.session_state['BasicInfo'].split('3a.')[1]}")
+        )
+    with col2tab3:
+        st.write("")
 with tab2:
     col1, col2 = st.columns([0.75, 1])
     with col1:
