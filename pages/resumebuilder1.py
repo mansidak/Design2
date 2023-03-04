@@ -427,8 +427,9 @@ with tab5:
                     NewProjectFourDescription = NewProjectFourDescriptionResponse["choices"][0]["message"]["content"]
 
                 html_string = ""
+                html_string_intro = ""
 
-                html_string += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
+                html_string_intro += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
 
                 html_string += "<h3>" + Experience1Name + "</h3>"
                 for item in filter(None, NewExperienceOneDescription.split(";")[1:]):
@@ -471,6 +472,7 @@ with tab5:
 
                 new_parser = HtmlToDocx()
                 headingExperiences = document.add_heading(f'Experiences', 1)
+                new_parser.add_html_to_document(html_string_intro, document)
                 new_parser.add_html_to_document(html_string, document)
                 if Projec1Name:
                     headingProjects = document.add_heading(f'Projects', 1)
