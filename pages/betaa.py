@@ -21,7 +21,7 @@ import psutil
 from streamlit.components.v1 import html
 import pyrebase
 
-config = {
+firebaseconfig = {
   "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
   "authDomain": "nineteenth-street.firebaseapp.com",
   "projectId": "nineteenth-street",
@@ -35,7 +35,7 @@ config = {
 email = st.text_input('Email', key = 'email')
 password = st.text_input('Password', key = 'password')
 if st.button("Login", key="login"):
-    firebase = pyrebase.initialize_app(config)
+    firebase = pyrebase.initialize_app(firebaseconfig)
     auth = firebase.auth()
     user = auth.create_user_with_email_and_password(email=email,password=password)
     db = firebase.database()
