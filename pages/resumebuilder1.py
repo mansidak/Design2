@@ -260,7 +260,7 @@ with tab4:
             )
     else:
         FinalSkills = st.text_input(
-            'Caption goes here',
+            '',
             placeholder='Placeholder goes here',
             help='Help message goes here',
             value=st.session_state['Skills'])
