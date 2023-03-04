@@ -258,218 +258,220 @@ with tab4:
             value=st.session_state['Skills'])
 with tab5:
     st.subheader("Choose the role/industry you wish to tailor your resume to")
-
-
-    @st.cache_data
-    def GettingJobTitles(Experience1Name, Experience1Description, Experience2Name, Experience2Description,
-                         Experience3Name, Experience3Description, Experience4Name, Experience4Description):
-        responseProjects = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system",
-                 "content": "You are an AI Assistant that ouputs 7 relevant job titles in addition what the job seeker has already done. Your response is a list of job titles separated by commas. You response doesn't include any extra fluff."},
-                {"role": "user",
-                 "content": f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n"}])
-
-        SuggestedJobtitlesResponse = responseProjects["choices"][0]["message"]["content"]
-        return SuggestedJobtitlesResponse
-
-
-    SuggestedJobTitles = GettingJobTitles(Experience1Name, Experience1Description, Experience2Name,
-                                          Experience2Description, Experience3Name, Experience3Description,
-                                          Experience4Name, Experience4Description)
-    ChosenJobTitle = st.selectbox(
-        '',
-        SuggestedJobTitles.split(","),
-        key="ChosenJobTitle"
-    )
-
-    if st.button("Proceed →"):
-        NewExperienceOneDescriptionResponse = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system",
-                 "content": f"""
-                     You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
-                     Your response isn't in a paragraph form.
-                     You start every bullet point with a semi colon.
-                     Your response should resemble this format:
-                     ;point 1
-                     ;point 2
-                     ;point 3
-                     """},
-                {"role": "user",
-                 "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
-        NewExperienceOneDescription = NewExperienceOneDescriptionResponse["choices"][0]["message"]["content"]
-
-        NewExperienceTwoDescriptionResponse = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system",
-                 "content": f"""
-                     You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
-                     Your response isn't in a paragraph form.
-                     You start every bullet point with a semi colon.
-                     Your response should resemble this format:
-                     ;point 1
-                     ;point 2
-                     ;point 3
-                     """},
-                {"role": "user",
-                 "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
-        NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
-
-        NewExperienceThreeDescriptionResponse = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system",
-                 "content": f"""
-                     You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
-                     Your response isn't in a paragraph form.
-                     You start every bullet point with a semi colon.
-                     Your response should resemble this format:
-                     ;point 1
-                     ;point 2
-                     ;point 3
-                     """},
-                {"role": "user",
-                 "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
-        NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
-
-        NewExperienceFourDescriptionResponse = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system",
-                 "content": f"""
-                     You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
-                     Your response isn't in a paragraph form.
-                     You start every bullet point with a semi colon.
-                     Your response should resemble this format:
-                     ;point 1
-                     ;point 2 
-                     ;point 3 
-                     """},
-                {"role": "user",
-                 "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
-        NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
-
-
-
-
-
-
-
-
-
-
-
-        if Projec1Name:
-            NewProjectOneDescriptionResponse = openai.ChatCompletion.create(
+    if 'Skills' not in st.session_state:
+        st.write("Please Add skills before proceeding")
+    else:
+        @st.cache_data
+        def GettingJobTitles(Experience1Name, Experience1Description, Experience2Name, Experience2Description,
+                             Experience3Name, Experience3Description, Experience4Name, Experience4Description):
+            responseProjects = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system",
-                     "content": f"""
-                                     You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
-                                 """},
+                     "content": "You are an AI Assistant that ouputs 7 relevant job titles in addition what the job seeker has already done. Your response is a list of job titles separated by commas. You response doesn't include any extra fluff."},
                     {"role": "user",
-                     "content": f"The following is description of a project of a job seeker.\n{Project1Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
-            NewProjectOneDescription = NewProjectOneDescriptionResponse["choices"][0]["message"]["content"]
+                     "content": f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n"}])
 
-        if Projec2Name:
-            NewProjectTwoDescriptionResponse = openai.ChatCompletion.create(
+            SuggestedJobtitlesResponse = responseProjects["choices"][0]["message"]["content"]
+            return SuggestedJobtitlesResponse
+
+
+        SuggestedJobTitles = GettingJobTitles(Experience1Name, Experience1Description, Experience2Name,
+                                              Experience2Description, Experience3Name, Experience3Description,
+                                              Experience4Name, Experience4Description)
+        ChosenJobTitle = st.selectbox(
+            '',
+            SuggestedJobTitles.split(","),
+            key="ChosenJobTitle"
+        )
+
+
+        if st.button("Proceed →"):
+            NewExperienceOneDescriptionResponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system",
                      "content": f"""
-                                     You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                    {"role": "user",
+                     "content": f"The following is description of experience of a job seeker.\n{Experience1Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+            NewExperienceOneDescription = NewExperienceOneDescriptionResponse["choices"][0]["message"]["content"]
+
+            NewExperienceTwoDescriptionResponse = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system",
+                     "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                    {"role": "user",
+                     "content": f"The following is description of experience of a job seeker.\n{Experience2Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+            NewExperienceTwoDescription = NewExperienceTwoDescriptionResponse["choices"][0]["message"]["content"]
+
+            NewExperienceThreeDescriptionResponse = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system",
+                     "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2
+                         ;point 3
+                         """},
+                    {"role": "user",
+                     "content": f"The following is description of experience of a job seeker.\n{Experience3Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+            NewExperienceThreeDescription = NewExperienceThreeDescriptionResponse["choices"][0]["message"]["content"]
+
+            NewExperienceFourDescriptionResponse = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system",
+                     "content": f"""
+                         You're take in resume experience and rewrite them to sound like an experienced {ChosenJobTitle}.
+                         Your response isn't in a paragraph form.
+                         You start every bullet point with a semi colon.
+                         Your response should resemble this format:
+                         ;point 1
+                         ;point 2 
+                         ;point 3 
+                         """},
+                    {"role": "user",
+                     "content": f"The following is description of experience of a job seeker.\n{Experience4Description}. Make it sound they're an experience {ChosenJobTitle}"}])
+            NewExperienceFourDescription = NewExperienceFourDescriptionResponse["choices"][0]["message"]["content"]
+
+
+
+
+
+
+
+
+
+
+
+            if Projec1Name:
+                NewProjectOneDescriptionResponse = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": f"""
+                                         You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
                                      """},
-                    {"role": "user",
-                     "content": f"The following is description of a project of a job seeker.\n{Project2Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
-            NewProjectTwoDescription = NewProjectTwoDescriptionResponse["choices"][0]["message"]["content"]
+                        {"role": "user",
+                         "content": f"The following is description of a project of a job seeker.\n{Project1Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+                NewProjectOneDescription = NewProjectOneDescriptionResponse["choices"][0]["message"]["content"]
 
-        if Projec3Name:
-            NewProjectThreeDescriptionResponse = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system",
-                     "content": f"""
-                                     You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
-                                     """},
-                    {"role": "user",
-                     "content": f"The following is description of a project of a job seeker.\n{Project3Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
-            NewProjectThreeDescription = NewProjectThreeDescriptionResponse["choices"][0]["message"]["content"]
+            if Projec2Name:
+                NewProjectTwoDescriptionResponse = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": f"""
+                                         You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
+                                         """},
+                        {"role": "user",
+                         "content": f"The following is description of a project of a job seeker.\n{Project2Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+                NewProjectTwoDescription = NewProjectTwoDescriptionResponse["choices"][0]["message"]["content"]
 
-        if Projec4Name:
-            NewProjectFourDescriptionResponse = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system",
-                     "content": f"""
-                                     You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
-                                     """},
-                    {"role": "user",
-                     "content": f"The following is description of a project of a job seeker.\n{Project4Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
-            NewProjectFourDescription = NewProjectFourDescriptionResponse["choices"][0]["message"]["content"]
+            if Projec3Name:
+                NewProjectThreeDescriptionResponse = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": f"""
+                                         You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
+                                         """},
+                        {"role": "user",
+                         "content": f"The following is description of a project of a job seeker.\n{Project3Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+                NewProjectThreeDescription = NewProjectThreeDescriptionResponse["choices"][0]["message"]["content"]
 
-        html_string = ""
+            if Projec4Name:
+                NewProjectFourDescriptionResponse = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": f"""
+                                         You're take in resume project and rewrite it as a resume bullet point to sound like an experienced {ChosenJobTitle} in less than 30 words.
+                                         """},
+                        {"role": "user",
+                         "content": f"The following is description of a project of a job seeker.\n{Project4Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
+                NewProjectFourDescription = NewProjectFourDescriptionResponse["choices"][0]["message"]["content"]
 
-        html_string += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
+            html_string = ""
 
-        html_string += "<h3>" + Experience1Name + "</h3>"
-        for item in NewExperienceOneDescription.split(";")[1:]:
-            html_string += "<li>" + item + "</li>"
+            html_string += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
 
-        html_string += "<h3>" + Experience2Name + "</h3>"
-        for item in NewExperienceTwoDescription.split(";")[1:]:
-            html_string += "<li>" + item + "</li>"
+            html_string += "<h3>" + Experience1Name + "</h3>"
+            for item in NewExperienceOneDescription.split(";")[1:]:
+                html_string += "<li>" + item + "</li>"
 
-        html_string += "<h3>" + Experience3Name + "</h3>"
-        for item in NewExperienceThreeDescription.split(";")[1:]:
-            html_string += "<li>" + item + "</li>"
+            html_string += "<h3>" + Experience2Name + "</h3>"
+            for item in NewExperienceTwoDescription.split(";")[1:]:
+                html_string += "<li>" + item + "</li>"
 
-        html_string += "<h3> Skills:" + FinalSkills + "</h3>"
+            html_string += "<h3>" + Experience3Name + "</h3>"
+            for item in NewExperienceThreeDescription.split(";")[1:]:
+                html_string += "<li>" + item + "</li>"
 
-        if Projec1Name:
-            html_string2 = ""
+            html_string += "<h3> Skills:" + FinalSkills + "</h3>"
 
-            html_string2 += "<h3>" + Projec1Name + "</h3>"
-            html_string2 += "<li>" + NewProjectOneDescription + "</li>"
+            if Projec1Name:
+                html_string2 = ""
 
-            html_string2 += "<h3>" + Projec2Name + "</h3>"
-            html_string2 += "<li>" + NewProjectTwoDescription + "</li>"
+                html_string2 += "<h3>" + Projec1Name + "</h3>"
+                html_string2 += "<li>" + NewProjectOneDescription + "</li>"
 
-            html_string2 += "<h3>" + Projec3Name + "</h3>"
-            html_string2 += "<li>" + NewProjectThreeDescription + "</li>"
+                html_string2 += "<h3>" + Projec2Name + "</h3>"
+                html_string2 += "<li>" + NewProjectTwoDescription + "</li>"
 
-        document = Document()
-        heading = document.add_heading(f'{CandidateName}', 0)
-        sections = document.sections
-        for section in sections:
-            section.top_margin = Cm(0.5)
-            section.bottom_margin = Cm(0.5)
-            section.left_margin = Cm(1.5)
-            section.right_margin = Cm(1.5)
+                html_string2 += "<h3>" + Projec3Name + "</h3>"
+                html_string2 += "<li>" + NewProjectThreeDescription + "</li>"
 
-        new_parser = HtmlToDocx()
-        headingExperiences = document.add_heading(f'Experiences', 1)
-        new_parser.add_html_to_document(html_string, document)
-        if Projec1Name:
-            headingProjects = document.add_heading(f'Projects', 1)
-            new_parser.add_html_to_document(html_string2, document)
+            document = Document()
+            heading = document.add_heading(f'{CandidateName}', 0)
+            sections = document.sections
+            for section in sections:
+                section.top_margin = Cm(0.5)
+                section.bottom_margin = Cm(0.5)
+                section.left_margin = Cm(1.5)
+                section.right_margin = Cm(1.5)
 
-        # do more stuff to document
-        document.save('your_file_name')
+            new_parser = HtmlToDocx()
+            headingExperiences = document.add_heading(f'Experiences', 1)
+            new_parser.add_html_to_document(html_string, document)
+            if Projec1Name:
+                headingProjects = document.add_heading(f'Projects', 1)
+                new_parser.add_html_to_document(html_string2, document)
 
-        # document.save('your_file_name')
+            # do more stuff to document
+            document.save('your_file_name')
 
-        doc_download = document
+            # document.save('your_file_name')
 
-        bio = io.BytesIO()
-        doc_download.save(bio)
-        if doc_download:
-            st.download_button(
-                label="Click here to download",
-                data=bio.getvalue(),
-                file_name="19th_Street_Resume_Edits.docx",
-                mime="docx"
-            )
+            doc_download = document
+
+            bio = io.BytesIO()
+            doc_download.save(bio)
+            if doc_download:
+                st.download_button(
+                    label="Click here to download",
+                    data=bio.getvalue(),
+                    file_name="19th_Street_Resume_Edits.docx",
+                    mime="docx"
+                )
