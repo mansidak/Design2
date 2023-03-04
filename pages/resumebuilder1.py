@@ -289,9 +289,11 @@ with tab5:
             SuggestedJobTitles = GettingJobTitles(Experience1Name, Experience1Description, Experience2Name,
                                                   Experience2Description, Experience3Name, Experience3Description,
                                                   Experience4Name, Experience4Description)
+
+
             ChosenJobTitle = st.selectbox(
                 '',
-                SuggestedJobTitles.split(","),
+                f"{SuggestedJobTitles.split(','), st.text_input(key ='custom_title')}",
                 key="ChosenJobTitle"
             )
 
