@@ -79,7 +79,7 @@ if __name__ == "__main__":
         firebase = pyrebase.initialize_app(firebaseconfig)
         auth = firebase.auth()
         user = auth.create_user_with_email_and_password(email=email, password=password)
-        db = firebase.firestore()
+        db = firebase.database()
         data = {
             "name": "Mortimer 'Morty' Smith"
         }
