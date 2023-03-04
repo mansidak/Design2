@@ -415,6 +415,18 @@ with colresult2:
             "measurementId": "G-N3TMC7M1WT",
             "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
         }
+
+        data = {}
+        for list in unique_results:
+            data[list[0]] = {
+                'title': list[1],
+                'companyName': list[2],
+                'shortSummary': list[3],
+                'fullDescription': list[4],
+                'location': list[5],
+                'skills': list[6]
+            }
+
         if st.button("Save to my account", key="Savetoaccount"):
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
@@ -430,23 +442,7 @@ with colresult2:
                 #     "skills" : str(list[6]) ,
                 # }
 
-                data = {}
-                for list in unique_results:
-                    link = list[0]
-                    title = list[1]
-                    companyName = list[2]
-                    shortSummary = list[3]
-                    fullDescription = list[4]
-                    location = list[5]
-                    skills = list[6]
-                    data[link] = {
-                        'title': title,
-                        'companyName': companyName,
-                        'shortSummary': shortSummary,
-                        'fullDescription': fullDescription,
-                        'location': location,
-                        'skills': skills
-                    }
+
             results = db.child("users").child(str(user["localId"])).child("Jobs").set(data)
             st.write(user["localId"])
 
