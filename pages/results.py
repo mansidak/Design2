@@ -431,7 +431,7 @@ with colresult2:
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
             user = st.session_state['user']
-            for list in unique_results:
+            # for list in unique_results:
                 # data = {
                 #     "link" : str(list[0]),
                 #     "title" : str(list[1]),
