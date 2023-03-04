@@ -21,28 +21,7 @@ import psutil
 from streamlit.components.v1 import html
 import pyrebase
 
-firebaseconfig = {
-  "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
-  "authDomain": "nineteenth-street.firebaseapp.com",
-  "projectId": "nineteenth-street",
-  "storageBucket": "nineteenth-street.appspot.com",
-  "messagingSenderId": "964724806859",
-  "appId": "1:964724806859:web:010841fc337f30b50cb74e",
-  "measurementId": "G-N3TMC7M1WT",
-  "databaseURL":""
-}
 
-email = st.text_input('Email', key = 'email')
-password = st.text_input('Password', key = 'password')
-if st.button("Login", key="login"):
-    firebase = pyrebase.initialize_app(firebaseconfig)
-    auth = firebase.auth()
-    user = auth.create_user_with_email_and_password(email=email,password=password)
-    db = firebase.database()
-    data = {
-        "name": "Mortimer 'Morty' Smith"
-    }
-    results = db.child("users").push(data, user['idToken'])
 css = """
 .uploadedFiles {
     display: none;
@@ -82,6 +61,29 @@ if __name__ == "__main__":
                        initial_sidebar_state='collapsed')
     # print(threading.enumerate())
     # st.write(threading.enumerate())
+
+    firebaseconfig = {
+        "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
+        "authDomain": "nineteenth-street.firebaseapp.com",
+        "projectId": "nineteenth-street",
+        "storageBucket": "nineteenth-street.appspot.com",
+        "messagingSenderId": "964724806859",
+        "appId": "1:964724806859:web:010841fc337f30b50cb74e",
+        "measurementId": "G-N3TMC7M1WT",
+        "databaseURL": ""
+    }
+
+    email = st.text_input('Email', key='email')
+    password = st.text_input('Password', key='password')
+    if st.button("Login", key="login"):
+        firebase = pyrebase.initialize_app(firebaseconfig)
+        auth = firebase.auth()
+        user = auth.create_user_with_email_and_password(email=email, password=password)
+        db = firebase.database()
+        data = {
+            "name": "Mortimer 'Morty' Smith"
+        }
+        results = db.child("users").push(data, user['idToken'])
 
 
     hide_streamlit_style = """
