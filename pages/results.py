@@ -419,9 +419,16 @@ with colresult2:
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
             user = st.session_state['user']
-            data = {
-                unique_results
-            }
+            for list in unique_results:
+                data = {
+                    "link" : str(list[0]),
+                    "title" : str(list[1]),
+                    "companyName" : str(list[2]),
+                    "shortSummary" : str(list[3]),
+                    "fullDescription" : str(list[4]),
+                    "location" : str(list[5]),
+                    "skills" : str(list[6]) ,
+                }
             results = db.child("users").child(str(user["localId"])).child("Jobs").set(data)
             st.write(user["localId"])
 
