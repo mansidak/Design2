@@ -206,13 +206,13 @@ with colresult2:
                         user = st.session_state['user']
                         data = {
                             'str(f"{link}")' : {
-                                "Link": 'str(link)',
-                                "Title": 'str(title)',
-                                "Company Name": 'str(companyName)',
-                                "Short Summary": 'str(shortSummary)',
-                                "Full Description": 'str(fullDescription)',
-                                "Location": 'str(location)',
-                                "Skills":' str(skills)'
+                                "Link": str(link),
+                                "Title": str(title),
+                                "Company Name": str(companyName),
+                                "Short Summary": str(shortSummary),
+                                "Full Description": str(fullDescription),
+                                "Location": str(location),
+                                "Skills": str(skills)
 
                             }
                         }
