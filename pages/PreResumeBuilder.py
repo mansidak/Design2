@@ -129,7 +129,7 @@ with col2:
 
 
 
-            switch_page("airesumebuilder1")
+            switch_page("airesumebuilder")
 
     with col33:
         st.write("")
