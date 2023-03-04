@@ -62,8 +62,8 @@ st.markdown("""
     </style>
     """,unsafe_allow_html=True)
 
-st.markdown(f"<center> <h1 style='font-family: Sans-Serif; font-weight:bold; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Manual Resume Builder.</h1>", unsafe_allow_html=True)
-st.markdown(f"<center> <h4 style='font-family: Sans-Serif; font-weight:lighter; color: white'>Enter the details. Let AI do the rest .</h4>", unsafe_allow_html=True)
+st.markdown(f"<center> <h1 style='font-family: Sans-Serif; font-weight:lighter; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Manual Resume Builder.</h1>", unsafe_allow_html=True)
+st.markdown(f"<center> <h4 style='font-family: Sans-Serif; font-weight:lighter; color: white'>Enter the details. Let AI do the rest.</h4>", unsafe_allow_html=True)
 st.subheader("")
 st.subheader("")
 
