@@ -66,7 +66,7 @@ with tab2:
 
     with st.expander("Experience 1", expanded=False):
         Experience1Name = st.text_input(
-            st.session_state['OldExperiences'].split('1a.')[1].split('2a.')[0],
+            f"{st.session_state['OldExperiences'].split('1a.')[1].split('2a.')[0]}",
             placeholder='Position at Company',
             key='Experience1'
         )
