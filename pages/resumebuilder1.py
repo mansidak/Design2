@@ -237,15 +237,21 @@ with tab4:
                 presence_penalty=0
             )
 
-            PreSkills= response["choices"][0]["text"].split(",")
+            PreSkills = response["choices"][0]["text"].split(",")
             st.session_state['Skills'] = ','.join(PreSkills)
 
             FinalSkills = st.text_input(
+                'Caption goes here',
+                placeholder='Placeholder goes here',
+                help='Help message goes here',
+                value=st.session_state['Skills']
+            )
+    else:
+        FinalSkills = st.text_input(
             'Caption goes here',
             placeholder='Placeholder goes here',
             help='Help message goes here',
-            value= st.session_state['Skills']
-            )
+            value=st.session_state['Skills'])
 with tab5:
     st.subheader("Choose the role/industry you wish to tailor your resume to")
 
