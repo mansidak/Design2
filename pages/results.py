@@ -205,7 +205,7 @@ with colresult2:
                         db = firebase.database()
                         user = st.session_state['user']
                         data = {
-                            f"str{link}" : {
+                            str(f"{link}") : {
                                 "Link": str(f"{link}"),
                                 "Title": str(f"{title}"),
                                 "Company Name": str(f"{companyName}"),
