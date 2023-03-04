@@ -205,14 +205,14 @@ with colresult2:
                         db = firebase.database()
                         user = st.session_state['user']
                         data = {
-                            str(f"{link}") : {
-                                "Link": str(f"{link}"),
-                                "Title": str(f"{title}"),
-                                "Company Name": str(f"{companyName}"),
-                                "Short Summary": str(f"{shortSummary}"),
-                                "Full Description": str(f"{fullDescription}"),
-                                "Location": str(f"{location}"),
-                                "Skills": str(f"{skills}")
+                            'str(f"{link}")' : {
+                                "Link": 'str(link)',
+                                "Title": 'str(title)',
+                                "Company Name": 'str(companyName)',
+                                "Short Summary": 'str(shortSummary)',
+                                "Full Description": 'str(fullDescription)',
+                                "Location": 'str(location)',
+                                "Skills":' str(skills)'
 
                             }
                         }
