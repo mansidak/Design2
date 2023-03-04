@@ -431,15 +431,19 @@ with tab5:
                 html_string += "<h3 style='font-size:15px;align:center'>" + CandidatePhone + ' | ' + CandidateEmail + "</h3>"
 
                 html_string += "<h3>" + Experience1Name + "</h3>"
-                for item in NewExperienceOneDescription.split(";")[1:]:
+                for item in filter(None, NewExperienceOneDescription.split(";")[1:]):
                     html_string += "<li>" + item + "</li>"
 
                 html_string += "<h3>" + Experience2Name + "</h3>"
-                for item in NewExperienceTwoDescription.split(";")[1:]:
+                for item in filter(None, NewExperienceTwoDescription.split(";")[1:]):
                     html_string += "<li>" + item + "</li>"
 
                 html_string += "<h3>" + Experience3Name + "</h3>"
-                for item in NewExperienceThreeDescription.split(";")[1:]:
+                for item in filter(None, NewExperienceThreeDescription.split(";")[1:]):
+                    html_string += "<li>" + item + "</li>"
+
+                html_string += "<h3>" + Experience4Name + "</h3>"
+                for item in filter(None, NewExperienceFourDescription.split(";")[1:]):
                     html_string += "<li>" + item + "</li>"
 
                 html_string += "<h3> Skills:" + FinalSkills + "</h3>"
