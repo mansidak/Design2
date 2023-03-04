@@ -75,10 +75,12 @@ if __name__ == "__main__":
 
     email = st.text_input('Email', key='email')
     password = st.text_input('Password', key='password')
+
     if st.button("Login", key="login"):
         firebase = pyrebase.initialize_app(firebaseconfig)
         auth = firebase.auth()
         user = auth.sign_in_with_email_and_password(email=email, password=password)
+        st.session_state['user'] = user
         db = firebase.database()
         data = {
             "name": "Mortimer 'Morty' Smith"
@@ -86,6 +88,8 @@ if __name__ == "__main__":
         results = db.child("users").child(str(user["localId"])).set(data)
         st.write(user["localId"])
 
+    if st.button("Reveal ID", key = "dumb"):
+        st.write(user["localId"])
 
     hide_streamlit_style = """
                   <style>

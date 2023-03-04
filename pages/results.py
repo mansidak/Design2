@@ -404,5 +404,27 @@ with colresult2:
     with colconclusion2:
         if st.button("Not Satisfied? Run Again"):
             switch_page("betaa")
+
+        firebaseconfig = {
+            "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
+            "authDomain": "nineteenth-street.firebaseapp.com",
+            "projectId": "nineteenth-street",
+            "storageBucket": "nineteenth-street.appspot.com",
+            "messagingSenderId": "964724806859",
+            "appId": "1:964724806859:web:010841fc337f30b50cb74e",
+            "measurementId": "G-N3TMC7M1WT",
+            "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
+        }
+        firebase = pyrebase.initialize_app(firebaseconfig)
+        db = firebase.database()
+        user = st.session_state['user']
+        data = {
+            "Jobs": "This is Job"
+        }
+        results = db.child("users").child(str(user["localId"])).set(data)
+        st.write(user["localId"])
+
+
+
 with colresult3:
     st.write("")
