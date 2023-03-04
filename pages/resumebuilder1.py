@@ -371,7 +371,7 @@ with tab5:
                      "content": f"The following is description of a project of a job seeker.\n{Project1Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
             NewProjectOneDescription = NewProjectOneDescriptionResponse["choices"][0]["message"]["content"]
 
-        if Projec2Name is not None:
+        elif Projec2Name is not None:
             NewProjectTwoDescriptionResponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -383,7 +383,7 @@ with tab5:
                      "content": f"The following is description of a project of a job seeker.\n{Project2Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
             NewProjectTwoDescription = NewProjectTwoDescriptionResponse["choices"][0]["message"]["content"]
 
-        if Projec3Name is not None:
+        elif Projec3Name is not None:
             NewProjectThreeDescriptionResponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -395,7 +395,7 @@ with tab5:
                      "content": f"The following is description of a project of a job seeker.\n{Project3Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
             NewProjectThreeDescription = NewProjectThreeDescriptionResponse["choices"][0]["message"]["content"]
 
-        if Projec4Name is not None:
+        elif Projec4Name is not None:
             NewProjectFourDescriptionResponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
