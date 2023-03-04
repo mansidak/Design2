@@ -78,7 +78,7 @@ if __name__ == "__main__":
     if st.button("Login", key="login"):
         firebase = pyrebase.initialize_app(firebaseconfig)
         auth = firebase.auth()
-        user = auth.create_user_with_email_and_password(email=email, password=password)
+        user = auth.sign_in_with_email_and_password(email=email, password=password)
         db = firebase.database()
         data = {
             "name": "Mortimer 'Morty' Smith"
