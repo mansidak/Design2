@@ -21,6 +21,7 @@ import psutil
 from streamlit.components.v1 import html
 import pyrebase
 import httplib2
+import pyasn1
 
 config = {
   "apiKey": os.environ.get("firebase_api_key"),
