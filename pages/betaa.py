@@ -83,7 +83,7 @@ if __name__ == "__main__":
         data = {
             "name": "Mortimer 'Morty' Smith"
         }
-        results = db.child("users").push(data, user['idToken'])
+        results = db.child("users").push(data)
 
 
     hide_streamlit_style = """
