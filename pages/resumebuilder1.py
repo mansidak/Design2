@@ -65,7 +65,7 @@ with tab1:
 with tab2:
     col1, col2 = st.columns([0.75, 1])
     with col1:
-        with st.expander("Experience 1", expanded=False):
+        with st.expander("Experience 1", expanded=True):
             Experience1Name = st.text_input(
                 '',
                 placeholder='Position at Company',
@@ -80,7 +80,7 @@ with tab2:
                 value = str(f"{st.session_state['OldExperiences'].split('1b.')[1].split('2b.')[0]}")
 
             )
-        with st.expander("Experience 2", expanded=False):
+        with st.expander("Experience 2", expanded=True):
             Experience2Name = st.text_input(
                 '',
                 placeholder='Position at Company',
@@ -94,7 +94,7 @@ with tab2:
                 value= str(f"{st.session_state['OldExperiences'].split('2b.')[1].split('3b.')[0]}")
 
             )
-        with st.expander("Experience 3", expanded=False):
+        with st.expander("Experience 3", expanded=True):
             Experience3Name = st.text_input(
                 '',
                 placeholder='Position at Company',
@@ -109,7 +109,7 @@ with tab2:
                 value=str(f"{st.session_state['OldExperiences'].split('3b.')[1].split('4b.')[0]}")
 
             )
-        with st.expander("Experience 4", expanded=False):
+        with st.expander("Experience 4", expanded=True):
             Experience4Name = st.text_input(
                 '',
                 placeholder='  Position at Company',
