@@ -11,7 +11,16 @@ from jinja2 import Environment, FileSystemLoader
 import pandas as pd
 import pyrebase
 import os
-
+firebaseconfig = {
+            "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
+            "authDomain": "nineteenth-street.firebaseapp.com",
+            "projectId": "nineteenth-street",
+            "storageBucket": "nineteenth-street.appspot.com",
+            "messagingSenderId": "964724806859",
+            "appId": "1:964724806859:web:010841fc337f30b50cb74e",
+            "measurementId": "G-N3TMC7M1WT",
+            "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
+        }
 
 hide_menu_style = """
          <style>
@@ -191,9 +200,24 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    st.write("")
-                    # if st.button("Apply", key=f"{link}+{title}+Apply"):
-                    #     js = f"window.open('{link}')"  # New tab or window
+                    if st.button("Save to my account", key="Savetoaccount"):
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        user = st.session_state['user']
+                        data = {
+                            f"{link}" : {
+                                "Link":f"{link}",
+                                "Title": f"{title}",
+                                "Company Name": f"{companyName}",
+                                "Short Summary": f"{shortSummary}",
+                                "Full Description": f"{fullDescription}",
+                                "Location": f"{location}",
+                                "Skills": f"{skills}"
+
+                            }
+                        }
+                        results = db.child("users").child(str(user["localId"])).child("Jobs").set(data)
+                        st.write(user["localId"])
 
                 with col3:
                     st.write("")
@@ -366,6 +390,7 @@ with colresult2:
 
                 with col2:
                     st.write("")
+
                     # if st.button("Apply", key=f"{link}+{title}+Apply"):
                     #     js = f"window.open('{link}')"  # New tab or window
 
@@ -406,17 +431,6 @@ with colresult2:
         if st.button("Not Satisfied? Run Again"):
             switch_page("betaa")
 
-        firebaseconfig = {
-            "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
-            "authDomain": "nineteenth-street.firebaseapp.com",
-            "projectId": "nineteenth-street",
-            "storageBucket": "nineteenth-street.appspot.com",
-            "messagingSenderId": "964724806859",
-            "appId": "1:964724806859:web:010841fc337f30b50cb74e",
-            "measurementId": "G-N3TMC7M1WT",
-            "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
-        }
-
         data = {}
         for list in unique_results:
             data[list[0]] = {
@@ -432,18 +446,6 @@ with colresult2:
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
             user = st.session_state['user']
-            # for list in unique_results:
-                # data = {
-                #     "link" : str(list[0]),
-                #     "title" : str(list[1]),
-                #     "companyName" : str(list[2]),
-                #     "shortSummary" : str(list[3]),
-                #     "fullDescription" : str(list[4]),
-                #     "location" : str(list[5]),
-                #     "skills" : str(list[6]) ,
-                # }
-
-
             results = db.child("users").child(str(user["localId"])).child("Jobs").set(data)
             st.write(user["localId"])
 
