@@ -22,7 +22,7 @@ from streamlit.components.v1 import html
 import pyrebase
 
 config = {
-  "apiKey": os.environ.get("firebase_api_key"),
+  "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
   "authDomain": "nineteenth-street.firebaseapp.com",
   "projectId": "nineteenth-street",
   "storageBucket": "nineteenth-street.appspot.com",
