@@ -83,7 +83,7 @@ if __name__ == "__main__":
         data = {
             "name": "Mortimer 'Morty' Smith"
         }
-        results = db.child("users").push(data)
+        results = db.child("users").child(auth.current_user).set(data)
 
 
     hide_streamlit_style = """
