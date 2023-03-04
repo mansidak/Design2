@@ -471,8 +471,8 @@ with tab5:
                     section.right_margin = Cm(1.5)
 
                 new_parser = HtmlToDocx()
-                headingExperiences = document.add_heading(f'Experiences', 1)
                 new_parser.add_html_to_document(html_string_intro, document)
+                headingExperiences = document.add_heading(f'Experiences', 1)
                 new_parser.add_html_to_document(html_string, document)
                 if Projec1Name:
                     headingProjects = document.add_heading(f'Projects', 1)
