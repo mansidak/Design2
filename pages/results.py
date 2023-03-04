@@ -9,6 +9,9 @@ from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
+import pyrebase
+import os
+
 
 hide_menu_style = """
          <style>
@@ -56,6 +59,9 @@ hide_streamlit_style = """
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+
+
 
 unique_results = set(st.session_state['FinalResults'])
 with st.sidebar:

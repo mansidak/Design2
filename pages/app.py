@@ -71,7 +71,7 @@ if __name__ == "__main__":
                     height: 40px;
                     max-width: 175px;
                     position: fixed;
-                    top: 50%;
+                    top: 80%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                     width: 50%;
@@ -210,13 +210,18 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
+                 div[role="alert"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
 
             </style>
             """
     st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 
-    # @st.cache(show_spinner=False)
+    @st.cache(show_spinner=False)
     def run_selenium1(jobTitle, skill1, undesired, pageNumber, resumeContent, locationpreference):
         Final_Array = []
         options = Options()
@@ -235,7 +240,7 @@ text-align: center;
             try:
                 driver.get(
                     f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
-                # st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                 jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                 time.sleep(1)
                 links = []
@@ -253,97 +258,96 @@ text-align: center;
             except:
                 driver.close()
                 driver.quit()
-        return links
 
+        def get_links(i, skill1, resumeContent):
+            Final_Links = []
+            Final_Titles = []
+            Final_Company = []
+            Final_Description = []
+            Final_Location = []
+            shortened_summary = []
+            Final_Skills = []
+            try:
+                driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+                driver.get(i)
+                # time.sleep(2)
+                elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
+                for a in elements:
+                    if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
+                            'href') not in Final_Links:
+                        Final_Links.append(a.get_attribute('href'))
+                title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
+                Final_Titles.append(title)
+                location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
+                Final_Location.append(location)
+                Final_Skills.append(skill1)
+                company = driver.find_element(By.XPATH,
+                                              "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
+                Final_Company.append(company)
 
-    # @st.cache(show_spinner=False)
-    def get_links(i, skill1, resumeContent):
-        Final_Array = []
-        Final_Links = []
-        Final_Titles = []
-        Final_Company = []
-        Final_Description = []
-        Final_Location = []
-        shortened_summary = []
-        Final_Skills = []
-        try:
-            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-            driver.get(i)
-            # time.sleep(2)
-            elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
-            for a in elements:
-                if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
-                        'href') not in Final_Links:
-                    Final_Links.append(a.get_attribute('href'))
-            title = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
-            Final_Titles.append(title)
-            location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
-            Final_Location.append(location)
-            Final_Skills.append(skill1)
-            company = driver.find_element(By.XPATH,
-                                          "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
-            Final_Company.append(company)
+                description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
+                Final_Description.append(description)
+                words = description.split()
+                description_length = len(words)
+                if description_length > 950:
+                    sliced_description = ''.join(words[:950])
+                    response3 = openai.ChatCompletion.create(
+                        model="gpt-3.5-turbo",
+                        messages=[
+                            {"role": "system",
+                             "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
+                            {"role": "user",
+                             "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
-            description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
-            Final_Description.append(description)
-            words = description.split()
-            description_length = len(words)
-            if description_length > 950:
-                sliced_description = ''.join(words[:950])
-                response3 = openai.Completion.create(
-                    model="text-curie-001",
-                    prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{sliced_description}\n\nNow summarize it:\n\n\n",
-                    temperature=0.31,
-                    max_tokens=90,
-                    top_p=1,
-                    frequency_penalty=0,
-                    presence_penalty=0
-                )
-                shortened_summary.append(response3["choices"][0]["text"])
-            else:
-                response3 = openai.Completion.create(
-                    model="text-curie-001",
-                    prompt=f"The following a conversation between and a job summarization bot. \n\nHuman: Can you summarze the following job posting? Don't return empty completion. \nStart of job posting:\n\nPosition Summary: Teach esthetics curriculum at West Park Center located at 87th and Farley, Overland Park, Kansas. This program prepares students to take the Kansas Board of Cosmetology esthetics licensure examination while preparing students for a career in the esthetics industry.\n\nRequired Qualifications:\n\nAssociates Degree; if no degree, must have current Cosmetology or Esthetics Practitioner license and evidence of at least five years progressive continuing education in the Cosmetology field or any combination of education, training, and tested experience\nCurrent Cosmetology or Esthetics Instructors License\nMinimum of two years teaching experience (industry or academic) in one of the core areas: Esthetics, Cosmetology, or Nail Technology\nExcellent oral and written communication skills.\nPreferred Qualifications:\n\nSalon or service industry management experience\nKnowledge of Kansas Board of Cosmetology Regulations\nTo be considered for this position we will require an application, resume, and/or cover letter.\n\nBot: This job requires an individual to teach esthetics curriculum at West Park Center in Overland Park, Kansas. The individual must have an Associate's Degree or a current Cosmetology or Esthetics Practitioner License and at least five years of progressive continuing education in the Cosmetology field. They must also have a current Cosmetology or Esthetics Instructors License and at least two years of teaching experience in Esthetics, Cosmetology, or Nail Technology. Excellent oral and written communication skills are also required. Salon or service industry management experience and knowledge of Kansas Board of Cosmetology Regulations are preferred. An application, resume, and/or cover letter are required for consideration, as well as unofficial transcripts.\n\n\n\nHuman. Can you summarize the following job? Don't return empty completion. \n\nStart of job posting:\n\n{description}\n\nNow summarize it:\n\n\n",
-                    temperature=0.31,
-                    max_tokens=90,
-                    top_p=1,
-                    frequency_penalty=0,
-                    presence_penalty=0
-                )
-                shortened_summary.append(response3["choices"][0]["text"])
+                    shortened_summary.append(response3["choices"][0]["message"]["content"])
+                    print(response3["usage"]["total_tokens"])
+                else:
+                    response3 = openai.ChatCompletion.create(
+                        model="gpt-3.5-turbo",
+                        messages=[
+                            {"role": "system",
+                             "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
+                            {"role": "user",
+                             "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+                    shortened_summary.append(response3["choices"][0]["message"]["content"])
+                    print(response3["usage"]["total_tokens"])
 
-            for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
-                                                                                            Final_Titles,
-                                                                                            Final_Company,
-                                                                                            shortened_summary,
-                                                                                            Final_Description,
-                                                                                            Final_Location,
-                                                                                            Final_Skills):
-                Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+                for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
+                                                                                                Final_Titles,
+                                                                                                Final_Company,
+                                                                                                shortened_summary,
+                                                                                                Final_Description,
+                                                                                                Final_Location,
+                                                                                                Final_Skills):
+                    Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
 
-            driver.close()
-            driver.quit()
-        except:
-            driver.close()
-            driver.quit()
-        return Final_Array
+                driver.close()
+                driver.quit()
+            except:
+                driver.close()
+                driver.quit()
+            return Final_Array
 
+        with ThreadPoolExecutor() as executor:
+            futures = [executor.submit(get_links, link, skill1, resumeContent) for link in links]
+            result1 = [future.result() for future in futures]
+            result11 = sum(result1, [])
+        executor.shutdown(wait=True)
+
+        return result11
 
     @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitles(resumeContent):
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nTheir full name is: \n",
-            temperature=0.7,
-            max_tokens=146,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-        )
-        Name = response["choices"][0]["text"]
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are an AI Assistant that grabs the name of a person from resume data and outputs their first name"},
+                {"role": "user", "content": f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nTheir full name is: \n"}])
+
+        Name = response["choices"][0]["message"]["content"]
         return Name
 
-    @st.cache(show_spinner=False)
+    # @st.cache(show_spinner=False)
     def openAIGetRelevantJobTitlesDuplicate(resumeContent):
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -401,34 +405,13 @@ text-align: center;
     # @st.cache(show_spinner=False)
     def extract_text_from_pdf(pdf_file):
 
-        # creating a pdf reader object
-
-
-        # creating a pdf reader object
         pdfReader = PyPDF2.PdfReader(pdf_file)
-
-        # printing number of pages in pdf file
         print(len(pdfReader.pages))
-
-        # creating a page object
         pageObj = pdfReader.pages[0]
-
-        # extracting text from page
         resumeContent = pageObj.extract_text()
-
-        # closing the pdf file object
         pdf_file.close()
         return resumeContent
 
-        #
-        # pdfReader = PyPDF2.PdfReader(pdf_file)
-        # txtFile = open('sample.txt', 'w')
-        # num_pages = len(pdfReader.pages)
-        # for page_num in range(num_pages):
-        #     pageObj = pdfReader.pages[page_num]
-        #     txtFile.write(pageObj.extract_text())
-        #     resumeContent = pageObj.extract_text()
-        # return resumeContent
 
 
     if ResumePDF is not None:
@@ -787,9 +770,9 @@ text-align: center;
             # SearchHolder.empty()
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', ' ') for item in newSkills])
-            progressText.markdown(
-                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",unsafe_allow_html=True)
-            my_bar.progress(25, text=f"")
+
+
+
 
             # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
             # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
@@ -799,49 +782,56 @@ text-align: center;
             # st.write(links2)
             # st.write(links3)
 
+
+            def progress_shit():
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(25, text=f"")
+                time.sleep(10)
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Finding more jobs</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(50, text=f"")
+                time.sleep(15)
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(75, text=f"")
+                time.sleep(15)
+                progressText.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
+                    unsafe_allow_html=True)
+                my_bar.progress(75, text=f"")
+
             with ThreadPoolExecutor(max_workers=3) as executor:
                 future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                 future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                future3 = executor.submit(run_selenium1, f"-{ExperienceLevel}", f"{newSkills[0]}%2C+{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                future4 = executor.submit(progress_shit())
 
             executor.shutdown(wait=True)
 
-            # Get the results
             links1 = future1.result()
             links2 = future2.result()
             links3 = future3.result()
             executor.shutdown(wait=True)
-
-            with ThreadPoolExecutor() as executor:
-                futures = [executor.submit(get_links, link, newSkills[0], resumeContent) for link in links1]
-                result1 = [future.result() for future in futures]
-                result11 = sum(result1, [])
-            progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>You have some background in {softSkills}. We're looking for more jobs that match that...</h6>", unsafe_allow_html=True)
-            my_bar.progress(50, text=f"")
-            executor.shutdown(wait=True)
-
-            with ThreadPoolExecutor() as executor:
-                futures = [executor.submit(get_links, link, newSkills[1], resumeContent) for link in links2]
-                result2 = [future.result() for future in futures]
-                result22 = sum(result2, [])
-            progressText.markdown(
-                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight! Doing one last search....</h6>",
-                unsafe_allow_html=True)
-            my_bar.progress(75, text=f"")
-            executor.shutdown(wait=True)
-
-            with ThreadPoolExecutor() as executor:
-                futures = [executor.submit(get_links, link, newSkills[2], resumeContent) for link in links3]
-                result3 = [future.result() for future in futures]
-                result33 = sum(result3, [])
-                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Done</h6>",unsafe_allow_html=True)
-                my_bar.progress(100, text=f"")
-            executor.shutdown(wait=True)
+            # st.write(links1)
+            # st.write(links2)
+            # st.write(links3)
 
 
             print(threading.enumerate())
             st.write(threading.enumerate())
 
-            st.session_state["FinalResults"] = result11 + result22 + result33
-            executor.shutdown()
+            # combinations = set()
+            # for list in result11:
+            #     if tuple((list[1], list[2])) not in combinations:
+            #         combinations.add(tuple((list[1], list[2])))
+            #         st.write(list)
+
+            st.session_state["FinalResults"] = links1 + links2 + links3
+
+
+            # executor.shutdown()
             switch_page("results")

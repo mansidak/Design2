@@ -19,7 +19,28 @@ from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 import psutil
 from streamlit.components.v1 import html
+import pyrebase
 
+config = {
+  "apiKey": os.environ.get("firebase_api_key"),
+  "authDomain": "nineteenth-street.firebaseapp.com",
+  "projectId": "nineteenth-street",
+  "storageBucket": "nineteenth-street.appspot.com",
+  "messagingSenderId": "964724806859",
+  "appId": "1:964724806859:web:010841fc337f30b50cb74e",
+  "measurementId": "G-N3TMC7M1WT"
+}
+
+email = st.text_input('Email', key = 'email')
+password = st.text_input('Password', key = 'password')
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+user = auth.create_user_with_email_and_password(email=email,password=password)
+db = firebase.database()
+data = {
+    "name": "Mortimer 'Morty' Smith"
+}
+results = db.child("users").push(data, user['idToken'])
 css = """
 .uploadedFiles {
     display: none;
