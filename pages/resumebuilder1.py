@@ -31,7 +31,13 @@ hide_streamlit_style = """
                 width: 50%;
               }
               
-
+            .st-bi.st-b3.st-bj.st-b8.st-bk.st-bl.st-bm.st-bn.st-bo.st-bp.st-bq.st-br.st-bs.st-b1.st-bt.st-au.st-ax.st-av.st-aw.st-ae.st-af.st-ag.st-ah.st-ai.st-aj.st-bu.st-bv.st-bw.st-bx.st-by.st-bz.st-c0{
+            border-radius:20px;
+            -moz-border-radius:20px;
+            -webkit-border-radius:20px;
+            min-height:500px;
+            outline: none;
+            }
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
