@@ -30,13 +30,7 @@ hide_streamlit_style = """
                 transform: translate(-50%, -50%);
                 width: 50%;
               }
-            .st-br{
-            border-radius:20px;
-            -moz-border-radius:20px;
-            -webkit-border-radius:20px;
-            min-height:500px;
-            outline: none;
-            }
+
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
