@@ -4,7 +4,7 @@ import openai
 from streamlit_extras.switch_page_button import switch_page
 import PyPDF2
 
-st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽", layout="wide")
+st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽", layout="wide", initial_sidebar_state="collapsed")
 
 hide_menu_style = """
          <style>
