@@ -41,50 +41,51 @@ hide_streamlit_style = """
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-col1, col2, col3, col4, col5 = st.columns([0.25,1,0.1,1,0.25])
-with col1:
-    st.write("")
-with col2:
-    st.header("Does everything look good?")
+st.header("Does everything look good?")
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001","\u2001\u2001Skills\u2001\u2001", "\u2001\u2001Result\u2001\u2001"])
+with tab1:
+    CandidateName = st.text_input(
+        'Name',
+        placeholder='Name ',
+        key='Name'
+    )
 
-    html_string = ""
-    # html_string += "<h3>Job Title: " + title + "</h3><h4>Company Name: " + companyName + "</h4><h4>Location: " + location + "</h4><p><b>Short Summary:</b> " + shortSummary + "</p><p><b>Full Description:</b> " + fullDescription + "</p><p><b>Skills:</b> " + skills + "</p><hr>"
-    # html_string += "</ul>"
+    CandidatePhone = st.text_input(
+        'Phone',
+        placeholder='Phone Number',
+        key='Phone'
+    )
 
-    # generate the pdf
-    PDFFile = pdfkit.from_string(html_string, "resume.pdf")
-
-    with open("resume.pdf", "rb") as pdf_file:
-        PDFbyte = pdf_file.read()
-    # st.download_button(label='Download PDF', data= PDFFile)
-
-    st.download_button(label="Proceed",
-                       data=PDFbyte,
-                       file_name="resume.pdf",
-                       mime='application/octet-stream')
-    st.subheader("")
-    st.subheader("")
-    st.subheader("Experiences")
+    CandidateEmail = st.text_input(
+        'Email',
+        placeholder='Email ',
+        key='Email'
+    )
+with tab2:
     st.text_area(label="", value=st.session_state['OldExperiences'])
-with col3:
-    st.write("")
-with col4:
-    st.subheader("")
-    st.subheader("")
-    st.subheader("")
-    st.subheader("")
-    st.subheader("")
-    st.subheader("")
-    st.write("")
-    st.write("")
-    st.subheader("Projects")
+with tab3:
     st.text_area(label="", value=st.session_state['OldProjects'])
-with col5:
+with tab4:
+    if 'Skills' not in st.session_state:
+        if st.button("Add Skills"):
+            response = openai.Completion.create(
+                model="text-davinci-003",
+                prompt=f"The following is some experience of a job seeker.\n\n{Experience1Name}\n{Experience1Description}\n\n{Experience2Name}\n{Experience2Description}\n\n{Experience3Name}\n{Experience3Description}\n\n{Experience4Name}\n{Experience4Description} \n What kind of technical skills they have? List them as spearated by commas.\n",
+                temperature=0.7,
+                max_tokens=80,
+                top_p=1,
+                frequency_penalty=0,
+                presence_penalty=0
+            )
+
+            PreSkills= response["choices"][0]["text"].split(",")
+            st.session_state['Skills'] = ','.join(PreSkills)
+
+            FinalSkills = st.text_input(
+            'Caption goes here',
+            placeholder='Placeholder goes here',
+            help='Help message goes here',
+            value= st.session_state['Skills']
+            )
+with tab5:
     st.write("")
-
-
-
-
-
-
-
