@@ -89,10 +89,6 @@ if __name__ == "__main__":
         user = auth.sign_in_with_email_and_password(email=email, password=password)
         st.session_state['user'] = user
         db = firebase.database()
-        data = {
-            "name": "Mortimer 'Morty' Smith"
-        }
-        results = db.child("users").child(str(user["localId"])).set(data)
         st.write(user["localId"])
 
 
