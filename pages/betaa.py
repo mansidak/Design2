@@ -80,7 +80,7 @@ if __name__ == "__main__":
         auth = firebase.auth()
         user = auth.create_user_with_email_and_password(email=email, password=password)
         db = firebase.database()
-        if st.button("Save Data", key = "saveshit")
+        if st.button("Save Data", key = "saveshit"):
             data = {
                 "name": "Mortimer 'Morty' Smith"
             }
