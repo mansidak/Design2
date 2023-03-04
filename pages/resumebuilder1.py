@@ -359,7 +359,7 @@ with tab5:
 
 
 
-        if Projec1Name is not None:
+        if Projec1Name:
             NewProjectOneDescriptionResponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -371,7 +371,7 @@ with tab5:
                      "content": f"The following is description of a project of a job seeker.\n{Project1Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
             NewProjectOneDescription = NewProjectOneDescriptionResponse["choices"][0]["message"]["content"]
 
-        elif Projec2Name is not None:
+        if Projec2Name:
             NewProjectTwoDescriptionResponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -383,7 +383,7 @@ with tab5:
                      "content": f"The following is description of a project of a job seeker.\n{Project2Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
             NewProjectTwoDescription = NewProjectTwoDescriptionResponse["choices"][0]["message"]["content"]
 
-        elif Projec3Name is not None:
+        if Projec3Name:
             NewProjectThreeDescriptionResponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -395,7 +395,7 @@ with tab5:
                      "content": f"The following is description of a project of a job seeker.\n{Project3Description}. Make it sound they're an experienced {ChosenJobTitle}"}])
             NewProjectThreeDescription = NewProjectThreeDescriptionResponse["choices"][0]["message"]["content"]
 
-        elif Projec4Name is not None:
+        if Projec4Name:
             NewProjectFourDescriptionResponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -425,7 +425,7 @@ with tab5:
 
         html_string += "<h3> Skills:" + FinalSkills + "</h3>"
 
-        if Projec1Name is not None:
+        if Projec1Name:
             html_string2 = ""
 
             html_string2 += "<h3>" + Projec1Name + "</h3>"
@@ -449,7 +449,7 @@ with tab5:
         new_parser = HtmlToDocx()
         headingExperiences = document.add_heading(f'Experiences', 1)
         new_parser.add_html_to_document(html_string, document)
-        if Projec1Name is not None:
+        if Projec1Name:
             headingProjects = document.add_heading(f'Projects', 1)
             new_parser.add_html_to_document(html_string2, document)
 
