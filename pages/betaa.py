@@ -210,6 +210,11 @@ text-align: center;
                 height: 0%;
                 position: fixed;
                 }
+                 div[role="alert"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
 
             </style>
             """
