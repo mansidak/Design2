@@ -364,6 +364,10 @@ with colresult2:
 
             st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
+
+
+
+
         elif not options and not options2:
             link = element[0]
             title = element[1]
@@ -372,13 +376,30 @@ with colresult2:
             fullDescription = element[4]
             location = element[5]
             skills = element[6]
-
-            st.markdown(
-                f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-                unsafe_allow_html=True)
-            st.markdown(
-                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-                unsafe_allow_html=True)
+            col1mark, col2mark = st.columns([1,0.1]):
+            with col1mark:
+                st.markdown(
+                    f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
+                    unsafe_allow_html=True)
+                st.markdown(
+                    f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                    unsafe_allow_html=True)
+            with col2mark:
+                if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                    firebase = pyrebase.initialize_app(firebaseconfig)
+                    db = firebase.database()
+                    user = st.session_state['user']
+                    data = {
+                        "Link": str(link),
+                        "Title": str(title),
+                        "Company Name": str(companyName),
+                        "Short Summary": str(shortSummary),
+                        "Full Description": str(fullDescription),
+                        "Location": str(location),
+                        "Skills": str(skills)
+                    }
+                    results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
+                    st.write(user["localId"])
 
             with st.expander(f"{location}"):
                 st.markdown(f"[Apply]({link})")
@@ -413,21 +434,7 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+{companyName}"):
-                        firebase = pyrebase.initialize_app(firebaseconfig)
-                        db = firebase.database()
-                        user = st.session_state['user']
-                        data = {
-                            "Link": str(link),
-                            "Title": str(title),
-                            "Company Name": str(companyName),
-                            "Short Summary": str(shortSummary),
-                            "Full Description": str(fullDescription),
-                            "Location": str(location),
-                            "Skills": str(skills)
-                        }
-                        results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
-                        st.write(user["localId"])
+                    st.write("")
 
                 with col3:
                     st.write("")
