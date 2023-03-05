@@ -860,12 +860,54 @@ text-align: center;
             st.write(threading.enumerate())
 
             st.session_state["FinalResults"] = links1 + links2 + links3
+            st.markdown("""
+                       <style>
+                        div[data-baseweb="select"] {
+                           visibility: visible;
+                           height: 100%;
+                           position: fixed;
+                           }
+                           .row-widget.stTextInput.css-pb6fr7.edfmue0 {
+                           visibility: visible;
+                           height: 100%;
+                           position: fixed;
+                           }
+                           .css-17z41qg.e16nr0p34{
+                            visibility: visible;
+                           height: 100%;
+                           position: fixed;
+                           }
 
+                           .css-17z41qg.e16nr0p34{
+                            visibility: visible;
+                           height: 100%;
+                           position: fixed;
+                           }
+
+                           .css-17z41qg.e16nr0p34{
+                            visibility: visible;
+                           height: 100%;
+                           position: fixed;
+                           }
+                           .css-1db87p3.edgvbvh10{
+                           visibility: visible;
+                           height: 100%;
+                           position: fixed;
+                           }
+                           div[class="row-widget stSelectbox"] {
+                           visibility: visible;
+                           height: 100%;
+                           position: fixed;
+                           }
+
+
+                       </style>
+                           """, unsafe_allow_html=True)
             if 'user' not in st.session_state:
                 st.subheader("One last thing...")
                 with st.expander("Create a dashboard to save the jobs you're about to see"):
-                    email = st.text_input('Email', key='email')
-                    password = st.text_input('Password', key='password')
+                    email = st.text_input('Email', key='email', placeholder="Email")
+                    password = st.text_input('Password', key='password', placeholder="Email")
                     col1Signup, col2Signup = st.columns([1, 1])
                     with col1Signup:
                         if st.button("Create New Account", key="NewAccount"):
