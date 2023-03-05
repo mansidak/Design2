@@ -82,13 +82,13 @@ if __name__ == "__main__":
 
 
     cookie_manager = get_manager()
-
     email = st.text_input('Email', key='email')
     password = st.text_input('Password', key='password')
     st.subheader("Click this to reveal cookie")
     cookie = "UserIdCookie"
     value = cookie_manager.get(cookie=cookie)
     st.write(value)
+    st.write(f"You're logged in as {value['email']}")
 
     if st.button("Login", key="login"):
         firebase = pyrebase.initialize_app(firebaseconfig)
