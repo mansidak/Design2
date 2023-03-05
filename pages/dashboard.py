@@ -32,11 +32,22 @@ SavedResults = db.child("users").child(str(user["localId"])).child("Jobs").get()
 # st.write(SavedResults)
 
 for key, value in SavedResults.items():
-    st.write(key)
-    st.write(value)
+    # st.write(key)
+    # st.write(value)
     company_name = value['Company Name']
     st.write(company_name)
-
+    Full_Description = value['Full Description']
+    st.write(Full_Description)
+    Link = value['Link']
+    st.write(Link)
+    Location = value['Location']
+    st.write(Location)
+    Short_Summary = value['Short Summary']
+    st.write(Short_Summary)
+    Skills = value['Skills']
+    st.write(Skills)
+    Title = value['Title']
+    st.write(Title)
 # for item in SavedResults:
 #     for key in item.keys():
 #         company_name = item[key]["Company Name"]
