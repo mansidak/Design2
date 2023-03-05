@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
-import re
+import requests
 import threading
 from multiprocessing import Pool
 from concurrent.futures import ThreadPoolExecutor
