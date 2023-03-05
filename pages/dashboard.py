@@ -99,8 +99,7 @@ if __name__ == "__main__":
         )
 
         # Display the right things according to the page
-        if page == 'Dashboard':
-            switch_page("dashboard")
+
         if page == 'Search':
             switch_page("betaa")
         if page == 'Resume Builder':
