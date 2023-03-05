@@ -221,8 +221,7 @@ def main(user: object):
                                     "Location": str(location),
                                     "Skills": str(skills)
                             }
-                            user22 = auth.verify_id_token(user['idToken'])
-                            results = db.child("users").child(str(user22["uid"])).child("Jobs").push(data)
+                            results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
                             st.write("Saved!")
 
                         # if st.button("Retrieve Job", key = "Retreive"):
@@ -298,9 +297,7 @@ def main(user: object):
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            user22 = auth.verify_id_token(user['idToken'])
-
-                            results = db.child("users").child(str(user22["uid"])).child("Jobs").push(data)
+                            results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
                             st.write("Saved!")
 
                     with col3:
@@ -370,8 +367,7 @@ def main(user: object):
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            user22 = auth.verify_id_token(user['idToken'])
-                            results = db.child("users").child(str(user22["uid"])).child("Jobs").push(data)
+                            results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
                             st.write("Saved!")
 
                     with col3:
@@ -414,8 +410,7 @@ def main(user: object):
                             "Location": str(location),
                             "Skills": str(skills)
                         }
-                        user22 = auth.verify_id_token(user['idToken'])
-                        results = db.child("users").child(str(user22["uid"])).child("Jobs").push(data)
+                        results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
                         st.write("Saved!")
                         Save.empty()
 
@@ -538,7 +533,8 @@ def get_user_token(auth, refreshToken: object):
     user = {
         "email": user['users'][0]['email'],
         "refreshToken": refreshToken['refreshToken'],
-        "idToken": refreshToken['idToken']
+        "idToken": refreshToken['idToken'],
+        "uid": user['users'][0]['uid']
     }
 
     st.session_state['user'] = user
