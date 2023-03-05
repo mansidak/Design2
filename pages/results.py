@@ -376,7 +376,7 @@ with colresult2:
             fullDescription = element[4]
             location = element[5]
             skills = element[6]
-            col1mark, col2mark = st.columns([1,0.1]):
+            col1mark, col2mark = st.columns([1,0.1])
             with col1mark:
                 st.markdown(
                     f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
