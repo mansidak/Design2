@@ -533,7 +533,8 @@ def get_user_token(auth, refreshToken: object):
     user = {
         "email": user['users'][0]['email'],
         "refreshToken": refreshToken['refreshToken'],
-        "idToken": refreshToken['idToken']
+        "idToken": refreshToken['idToken'],
+        "localId": user['users'][0]['localId']
     }
 
     st.session_state['user'] = user
@@ -561,14 +562,10 @@ if "user" not in st.session_state:
 if st.session_state['user'] is None:
     try:
         code = st.experimental_get_query_params()['code'][0]
-
         refreshToken = refresh_session_token(auth=auth, code=code)
-
         if refreshToken == 'fail to refresh':
             raise(ValueError)
-
         user = get_user_token(auth, refreshToken=refreshToken)
-
         main(user=user)
     except:
         st.title("Login")
