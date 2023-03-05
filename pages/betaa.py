@@ -87,10 +87,8 @@ if __name__ == "__main__":
     password = st.text_input('Password', key='password')
     st.subheader("Click this to reveal cookie")
     cookie = "UserIdCookie"
-    clicked = st.button("Get")
-    if clicked:
-        value = cookie_manager.get(cookie=cookie)
-        st.write(value)
+    value = cookie_manager.get(cookie=cookie)
+    st.write(value)
 
     if st.button("Login", key="login"):
         firebase = pyrebase.initialize_app(firebaseconfig)
