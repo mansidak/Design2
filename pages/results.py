@@ -211,13 +211,13 @@ with colresult2:
                                 "Skills": str(skills)
                         }
                         results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
-                        st.write(user["localId"])
+                        st.write("Saved!")
 
-                    if st.button("Retrieve Job", key = "Retreive"):
-                        firebase = pyrebase.initialize_app(firebaseconfig)
-                        db = firebase.database()
-                        user = st.session_state['user']
-                        st.write(db.child("users").child(str(user["localId"])).child("Jobs").get().val())
+                    # if st.button("Retrieve Job", key = "Retreive"):
+                    #     firebase = pyrebase.initialize_app(firebaseconfig)
+                    #     db = firebase.database()
+                    #     user = st.session_state['user']
+                    #     st.write(db.child("users").child(str(user["localId"])).child("Jobs").get().val())
 
                 with col3:
                     st.write("")
@@ -287,7 +287,7 @@ with colresult2:
                             "Skills": str(skills)
                         }
                         results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
-                        st.write(user["localId"])
+                        st.write("Saved!")
 
                 with col3:
                     st.write("")
@@ -357,7 +357,7 @@ with colresult2:
                             "Skills": str(skills)
                         }
                         results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
-                        st.write(user["localId"])
+                        st.write("Saved!")
 
                 with col3:
                     st.write("")
@@ -400,7 +400,7 @@ with colresult2:
                         "Skills": str(skills)
                     }
                     results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
-                    st.write(user["localId"])
+                    st.write("Saved!")
                     Save.empty()
 
             with st.expander(f"{location}"):
