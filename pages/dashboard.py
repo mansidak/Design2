@@ -13,6 +13,47 @@ import os
 
 st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
 
+hide_streamlit_style = """
+              <style>
+              div[class='css-4z1n4l ehezqtx5']{
+                background: rgba(0, 0, 0, 0.3);
+                color: #fff;
+                border-radius: 10px;
+                backdrop-filter: blur(10px);
+                height: 40px;
+                max-width: 200px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 50%;
+              }
+
+                div[data-testid="stSidebarNav"] {
+                height: 0%;
+                position: fixed;
+                }
+
+
+
+                .css-13e20ss{
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+
+                div[class="stException"] {
+                visibility: hidden;
+                height: 0%;
+                position: fixed;
+                }
+
+              </style>
+              """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+
+
 firebaseconfig = {
             "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
             "authDomain": "nineteenth-street.firebaseapp.com",
@@ -28,19 +69,19 @@ firebase = pyrebase.initialize_app(firebaseconfig)
 db = firebase.database()
 user = st.session_state['user']
 
+
+
+
+
+
 SavedResults = db.child("users").child(str(user["localId"])).child("Jobs").get().val()
-# st.write(SavedResults)
-
 unique_links = {}
-
 for key, value in SavedResults.items():
     link = value['Link']
     if link not in unique_links:
         unique_links[link] = value
 
 my_dict = unique_links
-
-
 colresult1, colresult2, colresult3 = st.columns([0.25,1,0.25])
 with colresult1:
     st.write("")
