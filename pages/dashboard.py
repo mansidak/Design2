@@ -31,16 +31,15 @@ user = st.session_state['user']
 SavedResults = db.child("users").child(str(user["localId"])).child("Jobs").get().val()
 # st.write(SavedResults)
 
-
-seen = set()
-new_dict = {}
+unique_links = {}
 
 for key, value in SavedResults.items():
-    if value not in seen:
-        seen.add(value)
-        new_dict[key] = value
+    link = value['Link']
+    if link not in unique_links:
+        unique_links[link] = value
 
-my_dict = new_dict
+my_dict = unique_links
+
 
 
 for key, value in my_dict.items():
