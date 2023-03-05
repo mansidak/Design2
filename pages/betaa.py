@@ -109,9 +109,9 @@ if __name__ == "__main__":
 
     email = st.text_input('Email', key='email')
     password = st.text_input('Password', key='password')
-    st.subheader("Click this to reveal cookie", key = "Gallan")
+    st.subheader("Click this to reveal cookie")
     cookie = "UserIdCookie"
-    clicked = st.button("Get")
+    clicked = st.button("Get", key = "retreive")
     if clicked:
         value = cookie_manager.get(cookie=cookie)
         st.write(value["email"])
