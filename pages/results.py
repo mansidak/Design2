@@ -211,7 +211,7 @@ def main(user: object):
                         if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                             firebase = pyrebase.initialize_app(firebaseconfig)
                             db = firebase.database()
-                            user = st.session_state['user']
+                            # user = st.session_state['user']
                             data = {
                                     "Link": str(link),
                                     "Title": str(title),
@@ -287,7 +287,7 @@ def main(user: object):
                         if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                             firebase = pyrebase.initialize_app(firebaseconfig)
                             db = firebase.database()
-                            user = st.session_state['user']
+                            # user = st.session_state['user']
                             data = {
                                 "Link": str(link),
                                 "Title": str(title),
@@ -357,7 +357,7 @@ def main(user: object):
                         if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                             firebase = pyrebase.initialize_app(firebaseconfig)
                             db = firebase.database()
-                            user = st.session_state['user']
+                            # user = st.session_state['user']
                             data = {
                                 "Link": str(link),
                                 "Title": str(title),
@@ -400,7 +400,7 @@ def main(user: object):
                     if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
-                        user = st.session_state['user']
+                        # user = st.session_state['user']
                         data = {
                             "Link": str(link),
                             "Title": str(title),
