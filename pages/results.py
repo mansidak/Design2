@@ -88,7 +88,8 @@ st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 def main(user: object):
     st.write(f"You're logged in as {st.session_state['user']['email']}")
-    st.write(auth.get_account_info(user['idToken']))
+    AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+    localId = AccountInfo["localId"]
     set_code(code=user['refreshToken'])
     unique_results = set(st.session_state['FinalResults'])
     with st.sidebar:
@@ -222,7 +223,7 @@ def main(user: object):
                                     "Location": str(location),
                                     "Skills": str(skills)
                             }
-                            results = db.child("users").child(st.session_state['user']['uid']).child("Jobs").push(data)
+                            results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
 
                         # if st.button("Retrieve Job", key = "Retreive"):
@@ -298,7 +299,7 @@ def main(user: object):
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            results = db.child("users").child(st.session_state['user']['uid']).child("Jobs").push(data)
+                            results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
 
                     with col3:
@@ -368,7 +369,7 @@ def main(user: object):
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            results = db.child("users").child(st.session_state['user']['uid']).child("Jobs").push(data)
+                            results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
 
                     with col3:
@@ -411,7 +412,7 @@ def main(user: object):
                             "Location": str(location),
                             "Skills": str(skills)
                         }
-                        results = db.child("users").child(st.session_state['user']['uid']).child("Jobs").push(data)
+                        results = db.child("users").child(str(localId)).child("Jobs").push(data)
                         st.write("Saved!")
                         Save.empty()
 
