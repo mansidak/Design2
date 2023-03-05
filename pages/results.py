@@ -534,7 +534,7 @@ def get_user_token(auth, refreshToken: object):
         "email": user['users'][0]['email'],
         "refreshToken": refreshToken['refreshToken'],
         "idToken": refreshToken['idToken'],
-        "localId": user['users'][0]['localId']
+        "localId": user['localId']
     }
 
     st.session_state['user'] = user
