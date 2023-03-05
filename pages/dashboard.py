@@ -60,7 +60,17 @@ hide_streamlit_style = """
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
+hide_img_fs = '''
+    <style>
+    button[title="View fullscreen"]{
+        visibility: hidden;}
+        ul.streamlit-expander {
+                border: 0 None !important;
+                }
+    </style>
+    '''
 
+st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 firebaseconfig = {
             "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
