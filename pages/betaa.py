@@ -79,17 +79,37 @@ if __name__ == "__main__":
     @st.cache(allow_output_mutation=True)
     def get_manager():
         return stx.CookieManager()
-
-
     cookie_manager = get_manager()
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        st.subheader("Get Cookie:")
+        cookie = st.text_input("Cookie", key="0")
+        clicked = st.button("Get")
+        if clicked:
+            value = cookie_manager.get(cookie=cookie)
+            st.write(value)
+    with c2:
+        st.subheader("Set Cookie:")
+        cookie = st.text_input("Cookie", key="1")
+        val = st.text_input("Value")
+        if st.button("Add"):
+            cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2022, month=2, day=2))
+    with c3:
+        st.subheader("Delete Cookie:")
+        cookie = st.text_input("Cookie", key="2")
+        if st.button("Delete"):
+            cookie_manager.delete(cookie)
+
     email = st.text_input('Email', key='email')
     password = st.text_input('Password', key='password')
     st.subheader("Click this to reveal cookie")
-    cookie = "UserIdCookie"
-    clicked = st.button("Get")
-    if clicked:
-        value = cookie_manager.get(cookie=cookie)
-        st.write(value["email"])
+    # cookie = "UserIdCookie"
+    # clicked = st.button("Get")
+    # if clicked:
+    #     value = cookie_manager.get(cookie=cookie)
+    #     st.write(value["email"])
 
     if st.button("Login", key="login"):
         firebase = pyrebase.initialize_app(firebaseconfig)
@@ -99,11 +119,11 @@ if __name__ == "__main__":
         db = firebase.database()
         st.write(user["localId"])
         st.write(user["email"])
-        st.subheader("Set Cookie:")
-        cookie = "UserIdCookie"
-        val = user
-        if st.button("Add"):
-            cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
+        # st.subheader("Set Cookie:")
+        # cookie = "UserIdCookie"
+        # val = user
+        # if st.button("Add"):
+        #     cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
 
