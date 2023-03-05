@@ -12,6 +12,14 @@ import pyrebase
 import os
 
 st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
+hide_menu_style = """
+         <style>
+         #MainMenu {visibility: hidden;}
+         .css-j7qwjs {visibility: hidden;}
+         footer {visibility: hidden;}
+         </style>
+         """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 hide_streamlit_style = """
               <style>
