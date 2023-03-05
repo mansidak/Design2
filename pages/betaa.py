@@ -857,70 +857,9 @@ text-align: center;
             st.write(threading.enumerate())
 
             st.session_state["FinalResults"] = links1
-            st.markdown("""
-                       <style>
-                        div[data-baseweb="select"] {
-                           visibility: visible;
-                           height: auto;
-                           position: fixed;
-                           }
-                           .row-widget.stTextInput.css-pb6fr7.edfmue0 {
-                           visibility: visible;
-                           height: auto;
-                           position: fixed;
-                           }
-                           .css-17z41qg.e16nr0p34{
-                            visibility: visible;
-                           height: auto;
-                           position: fixed;
-                           }
 
-                           .css-17z41qg.e16nr0p34{
-                            visibility: visible;
-                           height: auto;
-                           position: fixed;
-                           }
-
-                           .css-17z41qg.e16nr0p34{
-                            visibility: visible;
-                           height: auto;
-                           position: fixed;
-                           }
-                           .css-1db87p3.edgvbvh10{
-                           visibility: visible;
-                           height: auto;
-                           position: fixed;
-                           }
-                           div[class="row-widget stSelectbox"] {
-                           visibility: visible;
-                           height: auto;
-                           position: fixed;
-                           }
-
-
-                       </style>
-                           """, unsafe_allow_html=True)
             if 'user' not in st.session_state:
-                st.subheader("One last thing...")
-                with st.expander("Create a dashboard to save the jobs you're about to see"):
-                    email = st.text_input('Email', key='email', placeholder="Email")
-                    password = st.text_input('Password', key='password', placeholder="Email")
-                    col1Signup, col2Signup = st.columns([1, 1])
-                    with col1Signup:
-                        if st.button("Create New Account", key="NewAccount"):
-                            firebase = pyrebase.initialize_app(firebaseconfig)
-                            auth = firebase.auth()
-                            user = auth.create_user_with_email_and_password(email=email, password=password)
-                            st.session_state['user'] = user
-                            db = firebase.database()
-                            st.write("Account created. Hit Log in!")
-                    with col2Signup:
-                        if st.button("Login", key="login"):
-                            firebase = pyrebase.initialize_app(firebaseconfig)
-                            auth = firebase.auth()
-                            user = auth.sign_in_with_email_and_password(email=email, password=password)
-                            st.session_state['user'] = user
-                            db = firebase.database()
-                            switch_page("results")
+                switch_page("signup")
+
             else:
                 switch_page("results")
