@@ -89,24 +89,7 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     def main(user: object):
-        page = st_btn_select(
-            # The different pages
-            ('Dashboard', 'Search', 'Resume Builder', 'Contact'),
-            # Enable navbar
-            nav=True,
-            # You can pass a formatting function. Here we capitalize the options
-            format_func=lambda name: name.capitalize(),
-        )
 
-        # Display the right things according to the page
-        if page == 'Dashboard':
-            pass
-        if page == 'Search':
-            switch_page("betaa")
-        if page == 'Resume Builder':
-            switch_page("preresumebuilder")
-        else:
-            switch_page("betaa")
         st.write(f"You're logged in as {st.session_state['user']['email']}")
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
