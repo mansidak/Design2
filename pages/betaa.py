@@ -18,6 +18,8 @@ from docx import Document
 import openai
 from PIL import Image
 from st_btn_select import st_btn_select
+import datetime
+import extra_streamlit_components as stx
 from streamlit_extras.switch_page_button import switch_page
 import psutil
 from streamlit.components.v1 import html
@@ -847,6 +849,11 @@ if __name__ == "__main__":
                     switch_page("results")
 
 
+@st.cache(allow_output_mutation=True)
+def get_manager():
+    return stx.CookieManager()
+cookie_manager = get_manager()
+
 def set_code(code: str):
     st.experimental_set_query_params(code=code)
 
@@ -928,7 +935,8 @@ if "user" not in st.session_state:
 
 if st.session_state['user'] is None:
     try:
-        code = st.experimental_get_query_params()['code'][0]
+        # code = st.experimental_get_query_params()['code'][0]
+        code = cookie_manager.get(cookie="queryParamCode")
 
         refreshToken = refresh_session_token(auth=auth, code=code)
 

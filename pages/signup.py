@@ -33,6 +33,11 @@ def main(user: object):
 
 def set_code(code: str):
     st.experimental_set_query_params(code=code)
+    cookie = "queryParamCode"
+    val = str(code)
+    cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
+
+
 
 
 def login_form(auth):
