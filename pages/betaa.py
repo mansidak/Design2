@@ -110,11 +110,11 @@ if __name__ == "__main__":
     email = st.text_input('Email', key='email')
     password = st.text_input('Password', key='password')
     st.subheader("Click this to reveal cookie")
-    # cookie = "UserIdCookie"
-    # clicked = st.button("Get")
-    # if clicked:
-    #     value = cookie_manager.get(cookie=cookie)
-    #     st.write(value["email"])
+    cookie = "UserIdCookie"
+    clicked = st.button("Get")
+    if clicked:
+        value = cookie_manager.get(cookie=cookie)
+        st.write(value["email"])
 
     if st.button("Login", key="login"):
         firebase = pyrebase.initialize_app(firebaseconfig)
@@ -124,11 +124,11 @@ if __name__ == "__main__":
         db = firebase.database()
         st.write(user["localId"])
         st.write(user["email"])
-        # st.subheader("Set Cookie:")
-        # cookie = "UserIdCookie"
-        # val = user
-        # if st.button("Add"):
-        #     cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
+        st.subheader("Set Cookie:")
+        cookie = "UserIdCookie"
+        val = user
+        if st.button("Add"):
+            cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
 
