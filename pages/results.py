@@ -197,7 +197,7 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    if st.button("Save to my account", key="Savetoaccount"):
+                    if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         user = st.session_state['user']
