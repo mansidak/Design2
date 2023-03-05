@@ -221,7 +221,7 @@ def main(user: object):
                                     "Location": str(location),
                                     "Skills": str(skills)
                             }
-                            results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
+                            results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
                             st.write("Saved!")
 
                         # if st.button("Retrieve Job", key = "Retreive"):
@@ -297,7 +297,7 @@ def main(user: object):
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
+                            results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
                             st.write("Saved!")
 
                     with col3:
@@ -367,7 +367,7 @@ def main(user: object):
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
+                            results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
                             st.write("Saved!")
 
                     with col3:
@@ -410,7 +410,7 @@ def main(user: object):
                             "Location": str(location),
                             "Skills": str(skills)
                         }
-                        results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
+                        results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
                         st.write("Saved!")
                         Save.empty()
 
@@ -533,8 +533,7 @@ def get_user_token(auth, refreshToken: object):
     user = {
         "email": user['users'][0]['email'],
         "refreshToken": refreshToken['refreshToken'],
-        "idToken": refreshToken['idToken'],
-        "localId": user['localId']
+        "idToken": refreshToken['idToken']
     }
 
     st.session_state['user'] = user
