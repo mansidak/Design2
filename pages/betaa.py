@@ -99,9 +99,11 @@ if __name__ == "__main__":
         st.session_state['user'] = user
         db = firebase.database()
         st.write(user["localId"])
-        cookie = st.text_input("Cookie", key="user")
+        st.subheader("Set Cookie:")
+        cookie = st.text_input("Cookie", key="1")
         val = user
-        cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
+        if st.button("Add"):
+            cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
 
