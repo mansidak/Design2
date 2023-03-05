@@ -103,8 +103,10 @@ if __name__ == "__main__":
             switch_page("betaa")
         if page == 'Resume Builder':
             switch_page("preresumebuilder")
-        st.write(f"You're logged in as {st.session_state['user']['email']}")
 
+
+
+        st.write(f"You're logged in as {st.session_state['user']['email']}")
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         localId = AccountInfo["localId"]
         set_code(code=user['refreshToken'])

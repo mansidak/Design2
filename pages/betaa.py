@@ -17,6 +17,7 @@ import PyPDF2
 from docx import Document
 import openai
 from PIL import Image
+from st_btn_select import st_btn_select
 from streamlit_extras.switch_page_button import switch_page
 import psutil
 from streamlit.components.v1 import html
@@ -70,6 +71,24 @@ st.set_page_config(page_title="19th Street", page_icon='⓵⓽', initial_sidebar
 
 if __name__ == "__main__":
     def main(user: object):
+
+        page = st_btn_select(
+            # The different pages
+            ('Dashboard', 'Search', 'Resume Builder', 'Contact'),
+            # Enable navbar
+            nav=True,
+            # You can pass a formatting function. Here we capitalize the options
+            format_func=lambda name: name.capitalize(),
+        )
+
+        # Display the right things according to the page
+        if page == 'Dashboard':
+            switch_page("dashboard")
+        if page == 'Search':
+            switch_page("betaa")
+        if page == 'Resume Builder':
+            switch_page("preresumebuilder")
+
         st.write(f"You're logged in as {st.session_state['user']['email']}")
         set_code(code=user['refreshToken'])
         # print(threading.enumerate())
