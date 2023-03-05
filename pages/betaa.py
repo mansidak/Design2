@@ -126,7 +126,7 @@ if __name__ == "__main__":
         st.write(user["email"])
         st.subheader("Set Cookie:")
         cookie = "UserIdCookie"
-        val = user
+        val = str(user)
         if st.button("Add", key="Addcoookies"):
             cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
 
