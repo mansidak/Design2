@@ -856,7 +856,7 @@ def set_code(code: str):
     st.experimental_set_query_params(code=code)
 
 
-col1form, col2form, col3form = st.session_state([0.25,1,0.25])
+col1form, col2form, col3form = st.columns([0.25,1,0.25])
 with col1form:
     st.write("")
 with col2form:

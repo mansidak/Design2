@@ -217,12 +217,12 @@ def refresh_session_token(auth, code: str):
         return "fail to refresh"
 
 
-
-firebase = pyrebase.initialize_app(firebaseconfig)
-
-auth = firebase.auth()
-
 if __name__ == '__main__':
+
+    firebase = pyrebase.initialize_app(firebaseconfig)
+
+    auth = firebase.auth()
+
     # authentification
     if "user" not in st.session_state:
         st.session_state['user'] = None
