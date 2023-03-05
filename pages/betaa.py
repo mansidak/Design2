@@ -85,8 +85,7 @@ if __name__ == "__main__":
 
     email = st.text_input('Email', key='email')
     password = st.text_input('Password', key='password')
-    st.subheader("Get Cookie:")
-
+    st.subheader("Click this to reveal cookie")
     cookie = st.text_input("Cookie", key="0")
     clicked = st.button("Get")
     if clicked:
