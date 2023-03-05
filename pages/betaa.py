@@ -841,62 +841,59 @@ text-align: center;
 
             with ThreadPoolExecutor(max_workers=3) as executor:
                 future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                # future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                # future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                 future4 = executor.submit(progress_shit())
 
             executor.shutdown(wait=True)
 
             links1 = future1.result()
-            links2 = future2.result()
-            links3 = future3.result()
+            # links2 = future2.result()
+            # links3 = future3.result()
             executor.shutdown(wait=True)
-            # st.write(links1)
-            # st.write(links2)
-            # st.write(links3)
 
 
             print(threading.enumerate())
             st.write(threading.enumerate())
 
-            st.session_state["FinalResults"] = links1 + links2 + links3
+            st.session_state["FinalResults"] = links1
             st.markdown("""
                        <style>
                         div[data-baseweb="select"] {
                            visibility: visible;
-                           height: 100%;
+                           height: auto;
                            position: fixed;
                            }
                            .row-widget.stTextInput.css-pb6fr7.edfmue0 {
                            visibility: visible;
-                           height: 100%;
+                           height: auto;
                            position: fixed;
                            }
                            .css-17z41qg.e16nr0p34{
                             visibility: visible;
-                           height: 100%;
-                           position: fixed;
-                           }
-
-                           .css-17z41qg.e16nr0p34{
-                            visibility: visible;
-                           height: 100%;
+                           height: auto;
                            position: fixed;
                            }
 
                            .css-17z41qg.e16nr0p34{
                             visibility: visible;
-                           height: 100%;
+                           height: auto;
+                           position: fixed;
+                           }
+
+                           .css-17z41qg.e16nr0p34{
+                            visibility: visible;
+                           height: auto;
                            position: fixed;
                            }
                            .css-1db87p3.edgvbvh10{
                            visibility: visible;
-                           height: 100%;
+                           height: auto;
                            position: fixed;
                            }
                            div[class="row-widget stSelectbox"] {
                            visibility: visible;
-                           height: 100%;
+                           height: auto;
                            position: fixed;
                            }
 
