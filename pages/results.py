@@ -215,7 +215,7 @@ with colresult2:
                                 "Skills": str(skills)
                             }
                         }
-                        results = db.child("users").child(str(user["localId"])).child("Jobs").child(str(title)).set(data)
+                        results = db.child("users").child(str(user["localId"])).child("Jobs").child(str(title)).push(data)
                         st.write(user["localId"])
 
                     if st.button("Retrieve Job", key = "Retreive"):
