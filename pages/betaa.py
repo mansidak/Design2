@@ -882,5 +882,6 @@ text-align: center;
                             user = auth.sign_in_with_email_and_password(email=email, password=password)
                             st.session_state['user'] = user
                             db = firebase.database()
-                            switch_page("dashboard")
-            switch_page("results")
+                            switch_page("results")
+            else:
+                switch_page("results")
