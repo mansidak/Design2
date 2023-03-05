@@ -222,22 +222,22 @@ firebase = pyrebase.initialize_app(firebaseconfig)
 
 auth = firebase.auth()
 
+if __name__ == '__main__':
+    # authentification
+    if "user" not in st.session_state:
+        st.session_state['user'] = None
 
-# authentification
-if "user" not in st.session_state:
-    st.session_state['user'] = None
+    if st.session_state['user'] is None:
+        try:
+            code = st.experimental_get_query_params()['code'][0]
+            refreshToken = refresh_session_token(auth=auth, code=code)
+            if refreshToken == 'fail to refresh':
+                raise(ValueError)
+            user = get_user_token(auth, refreshToken=refreshToken)
+            main(user=user)
+        except:
+            st.title("Login")
+            login_form(auth)
 
-if st.session_state['user'] is None:
-    try:
-        code = st.experimental_get_query_params()['code'][0]
-        refreshToken = refresh_session_token(auth=auth, code=code)
-        if refreshToken == 'fail to refresh':
-            raise(ValueError)
-        user = get_user_token(auth, refreshToken=refreshToken)
-        main(user=user)
-    except:
-        st.title("Login")
-        login_form(auth)
-
-else:
-    main(user=st.session_state['user'])
+    else:
+        main(user=st.session_state['user'])

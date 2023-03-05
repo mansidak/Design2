@@ -866,6 +866,22 @@ with col2form:
         password = st.text_input(
             label="password", placeholder="password", type="password")
 
+        if st.button("Login"):
+            try:
+                user = auth.sign_in_with_email_and_password(email, password)
+                st.session_state['user'] = user
+                st.experimental_rerun()
+            except requests.HTTPError as exception:
+                st.write(exception)
+        if st.button("Forgot Password", key = "forgotpassword"):
+            auth.send_password_reset_email("email")
+
+    def Signup_form(auth):
+        email = st.text_input(
+            label="email", placeholder="fullname@gmail.com")
+        password = st.text_input(
+            label="password", placeholder="password", type="password")
+
         if st.button("login"):
             try:
                 user = auth.sign_in_with_email_and_password(email, password)
@@ -873,7 +889,7 @@ with col2form:
                 st.experimental_rerun()
             except requests.HTTPError as exception:
                 st.write(exception)
-        if st.button("Forgot Password"):
+        if st.button("Forgot Password", key = "forgotpassword"):
             auth.send_password_reset_email("email")
 
 with col3form:
