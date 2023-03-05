@@ -97,6 +97,7 @@ if __name__ == "__main__":
         st.session_state['user'] = user
         db = firebase.database()
         st.write(user["localId"])
+        st.write(user["email"])
         st.subheader("Set Cookie:")
         cookie = "UserIdCookie"
         val = user
