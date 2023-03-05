@@ -27,11 +27,8 @@ firebaseconfig = {
 
 def main(user: object):
     st.write(f"You're logged in as {st.session_state['user']['email']}")
-
     set_code(code=user['refreshToken'])
-
-    st.write("Hello World")
-
+    switch_page("results")
 
 
 def set_code(code: str):
