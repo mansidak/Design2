@@ -94,7 +94,7 @@ if __name__ == "__main__":
         localId = AccountInfo["localId"]
         set_code(code=user['refreshToken'])
         user = st.session_state['user']
-        SavedResults = db.child("users").child(str(user["localId"])).child("Jobs").get().val()
+        SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
         unique_links = {}
         for key, value in SavedResults.items():
             link = value['Link']
