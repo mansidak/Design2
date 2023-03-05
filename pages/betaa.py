@@ -122,11 +122,11 @@ if __name__ == "__main__":
         st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
         hide_menu_style = """
-                 <style>
-                 #MainMenu {visibility: hidden;}
-                 .css-j7qwjs {visibility: hidden;}
-                 footer {visibility: hidden;}
-                 </style>
+                     <style>
+                     #MainMenu {visibility: hidden;}
+                     .css-j7qwjs {visibility: hidden;}
+                     footer {visibility: hidden;}
+                     </style>
                  """
         st.markdown(hide_menu_style, unsafe_allow_html=True)
 
