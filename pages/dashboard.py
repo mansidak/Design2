@@ -84,8 +84,6 @@ firebaseconfig = {
             "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
         }
 
-firebase = pyrebase.initialize_app(firebaseconfig)
-db = firebase.database()
 
 if __name__ == "__main__":
     def main(user: object):
