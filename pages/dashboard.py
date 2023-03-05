@@ -89,6 +89,7 @@ if __name__ == "__main__":
     def main(user: object):
         st.write(f"You're logged in as {st.session_state['user']['email']}")
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+        db = firebase.database()
         localId = AccountInfo["localId"]
         set_code(code=user['refreshToken'])
         user = st.session_state['user']
