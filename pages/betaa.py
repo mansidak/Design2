@@ -856,21 +856,28 @@ def set_code(code: str):
     st.experimental_set_query_params(code=code)
 
 
-def login_form(auth):
-    email = st.text_input(
-        label="email", placeholder="fullname@gmail.com")
-    password = st.text_input(
-        label="password", placeholder="password", type="password")
+col1form, col2form, col3form = st.session_state([0.25,1,0.25])
+with col1form:
+    st.write("")
+with col2form:
+    def login_form(auth):
+        email = st.text_input(
+            label="email", placeholder="fullname@gmail.com")
+        password = st.text_input(
+            label="password", placeholder="password", type="password")
 
-    if st.button("login"):
-        try:
-            user = auth.sign_in_with_email_and_password(email, password)
-            st.session_state['user'] = user
-            st.experimental_rerun()
-        except requests.HTTPError as exception:
-            st.write(exception)
-    if st.button("Forgot Password"):
-        auth.send_password_reset_email("email")
+        if st.button("login"):
+            try:
+                user = auth.sign_in_with_email_and_password(email, password)
+                st.session_state['user'] = user
+                st.experimental_rerun()
+            except requests.HTTPError as exception:
+                st.write(exception)
+        if st.button("Forgot Password"):
+            auth.send_password_reset_email("email")
+
+with col3form:
+    st.write("")
 
 
 def logout():
