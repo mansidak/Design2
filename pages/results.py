@@ -221,7 +221,8 @@ def main(user: object):
                                     "Location": str(location),
                                     "Skills": str(skills)
                             }
-                            results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
+                            user22 = auth.verify_id_token(user['idToken'])
+                            results = db.child("users").child(str(user22["uid"])).child("Jobs").push(data)
                             st.write("Saved!")
 
                         # if st.button("Retrieve Job", key = "Retreive"):
@@ -297,7 +298,9 @@ def main(user: object):
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
+                            user22 = auth.verify_id_token(user['idToken'])
+
+                            results = db.child("users").child(str(user22["uid"])).child("Jobs").push(data)
                             st.write("Saved!")
 
                     with col3:
@@ -367,7 +370,8 @@ def main(user: object):
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
+                            user22 = auth.verify_id_token(user['idToken'])
+                            results = db.child("users").child(str(user22["uid"])).child("Jobs").push(data)
                             st.write("Saved!")
 
                     with col3:
@@ -410,7 +414,8 @@ def main(user: object):
                             "Location": str(location),
                             "Skills": str(skills)
                         }
-                        results = db.child("users").child(str(user["uid"])).child("Jobs").push(data)
+                        user22 = auth.verify_id_token(user['idToken'])
+                        results = db.child("users").child(str(user22["uid"])).child("Jobs").push(data)
                         st.write("Saved!")
                         Save.empty()
 
