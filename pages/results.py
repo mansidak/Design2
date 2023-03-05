@@ -88,6 +88,7 @@ st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 def main(user: object):
     st.write(f"You're logged in as {st.session_state['user']['email']}")
+    st.write(auth.get_account_info(user['idToken']))
     set_code(code=user['refreshToken'])
     unique_results = set(st.session_state['FinalResults'])
     with st.sidebar:
