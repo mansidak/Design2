@@ -432,9 +432,11 @@ if __name__ == "__main__":
             f"<h6 style='text-align: center;  font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight:lighter'> </h6>",
             unsafe_allow_html=True)
         holder = st.empty()
+
         ResumePDF = holder.file_uploader(
             ''
         )
+
 
 
         # @st.cache(show_spinner=False)
@@ -445,6 +447,11 @@ if __name__ == "__main__":
             pageObj = pdfReader.pages[0]
             resumeContent = pageObj.extract_text()
             pdf_file.close()
+            firebase = pyrebase.initialize_app(firebaseconfig)
+            AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+            localId = AccountInfo["localId"]
+            db = firebase.database()
+            FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
             return resumeContent
 
 
