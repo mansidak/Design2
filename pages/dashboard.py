@@ -35,19 +35,13 @@ for key, value in SavedResults.items():
     # st.write(key)
     # st.write(value)
     company_name = value['Company Name']
-    st.write(company_name)
     Full_Description = value['Full Description']
-    st.write(Full_Description)
     Link = value['Link']
-    st.write(Link)
     Location = value['Location']
-    st.write(Location)
     Short_Summary = value['Short Summary']
-    st.write(Short_Summary)
     Skills = value['Skills']
-    st.write(Skills)
     Title = value['Title']
-    st.write(Title)
+
 
     with st.expander(f"{Location}"):
         st.markdown(f"[Apply]({Link})")
