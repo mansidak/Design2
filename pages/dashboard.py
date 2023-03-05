@@ -29,7 +29,7 @@ db = firebase.database()
 user = st.session_state['user']
 
 SavedResults = db.child("users").child(str(user["localId"])).child("Jobs").get().val()
-st.write(SavedResults)
+# st.write(SavedResults)
 
 for key, value in SavedResults.items():
     st.write(key)
