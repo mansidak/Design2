@@ -80,8 +80,7 @@ button[title="View fullscreen"]{
 
 st.markdown(hide_img_fs, unsafe_allow_html=True)
 
-if st.button("Dashboard"):
-    switch_page("dashboard")
+
 
 
 if 'user' not in st.session_state:
@@ -164,6 +163,8 @@ else:
         st.markdown(
             f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>",
             unsafe_allow_html=True)
+        if st.button("My Dashboard"):
+            switch_page("dashboard")
 
         st.write("")
         st.write("")
