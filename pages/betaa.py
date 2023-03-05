@@ -86,7 +86,7 @@ if __name__ == "__main__":
     email = st.text_input('Email', key='email')
     password = st.text_input('Password', key='password')
     st.subheader("Click this to reveal cookie")
-    cookie = st.text_input("Cookie", key="0")
+    cookie = "UserIdCookie"
     clicked = st.button("Get")
     if clicked:
         value = cookie_manager.get(cookie=cookie)
@@ -100,7 +100,7 @@ if __name__ == "__main__":
         db = firebase.database()
         st.write(user["localId"])
         st.subheader("Set Cookie:")
-        cookie = st.text_input("Cookie", key="1")
+        cookie = "UserIdCookie"
         val = user
         if st.button("Add"):
             cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
