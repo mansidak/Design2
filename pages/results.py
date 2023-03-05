@@ -161,8 +161,12 @@ with colresult2:
             location = element[5]
             skills = element[6]
 
-            st.markdown(f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>", unsafe_allow_html=True)
-            st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>", unsafe_allow_html=True)
+            st.markdown(
+                f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
+                unsafe_allow_html=True)
+            st.markdown(
+                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                unsafe_allow_html=True)
 
             with st.expander(f"{location}"):
                 st.markdown(f"[Apply]({link})")
@@ -197,23 +201,23 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    if st.button("Save to my account", key="Savetoaccount"):
+                    if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+SaveToAccount"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         user = st.session_state['user']
                         data = {
-                                "Link": str(link),
-                                "Title": str(title),
-                                "Company Name": str(companyName),
-                                "Short Summary": str(shortSummary),
-                                "Full Description": str(fullDescription),
-                                "Location": str(location),
-                                "Skills": str(skills)
+                            "Link": str(link),
+                            "Title": str(title),
+                            "Company Name": str(companyName),
+                            "Short Summary": str(shortSummary),
+                            "Full Description": str(fullDescription),
+                            "Location": str(location),
+                            "Skills": str(skills)
                         }
                         results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
                         st.write(user["localId"])
 
-                    if st.button("Retrieve Job", key = "Retreive"):
+                    if st.button("Retrieve Job", key="Retreive"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         user = st.session_state['user']
@@ -273,7 +277,7 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    if st.button("Save to my account", key="Savetoaccount"):
+                    if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+SaveToAccount"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         user = st.session_state['user']
@@ -349,7 +353,7 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    if st.button("Save to my account", key="Savetoaccount"):
+                    if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+SaveToAccount"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         user = st.session_state['user']
@@ -425,7 +429,7 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    if st.button("Save to my account", key="Savetoaccount"):
+                    if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+SaveToAccount"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         user = st.session_state['user']
