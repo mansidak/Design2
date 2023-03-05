@@ -197,7 +197,7 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                    if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         user = st.session_state['user']
@@ -273,7 +273,7 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                    if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         user = st.session_state['user']
@@ -343,7 +343,7 @@ with colresult2:
                         st.download_button('Download Cover Letter', cover_letter_file)
 
                 with col2:
-                    if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                    if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         user = st.session_state['user']
@@ -385,7 +385,7 @@ with colresult2:
                     f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                     unsafe_allow_html=True)
             with col2mark:
-                if st.button("Save to my account", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                     firebase = pyrebase.initialize_app(firebaseconfig)
                     db = firebase.database()
                     user = st.session_state['user']
