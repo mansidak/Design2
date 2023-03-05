@@ -73,28 +73,28 @@ if __name__ == "__main__":
         "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
     }
 
-    email = st.text_input('Email', key='email')
-    password = st.text_input('Password', key='password')
-
-    if st.button("Create New Account", key="NewAccount"):
-        firebase = pyrebase.initialize_app(firebaseconfig)
-        auth = firebase.auth()
-        user = auth.create_user_with_email_and_password(email=email, password=password)
-        st.session_state['user'] = user
-        db = firebase.database()
-
-    if st.button("Login", key="login"):
-        firebase = pyrebase.initialize_app(firebaseconfig)
-        auth = firebase.auth()
-        user = auth.sign_in_with_email_and_password(email=email, password=password)
-        st.session_state['user'] = user
-        db = firebase.database()
-        st.write(user["localId"])
-
-
-    if st.button("Reveal ID", key = "dumb"):
-        st.write(st.session_state['user']["localId"])
-        switch_page("dashboard")
+    # email = st.text_input('Email', key='email')
+    # password = st.text_input('Password', key='password')
+    #
+    # if st.button("Create New Account", key="NewAccount"):
+    #     firebase = pyrebase.initialize_app(firebaseconfig)
+    #     auth = firebase.auth()
+    #     user = auth.create_user_with_email_and_password(email=email, password=password)
+    #     st.session_state['user'] = user
+    #     db = firebase.database()
+    #
+    # if st.button("Login", key="login"):
+    #     firebase = pyrebase.initialize_app(firebaseconfig)
+    #     auth = firebase.auth()
+    #     user = auth.sign_in_with_email_and_password(email=email, password=password)
+    #     st.session_state['user'] = user
+    #     db = firebase.database()
+    #     st.write(user["localId"])
+    #
+    #
+    # if st.button("Reveal ID", key = "dumb"):
+    #     st.write(st.session_state['user']["localId"])
+    #     switch_page("dashboard")
 
     hide_streamlit_style = """
                   <style>
@@ -859,14 +859,28 @@ text-align: center;
             print(threading.enumerate())
             st.write(threading.enumerate())
 
-            # combinations = set()
-            # for list in result11:
-            #     if tuple((list[1], list[2])) not in combinations:
-            #         combinations.add(tuple((list[1], list[2])))
-            #         st.write(list)
-
             st.session_state["FinalResults"] = links1 + links2 + links3
 
-
-            # executor.shutdown()
+            if 'user' not in st.session_state:
+                st.subheader("One last thing...")
+                with st.expander("Create a dashboard to save the jobs you're about to see"):
+                    email = st.text_input('Email', key='email')
+                    password = st.text_input('Password', key='password')
+                    col1Signup, col2Signup = st.columns([1, 1])
+                    with col1Signup:
+                        if st.button("Create New Account", key="NewAccount"):
+                            firebase = pyrebase.initialize_app(firebaseconfig)
+                            auth = firebase.auth()
+                            user = auth.create_user_with_email_and_password(email=email, password=password)
+                            st.session_state['user'] = user
+                            db = firebase.database()
+                            st.write("Account created. Hit Log in!")
+                    with col2Signup:
+                        if st.button("Login", key="login"):
+                            firebase = pyrebase.initialize_app(firebaseconfig)
+                            auth = firebase.auth()
+                            user = auth.sign_in_with_email_and_password(email=email, password=password)
+                            st.session_state['user'] = user
+                            db = firebase.database()
+                            switch_page("dashboard")
             switch_page("results")
