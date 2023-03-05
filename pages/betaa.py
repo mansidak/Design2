@@ -869,6 +869,8 @@ def login_form(auth):
             st.experimental_rerun()
         except requests.HTTPError as exception:
             st.write(exception)
+    if st.button("Forgot Password"):
+        auth.send_password_reset_email("email")
 
 
 def logout():
