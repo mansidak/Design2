@@ -65,12 +65,12 @@ firebaseconfig = {
     "measurementId": "G-N3TMC7M1WT",
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
+st.set_page_config(page_title="19th Street", page_icon='⓵⓽', initial_sidebar_state='collapsed')
+
 if __name__ == "__main__":
     def main(user: object):
         st.write(f"You're logged in as {st.session_state['user']['email']}")
         set_code(code=user['refreshToken'])
-        st.set_page_config(page_title="19th Street", page_icon='⓵⓽',
-                           initial_sidebar_state='collapsed')
         # print(threading.enumerate())
         # st.write(threading.enumerate())
 
