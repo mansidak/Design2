@@ -10,7 +10,6 @@ import pdfkit
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
 import pyrebase
-from st_btn_select import st_btn_select
 
 import requests
 import os
@@ -87,26 +86,8 @@ st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     def main(user: object):
-        page = st_btn_select(
-            # The different pages
-            ('Dashboard', 'Search', 'Resume Builder', 'Contact'),
-            # Enable navbar
-            nav=True,
-            # You can pass a formatting function. Here we capitalize the options
-            format_func=lambda name: name.capitalize(),
-        )
-
-        # Display the right things according to the page
-        if page == 'Dashboard':
-            switch_page("dashboard")
-        if page == 'Search':
-            switch_page("betaa")
-        if page == 'Resume Builder':
-            switch_page("preresumebuilder")
-
-
-
         st.write(f"You're logged in as {st.session_state['user']['email']}")
+
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         localId = AccountInfo["localId"]
         set_code(code=user['refreshToken'])
