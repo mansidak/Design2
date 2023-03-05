@@ -205,7 +205,7 @@ with colresult2:
                         db = firebase.database()
                         user = st.session_state['user']
                         data = {
-                            str(title) : {
+
                                 "Link": str(link),
                                 "Title": str(title),
                                 "Company Name": str(companyName),
@@ -213,7 +213,7 @@ with colresult2:
                                 "Full Description": str(fullDescription),
                                 "Location": str(location),
                                 "Skills": str(skills)
-                            }
+
                         }
                         results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
                         st.write(user["localId"])
