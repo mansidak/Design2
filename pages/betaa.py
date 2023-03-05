@@ -88,7 +88,7 @@ if __name__ == "__main__":
     cookie = "UserIdCookie"
     value = cookie_manager.get(cookie=cookie)
     st.write(value)
-    st.write(f"You're logged in as {value['email']}")
+    # st.write(f"You're logged in as {value['email']}")
 
     if st.button("Login", key="login"):
         firebase = pyrebase.initialize_app(firebaseconfig)
