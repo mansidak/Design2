@@ -385,7 +385,8 @@ with colresult2:
                     f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                     unsafe_allow_html=True)
             with col2mark:
-                if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                Save = st.empty()
+                if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                     firebase = pyrebase.initialize_app(firebaseconfig)
                     db = firebase.database()
                     user = st.session_state['user']
@@ -400,6 +401,7 @@ with colresult2:
                     }
                     results = db.child("users").child(str(user["localId"])).child("Jobs").push(data)
                     st.write(user["localId"])
+                    Save.empty()
 
             with st.expander(f"{location}"):
                 st.markdown(f"[Apply]({link})")
