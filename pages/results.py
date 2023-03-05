@@ -161,12 +161,8 @@ with colresult2:
             location = element[5]
             skills = element[6]
 
-            st.markdown(
-                f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-                unsafe_allow_html=True)
-            st.markdown(
-                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-                unsafe_allow_html=True)
+            st.markdown(f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>", unsafe_allow_html=True)
+            st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>", unsafe_allow_html=True)
 
             with st.expander(f"{location}"):
                 st.markdown(f"[Apply]({link})")
@@ -435,23 +431,6 @@ with colresult2:
         if st.button("Not Satisfied? Run Again"):
             switch_page("betaa")
 
-        data = {}
-        for list in unique_results:
-            data[list[0]] = {
-                'title': list[1],
-                'companyName': list[2],
-                'shortSummary': list[3],
-                'fullDescription': list[4],
-                'location': list[5],
-                'skills': list[6]
-            }
-
-        if st.button("Save to my account", key="Savetoaccount"):
-            firebase = pyrebase.initialize_app(firebaseconfig)
-            db = firebase.database()
-            user = st.session_state['user']
-            results = db.child("users").child(str(user["localId"])).child("Jobs").set(data)
-            st.write(user["localId"])
 
 
 
