@@ -10,6 +10,8 @@ from jinja2 import Environment, FileSystemLoader
 import pandas as pd
 import pyrebase
 from st_btn_select import st_btn_select
+import extra_streamlit_components as stx
+import datetime
 
 import requests
 import os
@@ -174,8 +176,19 @@ if __name__ == "__main__":
         with colresult3:
             st.write("")
 
+
+@st.cache(allow_output_mutation=True)
+def get_manager():
+    return stx.CookieManager()
+
+cookie_manager = get_manager()
 def set_code(code: str):
     st.experimental_set_query_params(code=code)
+    cookie = "queryParamCode"
+    val = code
+    if st.button("Add"):
+        cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
+
 
 
 col1form, col2form, col3form = st.columns([0.25, 1, 0.25])
@@ -255,7 +268,10 @@ if "user" not in st.session_state:
 
 if st.session_state['user'] is None:
     try:
-        code = st.experimental_get_query_params()['code'][0]
+        # code = st.experimental_get_query_params()['code'][0]
+        code = cookie_manager.get(cookie="queryParamCode")
+
+
 
         refreshToken = refresh_session_token(auth=auth, code=code)
 
