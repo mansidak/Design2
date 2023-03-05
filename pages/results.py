@@ -68,7 +68,17 @@ hide_streamlit_style = """
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+hide_img_fs = '''
+<style>
+button[title="View fullscreen"]{
+    visibility: hidden;}
+    ul.streamlit-expander {
+            border: 0 None !important;
+            }
+</style>
+'''
 
+st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 if st.button("Dashboard"):
     switch_page("dashboard")
@@ -131,17 +141,30 @@ with colresult2:
         f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>",
         unsafe_allow_html=True)
 
-    hide_img_fs = '''
-    <style>
-    button[title="View fullscreen"]{
-        visibility: hidden;}
-        ul.streamlit-expander {
-                border: 0 None !important;
-                }
-    </style>
-    '''
+    st.markdown(
+        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Create a dashboard to save the jobs your like</h6>",
+        unsafe_allow_html=True)
+    with st.expander("Create a dashboard to save the jobs you like"):
+        email = st.text_input('Email', key='email')
+        password = st.text_input('Password', key='password')
+        col1Signup, col2Signup = st.columns([1,1])
+        with col1Signup:
+            if st.button("Create New Account", key="NewAccount"):
+                firebase = pyrebase.initialize_app(firebaseconfig)
+                auth = firebase.auth()
+                user = auth.create_user_with_email_and_password(email=email, password=password)
+                st.session_state['user'] = user
+                db = firebase.database()
+        with col2Signup:
+            if st.button("Login", key="login"):
+                firebase = pyrebase.initialize_app(firebaseconfig)
+                auth = firebase.auth()
+                user = auth.sign_in_with_email_and_password(email=email, password=password)
+                st.session_state['user'] = user
+                db = firebase.database()
+                switch_page("dashboard")
 
-    st.markdown(hide_img_fs, unsafe_allow_html=True)
+
 
     st.write("")
     st.write("")
@@ -149,6 +172,11 @@ with colresult2:
     st.write("")
     st.write("")
     st.write("")
+
+
+
+
+
 
     # unique_results = set(st.session_state['FinalResults'])
     for element in unique_results:
