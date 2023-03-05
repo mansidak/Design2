@@ -42,7 +42,12 @@ for key, value in SavedResults.items():
     Skills = value['Skills']
     Title = value['Title']
 
-
+    st.markdown(
+        f"<a href='{Link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
+        unsafe_allow_html=True)
+    st.markdown(
+        f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
+        unsafe_allow_html=True)
     with st.expander(f"{Location}"):
         st.markdown(f"[Apply]({Link})")
         st.write(f"{Short_Summary}")
