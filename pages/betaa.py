@@ -106,9 +106,9 @@ if __name__ == "__main__":
 
 
 
-    if st.button("Reveal ID", key = "dumb"):
-        st.write(st.session_state['user']["localId"])
-        switch_page("dashboard")
+    # if st.button("Reveal ID", key = "dumb"):
+    #     st.write(st.session_state['user']["localId"])
+    #     switch_page("dashboard")
 
     hide_streamlit_style = """
                   <style>
