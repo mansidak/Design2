@@ -27,4 +27,19 @@ firebaseconfig = {
 firebase = pyrebase.initialize_app(firebaseconfig)
 db = firebase.database()
 user = st.session_state['user']
-st.write(db.child("users").child(str(user["localId"])).child("Jobs").get().val())
+SavedResults = db.child("users").child(str(user["localId"])).child("Jobs").get().val()
+
+for item in SavedResults:
+    for key in item.keys():
+        company_name = item[key]["Company Name"]
+        link = item[key]["Link"]
+        location = item[key]["Location"]
+        short_summary = item[key]["Short Summary"]
+        skills = item[key]["Skills"]
+        title = item[key]["Title"]
+        st.write(company_name)
+        st.write(link)
+        st.write(location)
+        st.write(short_summary)
+        st.write(skills)
+        st.write(title)
