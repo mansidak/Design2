@@ -15,8 +15,10 @@ from concurrent.futures import ThreadPoolExecutor
 import PyPDF2
 from docx import Document
 import openai
+import datetime
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
+import extra_streamlit_components as stx
 import psutil
 from streamlit.components.v1 import html
 import pyrebase
@@ -73,15 +75,23 @@ if __name__ == "__main__":
         "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
     }
 
+
+    @st.cache(allow_output_mutation=True)
+    def get_manager():
+        return stx.CookieManager()
+
+
+    cookie_manager = get_manager()
+
     email = st.text_input('Email', key='email')
     password = st.text_input('Password', key='password')
+    st.subheader("Get Cookie:")
 
-    if st.button("Create New Account", key="NewAccount"):
-        firebase = pyrebase.initialize_app(firebaseconfig)
-        auth = firebase.auth()
-        user = auth.create_user_with_email_and_password(email=email, password=password)
-        st.session_state['user'] = user
-        db = firebase.database()
+    cookie = st.text_input("Cookie", key="0")
+    clicked = st.button("Get")
+    if clicked:
+        value = cookie_manager.get(cookie=cookie)
+        st.write(value)
 
     if st.button("Login", key="login"):
         firebase = pyrebase.initialize_app(firebaseconfig)
@@ -90,6 +100,10 @@ if __name__ == "__main__":
         st.session_state['user'] = user
         db = firebase.database()
         st.write(user["localId"])
+        cookie = st.text_input("Cookie", key="user")
+        val = user
+        cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
+
 
 
     if st.button("Reveal ID", key = "dumb"):
