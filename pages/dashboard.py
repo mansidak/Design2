@@ -85,7 +85,6 @@ firebaseconfig = {
 
 firebase = pyrebase.initialize_app(firebaseconfig)
 db = firebase.database()
-user = st.session_state['user']
 
 if 'user' not in st.session_state:
     st.subheader("One last thing...")
@@ -111,6 +110,7 @@ if 'user' not in st.session_state:
                 switch_page("results")
 
 else:
+    user = st.session_state['user']
     SavedResults = db.child("users").child(str(user["localId"])).child("Jobs").get().val()
     unique_links = {}
     for key, value in SavedResults.items():

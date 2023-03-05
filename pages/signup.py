@@ -11,6 +11,7 @@ import pdfkit
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
 import pyrebase
+import requests
 import os
 
 firebaseconfig = {
@@ -24,26 +25,85 @@ firebaseconfig = {
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
 
+def main(user: object):
+    st.write(f"You're logged in as {st.session_state['user']['email']}")
 
-st.subheader("One last thing...")
-with st.expander("Create a dashboard to save the jobs you're about to see"):
-    email = st.text_input('Email', key='email', placeholder="Email")
-    password = st.text_input('Password', key='password', placeholder="Email")
-    col1Signup, col2Signup = st.columns([1, 1])
-    with col1Signup:
-        if st.button("Create New Account", key="NewAccount"):
-            firebase = pyrebase.initialize_app(firebaseconfig)
-            auth = firebase.auth()
-            auth.create_user_with_email_and_password(email=email, password=password)
-            user = auth.sign_in_with_email_and_password(email=email, password=password)
+    set_code(code=user['refreshToken'])
+
+    st.write("Hello World")
+
+
+
+def set_code(code: str):
+    st.experimental_set_query_params(code=code)
+
+
+def login_form(auth):
+    email = st.text_input(
+        label="email", placeholder="fullname@gmail.com")
+    password = st.text_input(
+        label="password", placeholder="password", type="password")
+
+    if st.button("login"):
+        try:
+            user = auth.sign_in_with_email_and_password(email, password)
             st.session_state['user'] = user
-            db = firebase.database()
-            switch_page("results")
-    with col2Signup:
-        if st.button("Login", key="login"):
-            firebase = pyrebase.initialize_app(firebaseconfig)
-            auth = firebase.auth()
-            user = auth.sign_in_with_email_and_password(email=email, password=password)
-            st.session_state['user'] = user
-            db = firebase.database()
-            switch_page("results")
+            st.experimental_rerun()
+        except requests.HTTPError as exception:
+            st.write(exception)
+
+
+def logout():
+    del st.session_state['user']
+    st.experimental_set_query_params(code="/logout")
+
+
+def get_user_token(auth, refreshToken: object):
+    user = auth.get_account_info(refreshToken['idToken'])
+
+    user = {
+        "email": user['users'][0]['email'],
+        "refreshToken": refreshToken['refreshToken'],
+        "idToken": refreshToken['idToken']
+    }
+
+    st.session_state['user'] = user
+
+    return user
+
+
+def refresh_session_token(auth, code: str):
+    try:
+        return auth.refresh(code)
+    except:
+        return "fail to refresh"
+
+
+
+firebase = pyrebase.initialize_app(firebaseconfig)
+
+auth = firebase.auth()
+
+
+# authentification
+if "user" not in st.session_state:
+    st.session_state['user'] = None
+
+if st.session_state['user'] is None:
+    try:
+        code = st.experimental_get_query_params()['code'][0]
+
+        refreshToken = refresh_session_token(auth=auth, code=code)
+
+        if refreshToken == 'fail to refresh':
+            raise(ValueError)
+
+        user = get_user_token(auth, refreshToken=refreshToken)
+
+        main(user=user)
+    except:
+        st.title("Login")
+        login_form(auth)
+
+else:
+    main(user=st.session_state['user'])
