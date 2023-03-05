@@ -55,6 +55,16 @@ def show_selenium_log():
 
 openai.api_key = os.environ.get("openai_api_key")
 
+firebaseconfig = {
+    "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
+    "authDomain": "nineteenth-street.firebaseapp.com",
+    "projectId": "nineteenth-street",
+    "storageBucket": "nineteenth-street.appspot.com",
+    "messagingSenderId": "964724806859",
+    "appId": "1:964724806859:web:010841fc337f30b50cb74e",
+    "measurementId": "G-N3TMC7M1WT",
+    "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
+}
 if __name__ == "__main__":
     def main(user: object):
         st.write(f"You're logged in as {st.session_state['user']['email']}")
@@ -64,16 +74,6 @@ if __name__ == "__main__":
         # print(threading.enumerate())
         # st.write(threading.enumerate())
 
-        firebaseconfig = {
-            "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
-            "authDomain": "nineteenth-street.firebaseapp.com",
-            "projectId": "nineteenth-street",
-            "storageBucket": "nineteenth-street.appspot.com",
-            "messagingSenderId": "964724806859",
-            "appId": "1:964724806859:web:010841fc337f30b50cb74e",
-            "measurementId": "G-N3TMC7M1WT",
-            "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
-        }
 
         hide_streamlit_style = """
                       <style>
