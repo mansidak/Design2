@@ -127,7 +127,7 @@ if __name__ == "__main__":
         st.subheader("Set Cookie:")
         cookie = st.text_input("Cookie", key="not1")
         val = st.text_input("Value", value=user.type())
-        if st.button("Add"):
+        if st.button("Add", key ="notadd"):
             cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
