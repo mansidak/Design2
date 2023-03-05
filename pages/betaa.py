@@ -81,6 +81,11 @@ if __name__ == "__main__":
         return stx.CookieManager()
     cookie_manager = get_manager()
 
+    st.subheader("All Cookies:")
+    cookies = cookie_manager.get_all()
+    st.write(cookies)
+
+
     c1, c2, c3 = st.columns(3)
 
     with c1:
