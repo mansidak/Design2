@@ -154,8 +154,8 @@ if __name__ == "__main__":
         with coldash1:
             st.write("")
         with coldash2:
-            selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
-                               default_index=3, orientation="horizontal",menu_icon= "cast",
+            selected2 = option_menu("Main Menu", ["Home", "Search", "Build", 'Dashboard'],
+                               default_index=3, orientation="horizontal",
                                 styles={
                                         "container": {"padding": "0!important", "background-color": "#0f0f0f"},
                                         "icon": {"height": "0px"},
