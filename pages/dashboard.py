@@ -193,7 +193,7 @@ if __name__ == "__main__":
         with colResume2:
 
             st.write(f"You're logged in as {st.session_state['user']['email']}")
-            st.markdown(f"<h5 style='text-align: center; color: red;'>You're logged in as {st.session_state['user']['email']}</h5>", unsafe_allow_html=True)
+            st.markdown(f"<h5 style='text-align:center; font-weight:lighter;'>You're logged in as {st.session_state['user']['email']}</h5>", unsafe_allow_html=True)
 
             if FirebaseResumeContent:
                 if st.button("Delete Resume on File"):
