@@ -157,12 +157,9 @@ if __name__ == "__main__":
         st.markdown("""
         <style>
 
-        div[class='menu']{
-               margin-top:-40px;
-              }
              
         .css-1uhah0b.e8zbici2{
-        z-index:0;
+        z-index:1;
         }
         </style>
         """, unsafe_allow_html=True)
