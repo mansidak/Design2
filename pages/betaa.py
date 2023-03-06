@@ -68,7 +68,7 @@ firebaseconfig = {
     "measurementId": "G-N3TMC7M1WT",
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
-st.set_page_config(page_title="19th Street", page_icon='⓵⓽', initial_sidebar_state='collapsed')
+st.set_page_config(page_title="19th Street", page_icon='⓵⓽', initial_sidebar_state='collapsed', layout="wide")
 
 if __name__ == "__main__":
     def main(user: object):
