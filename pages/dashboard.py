@@ -222,6 +222,10 @@ if __name__ == "__main__":
               display: inline-block;
               font-size: 16px;
             }
+            
+            .e1fb0mya1.css-fblp2m.ex0cdmw0{
+            filter:invert(1)
+            }
         </style>
         """, unsafe_allow_html=True)
 
