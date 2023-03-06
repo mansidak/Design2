@@ -162,7 +162,7 @@ if __name__ == "__main__":
         st.markdown("""
         <style>
         .menu{
-         margin-top:-100px
+         margin-top:200px
              }
         </style>
         """, unsafe_allow_html=True)
