@@ -150,7 +150,7 @@ if __name__ == "__main__":
                                 menu_icon="cast", default_index=3, orientation="horizontal",
                                 styles={
                                     "container": {"padding": "0!important", "background-color": "#eeeee"},
-                                    "nav-link": {"font-size": "16px", "text-align": "center", "margin": "0px","--hover-color": "#eee"},
+                                    "nav-link": {"font-size": "16px", "text-align": "center", "margin": "20px","--hover-color": "#eee"},
                                     "nav-link-selected": {"background-color": "#eeeeee"},
                                 }
                                 )
