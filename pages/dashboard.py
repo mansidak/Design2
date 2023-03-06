@@ -174,7 +174,7 @@ if __name__ == "__main__":
                                         "icon": {"color": "orange", "font-size": "25px"},
                                         "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
                                                      "--hover-color": "#eee"},
-                                        "nav-link-selected": {"font-weight": "bold"},
+                                        "nav-link-selected": {"font-weight": "bold", "background-color":"#eeeeee"},
                                     })
 
         selected2
