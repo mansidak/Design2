@@ -158,6 +158,14 @@ if __name__ == "__main__":
                                     "nav-link-selected": {"background-color": "#fefefe"},
                                 }
                                 )
+
+        st.markdown("""
+        <style>
+        .menu{
+         margin-top:-100px
+             }
+        </style>
+        """, unsafe_allow_html=True)
         if selected2 == "Home":
             switch_page(" ")
         if selected2 == "Search":
