@@ -164,6 +164,10 @@ if __name__ == "__main__":
         .element-container.css-l1olm9.e1tzin5v3{
          margin-top:-20px
              }
+        .css-1uhah0b.e8zbici2{
+        visibility:hidden;
+        height:0
+        }
         </style>
         """, unsafe_allow_html=True)
         if selected2 == "Home":
