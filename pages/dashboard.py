@@ -204,7 +204,7 @@ if __name__ == "__main__":
                     f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
                     unsafe_allow_html=True)
                 st.markdown(
-                    f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
+                    f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px; color:black'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
                     unsafe_allow_html=True)
                 with st.expander(f"{Location}"):
                     st.markdown(f"[Apply]({Link})")
