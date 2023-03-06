@@ -194,7 +194,7 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        div[data-testid="stHorizontalBlock"]:nth-child(1) {
+        div[class="container-xxl"]{
                         margin-top:-60px;
                         }
         
