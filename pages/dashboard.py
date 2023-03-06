@@ -205,7 +205,8 @@ if __name__ == "__main__":
             background-color:#eeeeee;
             min-width:100%;
             min-height:100%;
-            position:fixed
+            position:fixed;
+            z-index:1;
             }
        
           .dark{
