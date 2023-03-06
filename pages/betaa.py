@@ -27,39 +27,6 @@ import psutil
 from streamlit.components.v1 import html
 import pyrebase
 
-css = """
-.uploadedFiles {
-    display: none;
-}
-"""
-
-options = Options()
-options.add_argument("--headless")
-options.add_argument(
-    "user-agent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument("--disable-gpu")
-options.add_argument("--disable-features=NetworkService")
-options.add_argument("--window-size=1920x1080")
-options.add_argument("--disable-features=VizDisplayCompositor")
-options.add_argument('--ignore-certificate-errors')
-
-
-def delete_selenium_log():
-    if os.path.exists('selenium.log'):
-        os.remove('selenium.log')
-
-
-def show_selenium_log():
-    if os.path.exists('selenium.log'):
-        with open('selenium.log') as f:
-            content = f.read()
-            st.code(content)
-
-
-openai.api_key = os.environ.get("openai_api_key")
-
 firebaseconfig = {
     "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
     "authDomain": "nineteenth-street.firebaseapp.com",
@@ -145,6 +112,36 @@ if __name__ == "__main__":
                     }
                 </style>
                 """, unsafe_allow_html=True)
+
+        css = """
+        .uploadedFiles {
+            display: none;
+        }
+        """
+
+        options = Options()
+        options.add_argument("--headless")
+        options.add_argument(
+            "user-agent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-features=NetworkService")
+        options.add_argument("--window-size=1920x1080")
+        options.add_argument("--disable-features=VizDisplayCompositor")
+        options.add_argument('--ignore-certificate-errors')
+
+        def delete_selenium_log():
+            if os.path.exists('selenium.log'):
+                os.remove('selenium.log')
+
+        def show_selenium_log():
+            if os.path.exists('selenium.log'):
+                with open('selenium.log') as f:
+                    content = f.read()
+                    st.code(content)
+
+        openai.api_key = os.environ.get("openai_api_key")
 
         colmain1, colmain2, colmain3 = st.columns([0.5, 1, 0.5])
         with colmain1:
