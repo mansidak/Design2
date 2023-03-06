@@ -212,7 +212,8 @@ if __name__ == "__main__":
                     if st.button("Run New Search"):
                         switch_page("betaa")
             else:
-                st.write("Upload a new resume")
+                st.markdown(f"<h6 style='text-align:center; font-weight:lighter;color:black'>Upload new resume/h6>",
+                            unsafe_allow_html=True)
                 ResumePDF = st.file_uploader(
                     ''
                 )
