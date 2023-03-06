@@ -168,11 +168,14 @@ if __name__ == "__main__":
             #     if st.button("My Dashboard", key="My_Dashboard"):
             #         switch_page("dashboard")
             selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
-                                icons=['house', 'cloud-upload', "list-task", 'gear'],
                                 menu_icon="cast", default_index=0, orientation="horizontal",
                                 styles={
-                                    "nav-link": {"margin-top": "0px"},
-                                })
+                                        "container": {"padding": "0!important", "background-color": "#eeeeee"},
+                                        "icon": {"color": "orange", "font-size": "25px"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
+                                                     "--hover-color": "#eee"},
+                                        "nav-link-selected": {"background-color": "#F63366"},
+                                    })
 
         selected2
 
