@@ -194,7 +194,7 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        div[class="container-xxl"]{
+        .container-xxl{
                         margin-top:-60px;
                         }
         
