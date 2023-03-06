@@ -194,7 +194,9 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        iframe * {
+
+                        
+        iframe[title="streamlit_option_menu.option_menu"]{
         margin-top:-60px;
         }
         
