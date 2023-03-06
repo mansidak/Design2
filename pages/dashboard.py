@@ -194,7 +194,7 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        div[data-testid="stHorizontalBlock"]> div:first-child {
+        div[data-testid="stHorizontalBlock"]> div:second-child {
                         margin-top:-60px;
                         }
         
