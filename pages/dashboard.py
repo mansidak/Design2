@@ -147,9 +147,16 @@ if __name__ == "__main__":
     def main(user: object):
         selected2 = option_menu(None, ["Home", "Search", "Resume Builder", 'Dashboard'],
                                 icons=['house', 'cloud-upload', "list-task", 'gear'],
-                                menu_icon="cast", default_index=3, orientation="horizontal")
+                                menu_icon="cast", default_index=0, orientation="horizontal",
+                                styles={
+                                    "container": {"padding": "0!important", "background-color": "#eeeeee"},
+                                    "nav-link": {"font-size": "25px", "text-align": "left", "margin": "0px",
+                                                 "--hover-color": "#eee"},
+                                    "nav-link-selected": {"background-color": "green"},
+                                }
+                                )
         if selected2 == "Home":
-            switch_page("")
+            switch_page(" ")
         if selected2 == "Search":
             switch_page("betaa")
         if selected2 == "Resume Builder":
