@@ -12,9 +12,34 @@ import pyrebase
 from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
 import datetime
-
 import requests
 import os
+import random
+import gc
+import streamlit as st
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+import time
+import requests
+import re
+import threading
+from multiprocessing import Pool
+from concurrent.futures import ThreadPoolExecutor
+import PyPDF2
+from docx import Document
+import openai
+from PIL import Image
+from st_btn_select import st_btn_select
+import datetime
+import extra_streamlit_components as stx
+from streamlit_extras.switch_page_button import switch_page
+import psutil
+from streamlit.components.v1 import html
+import pyrebase
+
 
 st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
 hide_menu_style = """
@@ -117,6 +142,21 @@ if __name__ == "__main__":
                 db.child("users").child(str(localId)).child("Resume").remove()
         else:
             st.write("You don't have a resume on file. Please upload one if you wish to generate a cover letter")
+            ResumePDF = st.file_uploader(
+                ''
+            )
+
+            if ResumePDF is not None:
+                pdfReader = PyPDF2.PdfReader(ResumePDF)
+                print(len(pdfReader.pages))
+                pageObj = pdfReader.pages[0]
+                resumeContent = pageObj.extract_text()
+                ResumePDF.close()
+                firebase = pyrebase.initialize_app(firebaseconfig)
+                AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+                localId = AccountInfo["localId"]
+                db = firebase.database()
+                FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
         SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
         unique_links = {}
         for key, value in SavedResults.items():
