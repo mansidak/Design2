@@ -173,9 +173,22 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     def main(user: object):
-        # st.subheader("All Cookies:")
-        # cookies = cookie_manager.get_all()
-        # st.write(cookies)
+        coldash1, coldash2 = st.columns([1, 0.1])
+        with coldash1:
+            st.write("")
+        with coldash2:
+            if st.button("Home", key="Home"):
+                switch_page("")
+        st.markdown("""
+
+          <style>
+          .row-widget.stButton{
+          margin-top: -75px;
+          margin-right: -55px;
+          }
+          </style>
+          """, unsafe_allow_html=True)
+
         st.markdown(
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: black'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
             unsafe_allow_html=True)
@@ -192,10 +205,10 @@ if __name__ == "__main__":
             st.write("")
         with colResume2:
 
-            st.write(f"You're logged in as {st.session_state['user']['email']}")
             st.markdown(f"<h5 style='text-align:center; font-weight:lighter;color:black'>You're logged in as {st.session_state['user']['email']}</h5>", unsafe_allow_html=True)
 
             if FirebaseResumeContent:
+                st.write(f"Resume on file:")
                 if st.button("Delete Resume on File"):
                     db.child("users").child(str(localId)).child("Resume").remove()
                     st.experimental_rerun()
