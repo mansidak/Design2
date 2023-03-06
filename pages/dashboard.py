@@ -192,7 +192,7 @@ if __name__ == "__main__":
         
         }
         div[data-testid="stHorizontalBlock"] {
-                        margin-top:-80px;
+                        margin-top:-60px;
                         }
         
           .dark{
