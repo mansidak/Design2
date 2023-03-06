@@ -154,11 +154,10 @@ if __name__ == "__main__":
         with coldash1:
             st.write("")
         with coldash2:
-            selected2 = option_menu("Main Menu", ["Home", "Search", "Build", 'Dashboard'],
+            selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
                                default_index=3, orientation="horizontal",
                                 styles={
                                         "container": {"padding": "0!important", "background-color": "#0f0f0f"},
-                                        "icon": {"height": "0px"},
                                         "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#0f0f0f", "color":"white","background-color": "#0f0f0f"},
                                         "nav-link-selected": {"font-weight": "bold", "background-color":"#0f0f0f", "color":"#F63366"},
                                     })
