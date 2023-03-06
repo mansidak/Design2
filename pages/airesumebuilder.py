@@ -62,8 +62,7 @@ if __name__ == "__main__":
                 switch_page("betaa")
             elif selected2 == "Dashboard":
                 switch_page("dashboard")
-            elif selected2 == "Build":
-                switch_page("PreResumeBuilder")
+
 
         with coldash3:
             st.write("")
@@ -153,6 +152,9 @@ if __name__ == "__main__":
         st.markdown(
             f"<center> <h4 style='font-family: Sans-Serif; font-weight:lighter; color: white'>Does everything look good?</h4>",
             unsafe_allow_html=True)
+
+        if st.button("Start Over"):
+            switch_page("PreResumeBuilder")
         tab1, tab2, tab3, tab4, tab5 = st.tabs(
             ["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001",
              "\u2001\u2001Skills\u2001\u2001", "\u2001\u2001Result\u2001\u2001"])
