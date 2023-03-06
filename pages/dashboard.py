@@ -223,8 +223,8 @@ if __name__ == "__main__":
               font-size: 16px;
             }
             
-            .e1fb0mya1.css-fblp2m.ex0cdmw0{
-            filter:invert(1)
+            .stMarkdownContainer{
+            color:black
             }
         </style>
         """, unsafe_allow_html=True)
