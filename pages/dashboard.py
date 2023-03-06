@@ -33,6 +33,8 @@ if __name__ == "__main__":
                  #MainMenu {visibility: hidden;}
                  .css-j7qwjs {visibility: hidden;}
                  footer {visibility: hidden;}
+                 
+                 .e1fb0mya1.css-fblp2m.ex0cdmw0 {visibility: hidden;}
                  </style>
                  """
         st.markdown(hide_menu_style, unsafe_allow_html=True)
