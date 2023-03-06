@@ -190,15 +190,17 @@ if __name__ == "__main__":
         set_code(code=user['refreshToken'])
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
+        st.markdown(
+            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: black'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
+            unsafe_allow_html=True)
+        st.markdown(
+            f"<h5 style='text-align:center; font-weight:lighter;color:black'>You're logged in as {st.session_state['user']['email']}</h5>",
+            unsafe_allow_html=True)
+
         colResume1, colResume2, colResume3 = st.columns([0.8,1,0.8])
         with colResume1:
             st.write("")
         with colResume2:
-            st.markdown(
-                f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: black'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
-                unsafe_allow_html=True)
-            st.markdown(f"<h5 style='text-align:center; font-weight:lighter;color:black'>You're logged in as {st.session_state['user']['email']}</h5>", unsafe_allow_html=True)
-
 
             if FirebaseResumeContent:
                 st.markdown(f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file: ✅</h6>",
