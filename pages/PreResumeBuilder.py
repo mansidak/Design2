@@ -5,6 +5,8 @@ from streamlit_extras.switch_page_button import switch_page
 import PyPDF2
 import datetime
 import requests
+from streamlit_option_menu import option_menu
+
 import extra_streamlit_components as stx
 from st_btn_select import st_btn_select
 import pyrebase
