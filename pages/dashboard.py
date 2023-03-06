@@ -192,6 +192,8 @@ if __name__ == "__main__":
              
         .css-1uhah0b.e8zbici2{
         z-index:1;
+        height:0;
+        visibility: hidden;
         
         }
          #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(7){
