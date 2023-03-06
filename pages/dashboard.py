@@ -100,6 +100,9 @@ hide_streamlit_style = """
                 height: 0%;
                 position: fixed;
                 }
+                .st-au {
+                border-radius:30px; 
+                }
                 
                 .css-5y9es8.exg6vvm15{
                 filter:invert(1);
