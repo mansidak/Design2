@@ -54,6 +54,12 @@ hide_streamlit_style = """
                 height: 0%;
                 position: fixed;
                 }
+                
+                 div[class="stAlert"] {
+                                visibility: hidden;
+                                height: 0%;
+                                position: fixed;
+                                }
 
                 div[class="stException"] {
                 visibility: hidden;
