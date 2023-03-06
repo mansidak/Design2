@@ -201,9 +201,14 @@ if __name__ == "__main__":
 
             if FirebaseResumeContent:
                 st.write(f"Resume on file:")
-                if st.button("Delete Resume on File"):
-                    db.child("users").child(str(localId)).child("Resume").remove()
-                    st.experimental_rerun()
+                colResumeSub1, colResumeSub2 = st.columns([ 1, 1])
+                with colResumeSub1:
+                    if st.button("Delete Resume on File"):
+                        db.child("users").child(str(localId)).child("Resume").remove()
+                        st.experimental_rerun()
+                with colResumeSub2:
+                    if st.button("Search"):
+                        switch_page("betaa")
             else:
                 st.write("You don't have a resume on file. Please upload one if you wish to generate a cover letter")
                 ResumePDF = st.file_uploader(
