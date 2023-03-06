@@ -84,6 +84,7 @@ if __name__ == "__main__":
         <style>
         .row-widget.stButton{
         margin-top: -75px;
+        margin-right: -55px;
         }
         </style>
         """, unsafe_allow_html= True)
