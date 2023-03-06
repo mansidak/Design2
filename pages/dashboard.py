@@ -129,7 +129,6 @@ if __name__ == "__main__":
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
             unsafe_allow_html=True)
 
-        st.write(f"You're logged in as {st.session_state['user']['email']}")
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
         db = firebase.database()
@@ -141,6 +140,8 @@ if __name__ == "__main__":
         with colResume1:
             st.write("")
         with colResume2:
+            st.write(f"You're logged in as {st.session_state['user']['email']}")
+
             if FirebaseResumeContent:
                 if st.button("Delete Resume on File"):
                     db.child("users").child(str(localId)).child("Resume").remove()
