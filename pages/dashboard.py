@@ -113,11 +113,10 @@ if __name__ == "__main__":
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
         if FirebaseResumeContent:
-            pass
+            if st.button("Delete Resume on File"):
+                db.child("users").child(str(localId)).child("Resume").remove()
         else:
             st.write("You don't have a resume on file. Please upload one if you wish to generate a cover letter")
-        if st.button("Delete Resume on File"):
-            db.child("users").child(str(localId)).child("Resume").remove()
         SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
         unique_links = {}
         for key, value in SavedResults.items():
