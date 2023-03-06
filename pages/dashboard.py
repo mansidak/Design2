@@ -161,6 +161,7 @@ if __name__ == "__main__":
                     localId = AccountInfo["localId"]
                     db = firebase.database()
                     FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
+                    st.experimental_rerun()
         with colResume3:
             st.write("")
 
