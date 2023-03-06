@@ -194,7 +194,7 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        div[data-testid="stVerticalBlock"]:nth-child(0){
+        div[data-testid="stVerticalBlock"]:nth-child(6){
             margin-top:-60px;
             margin-bottom:60px;
             }
