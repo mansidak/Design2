@@ -169,10 +169,9 @@ if __name__ == "__main__":
             #         switch_page("dashboard")
             selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
                                 menu_icon="cast", default_index=0, orientation="horizontal",
-                                styles={
+                                styles={"div":{"background-color": "#eeeeee"},
                                         "container": {"padding": "0!important", "background-color": "#eeeeee"},
-                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
-                                                     "--hover-color": "#eee"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#eee"},
                                         "nav-link-selected": {"font-weight": "bold", "background-color":"#eeeeee"},
                                     })
 
