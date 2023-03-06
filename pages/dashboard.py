@@ -67,7 +67,7 @@ hide_streamlit_style = """
                 width: 50%;
               }
 
-                .stApp {
+                [data-testid="stAppViewContainer"'] {
                 background-color: #eeeeee
                 }
         
