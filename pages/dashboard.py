@@ -201,11 +201,11 @@ if __name__ == "__main__":
 
             if FirebaseResumeContent:
                 colResumeSub1, colResumeSub2,colResumeSub3, colResumeSub4  = st.columns([ 0.25,1,1,0.25])
-                with colResumeSub1:
+                with colResumeSub2:
                     if st.button("Delete Resume on File"):
                         db.child("users").child(str(localId)).child("Resume").remove()
                         st.experimental_rerun()
-                with colResumeSub2:
+                with colResumeSub3:
                     if st.button("Run New Search"):
                         switch_page("betaa")
             else:
