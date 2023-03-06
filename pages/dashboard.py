@@ -202,7 +202,7 @@ if __name__ == "__main__":
             if FirebaseResumeContent:
                 colResumeSub1, colResumeSub2,colResumeSub3, colResumeSub4  = st.columns([ 0.25,1,1,0.25])
                 with colResumeSub2:
-                    if st.button("Delete Resume on File"):
+                    if st.button("Remove Resume on File"):
                         db.child("users").child(str(localId)).child("Resume").remove()
                         st.experimental_rerun()
                 with colResumeSub3:
