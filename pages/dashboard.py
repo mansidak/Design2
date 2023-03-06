@@ -172,9 +172,8 @@ if __name__ == "__main__":
                                 menu_icon="cast", default_index=0, orientation="horizontal",
                                 styles={
                                     "nav-link": {"margin-top": "0px"},
-                                    "nav-link-selected": {"background-color": "ffffff"},
                                 })
-        )
+
         selected2
 
 
