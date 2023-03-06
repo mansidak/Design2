@@ -179,15 +179,7 @@ if __name__ == "__main__":
         with coldash2:
             if st.button("Home", key="Home"):
                 switch_page("")
-        st.markdown("""
 
-          <style>
-          .row-widget.stButton{
-          margin-top: -75px;
-          margin-left: 100px;
-          }
-          </style>
-          """, unsafe_allow_html=True)
 
         st.markdown(
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: black'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
