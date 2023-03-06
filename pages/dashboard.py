@@ -171,7 +171,7 @@ if __name__ == "__main__":
                                default_index=3, orientation="horizontal",
                                 styles={
                                         "container": {"padding": "0!important", "background-color": "#0f0f0f"},
-                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#eee", "color":"black","background-color": "#eeeeee"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#eee", "color":"black","background-color": "#0f0f0f"},
                                         "nav-link-selected": {"font-weight": "bold", "background-color":"#eeeeee", "color":"black"},
                                     })
 
