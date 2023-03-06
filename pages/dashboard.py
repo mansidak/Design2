@@ -162,7 +162,7 @@ if __name__ == "__main__":
         st.markdown("""
         <style>
         .element-container.css-l1olm9.e1tzin5v3{
-         margin-top:-50px
+         margin-top:-70px
              }
         .css-1uhah0b.e8zbici2{
         visibility:hidden;
