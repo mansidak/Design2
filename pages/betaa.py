@@ -75,38 +75,76 @@ st.set_page_config(page_title="19th Street", page_icon='⓵⓽', initial_sidebar
 if __name__ == "__main__":
     def main(user: object):
 
-        coldash1, coldash2, coldash3 = st.columns([1,2,1])
+        coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
         with coldash1:
             st.write("")
         with coldash2:
-            colsubdash1, colsubdash2, colsubdash3, colsubdash4 = st.columns([1, 1, 1, 1])
-            with colsubdash1:
-                if st.button("Home", key="Home"):
-                    switch_page("/")
-            with colsubdash2:
-                if st.button("Search", key="Search"):
-                    switch_page("betaa")
-            with colsubdash3:
-                if st.button("Build Resume", key="ResumeBuilder"):
-                    switch_page("PreResumeBuilder")
-            with colsubdash4:
-                if st.button("My Dashboard", key="My_Dashboard"):
-                    switch_page("dashboard")
-        selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
-                                icons=['house', 'cloud-upload', "list-task", 'gear'],
-                                menu_icon="cast", default_index=0, orientation="horizontal")
-        selected2
+            selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
+                                    default_index=3, orientation="horizontal",
+                                    styles={
+                                        "container": {"padding": "0!important", "background-color": "#0f0f0f"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
+                                                     "--hover-color": "#0f0f0f", "color": "white",
+                                                     "background-color": "#0f0f0f"},
+                                        "nav-link-selected": {"font-weight": "bold", "background-color": "#0f0f0f",
+                                                              "color": "white"},
+                                    })
+
+            if selected2 == "Home":
+                switch_page("home")
+            elif selected2 == "Search":
+                switch_page("betaa")
+            elif selected2 == "Build":
+                switch_page("PreResumeBuilder")
+
         with coldash3:
             st.write("")
+
         st.markdown("""
-        
-        <style>
-        .row-widget.stButton{
-        margin-top: -75px;
-        margin-right: -55px;
-        }
-        </style>
-        """, unsafe_allow_html= True)
+                <style>
+
+
+                .css-1uhah0b.e8zbici2{
+                z-index:0;
+                }
+
+
+                header[data-testid="stHeader"] {
+                position: relative;
+                }
+
+
+                 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(7){
+                    margin-top:-90px;
+                    min-width:100%;
+                    position:fixed;
+                    z-index:1;
+                    }
+
+                  .dark{
+                        background-color: #eeeeee;
+                        color:black;
+                        border-color: black;
+                        }
+
+                   .dark:hover{
+                        background-color: #eeeeee;
+                        color: #F63366;
+                        border-color: #F63366;
+                        }
+
+                    .button.dark {
+                      background-color: #4CAF50; /* Green */
+                      border: none;
+                      color: white;
+                      padding: 15px 32px;
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 16px;
+                    }
+                </style>
+                """, unsafe_allow_html=True)
 
         colmain1, colmain2, colmain3 = st.columns([0.5, 1, 0.5])
         with colmain1:
