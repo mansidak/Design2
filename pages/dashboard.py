@@ -176,7 +176,7 @@ if __name__ == "__main__":
                                     })
 
             if selected2 == "Home":
-                switch_page("betaa")
+                switch_page("home")
             elif selected2 == "Search":
                 switch_page("betaa")
             elif selected2 == "Build":
