@@ -105,6 +105,9 @@ hide_streamlit_style = """
                 filter:invert(1);
                 }
 
+                .stHeader{
+                background-color: #eeeeee;
+                }
 
 
                 .css-13e20ss{
