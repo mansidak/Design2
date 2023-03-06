@@ -137,26 +137,34 @@ if __name__ == "__main__":
         set_code(code=user['refreshToken'])
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
-        if FirebaseResumeContent:
-            if st.button("Delete Resume on File"):
-                db.child("users").child(str(localId)).child("Resume").remove()
-        else:
-            st.write("You don't have a resume on file. Please upload one if you wish to generate a cover letter")
-            ResumePDF = st.file_uploader(
-                ''
-            )
 
-            if ResumePDF is not None:
-                pdfReader = PyPDF2.PdfReader(ResumePDF)
-                print(len(pdfReader.pages))
-                pageObj = pdfReader.pages[0]
-                resumeContent = pageObj.extract_text()
-                ResumePDF.close()
-                firebase = pyrebase.initialize_app(firebaseconfig)
-                AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
-                localId = AccountInfo["localId"]
-                db = firebase.database()
-                FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
+        colResume1, colResume2, colResume3 = st.columns([0.5,1,0.5]):
+        with colResume1:
+            st.write("")
+        with colResume2:
+            if FirebaseResumeContent:
+                if st.button("Delete Resume on File"):
+                    db.child("users").child(str(localId)).child("Resume").remove()
+            else:
+                st.write("You don't have a resume on file. Please upload one if you wish to generate a cover letter")
+                ResumePDF = st.file_uploader(
+                    ''
+                )
+
+                if ResumePDF is not None:
+                    pdfReader = PyPDF2.PdfReader(ResumePDF)
+                    print(len(pdfReader.pages))
+                    pageObj = pdfReader.pages[0]
+                    resumeContent = pageObj.extract_text()
+                    ResumePDF.close()
+                    firebase = pyrebase.initialize_app(firebaseconfig)
+                    AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+                    localId = AccountInfo["localId"]
+                    db = firebase.database()
+                    FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
+        with colResume3:
+            st.write("")
+
         SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
         unique_links = {}
         for key, value in SavedResults.items():
