@@ -194,11 +194,11 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        .css-ocqkz7.e1tzin5v4:nth-child(1){
-        margin-top:-60px;
-        }
-
-        
+        div[class="css-ocqkz7.e1tzin5v4"]{
+                        margin-top:-60px;
+            }
+                        
+       
           .dark{
                 background-color: #eeeeee;
                 color:black;
