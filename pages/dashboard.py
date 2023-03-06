@@ -188,7 +188,10 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        
+        div[data-testid="stHorizontalBlock"] {
+                        position: fixed;
+                        margin-top:-20px;
+                        }
         
           .dark{
                 background-color: #eeeeee;
