@@ -68,7 +68,8 @@ hide_streamlit_style = """
               }
 
                 .stApp {
-                filter: invert(1);
+                background-color: #eeeeee;
+                color:black
                 }
         
 
