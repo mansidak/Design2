@@ -134,7 +134,7 @@ if __name__ == "__main__":
                         margin-top:-100px
                         }
                         
-                        .css-ocqkz7.e1tzin5v4{
+                        .e1tzin5v4{
                         visibility:hidden;
                         height:0px;
                         }
