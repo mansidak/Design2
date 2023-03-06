@@ -195,7 +195,7 @@ if __name__ == "__main__":
         position:relative;
         }
         
-        div[data-testid="stHeader"] {
+        header[data-testid="stHeader"] {
         position: relative;
         height:0px;
         visibility:hidden
