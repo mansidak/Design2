@@ -101,7 +101,7 @@ hide_streamlit_style = """
                 position: fixed;
                 }
                 .css-5y9es8.exg6vvm15{
-                border-radius:30px; 
+                border-radius:50px; 
                 }
                 
                 .css-5y9es8.exg6vvm15{
