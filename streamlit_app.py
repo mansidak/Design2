@@ -5,7 +5,8 @@ from streamlit_extras.switch_page_button import switch_page
 
 
 st.set_page_config(page_title="19th Street", layout="wide", page_icon='🗽', initial_sidebar_state='collapsed')
-
+if st.button("My Dashboard", key ="My_Dashboard"):
+    switch_page("dashboard")
 st.markdown(
     """
     <style>
@@ -153,5 +154,3 @@ st.text("")
 
 st.markdown(f"<h6 style='font-family: Sans-Serif; font-weight:bold; color: black'>How it works</h6>", unsafe_allow_html=True)
 st.markdown(f"<h6 style='font-family: Sans-Serif; font-weight:lighter; color: black'>Drop your resume → Get tailored jobs & cover letters for positions you qualify for.</h6>", unsafe_allow_html=True)
-if st.button("My Dashboard", key ="My_Dashboard"):
-    switch_page("dashboard")
