@@ -47,7 +47,8 @@ if __name__ == "__main__":
             st.write("")
         with coldash2:
             selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
-                                    default_index=1, orientation="horizontal",
+                                    icons=['house', 'search', "file-earmark-font", 'stack'],
+                                    menu_icon="cast", default_index=3, orientation="horizontal",
                                     styles={
                                         "container": {"padding": "0!important", "background-color": "#0f0f0f"},
                                         "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
