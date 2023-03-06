@@ -144,12 +144,12 @@ if __name__ == "__main__":
             if FirebaseResumeContent:
                 if st.button("Delete Resume on File"):
                     db.child("users").child(str(localId)).child("Resume").remove()
+                    st.experimental_rerun()
             else:
                 st.write("You don't have a resume on file. Please upload one if you wish to generate a cover letter")
                 ResumePDF = st.file_uploader(
                     ''
                 )
-
                 if ResumePDF is not None:
                     pdfReader = PyPDF2.PdfReader(ResumePDF)
                     print(len(pdfReader.pages))
