@@ -150,7 +150,7 @@ firebaseconfig = {
 if __name__ == "__main__":
     def main(user: object):
 
-        colnav1, colnav2, colnav3 = st.columns([0.25,1,0.25])
+        colnav1, colnav2, colnav3 = st.columns([1,1,1])
         with colnav2:
             selected2 = st_btn_select(
                 # The different pages
