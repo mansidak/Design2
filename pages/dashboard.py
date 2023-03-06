@@ -352,6 +352,13 @@ if __name__ == "__main__":
                 st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>", unsafe_allow_html=True)
         with colresult3:
             st.write("")
+    st.markdown("""
+    <style>
+            .e1fb0mya1.css-fblp2m.ex0cdmw0{
+            color:black;
+            background-color:black
+            }
+    </style>""", unsafe_allow_html=True)
 
 
 @st.cache(allow_output_mutation=True)
