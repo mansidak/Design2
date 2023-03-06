@@ -73,12 +73,20 @@ st.set_page_config(page_title="19th Street", page_icon='⓵⓽', initial_sidebar
 if __name__ == "__main__":
     def main(user: object):
 
-        coldash1, coldash2 = st.columns([1,0.1])
+        coldash1, coldash2, coldash3 = st.columns([1,1,1])
         with coldash1:
             st.write("")
         with coldash2:
+            if st.button("Home", key="Home"):
+                switch_page("/")
+            if st.button("Search", key="Search"):
+                switch_page("betaa")
+            if st.button("Build Resume", key="ResumeBuilder"):
+                switch_page("PreResumeBuilder")
             if st.button("My Dashboard", key="My_Dashboard"):
                 switch_page("dashboard")
+        with coldash3:
+            st.write("")
         st.markdown("""
         
         <style>
