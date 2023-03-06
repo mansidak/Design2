@@ -194,7 +194,7 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        div[data-testid="stHorizontalBlock"][3] {
+        div[data-testid="stHorizontalBlock"] {
                         margin-top:-60px;
                         }
         
