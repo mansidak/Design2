@@ -44,7 +44,7 @@ if __name__ == "__main__":
                                     })
 
             if selected2 == "Home":
-                switch_page("home")
+                switch_page("streamlit_app")
             elif selected2 == "Search":
                 switch_page("betaa")
             elif selected2 == "Dashboard":
