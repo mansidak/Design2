@@ -114,6 +114,10 @@ hide_streamlit_style = """
                 height: 0%;
                 position: fixed;
                 }
+                
+                .nav.nav-pills.mb-auto.nav-justified{
+                margin-top:-100px
+                }
 
               </style>
               """
