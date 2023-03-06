@@ -149,10 +149,13 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     def main(user: object):
-        selected2 = st_btn_select(
-            # The different pages
-            ('Home', 'Search', 'Resume Builder', 'Dashboard'),nav=True,format_func=lambda name: name.capitalize(), index = 3
-        )
+
+        colnav1, colnav2, colnav3 = st.columns([0.25,1,0.25])
+        with colnav2:
+            selected2 = st_btn_select(
+                # The different pages
+                ('Home', 'Search', 'Resume Builder', 'Dashboard'),nav=True,format_func=lambda name: name.capitalize(), index = 3
+            )
 
         st.markdown("""
         <style>
