@@ -161,10 +161,7 @@ if __name__ == "__main__":
                margin-top:-40px;
               }
              
-        .css-1uhah0b.e8zbici2{
-        visibility:hidden;
-        height:0
-        }
+
         </style>
         """, unsafe_allow_html=True)
         if selected2 == "Home":
