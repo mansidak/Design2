@@ -1,35 +1,7 @@
+from streamlit_option_menu import option_menu
 import streamlit as st
-# st.title("CoverLetter")
-import openai
-from docx import Document
-from PIL import Image
-import random
-from streamlit_extras.switch_page_button import switch_page
-import pdfkit
-from jinja2 import Environment, FileSystemLoader
-import pandas as pd
-import pyrebase
-from st_btn_select import st_btn_select
-import extra_streamlit_components as stx
-import datetime
 import requests
-import os
-import random
-import gc
-import streamlit as st
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-import time
-import requests
-import re
-import threading
-from multiprocessing import Pool
-from concurrent.futures import ThreadPoolExecutor
 import PyPDF2
-from docx import Document
 import openai
 from PIL import Image
 from st_btn_select import st_btn_select
@@ -173,15 +145,9 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     def main(user: object):
-        coldash1, coldash2 = st.columns([1, 0.1])
-        with coldash1:
-            st.write("")
-        with coldash2:
-            if st.button("Home", key="Home"):
-                switch_page("")
-
-
-
+        selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
+                                icons=['house', 'cloud-upload', "list-task", 'gear'],
+                                menu_icon="cast", default_index=0, orientation="horizontal")
 
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
