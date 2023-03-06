@@ -143,7 +143,7 @@ if __name__ == "__main__":
         with colmain1:
             st.write("")
         with colmain2:
-            st.write(f"You're logged in as {st.session_state['user']['email']}")
+            # st.write(f"You're logged in as {st.session_state['user']['email']}")
             set_code(code=user['refreshToken'])
 
             footer = """
