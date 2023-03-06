@@ -168,10 +168,6 @@ if __name__ == "__main__":
                 if st.button("My Dashboard", key="My_Dashboard"):
                     switch_page("dashboard")
 
-            tab1, tab2, tab3 = st.tabs(["Search", "Dashboard", "Resume Builder"])
-            with tab3:
-                switch_page("betaa")
-
         with coldash3:
             st.write("")
 
