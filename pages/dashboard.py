@@ -105,8 +105,8 @@ hide_streamlit_style = """
                 filter:invert(1);
                 }
 
-                .stHeader{
-                background-color: #eeeeee;
+                .css-hckj40{
+                background-color: #eeeeee
                 }
 
 
