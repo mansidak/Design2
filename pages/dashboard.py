@@ -196,7 +196,7 @@ if __name__ == "__main__":
         }
         div[data-testid="stVerticalBlock"]:nth-child(1){
             margin-top:-60px;
-            postiion: absolute
+            postiion: fixed;
             }
                         
        
