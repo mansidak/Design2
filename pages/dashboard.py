@@ -212,7 +212,7 @@ if __name__ == "__main__":
                     if st.button("Run New Search"):
                         switch_page("betaa")
             else:
-                st.write("You don't have a resume on file. Please upload one if you wish to generate a cover letter")
+                st.write("Upload a new resume")
                 ResumePDF = st.file_uploader(
                     ''
                 )
