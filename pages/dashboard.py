@@ -138,7 +138,7 @@ if __name__ == "__main__":
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
 
-        colResume1, colResume2, colResume3 = st.columns([0.5,1,0.5]):
+        colResume1, colResume2, colResume3 = st.columns([0.5,1,0.5])
         with colResume1:
             st.write("")
         with colResume2:
