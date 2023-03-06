@@ -81,6 +81,7 @@ st.markdown(
             
             .css-1db87p3.edgvbvh10{
                     padding-top: 0;
+                    padding-right:0;
                   }
                   
                   
