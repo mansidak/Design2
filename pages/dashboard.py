@@ -166,13 +166,13 @@ if __name__ == "__main__":
         }
         
         
-          div.stButton > button:first-child {
+          #dark{
                 background-color: #eeeeee;
                 color:black;
                 border-color: black;
                 }
                 
-                div.stButton > button:hover {
+           #dark:hover{
                 background-color: #eeeeee;
                 color: #F63366;
                 border-color: #F63366;
