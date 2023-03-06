@@ -91,7 +91,9 @@ hide_streamlit_style = """
                 .stMarkdown{
                 color:black
                 }
-
+                .streamlit-expanderHeader{
+                color:black
+                }
 
 
                 div[data-testid="stSidebarNav"] {
