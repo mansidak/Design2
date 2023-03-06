@@ -100,7 +100,7 @@ hide_streamlit_style = """
                 height: 0%;
                 position: fixed;
                 }
-                .st-be {
+                .css-5y9es8.exg6vvm15{
                 border-radius:30px; 
                 }
                 
