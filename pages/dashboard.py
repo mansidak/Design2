@@ -148,6 +148,8 @@ if __name__ == "__main__":
         selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
                                 icons=['house', 'cloud-upload', "list-task", 'gear'],
                                 menu_icon="cast", default_index=0, orientation="horizontal")
+        if selected2 == "Home":
+            switch_page("betaa")
 
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
