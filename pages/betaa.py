@@ -77,14 +77,19 @@ if __name__ == "__main__":
         with coldash1:
             st.write("")
         with coldash2:
-            if st.button("Home", key="Home"):
-                switch_page("/")
-            if st.button("Search", key="Search"):
-                switch_page("betaa")
-            if st.button("Build Resume", key="ResumeBuilder"):
-                switch_page("PreResumeBuilder")
-            if st.button("My Dashboard", key="My_Dashboard"):
-                switch_page("dashboard")
+            colsubdash1, colsubdash2, colsubdash3, colsubdash4 = st.columns([1, 1, 1, 1])
+            with colsubdash1:
+                if st.button("Home", key="Home"):
+                    switch_page("/")
+            with colsubdash2:
+                if st.button("Search", key="Search"):
+                    switch_page("betaa")
+            with colsubdash3:
+                if st.button("Build Resume", key="ResumeBuilder"):
+                    switch_page("PreResumeBuilder")
+            with colsubdash4:
+                if st.button("My Dashboard", key="My_Dashboard"):
+                    switch_page("dashboard")
         with coldash3:
             st.write("")
         st.markdown("""
