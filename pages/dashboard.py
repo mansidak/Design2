@@ -160,11 +160,11 @@ if __name__ == "__main__":
         div[class='menu']{
                margin-top:-40px;
               }
-        .wrapper{
-        z-index:9999999999999999;
-        }
              
-
+        .css-1uhah0b.e8zbici2{
+        visibility:hidden;
+        height:0
+        }
         </style>
         """, unsafe_allow_html=True)
         if selected2 == "Home":
