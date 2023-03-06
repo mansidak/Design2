@@ -151,7 +151,7 @@ if __name__ == "__main__":
                                 styles={
                                     "container": {"padding": "0!important", "background-color": "#eeeee"},
                                     "nav-link": {"font-size": "16px", "text-align": "center", "margin": "0px","--hover-color": "#eee"},
-                                    "nav-link-selected": {"background-color": "#eeeeee"},
+                                    "nav-link-selected": {"border-color": "#F63366"},
                                 }
                                 )
         if selected2 == "Home":
