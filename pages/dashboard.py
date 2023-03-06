@@ -103,6 +103,9 @@ hide_streamlit_style = """
                 .css-5y9es8.exg6vvm15{
                 border-radius:50px; 
                 }
+                .css-1db87p3.edgvbvh10{
+                border-radius:50px; 
+                }
                 
                 .css-5y9es8.exg6vvm15{
                 filter:invert(1);
