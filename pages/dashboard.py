@@ -75,6 +75,10 @@ hide_streamlit_style = """
                 {
                 color:black
                 }
+                 div[data-testid="stMarkdownContainer"] {
+                color:black
+                }
+
 
 
                 div[data-testid="stSidebarNav"] {
