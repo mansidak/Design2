@@ -137,8 +137,7 @@ if __name__ == "__main__":
         set_code(code=user['refreshToken'])
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
-
-        colResume1, colResume2, colResume3 = st.columns([0.5,1,0.5])
+        colResume1, colResume2, colResume3 = st.columns([0.8,1,0.8])
         with colResume1:
             st.write("")
         with colResume2:
