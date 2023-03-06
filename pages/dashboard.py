@@ -145,11 +145,15 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     def main(user: object):
-        selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
+        selected2 = option_menu(None, ["Home", "Search", "Resume Builder", 'Dashboard'],
                                 icons=['house', 'cloud-upload', "list-task", 'gear'],
-                                menu_icon="cast", default_index=0, orientation="horizontal")
+                                menu_icon="cast", default_index=4, orientation="horizontal")
         if selected2 == "Home":
+            switch_page("")
+        if selected2 == "Search":
             switch_page("betaa")
+        if selected2 == "Resume Builder":
+            switch_page("PreResumeBuilder")
 
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
