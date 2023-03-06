@@ -35,6 +35,8 @@ if __name__ == "__main__":
                  footer {visibility: hidden;}
                  
                  .e1fb0mya1.css-fblp2m.ex0cdmw0 {visibility: hidden;}
+                 
+                 .css-leojxt.edgvbvh3{visibility: hidden;}
                  </style>
                  """
         st.markdown(hide_menu_style, unsafe_allow_html=True)
