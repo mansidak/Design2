@@ -66,6 +66,9 @@ hide_streamlit_style = """
                 transform: translate(-50%, -50%);
                 width: 50%;
               }
+              .body{
+              background: white
+              }
 
                 div[data-testid="stSidebarNav"] {
                 height: 0%;
