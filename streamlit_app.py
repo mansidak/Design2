@@ -75,6 +75,9 @@ st.markdown(
             .css-v1vwiw{
                 border-radius:100px;
             }
+            .css-1db87p3.edgvbvh10{
+            border-radius:0px;
+            }
         <style>
         """, unsafe_allow_html=True)
 # fileup = st.file_uploader("Hello")
