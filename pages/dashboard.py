@@ -101,7 +101,7 @@ hide_streamlit_style = """
                 position: fixed;
                 }
                 
-                div[data-testid="stFileUploadDropzone"] {
+                .css-5y9es8.exg6vvm15{
                 filter:invert(1);
                 }
 
