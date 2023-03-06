@@ -150,12 +150,25 @@ firebaseconfig = {
 if __name__ == "__main__":
     def main(user: object):
 
-        colnav1, colnav2, colnav3 = st.columns([1,1,1])
-        with colnav2:
-            selected2 = st_btn_select(
-                # The different pages
-                ('Home', 'Search', 'Resume Builder', 'Dashboard'),nav=True,format_func=lambda name: name.capitalize(), index = 3
-            )
+        coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
+        with coldash1:
+            st.write("")
+        with coldash2:
+            colsubdash1, colsubdash2, colsubdash3, colsubdash4 = st.columns([1, 1, 1, 1])
+            with colsubdash1:
+                if st.button("Home", key="Home"):
+                    switch_page("/")
+            with colsubdash2:
+                if st.button("Search", key="Search"):
+                    switch_page("betaa")
+            with colsubdash3:
+                if st.button("Build Resume", key="ResumeBuilder"):
+                    switch_page("PreResumeBuilder")
+            with colsubdash4:
+                if st.button("My Dashboard", key="My_Dashboard"):
+                    switch_page("dashboard")
+        with coldash3:
+            st.write("")
 
         st.markdown("""
         <style>
@@ -191,12 +204,6 @@ if __name__ == "__main__":
             }
         </style>
         """, unsafe_allow_html=True)
-        if selected2 == "Home":
-            switch_page(" ")
-        if selected2 == "Search":
-            switch_page("betaa")
-        if selected2 == "Resume Builder":
-            switch_page("PreResumeBuilder")
 
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
