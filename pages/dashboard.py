@@ -169,9 +169,9 @@ if __name__ == "__main__":
             #         switch_page("dashboard")
             selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
                                default_index=3, orientation="horizontal",
-                                styles={"div":{"background-color": "#eeeeee"},
+                                styles={
                                         "container": {"padding": "0!important", "background-color": "#eeeeee"},
-                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#eee", "color":"black"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#eee", "color":"black","background-color": "#eeeeee"},
                                         "nav-link-selected": {"font-weight": "bold", "background-color":"#eeeeee", "color":"black"},
                                     })
 
