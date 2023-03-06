@@ -62,6 +62,8 @@ if __name__ == "__main__":
                 switch_page("betaa")
             elif selected2 == "Dashboard":
                 switch_page("dashboard")
+            elif selected2 == "Build":
+                switch_page("PreResumeBuilder")
 
         with coldash3:
             st.write("")
