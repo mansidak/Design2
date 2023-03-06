@@ -181,9 +181,7 @@ if __name__ == "__main__":
                 switch_page("")
 
 
-        st.markdown(
-            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: black'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
-            unsafe_allow_html=True)
+
 
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
@@ -196,9 +194,10 @@ if __name__ == "__main__":
         with colResume1:
             st.write("")
         with colResume2:
-
+            st.markdown(
+                f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: black'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
+                unsafe_allow_html=True)
             st.markdown(f"<h5 style='text-align:center; font-weight:lighter;color:black'>You're logged in as {st.session_state['user']['email']}</h5>", unsafe_allow_html=True)
-
             if FirebaseResumeContent:
                 colResumeSub1, colResumeSub2,colResumeSub3, colResumeSub4  = st.columns([ 0.25,1.3,1,0.25])
                 with colResumeSub2:
