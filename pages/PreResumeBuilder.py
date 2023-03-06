@@ -26,9 +26,6 @@ firebaseconfig = {
         }
 
 
-#wefwefqfefqwergfd
-
-
 if __name__ == "__main__":
     def main(user: object):
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
@@ -37,7 +34,7 @@ if __name__ == "__main__":
         with coldash2:
             selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
                                     icons=['house', 'search', "file-earmark-font", 'stack'],
-                                    menu_icon="cast", default_index=3, orientation="horizontal",
+                                    menu_icon="cast", default_index=2, orientation="horizontal",
                                     styles={
                                         "container": {"padding": "0!important", "background-color": "#0f0f0f"},
                                         "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
