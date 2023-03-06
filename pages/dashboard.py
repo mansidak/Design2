@@ -196,7 +196,7 @@ if __name__ == "__main__":
         }
         div[data-testid="stHorizontalBlock"]:nth-child(1){
             margin-top:-60px;
-            position:fixed;
+            position:absolute;
             }
                         
        
