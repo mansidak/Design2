@@ -223,8 +223,9 @@ if __name__ == "__main__":
               font-size: 16px;
             }
             
-            .stMarkdownContainer{
-            color:black
+            .e1fb0mya1.css-fblp2m.ex0cdmw0{
+            color:black;
+            background-color:black
             }
         </style>
         """, unsafe_allow_html=True)
