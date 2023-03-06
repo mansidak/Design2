@@ -71,12 +71,11 @@ hide_streamlit_style = """
                 background-color: #eeeeee;
                 color:black
                 }
-        
+                .element-container.css-l0vo1h.e1tzin5v3
+                {
+                color:black
+                }
 
-
-              .body{
-              background-color: white
-              }
 
                 div[data-testid="stSidebarNav"] {
                 height: 0%;
@@ -209,7 +208,6 @@ if __name__ == "__main__":
                 with st.expander(f"{Location}"):
                     st.markdown(f"[Apply]({Link})")
                     st.write(f"{Short_Summary}")
-
                     col1, col2, col3 = st.columns([1, 1, 1])
 
                     with col1:
