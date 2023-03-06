@@ -170,7 +170,7 @@ if __name__ == "__main__":
             selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
                                default_index=3, orientation="horizontal",
                                 styles={
-                                        "container": {"padding": "0!important", "background-color": "#eeeeee", "position":"fixed"},
+                                        "container": {"padding": "0!important", "background-color": "#eeeeee"},
                                         "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#eee", "color":"black","background-color": "#eeeeee"},
                                         "nav-link-selected": {"font-weight": "bold", "background-color":"#eeeeee", "color":"black"},
                                     })
@@ -195,7 +195,7 @@ if __name__ == "__main__":
         position:fixed;
         }
          #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(7){
-
+            margin-top:-150px;
             background-color:#eeeeee
             }
         #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(7) > div.css-keje6w.e1tzin5v2{
