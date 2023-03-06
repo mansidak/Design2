@@ -115,7 +115,7 @@ hide_streamlit_style = """
                 position: fixed;
                 }
                 
-                .nav.nav-pills.mb-auto.nav-justified{
+                .menu{
                 margin-top:-100px
                 }
 
