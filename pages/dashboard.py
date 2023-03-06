@@ -100,6 +100,10 @@ hide_streamlit_style = """
                 height: 0%;
                 position: fixed;
                 }
+                
+                div[data-testid="stFileUploadDropzone"] {
+                filter:invert(1);
+                }
 
 
 
