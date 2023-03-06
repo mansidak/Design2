@@ -194,7 +194,7 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        div[data-testid="stVerticalBlock"]{
+        div[class="css-1h8co6v e1tzin5v0"]{
                         margin-top:-60px;
                         }
         
