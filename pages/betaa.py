@@ -83,7 +83,7 @@ if __name__ == "__main__":
         
         <style>
         .row-widget.stButton{
-        padding-top:-20px;
+        padding-top:20px;
         }
         </style>
         """, unsafe_allow_html= True)
