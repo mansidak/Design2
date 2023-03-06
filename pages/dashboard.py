@@ -178,7 +178,7 @@ if __name__ == "__main__":
                 border-color: #F63366;
                 }
                 
-                .button {
+            #button {
               background-color: #4CAF50; /* Green */
               border: none;
               color: white;
