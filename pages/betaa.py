@@ -92,8 +92,8 @@ if __name__ == "__main__":
 
             if selected2 == "Home":
                 switch_page("home")
-            elif selected2 == "Search":
-                switch_page("betaa")
+            elif selected2 == "Dashboard":
+                switch_page("dashboard")
             elif selected2 == "Build":
                 switch_page("PreResumeBuilder")
 
