@@ -67,7 +67,7 @@ hide_streamlit_style = """
                 width: 50%;
               }
               .body{
-              background: white
+              background-color: white
               }
 
                 div[data-testid="stSidebarNav"] {
