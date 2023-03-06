@@ -149,15 +149,10 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     def main(user: object):
-        selected2 = option_menu(None, ["Home", "Search", "Resume Builder", 'Dashboard'],
-                                icons=['house', 'cloud-upload', "list-task", 'gear'],
-                                menu_icon="cast", default_index=3, orientation="horizontal",
-                                styles={
-                                    "container": {"padding": "0!important", "background-color": "#eeeeee", "min-width":"100%"},
-                                    "nav-link": {"font-size": "16px", "color":"black", "text-align": "center", "margin": "0px","--hover-color": "#eee"},
-                                    "nav-link-selected": {"background-color": "#fefefe"},
-                                }
-                                )
+        selected2 = st_btn_select(
+            # The different pages
+            ('Home', 'Search', 'Resume Builder', 'Dashboard'),nav=True,format_func=lambda name: name.capitalize(),
+        )
 
         st.markdown("""
         <style>
