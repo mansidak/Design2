@@ -93,6 +93,7 @@ hide_streamlit_style = """
                 }
 
                 .css-1uhah0b.e8zbici2{
+                height:40px;
                 }
 
 
