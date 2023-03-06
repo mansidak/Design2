@@ -14,140 +14,10 @@ import pyrebase
 
 
 st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
-hide_menu_style = """
-         <style>
-         #MainMenu {visibility: hidden;}
-         .css-j7qwjs {visibility: hidden;}
-         footer {visibility: hidden;}
-         </style>
-         """
-st.markdown(hide_menu_style, unsafe_allow_html=True)
-
-hide_streamlit_style = """
-              <style>
-              div[class='css-4z1n4l ehezqtx5']{
-                background: rgba(0, 0, 0, 0.3);
-                color: #fff;
-                border-radius: 10px;
-                backdrop-filter: blur(10px);
-                height: 40px;
-                max-width: 200px;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 50%;
-              }
-
-                .stApp {
-                background-color: #eeeeee;
-                color:black
-                }
-                .element-container.css-l0vo1h.e1tzin5v3
-                {
-                color:black
-                }
-                
-                div.stButton > button:first-child {
-                background-color: #eeeeee;
-                color:black;
-                border-color: black;
-                }
-                
-                div.stButton > button:hover {
-                background-color: #eeeeee;
-                color: #F63366;
-                border-color: #F63366;
-                }
-
-                .stMarkdown{
-                color:black
-                }
-                .streamlit-expanderHeader{
-                color:black
-                }
-
-
-                div[data-testid="stSidebarNav"] {
-                height: 0%;
-                position: fixed;
-                }
-                .css-5y9es8.exg6vvm15{
-                border-radius:50px; 
-                }
-                    .css-5y9es8 {
-                        border-radius:100px;
-                    }
-                    .css-1db87p3{
-                        border-radius:100px;
-                    }
-                    .css-v1vwiw{
-                        border-radius:100px;
-                    }
-                .css-1db87p3.edgvbvh10{
-                border-radius:50px; 
-                }
-                
-                .css-5y9es8.exg6vvm15{
-                filter:invert(1);
-                }
-
-                .css-1uhah0b.e8zbici2{
-                background-color: #eeeeee
-                }
-
-
-                .css-13e20ss{
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-                
-                 div[class="stAlert"] {
-                                visibility: hidden;
-                                height: 0%;
-                                position: fixed;
-                                }
-
-                div[class="stException"] {
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-                
-                .menu{
-                margin-top:-100px
-                }
-
-              </style>
-              """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-hide_img_fs = '''
-    <style>
-    button[title="View fullscreen"]{
-        visibility: hidden;}
-        ul.streamlit-expander {
-                border: 0 None !important;
-                }
-    </style>
-    '''
-
-st.markdown(hide_img_fs, unsafe_allow_html=True)
-
-firebaseconfig = {
-            "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
-            "authDomain": "nineteenth-street.firebaseapp.com",
-            "projectId": "nineteenth-street",
-            "storageBucket": "nineteenth-street.appspot.com",
-            "messagingSenderId": "964724806859",
-            "appId": "1:964724806859:web:010841fc337f30b50cb74e",
-            "measurementId": "G-N3TMC7M1WT",
-            "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
-        }
 
 
 if __name__ == "__main__":
+
     def main(user: object):
         selected2 = option_menu(None, ["Home", "Search", "Resume Builder", 'Dashboard'],
                                 icons=['house', 'cloud-upload', "list-task", 'gear'],
@@ -159,6 +29,137 @@ if __name__ == "__main__":
                                     "nav-link-selected": {"background-color": "#fefefe"},
                                 }
                                 )
+        hide_menu_style = """
+                 <style>
+                 #MainMenu {visibility: hidden;}
+                 .css-j7qwjs {visibility: hidden;}
+                 footer {visibility: hidden;}
+                 </style>
+                 """
+        st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+        hide_streamlit_style = """
+                      <style>
+                      div[class='css-4z1n4l ehezqtx5']{
+                        background: rgba(0, 0, 0, 0.3);
+                        color: #fff;
+                        border-radius: 10px;
+                        backdrop-filter: blur(10px);
+                        height: 40px;
+                        max-width: 200px;
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 50%;
+                      }
+
+                        .stApp {
+                        background-color: #eeeeee;
+                        color:black
+                        }
+                        .element-container.css-l0vo1h.e1tzin5v3
+                        {
+                        color:black
+                        }
+
+                        div.stButton > button:first-child {
+                        background-color: #eeeeee;
+                        color:black;
+                        border-color: black;
+                        }
+
+                        div.stButton > button:hover {
+                        background-color: #eeeeee;
+                        color: #F63366;
+                        border-color: #F63366;
+                        }
+
+                        .stMarkdown{
+                        color:black
+                        }
+                        .streamlit-expanderHeader{
+                        color:black
+                        }
+
+
+                        div[data-testid="stSidebarNav"] {
+                        height: 0%;
+                        position: fixed;
+                        }
+                        .css-5y9es8.exg6vvm15{
+                        border-radius:50px; 
+                        }
+                            .css-5y9es8 {
+                                border-radius:100px;
+                            }
+                            .css-1db87p3{
+                                border-radius:100px;
+                            }
+                            .css-v1vwiw{
+                                border-radius:100px;
+                            }
+                        .css-1db87p3.edgvbvh10{
+                        border-radius:50px; 
+                        }
+
+                        .css-5y9es8.exg6vvm15{
+                        filter:invert(1);
+                        }
+
+                        .css-1uhah0b.e8zbici2{
+                        background-color: #eeeeee
+                        }
+
+
+                        .css-13e20ss{
+                        visibility: hidden;
+                        height: 0%;
+                        position: fixed;
+                        }
+
+                         div[class="stAlert"] {
+                                        visibility: hidden;
+                                        height: 0%;
+                                        position: fixed;
+                                        }
+
+                        div[class="stException"] {
+                        visibility: hidden;
+                        height: 0%;
+                        position: fixed;
+                        }
+
+                        .menu{
+                        margin-top:-100px
+                        }
+
+                      </style>
+                      """
+        st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+        hide_img_fs = '''
+            <style>
+            button[title="View fullscreen"]{
+                visibility: hidden;}
+                ul.streamlit-expander {
+                        border: 0 None !important;
+                        }
+            </style>
+            '''
+
+        st.markdown(hide_img_fs, unsafe_allow_html=True)
+
+        firebaseconfig = {
+            "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
+            "authDomain": "nineteenth-street.firebaseapp.com",
+            "projectId": "nineteenth-street",
+            "storageBucket": "nineteenth-street.appspot.com",
+            "messagingSenderId": "964724806859",
+            "appId": "1:964724806859:web:010841fc337f30b50cb74e",
+            "measurementId": "G-N3TMC7M1WT",
+            "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
+        }
 
         st.markdown("""
         <style>
