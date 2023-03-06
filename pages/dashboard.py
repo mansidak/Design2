@@ -81,6 +81,13 @@ hide_streamlit_style = """
                 color:black;
                 border-color: black;
                 }
+                
+                div.stButton > button:hover {
+                background-color: #eeeeee;
+                color:black;
+                border-color: #F63366;
+                }
+
                  div[data-testid="stMarkdownContainer"] {
                 color:black
                 }
