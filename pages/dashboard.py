@@ -155,7 +155,7 @@ if __name__ == "__main__":
             st.write("")
         with coldash2:
             selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
-                               default_index=3, orientation="horizontal",menu_icon= None,
+                               default_index=3, orientation="horizontal",menu_icon= "cast",
                                 styles={
                                         "container": {"padding": "0!important", "background-color": "#0f0f0f"},
                                         "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#0f0f0f", "color":"white","background-color": "#0f0f0f"},
