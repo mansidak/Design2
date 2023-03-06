@@ -204,7 +204,7 @@ if __name__ == "__main__":
             margin-top:-150px;
             background-color:#eeeeee;
             min-width:100%;
-            position:relative
+            position:fixed
             }
        
           .dark{
