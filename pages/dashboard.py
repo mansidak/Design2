@@ -151,7 +151,7 @@ if __name__ == "__main__":
     def main(user: object):
         selected2 = st_btn_select(
             # The different pages
-            ('Home', 'Search', 'Resume Builder', 'Dashboard'),nav=True,format_func=lambda name: name.capitalize(),
+            ('Home', 'Search', 'Resume Builder', 'Dashboard'),nav=True,format_func=lambda name: name.capitalize(), index = 4
         )
 
         st.markdown("""
