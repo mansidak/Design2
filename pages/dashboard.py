@@ -194,11 +194,10 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-
-                        
-        iframe[title="streamlit_option_menu.option_menu"]{
+        .css-ocqkz7.e1tzin5v4{
         margin-top:-90px;
         }
+
         
           .dark{
                 background-color: #eeeeee;
