@@ -197,7 +197,7 @@ if __name__ == "__main__":
 
                         
         iframe[title="streamlit_option_menu.option_menu"]{
-        margin-top:-60px;
+        margin-top:-90px;
         }
         
           .dark{
