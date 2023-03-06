@@ -69,20 +69,14 @@ if __name__ == "__main__":
 
         st.markdown("""
                 <style>
-
-
                 .css-1uhah0b.e8zbici2{
                 z-index:0;
                 }
-
-
                 header[data-testid="stHeader"] {
                 position: relative;
                 }
-
-
                  #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(7){
-                    margin-top:-90px;
+                    margin-top:-190px;
                     min-width:100%;
                     position:fixed;
                     z-index:1;
@@ -149,8 +143,6 @@ if __name__ == "__main__":
         with colmain2:
             st.write(f"You're logged in as {st.session_state['user']['email']}")
             set_code(code=user['refreshToken'])
-            # print(threading.enumerate())
-            # st.write(threading.enumerate())
 
             footer = """
                                 <style>
