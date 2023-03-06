@@ -196,7 +196,7 @@ if __name__ == "__main__":
         }
         .container-xxl{
                         margin-top:-60px;
-                        }
+        }
         
           .dark{
                 background-color: #eeeeee;
