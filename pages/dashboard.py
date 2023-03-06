@@ -68,9 +68,9 @@ hide_streamlit_style = """
               }
               st.markdown(
 
-            .stApp {
+                .stApp {
                 background-color: #eeeeee
-            }
+                }
         
 
 
