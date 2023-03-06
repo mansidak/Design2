@@ -175,7 +175,7 @@ if __name__ == "__main__":
             stx.TabBarItemData(id=1, title="ToDo", description="Tasks to take care of"),
             stx.TabBarItemData(id=2, title="Done", description="Tasks taken care of"),
             stx.TabBarItemData(id=3, title="Overdue", description="Tasks missed out"),
-        ], default=1)
+        ], default=2)
         if chosen_id == 1:
             switch_page("betaa")
 
