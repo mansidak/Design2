@@ -133,6 +133,11 @@ if __name__ == "__main__":
                         .menu{
                         margin-top:-100px
                         }
+                        
+                        .css-ocqkz7.e1tzin5v4{
+                        visibility:hidden;
+                        height:0px;
+                        }
 
                       </style>
                       """
