@@ -79,7 +79,14 @@ if __name__ == "__main__":
         with coldash2:
             if st.button("My Dashboard", key="My_Dashboard"):
                 switch_page("dashboard")
-
+        st.markdown("""
+        
+        <style>
+        .css-1db87p3.edgvbvh10{
+        padding-top:-20px;
+        }
+        </style>
+        """, unsafe_allow_html= True)
         colmain1, colmain2, colmain3 = st.columns([0.5, 1, 0.5])
         with colmain1:
             st.write("")
