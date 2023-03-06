@@ -66,6 +66,14 @@ hide_streamlit_style = """
                 transform: translate(-50%, -50%);
                 width: 50%;
               }
+              st.markdown(
+
+            .stApp {
+                background-color: #eeeeee
+            }
+        
+
+
               .body{
               background-color: white
               }
