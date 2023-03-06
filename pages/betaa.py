@@ -73,7 +73,7 @@ st.set_page_config(page_title="19th Street", page_icon='⓵⓽', initial_sidebar
 if __name__ == "__main__":
     def main(user: object):
 
-        coldash1, coldash2, coldash3 = st.columns([1,1,1])
+        coldash1, coldash2, coldash3 = st.columns([1,2,1])
         with coldash1:
             st.write("")
         with coldash2:
