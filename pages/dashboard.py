@@ -192,6 +192,8 @@ if __name__ == "__main__":
              
         .css-1uhah0b.e8zbici2{
         z-index:0;
+        position:relative;
+
         }
         #root > div:nth-child(1) > div.withScreencast > div > div > header{
         position:relative
