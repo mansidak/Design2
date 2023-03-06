@@ -194,9 +194,9 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        .container-xxl{
+        div[data-testid="columns"]{
                         margin-top:-60px;
-        }
+                        }
         
           .dark{
                 background-color: #eeeeee;
