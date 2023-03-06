@@ -48,8 +48,8 @@ if __name__ == "__main__":
                 switch_page("home")
             elif selected2 == "Search":
                 switch_page("betaa")
-            elif selected2 == "Build":
-                switch_page("PreResumeBuilder")
+            elif selected2 == "Dashboard":
+                switch_page("dashboard")
 
         with coldash3:
             st.write("")
