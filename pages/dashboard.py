@@ -105,7 +105,7 @@ hide_streamlit_style = """
                 filter:invert(1);
                 }
 
-                .css-hckj40{
+                .css-1uhah0b.e8zbici2{
                 background-color: #eeeeee
                 }
 
