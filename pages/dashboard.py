@@ -241,7 +241,7 @@ if __name__ == "__main__":
         with colResume2:
 
             if FirebaseResumeContent:
-                st.markdown(f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file: </h6>U+02713",
+                st.markdown(f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file: \2713 </h6>",
                             unsafe_allow_html=True)
                 colResumeSub1, colResumeSub2,colResumeSub3, colResumeSub4  = st.columns([ 0.8,1,1.3,0.25])
                 with colResumeSub2:
