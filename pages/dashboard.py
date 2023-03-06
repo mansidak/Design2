@@ -88,7 +88,7 @@ hide_streamlit_style = """
                 border-color: #F63366;
                 }
 
-                element-container.css-1t8qpre.e1tzin5v3{
+                .stMarkdown{
                 color:black
                 }
 
