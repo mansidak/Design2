@@ -11,7 +11,6 @@ from streamlit_extras.switch_page_button import switch_page
 import psutil
 from streamlit.components.v1 import html
 import pyrebase
-from st_on_hover_tabs import on_hover_tabs
 
 st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
 
@@ -168,10 +167,11 @@ if __name__ == "__main__":
             with colsubdash4:
                 if st.button("My Dashboard", key="My_Dashboard"):
                     switch_page("dashboard")
+        selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
+                                icons=['house', 'cloud-upload', "list-task", 'gear'],
+                                menu_icon="cast", default_index=0, orientation="horizontal")
+        selected2
 
-        with st.sidebar:
-            tabs = on_hover_tabs(tabName=['Dashboard', 'Money', 'Economy'],
-                                 iconName=['dashboard', 'money', 'economy'], default_choice=0)
 
         with coldash3:
             st.write("")
