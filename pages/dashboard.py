@@ -200,7 +200,7 @@ if __name__ == "__main__":
             st.markdown(f"<h5 style='text-align:center; font-weight:lighter;color:black'>You're logged in as {st.session_state['user']['email']}</h5>", unsafe_allow_html=True)
 
             if FirebaseResumeContent:
-                colResumeSub1, colResumeSub2,colResumeSub3, colResumeSub4  = st.columns([ 0.25,1,1.3,0.25])
+                colResumeSub1, colResumeSub2,colResumeSub3, colResumeSub4  = st.columns([ 0.25,1.3,1,0.25])
                 with colResumeSub2:
                     if st.button("Remove Resume on File"):
                         db.child("users").child(str(localId)).child("Resume").remove()
