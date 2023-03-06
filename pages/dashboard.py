@@ -153,7 +153,7 @@ if __name__ == "__main__":
                                 icons=['house', 'cloud-upload', "list-task", 'gear'],
                                 menu_icon="cast", default_index=3, orientation="horizontal",
                                 styles={
-                                    "menu":{"margin-top":"-30px!important"},
+                                    "element-container": {"margin-top":"-30px!important"},
                                     "container": {"padding": "0!important", "background-color": "#eeeeee", "min-width":"100%"},
                                     "nav-link": {"font-size": "16px", "color":"black", "text-align": "center", "margin": "0px","--hover-color": "#eee"},
                                     "nav-link-selected": {"background-color": "#fefefe"},
