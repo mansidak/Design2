@@ -164,6 +164,20 @@ if __name__ == "__main__":
         .css-1uhah0b.e8zbici2{
         z-index:1;
         }
+        
+        
+          div.stButton > button:first-child {
+                background-color: #eeeeee;
+                color:black;
+                border-color: black;
+                }
+                
+                div.stButton > button:hover {
+                background-color: #eeeeee;
+                color: #F63366;
+                border-color: #F63366;
+                }
+                
         </style>
         """, unsafe_allow_html=True)
         if selected2 == "Home":
