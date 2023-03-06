@@ -79,7 +79,7 @@ st.markdown(
 
             
             
-            div[class='css-1db87p3 edgvbvh10']{
+            .css-1db87p3.edgvbvh10{
                     padding-top: {1}rem;
                   }
                   
