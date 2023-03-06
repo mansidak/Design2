@@ -9,6 +9,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 import requests
+from streamlit_option_menu import option_menu
+
 import re
 import threading
 from multiprocessing import Pool
@@ -90,6 +92,10 @@ if __name__ == "__main__":
             with colsubdash4:
                 if st.button("My Dashboard", key="My_Dashboard"):
                     switch_page("dashboard")
+        selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
+                                icons=['house', 'cloud-upload', "list-task", 'gear'],
+                                menu_icon="cast", default_index=0, orientation="horizontal")
+        selected2
         with coldash3:
             st.write("")
         st.markdown("""
