@@ -171,8 +171,8 @@ if __name__ == "__main__":
                                 menu_icon="cast", default_index=0, orientation="horizontal",
                                 styles={"div":{"background-color": "#eeeeee"},
                                         "container": {"padding": "0!important", "background-color": "#eeeeee"},
-                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#eee"},
-                                        "nav-link-selected": {"font-weight": "bold", "background-color":"#eeeeee"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px", "--hover-color": "#eee", "color":"black"},
+                                        "nav-link-selected": {"font-weight": "bold", "background-color":"#eeeeee", "color":"black"},
                                     })
 
         selected2
