@@ -67,8 +67,8 @@ hide_streamlit_style = """
                 width: 50%;
               }
 
-                [data-testid="stAppViewContainer"'] {
-                background-color: #eeeeee
+                .stApp {
+                filter: invert(1);
                 }
         
 
