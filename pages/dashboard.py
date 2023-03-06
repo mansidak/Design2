@@ -284,7 +284,7 @@ if __name__ == "__main__":
                     with col3:
                         st.write("")
 
-                st.markdown("<hr style = 'margin-top:-5px;' color=black>", unsafe_allow_html=True)
+                st.markdown("<hr  color=black style = 'margin-top:-5px;'>", unsafe_allow_html=True)
         with colresult3:
             st.write("")
 
