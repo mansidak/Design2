@@ -7,7 +7,7 @@ import datetime
 import requests
 import extra_streamlit_components as stx
 from st_btn_select import st_btn_select
-
+import pyrebase
 
 st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽", layout="wide", initial_sidebar_state="collapsed")
 
