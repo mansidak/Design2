@@ -163,8 +163,6 @@ if __name__ == "__main__":
              
         .css-1uhah0b.e8zbici2{
         z-index:1;
-        opacity:80%;
-        filter:blur(10px);
         
         }
         
