@@ -251,6 +251,7 @@ if __name__ == "__main__":
                 with colResumeSub2:
                     if st.button("Uploade new resume"):
                         db.child("users").child(str(localId)).child("Resume").remove()
+                        del st.session_state['resumeContent']
                         st.experimental_rerun()
                 with colResumeSub3:
                     if st.button("Run New Search"):
