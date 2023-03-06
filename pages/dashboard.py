@@ -194,7 +194,7 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        .e1tzin5v4:nth-child(2){
+        .css-ocqkz7.e1tzin5v4:nth-child(2){
         margin-top:-60px;
         }
 
