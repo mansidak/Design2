@@ -61,6 +61,12 @@ if __name__ == "__main__":
                .css-1uhah0b.e8zbici2{
                z-index:0;
                }
+                
+                 div[class="stAlert"] {
+                                        visibility: hidden;
+                                        height: 0%;
+                                        position: fixed;
+                                        }
 
 
                header[data-testid="stHeader"] {
