@@ -72,6 +72,8 @@ st.set_page_config(page_title="19th Street", page_icon='⓵⓽', initial_sidebar
 
 if __name__ == "__main__":
     def main(user: object):
+        if st.button("My Dashboard", key="My_Dashboard"):
+            switch_page("dashboard")
         st.write(f"You're logged in as {st.session_state['user']['email']}")
         set_code(code=user['refreshToken'])
         # print(threading.enumerate())
