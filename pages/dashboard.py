@@ -199,9 +199,13 @@ if __name__ == "__main__":
                 unsafe_allow_html=True)
             st.markdown(f"<h5 style='text-align:center; font-weight:lighter;color:black'>You're logged in as {st.session_state['user']['email']}</h5>", unsafe_allow_html=True)
             if FirebaseResumeContent:
-                colSignalSub1, colSignalSub2, colSignalSub3 = st.columns([0.25, 1,0.25])
+                colSignalSub1, colSignalSub2, colSignalSub3 = st.columns([0.25, 1, 0.25])
+                with colSignalSub1:
+                    st.write("")
                 with colSignalSub2:
                     st.write("Resume on file:✅")
+                with colSignalSub3:
+                    st.write("")
                 colResumeSub1, colResumeSub2,colResumeSub3, colResumeSub4  = st.columns([ 0.25,1.3,1,0.25])
                 with colResumeSub2:
                     if st.button("Uploade new resume"):
