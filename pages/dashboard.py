@@ -194,9 +194,9 @@ if __name__ == "__main__":
         z-index:1;
         
         }
-        div[class="css-1h8co6v e1tzin5v0"]{
-                        margin-top:-60px;
-                        }
+        Iframe {
+        margin-top: -50px;
+        }
         
           .dark{
                 background-color: #eeeeee;
