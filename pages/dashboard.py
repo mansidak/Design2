@@ -134,10 +134,6 @@ if __name__ == "__main__":
                         margin-top:-100px
                         }
                         
-                        .e1tzin5v4{
-                        visibility:hidden;
-                        height:0px;
-                        }
 
                       </style>
                       """
