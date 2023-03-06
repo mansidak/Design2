@@ -79,6 +79,7 @@ hide_streamlit_style = """
                 div.stButton > button:first-child {
                 background-color: #eeeeee;
                 color:black;
+                border-color: black;
                 }
                  div[data-testid="stMarkdownContainer"] {
                 color:black
