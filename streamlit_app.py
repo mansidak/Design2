@@ -80,7 +80,7 @@ st.markdown(
             
             
             div[class='css-1db87p3 edgvbvh10']{
-                    border-radius: 1px;
+                    padding-top: {1}rem;
                   }
                   
                   
