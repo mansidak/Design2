@@ -162,9 +162,9 @@ if __name__ == "__main__":
         st.markdown("""
         <style>
 
-        #app{
-         margin-top:-50px
-        }
+        div[class='menu']{
+               margin-top:-40
+              }
              
         .css-1uhah0b.e8zbici2{
         visibility:hidden;
