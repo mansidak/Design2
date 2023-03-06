@@ -485,9 +485,6 @@ if __name__ == "__main__":
                 unsafe_allow_html=True)
             holder = st.empty()
 
-            ResumePDF = holder.file_uploader(
-                ''
-            )
 
             # @st.cache(show_spinner=False)
             def extract_text_from_pdf(pdf_file):
@@ -504,11 +501,18 @@ if __name__ == "__main__":
                 FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
                 return resumeContent
 
-            if ResumePDF is not None:
+            if 'resumeContent' not in st.session_state:
+                ResumePDF = holder.file_uploader(
+                    ''
+                )
+                st.session_state['resumeContent'] = extract_text_from_pdf(ResumePDF)
+
+
+            if st.session_state['resumeContent']:
                 SubTitle.empty()
                 Credits.empty()
                 holder.empty()
-                resumeContent = extract_text_from_pdf(ResumePDF)
+                resumeContent = st.session_state['resumeContent']
                 Name = openAIGetRelevantJobTitles(resumeContent)
 
                 if 'Name' not in st.session_state:
