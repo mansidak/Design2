@@ -84,7 +84,7 @@ hide_streamlit_style = """
                 
                 div.stButton > button:hover {
                 background-color: #eeeeee;
-                color:black;
+                color:#F63366;
                 border-color: #F63366;
                 }
 
