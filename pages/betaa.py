@@ -944,11 +944,11 @@ if __name__ == "__main__":
                             unsafe_allow_html=True)
                         my_bar.progress(75, text=f"")
 
-                    # with ThreadPoolExecutor(max_workers=3) as executor:
-                    #     future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}",
-                    #                               f"{newSkills[0]}",
-                    #                               f"{undesired}", 1, resumeContent,
-                    #                               locationpreference.replace(' ', '_'))
+                    with ThreadPoolExecutor(max_workers=3) as executor:
+                        future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}",
+                                                  f"{newSkills[0]}",
+                                                  f"{undesired}", 1, resumeContent,
+                                                  locationpreference.replace(' ', '_'))
                         # future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                         # future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                         # future4 = executor.submit(progress_shit())
