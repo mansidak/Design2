@@ -950,17 +950,16 @@ if __name__ == "__main__":
                                 """, unsafe_allow_html=True)
 
                     # SearchHolder.empty()
-                    NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
-                                        unsafe_allow_html=True)
+                    NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
                     DisplaySkills = ', '.join([item.replace('-', ' ') for item in newSkills])
 
-                    # links1 = run_selenium1(f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    # links2 = run_selenium1(f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    # links3 = run_selenium1(f"-{ExperienceLevel}", f"{newSkills[0]}%2C+{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    #
-                    # st.write(links1)
-                    # st.write(links2)
-                    # st.write(links3)
+                    links1 = run_selenium1(f"{FreshJobTitles[0]}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    links2 = run_selenium1(f"{FreshJobTitles[1]}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    links3 = run_selenium1(f"{FreshJobTitles[2]}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+
+                    st.write(links1)
+                    st.write(links2)
+                    st.write(links3)
 
                     def progress_shit():
                         progressText.markdown(
@@ -984,21 +983,21 @@ if __name__ == "__main__":
                         my_bar.progress(75, text=f"")
 
 
-                    with ThreadPoolExecutor(max_workers=3) as executor:
-                        future1 = executor.submit(run_selenium1, f"{FreshJobTitles[0]}-{ExperienceLevel}",f"{FreshSkills[0]}",f"{undesired}", 1, resumeContent,locationpreference.replace(' ', '_'))
-                        future2 = executor.submit(run_selenium1, f"{FreshJobTitles[1]}-{ExperienceLevel}", f"{FreshSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        future3 = executor.submit(run_selenium1, f"{FreshJobTitles[0]}-{ExperienceLevel}", f"{FreshSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        # future4 = executor.submit(progress_shit())
-
-                    executor.shutdown(wait=True)
-
-                    links1 = future1.result()
-                    links2 = future2.result()
-                    links3 = future3.result()
-                    st.write(links1)
-                    st.write(links2)
-                    st.write(links3)
-                    executor.shutdown(wait=True)
+                    # with ThreadPoolExecutor(max_workers=3) as executor:
+                    #     future1 = executor.submit(run_selenium1, f"{FreshJobTitles[0]}-{ExperienceLevel}",f"{FreshSkills[0]}",f"{undesired}", 1, resumeContent,locationpreference.replace(' ', '_'))
+                    #     future2 = executor.submit(run_selenium1, f"{FreshJobTitles[1]}-{ExperienceLevel}", f"{FreshSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    #     future3 = executor.submit(run_selenium1, f"{FreshJobTitles[0]}-{ExperienceLevel}", f"{FreshSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    #     # future4 = executor.submit(progress_shit())
+                    #
+                    # executor.shutdown(wait=True)
+                    #
+                    # links1 = future1.result()
+                    # links2 = future2.result()
+                    # links3 = future3.result()
+                    # st.write(links1)
+                    # st.write(links2)
+                    # st.write(links3)
+                    # executor.shutdown(wait=True)
 
                     print(threading.enumerate())
                     st.write(threading.enumerate())
