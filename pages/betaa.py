@@ -472,6 +472,7 @@ if __name__ == "__main__":
                          "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
 
                 JobTitles = response["choices"][0]["message"]["content"]
+                st.write(JobTitles)
                 return JobTitles
             def openAIGetRelevantHardSkills(resumeContent):
                 response = openai.ChatCompletion.create(
