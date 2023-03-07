@@ -38,14 +38,7 @@ firebaseconfig = {
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
 st.set_page_config(page_title="19th Street", page_icon='⓵⓽', initial_sidebar_state='collapsed', layout="wide")
-st.markdown("""
 
-<style>
-.stAlert{
-height:0px;
-visibility:hidden
-}
-</style>""", unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
@@ -117,6 +110,14 @@ if __name__ == "__main__":
                     }
                 </style>
                 """, unsafe_allow_html=True)
+        st.markdown("""
+
+        <style>
+        .stAlert{
+        height:0px;
+        visibility:hidden
+        }
+        </style>""", unsafe_allow_html=True)
 
         css = """
         .uploadedFiles {

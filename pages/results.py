@@ -26,14 +26,7 @@ firebaseconfig = {
     "measurementId": "G-N3TMC7M1WT",
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
-st.markdown("""
 
-<style>
-.stAlert{
-height:0px;
-visibility:hidden
-}
-</style>""", unsafe_allow_html=True)
 
 hide_menu_style = """
          <style>
@@ -161,7 +154,16 @@ if __name__ == "__main__":
                             }
                         </style>
                         """, unsafe_allow_html=True)
+        st.markdown("""
+
+        <style>
+        .stAlert{
+        height:0px;
+        visibility:hidden
+        }
+        </style>""", unsafe_allow_html=True)
         st.write(f"You're logged in as {st.session_state['user']['email']}")
+
 
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         localId = AccountInfo["localId"]

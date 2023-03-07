@@ -36,14 +36,6 @@ firebaseconfig = {
     "measurementId": "G-N3TMC7M1WT",
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
-st.markdown("""
-
-<style>
-.stAlert{
-height:0px;
-visibility:hidden
-}
-</style>""", unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
@@ -155,6 +147,15 @@ if __name__ == "__main__":
                       </style>
                       """
         st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+        st.markdown("""
+
+        <style>
+        .stAlert{
+        height:0px;
+        visibility:hidden
+        }
+        </style>""", unsafe_allow_html=True)
+
         st.markdown(
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> AI Resume Builder.</h1>",
             unsafe_allow_html=True)

@@ -26,14 +26,6 @@ firebaseconfig = {
         }
 
 
-st.markdown("""
-
-<style>
-.stAlert{
-height:0px;
-visibility:hidden
-}
-</style>""", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     def main(user: object):
@@ -150,6 +142,14 @@ if __name__ == "__main__":
                       </style>
                       """
         st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+        st.markdown("""
+
+        <style>
+        .stAlert{
+        height:0px;
+        visibility:hidden
+        }
+        </style>""", unsafe_allow_html=True)
 
         hide_img_fs = '''
             <style>

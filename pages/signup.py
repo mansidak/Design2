@@ -25,14 +25,6 @@ firebaseconfig = {
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
 
-st.markdown("""
-
-<style>
-.stAlert{
-height:0px;
-visibility:hidden
-}
-</style>""", unsafe_allow_html=True)
 def main(user: object):
     st.write(f"You're logged in as {st.session_state['user']['email']}")
     set_code(code=user['refreshToken'])
