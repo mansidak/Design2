@@ -506,6 +506,21 @@ if __name__ == "__main__":
                 AllSkills = response["choices"][0]["message"]["content"]
                 return AllSkills
 
+            def openAIMatchSkillsWithJobs(Skills, JobTitles, resumeContent):
+                response = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": "You're an AI bot that can match job titles with relevant skills in that industry. For example if you get Skills = 'skill1, skill2, skill3, skill4' and Job Titles = 'job title 1, job title 2, job title 3, job title 4'. You will match the skills that are related to each jobs and list the out put as ' job title 1 : skill 3, job title 2: skill 4, job title 3: skill 2, job title 4: skill1'. Your response should not have any extra fluff and you shouldn't add any skills of your own."},
+                        {"role": "user",
+                         "content": f"""
+                         Skills = {Skills}.
+                         Job Titles = {JobTitles}.
+                        """}])
+
+                Matched = response["choices"][0]["message"]["content"]
+                return Matched
+
             col1, col2, col3 = st.columns([2, 1, 2])
 
             with col1:
@@ -569,18 +584,22 @@ if __name__ == "__main__":
                     newSkills = openAIGetRelevantHardSkills(resumeContent)
                     softSkills = openAIGetRelevantSoftSkills(resumeContent)
                     OldSkillsBullet = openAIGetAllSkills(resumeContent)
+                    Matches = openAIMatchSkillsWithJobs(newSkills, newJobtitles, resumeContent)
                     st.session_state['newJobtitles'] = newJobtitles
                     st.session_state['newSkills'] = newSkills
                     st.session_state['softSkills'] = softSkills
                     st.session_state['OldSkillsBullet'] = OldSkillsBullet
+                    st.session_state['Matches'] = Matches
                 newSkills = st.session_state['newSkills']
                 newJobtitles = st.session_state['newJobtitles']
                 OldSkillsBullet = st.session_state['OldSkillsBullet']
                 softSkills = st.session_state['softSkills']
+                Matches = st.session_state['Matches']
                 st.write(newSkills)
                 st.write(newJobtitles)
                 st.write(softSkills)
                 st.write(OldSkillsBullet)
+                st.write(Matches)
                 holder2 = st.empty()
                 ExperienceLevel = holder2.selectbox(
                     'Select Experience Level (Required)',
