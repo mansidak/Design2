@@ -1000,8 +1000,8 @@ if __name__ == "__main__":
                     links1 = future1.result()
                     links2 = future2.result()
                     links3 = future3.result()
-                    links4 = future1.result()
-                    links5 = future2.result()
+                    links4 = future4.result()
+                    links5 = future5.result()
                     # links4 = future4.result()
                     # st.write(links1)
                     # st.write(links2)
@@ -1012,7 +1012,7 @@ if __name__ == "__main__":
                     print(threading.enumerate())
                     st.write(threading.enumerate())
 
-                    st.session_state["FinalResults"] = links1 + links2 + links3
+                    st.session_state["FinalResults"] = links1 + links2 + links3 +links4 + links5
 
                     if 'user' not in st.session_state:
                         switch_page("signup")
