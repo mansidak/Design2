@@ -368,9 +368,9 @@ with col1form:
 with col2form:
     def login_form(auth):
 
-        st.subheader("All Cookies:")
-        cookies = cookie_manager.get_all()
-        st.write(cookies)
+        # st.subheader("All Cookies:")
+        # cookies = cookie_manager.get_all()
+        # st.write(cookies)
         email = st.text_input(
             label="email", placeholder="fullname@gmail.com")
         password = st.text_input(
