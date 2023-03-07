@@ -991,7 +991,7 @@ if __name__ == "__main__":
                         future3 = executor.submit(run_selenium1, f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                         # future4 = executor.submit(run_selenium1, f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                         future5 = executor.submit(progress_shit())
-                    executor.shutdown(wait=True)
+                    # executor.shutdown(wait=True)
 
                     links1 = future1.result()
                     links2 = future2.result()
