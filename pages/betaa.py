@@ -328,28 +328,25 @@ if __name__ == "__main__":
                 options.add_argument('--ignore-certificate-errors')
 
                 with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
-                    try:
-                        driver.get(
-                            f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
-                        st.write(
-                            f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
-                        jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
-                        time.sleep(1)
-                        links = []
-                        jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")
+                    driver.get(
+                        f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                    st.write(
+                        f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                    jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
+                    time.sleep(1)
+                    links = []
+                    jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")
 
-                        for job in jobs_list1:
-                            all_links = job.find_elements(By.TAG_NAME, "a")
-                            for a in all_links:
-                                if str(a.get_attribute('href')).startswith(
-                                        "https://search.linkup.com/details/") and a.get_attribute('href') not in links:
-                                    links.append(a.get_attribute('href'))
-                                    print(links)
-                                else:
-                                    pass
-                    except:
-                        driver.close()
-                        driver.quit()
+                    for job in jobs_list1:
+                        all_links = job.find_elements(By.TAG_NAME, "a")
+                        for a in all_links:
+                            if str(a.get_attribute('href')).startswith(
+                                    "https://search.linkup.com/details/") and a.get_attribute('href') not in links:
+                                links.append(a.get_attribute('href'))
+                                print(links)
+                            else:
+                                pass
+
 
                 def get_links(i, skill1, resumeContent):
                     Final_Links = []
@@ -359,66 +356,64 @@ if __name__ == "__main__":
                     Final_Location = []
                     shortened_summary = []
                     Final_Skills = []
-                    try:
-                        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-                        driver.get(i)
-                        # time.sleep(2)
-                        elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
-                        for a in elements:
-                            if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
-                                    'href') not in Final_Links:
-                                Final_Links.append(a.get_attribute('href'))
-                        title = driver.find_element(By.XPATH,
-                                                    "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
-                        Final_Titles.append(title)
-                        location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
-                        Final_Location.append(location)
-                        Final_Skills.append(skill1)
-                        company = driver.find_element(By.XPATH,
-                                                      "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
-                        Final_Company.append(company)
 
-                        description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
-                        Final_Description.append(description)
-                        words = description.split()
-                        description_length = len(words)
-                        if description_length > 950:
-                            sliced_description = ''.join(words[:950])
-                            response3 = openai.ChatCompletion.create(
-                                model="gpt-3.5-turbo",
-                                messages=[
-                                    {"role": "system",
-                                     "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
-                                    {"role": "user",
-                                     "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+                    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+                    driver.get(i)
+                    # time.sleep(2)
+                    elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
+                    for a in elements:
+                        if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
+                                'href') not in Final_Links:
+                            Final_Links.append(a.get_attribute('href'))
+                    title = driver.find_element(By.XPATH,
+                                                "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
+                    Final_Titles.append(title)
+                    location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
+                    Final_Location.append(location)
+                    Final_Skills.append(skill1)
+                    company = driver.find_element(By.XPATH,
+                                                  "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
+                    Final_Company.append(company)
 
-                            shortened_summary.append(response3["choices"][0]["message"]["content"])
-                            print(response3["usage"]["total_tokens"])
-                        else:
-                            response3 = openai.ChatCompletion.create(
-                                model="gpt-3.5-turbo",
-                                messages=[
-                                    {"role": "system",
-                                     "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
-                                    {"role": "user",
-                                     "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
-                            shortened_summary.append(response3["choices"][0]["message"]["content"])
-                            print(response3["usage"]["total_tokens"])
+                    description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
+                    Final_Description.append(description)
+                    words = description.split()
+                    description_length = len(words)
+                    if description_length > 950:
+                        sliced_description = ''.join(words[:950])
+                        response3 = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
+                                {"role": "user",
+                                 "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
-                        for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
-                                                                                                        Final_Titles,
-                                                                                                        Final_Company,
-                                                                                                        shortened_summary,
-                                                                                                        Final_Description,
-                                                                                                        Final_Location,
-                                                                                                        Final_Skills):
-                            Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+                        shortened_summary.append(response3["choices"][0]["message"]["content"])
+                        print(response3["usage"]["total_tokens"])
+                    else:
+                        response3 = openai.ChatCompletion.create(
+                            model="gpt-3.5-turbo",
+                            messages=[
+                                {"role": "system",
+                                 "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
+                                {"role": "user",
+                                 "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+                        shortened_summary.append(response3["choices"][0]["message"]["content"])
+                        print(response3["usage"]["total_tokens"])
 
-                        driver.close()
-                        driver.quit()
-                    except:
-                        driver.close()
-                        driver.quit()
+                    for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
+                                                                                                    Final_Titles,
+                                                                                                    Final_Company,
+                                                                                                    shortened_summary,
+                                                                                                    Final_Description,
+                                                                                                    Final_Location,
+                                                                                                    Final_Skills):
+                        Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+
+                    driver.close()
+                    driver.quit()
+
                     return Final_Array
 
                 with ThreadPoolExecutor() as executor:
