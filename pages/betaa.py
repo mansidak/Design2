@@ -614,7 +614,7 @@ if __name__ == "__main__":
                 # st.write(OldSkillsBullet)
                 # st.write(Matches)
                 MatchTuples = MatchMethod(Matches)
-                st.write(type(MatchTuples))
+                st.write(MatchTuples["Full Stack Developer"])
 
 
                 holder2 = st.empty()
