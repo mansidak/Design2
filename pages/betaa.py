@@ -516,7 +516,7 @@ if __name__ == "__main__":
                     model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system",
-                         "content": "You're an AI bot that can match job titles with relevant skills in that industry. For example if you get Skills = 'skill1, skill2, skill3, skill4' and Job Titles = 'job title 1, job title 2, job title 3, job title 4'. You will match the skills that are related to each jobs and list the out put as ' job title 1 : skill 3, job title 2: skill 4, job title 3: skill 2, job title 4: skill1'. If there are no skills matching for that job title, return 'None'. Your response should not have any extra fluff and you shouldn't add any skills of your own.Also you cannot match one job to more than one skill."},
+                         "content": "You're an AI bot that can match job titles with relevant skills in that industry. For example if you get Skills = 'skill1, skill2, skill3, skill4' and Job Titles = 'job title 1, job title 2, job title 3, job title 4'. You will match the skills that are related to each jobs and list the out put as ' job title 1 : skill 3, job title 2: skill 4, job title 3: skill 2, job title 4: skill1'. If there are no skills matching for that job title, assign a random skill from the data. Your response should not have any extra fluff and you shouldn't add any skills of your own.Also you cannot match one job to more than one skill."},
                         {"role": "user",
                          "content": f"""
                          Skills = {Skills}.
