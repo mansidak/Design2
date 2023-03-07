@@ -960,7 +960,6 @@ if __name__ == "__main__":
 
                     # SearchHolder.empty()
                     NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
-                    DisplaySkills = ', '.join([item.replace('-', ' ') for item in newSkills])
                     #
                     # links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     # links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
@@ -972,7 +971,7 @@ if __name__ == "__main__":
 
                     def progress_shit():
                         progressText.markdown(
-                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {DisplaySkills}etc...</h6>",
+                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {FreshSkills}etc...</h6>",
                             unsafe_allow_html=True)
                         my_bar.progress(25, text=f"")
                         time.sleep(10)
