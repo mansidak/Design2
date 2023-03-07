@@ -579,14 +579,11 @@ if __name__ == "__main__":
                 job_titles = []
                 skills = []
 
-                # Iterate through each job and skill in the dictionary
                 for job, skill in job_skills.items():
                     job_titles.append(job)
                     skills.append(skill)
-
-                # Print the job titles and skills
-                st.write("Job Titles:", job_titles)
-                st.write("Skills:", skills)
+                # st.write("Job Titles:", job_titles)
+                # st.write("Skills:", skills)
                 return job_titles, skills
 
             if ResumePDF is not None:
@@ -619,13 +616,8 @@ if __name__ == "__main__":
                 OldSkillsBullet = st.session_state['OldSkillsBullet']
                 softSkills = st.session_state['softSkills']
                 Matches = st.session_state['Matches']
-                # st.write(newSkills)
-                # st.write(newJobtitles)
-                # st.write(softSkills)
-                # st.write(OldSkillsBullet)
-                # st.write(Matches)
-                MatchTuples = MatchMethod(Matches)
-                st.write(MatchTuples)
+                FreshJobTitles, FreshSkills = MatchMethod(Matches)
+                st.write(FreshJobTitles, FreshSkills )
 
 
                 holder2 = st.empty()
