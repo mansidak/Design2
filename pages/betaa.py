@@ -997,9 +997,9 @@ if __name__ == "__main__":
                     links2 = future2.result()
                     links3 = future3.result()
                     # links4 = future4.result()
-                    st.write(links1)
-                    st.write(links2)
-                    st.write(links3)
+                    # st.write(links1)
+                    # st.write(links2)
+                    # st.write(links3)
                     # st.write(links4)
                     executor.shutdown(wait=True)
 
@@ -1008,11 +1008,11 @@ if __name__ == "__main__":
 
                     st.session_state["FinalResults"] = links1 + links2 + links3
 
-                    # if 'user' not in st.session_state:
-                    #     switch_page("signup")
-                    #
-                    # else:
-                    #     switch_page("results")
+                    if 'user' not in st.session_state:
+                        switch_page("signup")
+
+                    else:
+                        switch_page("results")
         with colmain3:
             st.write("")
 
