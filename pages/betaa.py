@@ -331,14 +331,11 @@ if __name__ == "__main__":
                 options.add_argument('--ignore-certificate-errors')
 
                 with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
-                    driver.get(
-                        f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
-                    st.write(
-                        f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                    driver.get(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                     jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                     time.sleep(1)
                     links = []
-                    jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")
+                    jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")[:5]
 
                     for job in jobs_list1:
                         all_links = job.find_elements(By.TAG_NAME, "a")
@@ -995,13 +992,16 @@ if __name__ == "__main__":
                         future1 = executor.submit(run_selenium1, f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",f"{FreshSkills[0].replace(' ', '_')}",f"{undesired}", 1, resumeContent,locationpreference.replace(' ', '_'))
                         future2 = executor.submit(run_selenium1, f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                         future3 = executor.submit(run_selenium1, f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        # future4 = executor.submit(run_selenium1, f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        future5 = executor.submit(progress_shit())
+                        future4 = executor.submit(run_selenium1, f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                        future5 = executor.submit(run_selenium1, f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                        future6 = executor.submit(progress_shit())
                     executor.shutdown(wait=True)
 
                     links1 = future1.result()
                     links2 = future2.result()
                     links3 = future3.result()
+                    links4 = future1.result()
+                    links5 = future2.result()
                     # links4 = future4.result()
                     # st.write(links1)
                     # st.write(links2)
