@@ -472,7 +472,6 @@ if __name__ == "__main__":
                          "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
 
                 JobTitles = response["choices"][0]["message"]["content"]
-                st.write(JobTitles)
                 return JobTitles
             def openAIGetRelevantHardSkills(resumeContent):
                 response = openai.ChatCompletion.create(
@@ -623,6 +622,7 @@ if __name__ == "__main__":
                 OldSkillsBullet = st.session_state['OldSkillsBullet']
                 softSkills = st.session_state['softSkills']
                 Matches = st.session_state['Matches']
+                st.write(newJobtitles)
                 FreshJobTitles, FreshSkills = MatchMethod(Matches)
                 st.write(FreshJobTitles, FreshSkills)
 
