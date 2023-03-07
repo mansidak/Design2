@@ -766,8 +766,15 @@ text-align: center;
 
             </style>
                 """, unsafe_allow_html=True)
+            st.markdown("""
 
-            # SearchHolder.empty()
+            <style>
+            .stAlert{
+            height:0px;
+            visibility:hidden
+            }
+            </style>""", unsafe_allow_html=True)
+
             NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",unsafe_allow_html=True)
             DisplaySkills = ', '.join([item.replace('-', ' ') for item in newSkills])
 

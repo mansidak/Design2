@@ -129,6 +129,14 @@ st.markdown(f"<h1 style='font-family: Sans-Serif; font-weight:lighter; color: bl
 
 st.markdown(f"<h4 style='font-family: Sans-Serif; font-weight:lighter; color: black'>Introducing world’s first AI-powered job matching platform.</h4>", unsafe_allow_html=True)
 st.text("")
+st.markdown("""
+
+<style>
+.stAlert{
+height:0px;
+visibility:hidden
+}
+</style>""", unsafe_allow_html=True)
 st.text("")
 
 col1, col2, col3 = st.columns([2, 2, 10])

@@ -26,6 +26,15 @@ firebaseconfig = {
         }
 
 
+st.markdown("""
+
+<style>
+.stAlert{
+height:0px;
+visibility:hidden
+}
+</style>""", unsafe_allow_html=True)
+
 if __name__ == "__main__":
     def main(user: object):
         hide_menu_style = """

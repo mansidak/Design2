@@ -25,6 +25,15 @@ firebaseconfig = {
         }
 
 
+st.markdown("""
+
+<style>
+.stAlert{
+height:0px;
+visibility:hidden
+}
+</style>""", unsafe_allow_html=True)
+
 if __name__ == "__main__":
     def main(user: object):
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
