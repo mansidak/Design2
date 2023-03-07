@@ -201,7 +201,8 @@ if __name__ == "__main__":
             unsafe_allow_html=True)
         st.subheader("")
         st.subheader("")
-
+        if st.button("Start Over"):
+            switch_page("PreResumeBuilder")
         tab1, tab2, tab3, tab4, tab5 = st.tabs(
             ["\u2001Basics\u2001", "\u2001\u2001Experience\u2001\u2001", "\u2001\u2001Projects\u2001\u2001",
              "\u2001\u2001Skills\u2001\u2001", "\u2001\u2001Result\u2001\u2001"])
