@@ -29,139 +29,7 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     def main(user: object):
-        hide_menu_style = """
-                 <style>
-                 #MainMenu {visibility: hidden;}
-                 .css-j7qwjs {visibility: hidden;}
-                 footer {visibility: hidden;}
-                 
-                 .e1fb0mya1.css-fblp2m.ex0cdmw0 {visibility: hidden;}
-                 
-                 .css-leojxt.edgvbvh3{visibility: hidden;}
-                 </style>
-                 """
-        st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-        hide_streamlit_style = """
-                      <style>
-                      div[class='css-4z1n4l ehezqtx5']{
-                        background: rgba(0, 0, 0, 0.3);
-                        color: #fff;
-                        border-radius: 10px;
-                        backdrop-filter: blur(10px);
-                        height: 40px;
-                        max-width: 200px;
-                        position: fixed;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 50%;
-                      }
-
-                        .stApp {
-                        background-color: #eeeeee;
-                        color:black
-                        }
-                        .element-container.css-l0vo1h.e1tzin5v3
-                        {
-                        color:black
-                        }
-
-                        div.stButton > button:first-child {
-                        background-color: #eeeeee;
-                        color:black;
-                        border-color: black;
-                        }
-
-                        div.stButton > button:hover {
-                        background-color: #eeeeee;
-                        color: #F63366;
-                        border-color: #F63366;
-                        }
-
-                        .stMarkdown{
-                        color:black
-                        }
-                        .streamlit-expanderHeader{
-                        color:black
-                        }
-
-
-                        div[data-testid="stSidebarNav"] {
-                        height: 0%;
-                        position: fixed;
-                        }
-                        .css-5y9es8.exg6vvm15{
-                        border-radius:50px; 
-                        }
-                            .css-5y9es8 {
-                                border-radius:100px;
-                            }
-                            .css-1db87p3{
-                                border-radius:100px;
-                            }
-                            .css-v1vwiw{
-                                border-radius:100px;
-                            }
-                        .css-1db87p3.edgvbvh10{
-                        border-radius:50px; 
-                        }
-
-                        .css-5y9es8.exg6vvm15{
-                        filter:invert(1);
-                        }
-
-                        .css-1uhah0b.e8zbici2{
-                        height:40px;
-                        }
-
-
-                        .css-13e20ss{
-                        visibility: hidden;
-                        height: 0%;
-                        position: fixed;
-                        }
-
-                         div[class="stAlert"] {
-                                        visibility: hidden;
-                                        height: 0%;
-                                        position: fixed;
-                                        }
-
-                        div[class="stException"] {
-                        visibility: hidden;
-                        height: 0%;
-                        position: fixed;
-                        }
-
-                        .menu{
-                        margin-top:-100px
-                        }
-                        
-
-                      </style>
-                      """
-        st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-        st.markdown("""
-
-        <style>
-        .stAlert{
-        height:0px;
-        visibility:hidden
-        }
-        </style>""", unsafe_allow_html=True)
-
-        hide_img_fs = '''
-            <style>
-            button[title="View fullscreen"]{
-                visibility: hidden;}
-                ul.streamlit-expander {
-                        border: 0 None !important;
-                        }
-            </style>
-            '''
-
-        st.markdown(hide_img_fs, unsafe_allow_html=True)
 
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
         with coldash1:
@@ -233,6 +101,140 @@ if __name__ == "__main__":
             }
         </style>
         """, unsafe_allow_html=True)
+
+        hide_menu_style = """
+                        <style>
+                        #MainMenu {visibility: hidden;}
+                        .css-j7qwjs {visibility: hidden;}
+                        footer {visibility: hidden;}
+
+                        .e1fb0mya1.css-fblp2m.ex0cdmw0 {visibility: hidden;}
+
+                        .css-leojxt.edgvbvh3{visibility: hidden;}
+                        </style>
+                        """
+        st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+        hide_streamlit_style = """
+                             <style>
+                             div[class='css-4z1n4l ehezqtx5']{
+                               background: rgba(0, 0, 0, 0.3);
+                               color: #fff;
+                               border-radius: 10px;
+                               backdrop-filter: blur(10px);
+                               height: 40px;
+                               max-width: 200px;
+                               position: fixed;
+                               top: 50%;
+                               left: 50%;
+                               transform: translate(-50%, -50%);
+                               width: 50%;
+                             }
+
+                               .stApp {
+                               background-color: #eeeeee;
+                               color:black
+                               }
+                               .element-container.css-l0vo1h.e1tzin5v3
+                               {
+                               color:black
+                               }
+
+                               div.stButton > button:first-child {
+                               background-color: #eeeeee;
+                               color:black;
+                               border-color: black;
+                               }
+
+                               div.stButton > button:hover {
+                               background-color: #eeeeee;
+                               color: #F63366;
+                               border-color: #F63366;
+                               }
+
+                               .stMarkdown{
+                               color:black
+                               }
+                               .streamlit-expanderHeader{
+                               color:black
+                               }
+
+
+                               div[data-testid="stSidebarNav"] {
+                               height: 0%;
+                               position: fixed;
+                               }
+                               .css-5y9es8.exg6vvm15{
+                               border-radius:50px; 
+                               }
+                                   .css-5y9es8 {
+                                       border-radius:100px;
+                                   }
+                                   .css-1db87p3{
+                                       border-radius:100px;
+                                   }
+                                   .css-v1vwiw{
+                                       border-radius:100px;
+                                   }
+                               .css-1db87p3.edgvbvh10{
+                               border-radius:50px; 
+                               }
+
+                               .css-5y9es8.exg6vvm15{
+                               filter:invert(1);
+                               }
+
+                               .css-1uhah0b.e8zbici2{
+                               height:40px;
+                               }
+
+
+                               .css-13e20ss{
+                               visibility: hidden;
+                               height: 0%;
+                               position: fixed;
+                               }
+
+                                div[class="stAlert"] {
+                                               visibility: hidden;
+                                               height: 0%;
+                                               position: fixed;
+                                               }
+
+                               div[class="stException"] {
+                               visibility: hidden;
+                               height: 0%;
+                               position: fixed;
+                               }
+
+                               .menu{
+                               margin-top:-100px
+                               }
+
+
+                             </style>
+                             """
+        st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+        st.markdown("""
+
+               <style>
+               .stAlert{
+               height:0px;
+               visibility:hidden
+               }
+               </style>""", unsafe_allow_html=True)
+
+        hide_img_fs = '''
+                   <style>
+                   button[title="View fullscreen"]{
+                       visibility: hidden;}
+                       ul.streamlit-expander {
+                               border: 0 None !important;
+                               }
+                   </style>
+                   '''
+
+        st.markdown(hide_img_fs, unsafe_allow_html=True)
 
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
