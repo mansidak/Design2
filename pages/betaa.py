@@ -566,6 +566,18 @@ if __name__ == "__main__":
                 FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
                 return resumeContent
 
+            def MatchMethod(Matches):
+                job_skills = {}
+                lines = Matches.split("\n")
+                for line in lines:
+                    job_desc = line.split(":")
+                    job = job_desc[0]
+                    first_skill = job_desc[1].split(",")[0].strip()
+                    job_skills[job] = first_skill
+
+                st.write(job_skills)
+                return job_skills
+
             if ResumePDF is not None:
                 SubTitle.empty()
                 Credits.empty()
@@ -585,16 +597,6 @@ if __name__ == "__main__":
                     softSkills = openAIGetRelevantSoftSkills(resumeContent)
                     OldSkillsBullet = openAIGetAllSkills(resumeContent)
                     Matches = openAIMatchSkillsWithJobs(newSkills, newJobtitles, resumeContent)
-                    job_skills = {}
-                    lines = Matches.split("\n")
-                    for line in lines:
-                        job_desc = line.split(":")
-                        job = job_desc[0]
-                        first_skill = job_desc[1].split(",")[0].strip()
-                        job_skills[job] = first_skill
-
-                    for job, skill in job_skills.items():
-                        st.write("Job Title:", job, "Skill:", skill)
 
                     st.session_state['newJobtitles'] = newJobtitles
                     st.session_state['newSkills'] = newSkills
@@ -606,11 +608,15 @@ if __name__ == "__main__":
                 OldSkillsBullet = st.session_state['OldSkillsBullet']
                 softSkills = st.session_state['softSkills']
                 Matches = st.session_state['Matches']
-                st.write(newSkills)
-                st.write(newJobtitles)
-                st.write(softSkills)
-                st.write(OldSkillsBullet)
-                st.write(Matches)
+                # st.write(newSkills)
+                # st.write(newJobtitles)
+                # st.write(softSkills)
+                # st.write(OldSkillsBullet)
+                # st.write(Matches)
+                MatchTuples = MatchMethod(Matches)
+                st.write(MatchTuples)
+
+
                 holder2 = st.empty()
                 ExperienceLevel = holder2.selectbox(
                     'Select Experience Level (Required)',
@@ -973,6 +979,7 @@ if __name__ == "__main__":
                             f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
                             unsafe_allow_html=True)
                         my_bar.progress(75, text=f"")
+
 
                     with ThreadPoolExecutor(max_workers=3) as executor:
                         future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}",
