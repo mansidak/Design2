@@ -576,7 +576,18 @@ if __name__ == "__main__":
                     job_skills[job] = first_skill
 
                 st.write(job_skills)
-                return job_skills
+                job_titles = []
+                skills = []
+
+                # Iterate through each job and skill in the dictionary
+                for job, skill in job_skills.items():
+                    job_titles.append(job)
+                    skills.append(skill)
+
+                # Print the job titles and skills
+                st.write("Job Titles:", job_titles)
+                st.write("Skills:", skills)
+                return job_titles, skills
 
             if ResumePDF is not None:
                 SubTitle.empty()
@@ -614,7 +625,7 @@ if __name__ == "__main__":
                 # st.write(OldSkillsBullet)
                 # st.write(Matches)
                 MatchTuples = MatchMethod(Matches)
-                st.write(MatchTuples["Full Stack Developer"])
+                st.write(MatchTuples)
 
 
                 holder2 = st.empty()
