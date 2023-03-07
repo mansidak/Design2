@@ -423,7 +423,7 @@ if __name__ == "__main__":
                 return result11
 
             @st.cache(show_spinner=False)
-            def openAIGetRelevantJobTitles(resumeContent):
+            def openAIGetName(resumeContent):
                 response = openai.ChatCompletion.create(
                     model="gpt-3.5-turbo",
                     messages=[
@@ -436,28 +436,75 @@ if __name__ == "__main__":
                 return Name
 
             # @st.cache(show_spinner=False)
+            # def openAIGetRelevantJobTitlesDuplicate(resumeContent):
+            #     response = openai.Completion.create(
+            #         model="text-davinci-003",
+            #         prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other generic jobs titles would they like to pursue? List 3 and separate them by commas.\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
+            #         temperature=0.7,
+            #         max_tokens=200,
+            #         top_p=1,
+            #         frequency_penalty=0,
+            #         presence_penalty=0
+            #     )
+            #     Titles = response["choices"][0]["text"]
+            #     print(Titles)
+            #     Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
+            #     Skills = Titles.split('2.')[1].split('3.')[0].split(',')
+            #     Name = Titles.split('3.')[1].split('4.')[0]
+            #     softSkills = Titles.split('4.')[1].split('5.')[0]
+            #     OldSkills = Titles.split('5.')[1]
+            #
+            #     newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
+            #     newSkills = [re.sub(r'\s+', '-', item) for item in Skills]
+            #
+            #     return Name, newJobtitles, newSkills, softSkills, OldSkills
+            #
+            #
             def openAIGetRelevantJobTitlesDuplicate(resumeContent):
-                response = openai.Completion.create(
-                    model="text-davinci-003",
-                    prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other generic jobs titles would they like to pursue? List 3 and separate them by commas.\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
-                    temperature=0.7,
-                    max_tokens=200,
-                    top_p=1,
-                    frequency_penalty=0,
-                    presence_penalty=0
-                )
-                Titles = response["choices"][0]["text"]
-                print(Titles)
-                Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
-                Skills = Titles.split('2.')[1].split('3.')[0].split(',')
-                Name = Titles.split('3.')[1].split('4.')[0]
-                softSkills = Titles.split('4.')[1].split('5.')[0]
-                OldSkills = Titles.split('5.')[1]
+                response = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": "You're an AI bot that scans the resume of a job seeker and suggest generic job titles that they should pursue. You don't add extra fluff in your response and your response should always have the format of 'title 1, title 2, title 3, title 4, title 5, title 6'."},
+                        {"role": "user",
+                         "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
 
-                newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
-                newSkills = [re.sub(r'\s+', '-', item) for item in Skills]
+                JobTitles = response["choices"][0]["message"]["content"]
+                return JobTitles
+            def openAIGetRelevantHardSkills(resumeContent):
+                response = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": "You're an AI bot that takes in the resume description of a job seeker and outputs the skills that appear most frequently in the resume of the person. You don't add extra fluff in your response and your response should always have the format of 'skill1, skill2, skill3, skill4, skill5, skill6'."},
+                        {"role": "user",
+                         "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
 
-                return Name, newJobtitles, newSkills, softSkills, OldSkills
+                HardSkills = response["choices"][0]["message"]["content"]
+                return HardSkills
+            def openAIGetRelevantSoftSkills(resumeContent):
+                response = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": "You're an AI bot that takes in the resume description of a job seeker and outputs the soft skills that appear most frequently in the resume of the person. You don't add extra fluff in your response and your response should always have the format of 'skill1, skill2, skill3, skill4, skill5, skill6'."},
+                        {"role": "user",
+                         "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
+
+                SoftSkills = response["choices"][0]["message"]["content"]
+                return SoftSkills
+
+            def openAIGetAllSkills(resumeContent):
+                response = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": "You're an AI bot that takes in the resume description of a job seeker and outputs all the technical skills the person possesses. You don't add extra fluff in your response and your response should always have the format of 'skill1, skill2, skill3, skill4, skill5, skill6, skill7, skill8, skill9, skill10'."},
+                        {"role": "user",
+                         "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
+
+                AllSkills = response["choices"][0]["message"]["content"]
+                return AllSkills
 
             col1, col2, col3 = st.columns([2, 1, 2])
 
@@ -509,7 +556,7 @@ if __name__ == "__main__":
                 Credits.empty()
                 holder.empty()
                 resumeContent = extract_text_from_pdf(ResumePDF)
-                Name = openAIGetRelevantJobTitles(resumeContent)
+                Name = openAIGetName(resumeContent)
 
                 if 'Name' not in st.session_state:
                     st.session_state['Name'] = Name
@@ -518,8 +565,10 @@ if __name__ == "__main__":
                 NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                                     unsafe_allow_html=True)
                 if 'newSkills' not in st.session_state:
-                    NameDuplicate, newJobtitles, newSkills, softSkills, OldSkillsBullet = openAIGetRelevantJobTitlesDuplicate(
-                        resumeContent)
+                    newJobtitles = openAIGetRelevantJobTitlesDuplicate(resumeContent)
+                    newSkills = openAIGetRelevantHardSkills(resumeContent)
+                    softSkills = openAIGetRelevantSoftSkills(resumeContent)
+                    OldSkillsBullet = openAIGetAllSkills(resumeContent)
                     st.session_state['newJobtitles'] = newJobtitles
                     st.session_state['newSkills'] = newSkills
                     st.session_state['softSkills'] = softSkills
@@ -528,8 +577,10 @@ if __name__ == "__main__":
                 newJobtitles = st.session_state['newJobtitles']
                 OldSkillsBullet = st.session_state['OldSkillsBullet']
                 softSkills = st.session_state['softSkills']
-                # st.write(newSkills)
-                # st.write(newJobtitles)
+                st.write(newSkills)
+                st.write(newJobtitles)
+                st.write(softSkills)
+                st.write(OldSkillsBullet)
                 holder2 = st.empty()
                 ExperienceLevel = holder2.selectbox(
                     'Select Experience Level (Required)',
@@ -893,14 +944,14 @@ if __name__ == "__main__":
                             unsafe_allow_html=True)
                         my_bar.progress(75, text=f"")
 
-                    with ThreadPoolExecutor(max_workers=3) as executor:
-                        future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}",
-                                                  f"{newSkills[0]}",
-                                                  f"{undesired}", 1, resumeContent,
-                                                  locationpreference.replace(' ', '_'))
+                    # with ThreadPoolExecutor(max_workers=3) as executor:
+                    #     future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}",
+                    #                               f"{newSkills[0]}",
+                    #                               f"{undesired}", 1, resumeContent,
+                    #                               locationpreference.replace(' ', '_'))
                         # future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                         # future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        future4 = executor.submit(progress_shit())
+                        # future4 = executor.submit(progress_shit())
 
                     executor.shutdown(wait=True)
 
@@ -913,12 +964,12 @@ if __name__ == "__main__":
                     st.write(threading.enumerate())
 
                     st.session_state["FinalResults"] = links1
-
-                    if 'user' not in st.session_state:
-                        switch_page("signup")
-
-                    else:
-                        switch_page("results")
+                    #
+                    # if 'user' not in st.session_state:
+                    #     switch_page("signup")
+                    #
+                    # else:
+                    #     switch_page("results")
         with colmain3:
             st.write("")
 
