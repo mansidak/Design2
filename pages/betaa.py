@@ -433,9 +433,9 @@ if __name__ == "__main__":
                     model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system",
-                         "content": "You are an AI Assistant that grabs the name of a person from resume data and outputs their first name"},
+                         "content": "You are an AI Assistant that grabs the name of a person from resume data and outputs their full name. Your response shouldn't have any extra fluff."},
                         {"role": "user",
-                         "content": f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nTheir full name is: \n"}])
+                         "content": f"The following is the data from the resume of a job seeker. \n\n{resumeContent}\n\nTheir full name is:"}])
 
                 Name = response["choices"][0]["message"]["content"]
                 return Name
