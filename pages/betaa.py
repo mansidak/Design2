@@ -467,7 +467,7 @@ if __name__ == "__main__":
                     model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system",
-                         "content": "You're an AI bot that scans the resume of a job seeker and suggest generic but different job titles that they should pursue. You don't add extra fluff in your response and your response should always have the format of 'title 1, title 2, title 3, title 4, title 5, title 6'."},
+                         "content": "You're an AI bot that scans the resume of a job seeker and suggest 7 generic but different job titles that they should pursue. You don't add extra fluff in your response and your response should always have the format of 'title 1, title 2, title 3, title 4, title 5, title 6'."},
                         {"role": "user",
                          "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
 
