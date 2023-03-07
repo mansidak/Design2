@@ -987,24 +987,24 @@ if __name__ == "__main__":
                         future1 = executor.submit(run_selenium1, f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",f"{FreshSkills[0].replace(' ', '_')}",f"{undesired}", 1, resumeContent,locationpreference.replace(' ', '_'))
                         future2 = executor.submit(run_selenium1, f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                         future3 = executor.submit(run_selenium1, f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        future4 = executor.submit(run_selenium1, f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-
+                        # future4 = executor.submit(run_selenium1, f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                        future5 = executor.submit(progress_shit())
                     executor.shutdown(wait=True)
 
                     links1 = future1.result()
                     links2 = future2.result()
                     links3 = future3.result()
-                    links4 = future4.result()
+                    # links4 = future4.result()
                     st.write(links1)
                     st.write(links2)
                     st.write(links3)
-                    st.write(links4)
+                    # st.write(links4)
                     executor.shutdown(wait=True)
 
                     print(threading.enumerate())
                     st.write(threading.enumerate())
 
-                    st.session_state["FinalResults"] = links1 + links2 + links3 + links4
+                    st.session_state["FinalResults"] = links1 + links2 + links3
                     #
                     # if 'user' not in st.session_state:
                     #     switch_page("signup")
