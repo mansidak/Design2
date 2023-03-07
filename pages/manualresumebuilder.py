@@ -1,14 +1,13 @@
 import streamlit as st
 st.set_page_config(page_title="19th Street | Manual Resume Builder", page_icon="📜", layout="wide", initial_sidebar_state='collapsed')
 import streamlit as st
-st.set_page_config(page_title="19th Street | Resume Builder 1", page_icon="⓵⓽",  initial_sidebar_state='collapsed', layout="wide")
 import openai
 from docx import Document
 from PIL import Image
 from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from htmldocx import HtmlToDocx
-import io
+import iomu
 from docx.shared import Inches, Cm
 import streamlit as st
 import os
