@@ -585,6 +585,17 @@ if __name__ == "__main__":
                     softSkills = openAIGetRelevantSoftSkills(resumeContent)
                     OldSkillsBullet = openAIGetAllSkills(resumeContent)
                     Matches = openAIMatchSkillsWithJobs(newSkills, newJobtitles, resumeContent)
+                    job_skills = {}
+                    lines = Matches.split("\n")
+                    for line in lines:
+                        job_desc = line.split(":")
+                        job = job_desc[0]
+                        first_skill = job_desc[1].split(",")[0].strip()
+                        job_skills[job] = first_skill
+
+                    for job, skill in job_skills.items():
+                        st.write("Job Title:", job, "Skill:", skill)
+
                     st.session_state['newJobtitles'] = newJobtitles
                     st.session_state['newSkills'] = newSkills
                     st.session_state['softSkills'] = softSkills
