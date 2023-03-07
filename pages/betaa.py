@@ -575,7 +575,7 @@ if __name__ == "__main__":
                     first_skill = job_desc[1].split(",")[0].strip()
                     job_skills[job] = first_skill
 
-                st.write(job_skills)
+                # st.write(job_skills)
                 job_titles = []
                 skills = []
 
@@ -617,7 +617,7 @@ if __name__ == "__main__":
                 softSkills = st.session_state['softSkills']
                 Matches = st.session_state['Matches']
                 FreshJobTitles, FreshSkills = MatchMethod(Matches)
-                st.write(FreshJobTitles, FreshSkills )
+                st.write(FreshJobTitles, FreshSkills)
 
 
                 holder2 = st.empty()
@@ -985,19 +985,19 @@ if __name__ == "__main__":
 
 
                     with ThreadPoolExecutor(max_workers=3) as executor:
-                        future1 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}",
-                                                  f"{newSkills[0]}",
-                                                  f"{undesired}", 1, resumeContent,
-                                                  locationpreference.replace(' ', '_'))
-                        # future2 = executor.submit(run_selenium1, f"{newJobtitles[1]}-{ExperienceLevel}", f"{newSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        # future3 = executor.submit(run_selenium1, f"{newJobtitles[0]}-{ExperienceLevel}", f"{newSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                        future1 = executor.submit(run_selenium1, f"{FreshJobTitles[0]}-{ExperienceLevel}",f"{FreshSkills[0]}",f"{undesired}", 1, resumeContent,locationpreference.replace(' ', '_'))
+                        future2 = executor.submit(run_selenium1, f"{FreshJobTitles[1]}-{ExperienceLevel}", f"{FreshSkills[1]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                        future3 = executor.submit(run_selenium1, f"{FreshJobTitles[0]}-{ExperienceLevel}", f"{FreshSkills[2]}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                         # future4 = executor.submit(progress_shit())
 
                     executor.shutdown(wait=True)
 
                     links1 = future1.result()
-                    # links2 = future2.result()
-                    # links3 = future3.result()
+                    links2 = future2.result()
+                    links3 = future3.result()
+                    st.write(links1)
+                    st.write(links2)
+                    st.write(links3)
                     executor.shutdown(wait=True)
 
                     print(threading.enumerate())
