@@ -84,7 +84,11 @@ if __name__ == "__main__":
                         position:fixed;
                         z-index:1;
                         }
-
+                    button[title="View fullscreen"]{
+                        visibility: hidden;}
+                        ul.streamlit-expander {
+                                border: 0 None !important;
+                                }
                       .dark{
                             background-color: #eeeeee;
                             color:black;
