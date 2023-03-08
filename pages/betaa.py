@@ -43,6 +43,7 @@ if __name__ == "__main__":
     cookies = cookie_manager.get_all()
     # st.write(cookies)
     def main(user: object):
+
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
         with coldash1:
             st.write("")
@@ -357,63 +358,66 @@ if __name__ == "__main__":
                     shortened_summary = []
                     Final_Skills = []
 
-                    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-                    driver.get(i)
-                    # time.sleep(2)
-                    elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
-                    for a in elements:
-                        if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
-                                'href') not in Final_Links:
-                            Final_Links.append(a.get_attribute('href'))
-                    title = driver.find_element(By.XPATH,
-                                                "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
-                    Final_Titles.append(title)
-                    location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
-                    Final_Location.append(location)
-                    Final_Skills.append(skill1)
-                    company = driver.find_element(By.XPATH,
-                                                  "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
-                    Final_Company.append(company)
+                    try:
+                        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+                        driver.get(i)
+                        # time.sleep(2)
+                        elements = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[1]/a")
+                        for a in elements:
+                            if str(a.get_attribute('href')).startswith("https://out.linkup.com/") and a.get_attribute(
+                                    'href') not in Final_Links:
+                                Final_Links.append(a.get_attribute('href'))
+                        title = driver.find_element(By.XPATH,
+                                                    "/html/body/main/div[2]/div/div[2]/div/div[2]/div[1]/h2").text
+                        Final_Titles.append(title)
+                        location = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[1]/div/div/p[2]").text
+                        Final_Location.append(location)
+                        Final_Skills.append(skill1)
+                        company = driver.find_element(By.XPATH,
+                                                      "/html/body/main/div[2]/div/div[2]/div/div[2]/div[2]/div/h6[1]").text
+                        Final_Company.append(company)
 
-                    description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
-                    Final_Description.append(description)
-                    words = description.split()
-                    description_length = len(words)
-                    if description_length > 950:
-                        sliced_description = ''.join(words[:950])
-                        response3 = openai.ChatCompletion.create(
-                            model="gpt-3.5-turbo",
-                            messages=[
-                                {"role": "system",
-                                 "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
-                                {"role": "user",
-                                 "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+                        description = driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div[2]/div/div[3]").text
+                        Final_Description.append(description)
+                        words = description.split()
+                        description_length = len(words)
+                        if description_length > 950:
+                            sliced_description = ''.join(words[:950])
+                            response3 = openai.ChatCompletion.create(
+                                model="gpt-3.5-turbo",
+                                messages=[
+                                    {"role": "system",
+                                     "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
+                                    {"role": "user",
+                                     "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
 
-                        shortened_summary.append(response3["choices"][0]["message"]["content"])
-                        print(response3["usage"]["total_tokens"])
-                    else:
-                        response3 = openai.ChatCompletion.create(
-                            model="gpt-3.5-turbo",
-                            messages=[
-                                {"role": "system",
-                                 "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
-                                {"role": "user",
-                                 "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
-                        shortened_summary.append(response3["choices"][0]["message"]["content"])
-                        print(response3["usage"]["total_tokens"])
+                            shortened_summary.append(response3["choices"][0]["message"]["content"])
+                            print(response3["usage"]["total_tokens"])
+                        else:
+                            response3 = openai.ChatCompletion.create(
+                                model="gpt-3.5-turbo",
+                                messages=[
+                                    {"role": "system",
+                                     "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
+                                    {"role": "user",
+                                     "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+                            shortened_summary.append(response3["choices"][0]["message"]["content"])
+                            print(response3["usage"]["total_tokens"])
 
-                    for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
-                                                                                                    Final_Titles,
-                                                                                                    Final_Company,
-                                                                                                    shortened_summary,
-                                                                                                    Final_Description,
-                                                                                                    Final_Location,
-                                                                                                    Final_Skills):
-                        Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
+                        for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
+                                                                                                        Final_Titles,
+                                                                                                        Final_Company,
+                                                                                                        shortened_summary,
+                                                                                                        Final_Description,
+                                                                                                        Final_Location,
+                                                                                                        Final_Skills):
+                            Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills))
 
-                    driver.close()
-                    driver.quit()
-
+                        driver.close()
+                        driver.quit()
+                    except:
+                        driver.close()
+                        driver.quit()
                     return Final_Array
 
                 with ThreadPoolExecutor() as executor:
