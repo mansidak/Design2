@@ -107,7 +107,8 @@ if __name__ == "__main__":
         firebase = pyrebase.initialize_app(firebaseconfig)
         db = firebase.database()
         localId = AccountInfo["localId"]
-        set_code(code=user['refreshToken'], localId=localId)
+        set_code(code=user['refreshToken'])
+        cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
         st.write(f"Delete Resume on File")
@@ -183,9 +184,8 @@ if __name__ == "__main__":
         with colresult3:
             st.write("")
 
-def set_code(code: str, localId: str):
+def set_code(code: str):
     st.experimental_set_query_params(code=code)
-    cookie_manager.set(localId, code, expires_at=datetime.datetime(year=2022, month=2, day=2))
 
 
 col1form, col2form, col3form = st.columns([0.25, 1, 0.25])
@@ -266,8 +266,7 @@ if "user" not in st.session_state:
 if st.session_state['user'] is None:
     try:
         code = st.experimental_get_query_params()['code'][0]
-
-
+        cookie_manager.get(cookie="userCookie")
         refreshToken = refresh_session_token(auth=auth, code=code)
 
         if refreshToken == 'fail to refresh':
