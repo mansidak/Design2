@@ -250,19 +250,6 @@ if __name__ == "__main__":
         st.markdown(
             f"<h5 style='text-align:center; font-weight:lighter;color:black'>You're logged in as {st.session_state['user']['email']}</h5>",
             unsafe_allow_html=True)
-        c1, c2, c3 = st.columns(3)
-
-        with c2:
-            st.subheader("Set Cookie:")
-            cookie = st.text_input("Cookie", key="1")
-            val = st.text_input("Value")
-            if st.button("Add", key= "cookieAdd"):
-                cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2022, month=2, day=2))
-
-
-
-        cookies = cookie_manager.get_all()
-        st.write(cookies)
 
         colResume1, colResume2, colResume3 = st.columns([0.8,1,0.8])
         with colResume1:
