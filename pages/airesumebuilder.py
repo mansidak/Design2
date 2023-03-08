@@ -425,7 +425,11 @@ if __name__ == "__main__":
                     if ChosenJobTitle == "Another option...":
                         ChosenJobTitle = st.text_input("Enter your other option...", key="custom")
 
-                    if st.button("Proceed →"):
+                    container_2 = st.empty()
+                    button_A = container_2.button('Proceed →')
+                    if button_A:
+                        container_2.empty()
+                        button_B = container_2.button('Generating... Please wait.', "Generating",disabled=True)
                         NewExperienceOneDescriptionResponse = openai.ChatCompletion.create(
                             model="gpt-3.5-turbo",
                             messages=[
