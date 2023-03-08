@@ -210,7 +210,9 @@ if __name__ == "__main__":
                     ul.streamlit-expander {
                                 border: 0 None !important;
                                 }
-                                
+    .stMarkdownContainer{
+    color:black
+    }
                                 
       div[class='css-4z1n4l ehezqtx5']{
                                background: rgba(0, 0, 0, 0.3);
