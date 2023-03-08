@@ -22,65 +22,6 @@ def get_manager():
     return stx.CookieManager()
 
 cookie_manager = get_manager()
-hide_menu_style = """
-         <style>
-         #MainMenu {visibility: hidden;}
-         .css-j7qwjs {visibility: hidden;}
-         footer {visibility: hidden;}
-         </style>
-         """
-st.markdown(hide_menu_style, unsafe_allow_html=True)
-
-hide_streamlit_style = """
-              <style>
-              div[class='css-4z1n4l ehezqtx5']{
-                background: rgba(0, 0, 0, 0.3);
-                color: #fff;
-                border-radius: 10px;
-                backdrop-filter: blur(10px);
-                height: 40px;
-                max-width: 200px;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 50%;
-              }
-
-                div[data-testid="stSidebarNav"] {
-                height: 0%;
-                position: fixed;
-                }
-
-
-
-                .css-13e20ss{
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-
-                div[class="stException"] {
-                visibility: hidden;
-                height: 0%;
-                position: fixed;
-                }
-
-              </style>
-              """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-hide_img_fs = '''
-    <style>
-    button[title="View fullscreen"]{
-        visibility: hidden;}
-        ul.streamlit-expander {
-                border: 0 None !important;
-                }
-    </style>
-    '''
-
-st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 firebaseconfig = {
             "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
@@ -179,6 +120,67 @@ if __name__ == "__main__":
                                 </style>
                                 """
         st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+        hide_menu_style = """
+                 <style>
+                 #MainMenu {visibility: hidden;}
+                 .css-j7qwjs {visibility: hidden;}
+                 footer {visibility: hidden;}
+                 </style>
+                 """
+        st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+        hide_streamlit_style = """
+                      <style>
+                      div[class='css-4z1n4l ehezqtx5']{
+                        background: rgba(0, 0, 0, 0.3);
+                        color: #fff;
+                        border-radius: 10px;
+                        backdrop-filter: blur(10px);
+                        height: 40px;
+                        max-width: 200px;
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 50%;
+                      }
+
+                        div[data-testid="stSidebarNav"] {
+                        height: 0%;
+                        position: fixed;
+                        }
+
+
+
+                        .css-13e20ss{
+                        visibility: hidden;
+                        height: 0%;
+                        position: fixed;
+                        }
+
+                        div[class="stException"] {
+                        visibility: hidden;
+                        height: 0%;
+                        position: fixed;
+                        }
+
+                      </style>
+                      """
+        st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+        hide_img_fs = '''
+            <style>
+            button[title="View fullscreen"]{
+                visibility: hidden;}
+                ul.streamlit-expander {
+                        border: 0 None !important;
+                        }
+            </style>
+            '''
+
+        st.markdown(hide_img_fs, unsafe_allow_html=True)
+
         st.markdown(
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
             unsafe_allow_html=True)
