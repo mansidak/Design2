@@ -44,6 +44,15 @@ if __name__ == "__main__":
         st.markdown(
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
             unsafe_allow_html=True)
+        st.markdown("""
+        
+        .stAlert{
+        visibility:hidden;
+        height:0px;
+        }
+        <style>
+        </style>
+        """, unsafe_allow_html=True)
 
         st.write(f"You're logged in as {st.session_state['user']['email']}")
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
@@ -68,8 +77,7 @@ if __name__ == "__main__":
             st.write("")
         with colresult2:
             for key, value in my_dict.items():
-                # st.write(key)
-                # st.write(value)
+
                 company_name = value['Company Name']
                 Full_Description = value['Full Description']
                 Link = value['Link']
