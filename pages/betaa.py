@@ -437,31 +437,6 @@ if __name__ == "__main__":
                 Name = response["choices"][0]["message"]["content"]
                 return Name
 
-            # @st.cache(show_spinner=False)
-            # def openAIGetRelevantJobTitlesDuplicate(resumeContent):
-            #     response = openai.Completion.create(
-            #         model="text-davinci-003",
-            #         prompt=f"The following is the data from the resume of a job seeker. I want you to do four things:\n\n\n{resumeContent}\n\n\n1. In addition to what they've already done, what other generic jobs titles would they like to pursue? List 3 and separate them by commas.\n2. List only the top 3 of their strongest skills that they have extensive experience in as seen in their resume. Separate them by commas.\n3. Their Full Name \n4.Their top 3 soft skills\n5. Now list every single technical skills they've used in the past. Separate them by commas. \n",
-            #         temperature=0.7,
-            #         max_tokens=200,
-            #         top_p=1,
-            #         frequency_penalty=0,
-            #         presence_penalty=0
-            #     )
-            #     Titles = response["choices"][0]["text"]
-            #     print(Titles)
-            #     Jobtitles = Titles.split('1.')[1].split('2.')[0].split(',')
-            #     Skills = Titles.split('2.')[1].split('3.')[0].split(',')
-            #     Name = Titles.split('3.')[1].split('4.')[0]
-            #     softSkills = Titles.split('4.')[1].split('5.')[0]
-            #     OldSkills = Titles.split('5.')[1]
-            #
-            #     newJobtitles = [item.replace(" ", "-") for item in Jobtitles]
-            #     newSkills = [re.sub(r'\s+', '-', item) for item in Skills]
-            #
-            #     return Name, newJobtitles, newSkills, softSkills, OldSkills
-            #
-            #
             def openAIGetRelevantJobTitlesDuplicate(resumeContent):
                 response = openai.ChatCompletion.create(
                     model="gpt-3.5-turbo",
@@ -956,16 +931,19 @@ if __name__ == "__main__":
                             </style>
                                 """, unsafe_allow_html=True)
 
-                    # SearchHolder.empty()
                     NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>", unsafe_allow_html=True)
-                    #
-                    # links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    # links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    # links3 = run_selenium1(f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    #
-                    # st.write(links1)
-                    # st.write(links2)
-                    # st.write(links3)
+
+                    links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    links3 = run_selenium1(f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    links4 = run_selenium1(f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    links5 = run_selenium1(f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))                    #
+
+                    st.write(links1)
+                    st.write(links2)
+                    st.write(links3)
+                    st.write(links4)
+                    st.write(links5)
 
                     def progress_shit():
                         progressText.markdown(
@@ -988,38 +966,39 @@ if __name__ == "__main__":
                             unsafe_allow_html=True)
                         my_bar.progress(75, text=f"")
 
-
-                    with ThreadPoolExecutor(max_workers=6) as executor:
-                        future1 = executor.submit(run_selenium1, f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",f"{FreshSkills[0].replace(' ', '_')}",f"{undesired}", 1, resumeContent,locationpreference.replace(' ', '_'))
-                        future2 = executor.submit(run_selenium1, f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        future3 = executor.submit(run_selenium1, f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        future4 = executor.submit(run_selenium1, f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        future5 = executor.submit(run_selenium1, f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        future6 = executor.submit(progress_shit())
-                    executor.shutdown(wait=True)
-
-                    links1 = future1.result()
-                    links2 = future2.result()
-                    links3 = future3.result()
-                    links4 = future4.result()
-                    links5 = future5.result()
+                    #
+                    # with ThreadPoolExecutor(max_workers=6) as executor:
+                    #     future1 = executor.submit(run_selenium1, f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",f"{FreshSkills[0].replace(' ', '_')}",f"{undesired}", 1, resumeContent,locationpreference.replace(' ', '_'))
+                    #     future2 = executor.submit(run_selenium1, f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    #     future3 = executor.submit(run_selenium1, f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    #     future4 = executor.submit(run_selenium1, f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    #     future5 = executor.submit(run_selenium1, f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    #     future6 = executor.submit(progress_shit())
+                    # executor.shutdown(wait=True)
+                    #
+                    # links1 = future1.result()
+                    # links2 = future2.result()
+                    # links3 = future3.result()
                     # links4 = future4.result()
-                    # st.write(links1)
-                    # st.write(links2)
-                    # st.write(links3)
-                    # st.write(links4)
-                    executor.shutdown(wait=True)
-
-                    print(threading.enumerate())
-                    st.write(threading.enumerate())
+                    # links5 = future5.result()
+                    # # links4 = future4.result()
+                    # # st.write(links1)
+                    # # st.write(links2)
+                    # # st.write(links3)
+                    # # st.write(links4)
+                    # executor.shutdown(wait=True)
+                    #
+                    # print(threading.enumerate())
+                    # st.write(threading.enumerate())
 
                     st.session_state["FinalResults"] = links1 + links2 + links3 +links4 + links5
-
-                    if 'user' not in st.session_state:
-                        switch_page("signup")
-
-                    else:
-                        switch_page("results")
+                    st.write(st.session_state["FinalResults"] )
+                    #
+                    # if 'user' not in st.session_state:
+                    #     switch_page("signup")
+                    #
+                    # else:
+                    #     switch_page("results")
         with colmain3:
             st.write("")
 
