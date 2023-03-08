@@ -58,7 +58,7 @@ def login_form(auth):
             st.experimental_rerun()
         except requests.HTTPError as exception:
             st.write(exception)
-        switch_page("dashboard")
+        switch_page("betaa")
 
 
 def logout():
