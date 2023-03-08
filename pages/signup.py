@@ -30,6 +30,9 @@ def main(user: object):
     set_code(code=user['refreshToken'])
     switch_page("results")
 
+def get_manager():
+    return stx.CookieManager()
+cookie_manager = get_manager()
 
 def set_code(code: str):
     st.experimental_set_query_params(code=code)
