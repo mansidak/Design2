@@ -44,15 +44,7 @@ if __name__ == "__main__":
         st.markdown(
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
             unsafe_allow_html=True)
-        st.markdown("""
-        
-        .stAlert{
-        visibility:hidden;
-        height:0px;
-        }
-        <style>
-        </style>
-        """, unsafe_allow_html=True)
+
 
         st.write(f"You're logged in as {st.session_state['user']['email']}")
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
@@ -66,6 +58,7 @@ if __name__ == "__main__":
         st.write(f"Delete Resume on File")
         SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
         unique_links = {}
+
         for key, value in SavedResults.items():
             link = value['Link']
             if link not in unique_links:
@@ -134,6 +127,17 @@ if __name__ == "__main__":
                 st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
         with colresult3:
             st.write("")
+
+
+    st.markdown("""
+
+    .stAlert{
+    visibility:hidden;
+    height:0px;
+    }
+    <style>
+    </style>
+    """, unsafe_allow_html=True)
 
 def set_code(code: str):
     st.experimental_set_query_params(code=code)
