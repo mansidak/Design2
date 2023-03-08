@@ -3,6 +3,8 @@ import streamlit as st
 import openai
 from docx import Document
 from PIL import Image
+from streamlit_option_menu import option_menu
+
 import random
 from streamlit_extras.switch_page_button import switch_page
 import pdfkit
@@ -39,6 +41,31 @@ if __name__ == "__main__":
     cookies = cookie_manager.get_all()
     st.write(cookies)
     def main(user: object):
+        coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
+        with coldash1:
+            st.write("")
+        with coldash2:
+            selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
+                                    icons=['house', 'search', "file-earmark-font", 'stack'],
+                                    menu_icon="cast", default_index=3, orientation="horizontal",
+                                    styles={
+                                        "container": {"padding": "0!important", "background-color": "#0f0f0f"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
+                                                     "--hover-color": "#0f0f0f", "color": "white",
+                                                     "background-color": "#0f0f0f"},
+                                        "nav-link-selected": {"font-weight": "bold", "background-color": "#0f0f0f",
+                                                              "color": "#F63366"},
+                                    })
+
+            if selected2 == "Home":
+                switch_page("streamlit_app")
+            elif selected2 == "Search":
+                switch_page("betaa")
+            elif selected2 == "Build":
+                switch_page("PreResumeBuilder")
+
+        with coldash3:
+            st.write("")
 
 
         st.markdown(
