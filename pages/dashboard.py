@@ -258,7 +258,7 @@ if __name__ == "__main__":
             if FirebaseResumeContent:
                 st.markdown(f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file:<span style='color: green'>&nbsp &check;</span> </h6>",
                             unsafe_allow_html=True)
-                colResumeSub1, colResumeSub2,colResumeSub3, colResumeSub4  = st.columns([ 0.8,1.5,1.3,0.25])
+                colResumeSub1, colResumeSub2,colResumeSub3, colResumeSub4  = st.columns([ 0.8,1.5,1.3,0.55])
                 with colResumeSub2:
                     if st.button("Upload new resume"):
                         db.child("users").child(str(localId)).child("Resume").remove()
