@@ -210,7 +210,7 @@ if __name__ == "__main__":
                     ul.streamlit-expander {
                                 border: 0 None !important;
                                 }
-   .css-zt5igj e16nr0p33{
+   .css-10trblm.e16nr0p30{
    color:black
    }
                                 
