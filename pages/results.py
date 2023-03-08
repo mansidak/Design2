@@ -1,17 +1,20 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
+
+st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽", initial_sidebar_state="expanded", layout="wide")
+# st.title("CoverLetter")
 import openai
 from docx import Document
 from PIL import Image
 import random
 from streamlit_extras.switch_page_button import switch_page
 import pdfkit
+import datetime
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
-import datetime
 import pyrebase
-from st_btn_select import st_btn_select
-import requests
 import extra_streamlit_components as stx
+import requests
 import os
 
 firebaseconfig = {
@@ -24,13 +27,8 @@ firebaseconfig = {
     "measurementId": "G-N3TMC7M1WT",
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
-st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽", initial_sidebar_state="expanded", layout="wide")\
 
-@st.cache(allow_output_mutation=True)
-def get_manager():
-    return stx.CookieManager()
 
-cookie_manager = get_manager()
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
@@ -88,27 +86,89 @@ button[title="View fullscreen"]{
 '''
 
 st.markdown(hide_img_fs, unsafe_allow_html=True)
-
+@st.cache(allow_output_mutation=True)
+def get_manager():
+    return stx.CookieManager()
+cookie_manager = get_manager()
 if __name__ == "__main__":
     def main(user: object):
-        page = st_btn_select(
-            # The different pages
-            ('Dashboard', 'Search', 'Resume Builder', 'Contact'),
-            # Enable navbar
-            nav=True,
-            # You can pass a formatting function. Here we capitalize the options
-            format_func=lambda name: name.capitalize(),
-        )
+        coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
+        with coldash1:
+            st.write("")
+        with coldash2:
+            selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
+                                    icons=['house', 'search', "file-earmark-font", 'stack'],
+                                    menu_icon="cast", default_index=1, orientation="horizontal",
+                                    styles={
+                                        "container": {"padding": "0!important", "background-color": "#0f0f0f"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
+                                                     "--hover-color": "#0f0f0f", "color": "white",
+                                                     "background-color": "#0f0f0f"},
+                                        "nav-link-selected": {"font-weight": "bold", "background-color": "#0f0f0f",
+                                                              "color": "#F63366"},
+                                    })
 
-        # Display the right things according to the page
-        if page == 'Dashboard':
-            switch_page("dashboard")
-        if page == 'Search':
-            switch_page("betaa")
-        if page == 'Resume Builder':
-            switch_page("preresumebuilder")
+            if selected2 == "Home":
+                switch_page("streamlit_app")
+            elif selected2 == "Dashboard":
+                switch_page("dashboard")
+            elif selected2 == "Build":
+                switch_page("PreResumeBuilder")
 
-        st.write(f"You're logged in as {st.session_state['user']['email']}")
+        with coldash3:
+            st.write("")
+
+        st.markdown("""
+                        <style>
+                        .css-1uhah0b.e8zbici2{
+                        z-index:0;
+                        }
+                        header[data-testid="stHeader"] {
+                        position: relative;
+                        }
+                            #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(7){
+                            margin-top:-90px;
+                            margin-left:-90px;
+                            min-width:100%;
+                            position:fixed;
+                            z-index:1;
+                            }
+
+                          .dark{
+                                background-color: #eeeeee;
+                                color:black;
+                                border-color: black;
+                                }
+
+                           .dark:hover{
+                                background-color: #eeeeee;
+                                color: #F63366;
+                                border-color: #F63366;
+                                }
+
+                            .button.dark {
+                              background-color: #4CAF50; /* Green */
+                              border: none;
+                              color: white;
+                              padding: 15px 32px;
+                              text-align: center;
+                              text-decoration: none;
+                              display: inline-block;
+                              font-size: 16px;
+                            }
+                        </style>
+                        """, unsafe_allow_html=True)
+        st.markdown("""
+
+        <style>
+        .stAlert{
+        height:0px;
+        visibility:hidden
+        }
+        </style>""", unsafe_allow_html=True)
+        # st.write(f"You're logged in as {st.session_state['user']['email']}")
+
+
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         localId = AccountInfo["localId"]
         set_code(code=user['refreshToken'])
@@ -178,8 +238,7 @@ if __name__ == "__main__":
                 st.markdown(
                     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>",
                     unsafe_allow_html=True)
-                if st.button("My Dashboard"):
-                    switch_page("dashboard")
+
 
                 st.write("")
                 st.write("")
