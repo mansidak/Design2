@@ -10,11 +10,18 @@ from jinja2 import Environment, FileSystemLoader
 import pandas as pd
 import pyrebase
 from st_btn_select import st_btn_select
-
+import extra_streamlit_components as stx
+import datetime
 import requests
 import os
 
 st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
+
+@st.cache(allow_output_mutation=True)
+def get_manager():
+    return stx.CookieManager()
+
+cookie_manager = get_manager()
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
@@ -88,6 +95,8 @@ firebaseconfig = {
 
 
 if __name__ == "__main__":
+    cookies = cookie_manager.get_all()
+    st.write(cookies)
     def main(user: object):
         st.markdown(
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
@@ -176,6 +185,9 @@ if __name__ == "__main__":
 
 def set_code(code: str):
     st.experimental_set_query_params(code=code)
+    AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+    localId = AccountInfo["localId"]
+    cookie_manager.set(localId, code, expires_at=datetime.datetime(year=2022, month=2, day=2))
 
 
 col1form, col2form, col3form = st.columns([0.25, 1, 0.25])
@@ -256,6 +268,7 @@ if "user" not in st.session_state:
 if st.session_state['user'] is None:
     try:
         code = st.experimental_get_query_params()['code'][0]
+
 
         refreshToken = refresh_session_token(auth=auth, code=code)
 
