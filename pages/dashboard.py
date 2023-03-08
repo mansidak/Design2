@@ -12,7 +12,7 @@ import psutil
 from streamlit.components.v1 import html
 import pyrebase
 
-st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
+st.set_page_config(page_title="19th Street | Dashboard", page_icon="19", initial_sidebar_state="collapsed", layout="wide")
 
 firebaseconfig = {
             "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
