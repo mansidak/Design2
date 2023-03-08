@@ -15,7 +15,6 @@ from streamlit_option_menu import option_menu
 import datetime
 import requests
 import os
-
 st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
 
 @st.cache(allow_output_mutation=True)

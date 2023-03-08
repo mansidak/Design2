@@ -1,7 +1,4 @@
 import streamlit as st
-
-st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽", initial_sidebar_state="expanded", layout="wide")
-# st.title("CoverLetter")
 import openai
 from docx import Document
 from PIL import Image
@@ -10,10 +7,11 @@ from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
+import datetime
 import pyrebase
 from st_btn_select import st_btn_select
-
 import requests
+import extra_streamlit_components as stx
 import os
 
 firebaseconfig = {
@@ -26,7 +24,13 @@ firebaseconfig = {
     "measurementId": "G-N3TMC7M1WT",
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
+st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽", initial_sidebar_state="expanded", layout="wide")\
 
+@st.cache(allow_output_mutation=True)
+def get_manager():
+    return stx.CookieManager()
+
+cookie_manager = get_manager()
 hide_menu_style = """
          <style>
          #MainMenu {visibility: hidden;}
@@ -108,6 +112,7 @@ if __name__ == "__main__":
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         localId = AccountInfo["localId"]
         set_code(code=user['refreshToken'])
+        cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
         if 'FinalResults' not in st.session_state:
             st.write("run a fresh start")
             switch_page("betaa")
@@ -603,8 +608,8 @@ if "user" not in st.session_state:
 
 if st.session_state['user'] is None:
     try:
-        code = st.experimental_get_query_params()['code'][0]
-
+        # code = st.experimental_get_query_params()['code'][0]
+        code = cookie_manager.get(cookie="userCookie")
         refreshToken = refresh_session_token(auth=auth, code=code)
 
         if refreshToken == 'fail to refresh':
