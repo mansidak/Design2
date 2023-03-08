@@ -37,8 +37,8 @@ firebaseconfig = {
 
 
 if __name__ == "__main__":
-    cookies = cookie_manager.get_all()
-    st.write(cookies)
+    # cookies = cookie_manager.get_all()
+    # st.write(cookies)
     def main(user: object):
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
         with coldash1:
