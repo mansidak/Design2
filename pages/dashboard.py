@@ -250,7 +250,8 @@ if __name__ == "__main__":
         st.markdown(
             f"<h5 style='text-align:center; font-weight:lighter;color:black'>You're logged in as {st.session_state['user']['email']}</h5>",
             unsafe_allow_html=True)
-        st.write(cookies = cookie_manager.get_all())
+        cookies = cookie_manager.get_all()
+        st.write(cookies)
 
         colResume1, colResume2, colResume3 = st.columns([0.8,1,0.8])
         with colResume1:
