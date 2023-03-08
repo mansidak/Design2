@@ -984,10 +984,10 @@ if __name__ == "__main__":
                                                   f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}",
                                                   f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1,
                                                   resumeContent, locationpreference.replace(' ', '_'))
-                        future5 = executor.submit(run_selenium1,
-                                                  f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
-                                                  f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
-                                                  resumeContent, locationpreference.replace(' ', '_'))
+                        # future5 = executor.submit(run_selenium1,
+                        #                           f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
+                        #                           f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
+                        #                           resumeContent, locationpreference.replace(' ', '_'))
                         future6 = executor.submit(progress_shit())
                     executor.shutdown(wait=True)
 
@@ -995,7 +995,7 @@ if __name__ == "__main__":
                     links2 = future2.result()
                     links3 = future3.result()
                     links4 = future4.result()
-                    links5 = future5.result()
+                    # links5 = future5.result()
                     # st.write(links1)
                     # st.write(links2)
                     # st.write(links3)
@@ -1006,7 +1006,7 @@ if __name__ == "__main__":
                     print(threading.enumerate())
                     st.write(threading.enumerate())
 
-                    st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
+                    st.session_state["FinalResults"] = links1 + links2 + links3 + links4
                     # st.write(st.session_state["FinalResults"] )
 
                     if 'user' not in st.session_state:
