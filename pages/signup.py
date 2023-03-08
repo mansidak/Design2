@@ -5,6 +5,8 @@ st.set_page_config(page_title="19th Street | Resulsts", page_icon="⓵⓽", init
 import openai
 from docx import Document
 from PIL import Image
+import extra_streamlit_components as stx
+
 import random
 from streamlit_extras.switch_page_button import switch_page
 import pdfkit
