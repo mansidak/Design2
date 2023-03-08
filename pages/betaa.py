@@ -196,6 +196,7 @@ if __name__ == "__main__":
                                     top: 80%;
                                     left: 50%;
                                     transform: translate(-50%, -50%);
+                                    z-index:99999;
                                     width: 50%;
                                   }
 
@@ -597,9 +598,9 @@ if __name__ == "__main__":
                 OldSkillsBullet = st.session_state['OldSkillsBullet']
                 softSkills = st.session_state['softSkills']
                 Matches = st.session_state['Matches']
-                st.write(newJobtitles)
+                # st.write(newJobtitles)
                 FreshJobTitles, FreshSkills = MatchMethod(Matches)
-                st.write(FreshJobTitles, FreshSkills)
+                # st.write(FreshJobTitles, FreshSkills)
 
 
                 holder2 = st.empty()
@@ -980,24 +981,24 @@ if __name__ == "__main__":
                     links3 = future3.result()
                     links4 = future4.result()
                     links5 = future5.result()
-                    st.write(links1)
-                    st.write(links2)
-                    st.write(links3)
-                    st.write(links4)
-                    st.write(links5)
+                    # st.write(links1)
+                    # st.write(links2)
+                    # st.write(links3)
+                    # st.write(links4)
+                    # st.write(links5)
                     executor.shutdown(wait=True)
 
                     print(threading.enumerate())
                     st.write(threading.enumerate())
 
                     st.session_state["FinalResults"] = links1 + links2 + links3 +links4 + links5
-                    st.write(st.session_state["FinalResults"] )
-                    #
-                    # if 'user' not in st.session_state:
-                    #     switch_page("signup")
-                    #
-                    # else:
-                    #     switch_page("results")
+                    # st.write(st.session_state["FinalResults"] )
+
+                    if 'user' not in st.session_state:
+                        switch_page("signup")
+
+                    else:
+                        switch_page("results")
         with colmain3:
             st.write("")
 
