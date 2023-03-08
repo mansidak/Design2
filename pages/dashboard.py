@@ -130,12 +130,12 @@ if __name__ == "__main__":
 
 
     st.markdown("""
-
+    <style>
     .stAlert{
     visibility:hidden;
     height:0px;
     }
-    <style>
+    
     </style>
     """, unsafe_allow_html=True)
 
