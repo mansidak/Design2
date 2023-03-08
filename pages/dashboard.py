@@ -265,8 +265,8 @@ if "user" not in st.session_state:
 
 if st.session_state['user'] is None:
     try:
-        code = st.experimental_get_query_params()['code'][0]
-        cookie_manager.get(cookie="userCookie")
+        # code = st.experimental_get_query_params()['code'][0]
+        code = cookie_manager.get(cookie="userCookie")
         refreshToken = refresh_session_token(auth=auth, code=code)
 
         if refreshToken == 'fail to refresh':
