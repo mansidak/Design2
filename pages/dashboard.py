@@ -254,7 +254,7 @@ if __name__ == "__main__":
         with c1:
             st.subheader("Get Cookie:")
             cookie = st.text_input("Cookie", key="0")
-            clicked = st.button("Get")
+            clicked = st.button("Get", key = "cooklieget")
             if clicked:
                 value = cookie_manager.get(cookie=cookie)
                 st.write(value)
@@ -262,7 +262,7 @@ if __name__ == "__main__":
             st.subheader("Set Cookie:")
             cookie = st.text_input("Cookie", key="1")
             val = st.text_input("Value")
-            if st.button("Add"):
+            if st.button("Add", key= "cookieAdd"):
                 cookie_manager.set(cookie, val, expires_at=datetime.datetime(year=2022, month=2, day=2))
         with c3:
             st.subheader("Delete Cookie:")
