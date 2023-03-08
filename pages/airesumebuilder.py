@@ -619,6 +619,8 @@ if __name__ == "__main__":
                         bio = io.BytesIO()
                         doc_download.save(bio)
                         if doc_download:
+                            container_2.empty()
+                            button_C = container_2.button('Proceed', key = "ProceedGenerating", disabled=True)
                             st.download_button(
                                 label="Click here to download",
                                 data=bio.getvalue(),
