@@ -10,7 +10,6 @@ from jinja2 import Environment, FileSystemLoader
 import pandas as pd
 import pyrebase
 from st_btn_select import st_btn_select
-from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
 import datetime
 import requests
@@ -96,249 +95,23 @@ firebaseconfig = {
 
 
 if __name__ == "__main__":
+    cookies = cookie_manager.get_all()
+    st.write(cookies)
     def main(user: object):
-        coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
-        with coldash1:
-            st.write("")
-        with coldash2:
-            selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
-                                    icons=['house', 'search', "file-earmark-font", 'stack'],
-                                    menu_icon="cast", default_index=3, orientation="horizontal",
-                                    styles={
-                                        "container": {"padding": "0!important", "background-color": "#0f0f0f"},
-                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
-                                                     "--hover-color": "#0f0f0f", "color": "white",
-                                                     "background-color": "#0f0f0f"},
-                                        "nav-link-selected": {"font-weight": "bold", "background-color": "#0f0f0f",
-                                                              "color": "#F63366"},
-                                    })
+        st.markdown(
+            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
+            unsafe_allow_html=True)
 
-            if selected2 == "Home":
-                switch_page("streamlit_app")
-            elif selected2 == "Search":
-                switch_page("betaa")
-            elif selected2 == "Build":
-                switch_page("PreResumeBuilder")
-
-        with coldash3:
-            st.write("")
-
-        st.markdown("""
-                <style>
-
-                .css-1uhah0b.e8zbici2{
-                z-index:0;
-                }
-
-                header[data-testid="stHeader"] {
-                position: relative;
-                }
-
-                 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(4) > div.css-keje6w.e1tzin5v2 {
-                    margin-top:-120px;
-                    min-width:100%;
-                    margin-left:-90px;
-                    position:fixed;
-                    z-index:1;
-                    }
-
-                  .dark{
-                        background-color: #eeeeee;
-                        color:black;
-                        border-color: black;
-                        }
-
-                   .dark:hover{
-                        background-color: #eeeeee;
-                        color: #F63366;
-                        border-color: #F63366;
-                        }
-
-                    .button.dark {
-                      background-color: #4CAF50; /* Green */
-                      border: none;
-                      color: white;
-                      padding: 15px 32px;
-                      text-align: center;
-                      text-decoration: none;
-                      display: inline-block;
-                      font-size: 16px;
-                    }
-                </style>
-                """, unsafe_allow_html=True)
-
-        hide_menu_style = """
-                                <style>
-                                #MainMenu {visibility: hidden;}
-                                .css-j7qwjs {visibility: hidden;}
-                                footer {visibility: hidden;}
-                                .e1fb0mya1.css-fblp2m.ex0cdmw0 {visibility: hidden;}
-                                .css-leojxt.edgvbvh3{visibility: hidden;}
-                                </style>
-                                """
-        st.markdown(hide_menu_style, unsafe_allow_html=True)
-        cookies = cookie_manager.get_all()
-        st.write(cookies)
-
-        hide_streamlit_style = """
-                                     <style>
-                                     div[class='css-4z1n4l ehezqtx5']{
-                                       background: rgba(0, 0, 0, 0.3);
-                                       color: #fff;
-                                       border-radius: 10px;
-                                       backdrop-filter: blur(10px);
-                                       height: 40px;
-                                       max-width: 200px;
-                                       position: fixed;
-                                       top: 50%;
-                                       left: 50%;
-                                       transform: translate(-50%, -50%);
-                                       width: 50%;
-                                     }
-                                       .stApp {
-                                       background-color: #eeeeee;
-                                       color:black
-                                       }
-                                       .element-container.css-l0vo1h.e1tzin5v3
-                                       {
-                                       color:black
-                                       }
-                                       div.stButton > button:first-child {
-                                       background-color: #eeeeee;
-                                       color:black;
-                                       border-color: black;
-                                       }
-                                       div.stButton > button:hover {
-                                       background-color: #eeeeee;
-                                       color: #F63366;
-                                       border-color: #F63366;
-                                       }
-                                       .stMarkdown{
-                                       color:black
-                                       }
-                                       .streamlit-expanderHeader{
-                                       color:black
-                                       }
-                                       div[data-testid="stSidebarNav"] {
-                                       height: 0%;
-                                       position: fixed;
-                                       }
-                                       .css-5y9es8.exg6vvm15{
-                                       border-radius:50px; 
-                                       }
-                                           .css-5y9es8 {
-                                               border-radius:100px;
-                                           }
-                                           .css-1db87p3{
-                                               border-radius:100px;
-                                           }
-                                           .css-v1vwiw{
-                                               border-radius:100px;
-                                           }
-                                       .css-1db87p3.edgvbvh10{
-                                       border-radius:50px; 
-                                       }
-                                       .css-5y9es8.exg6vvm15{
-                                       filter:invert(1);
-                                       }
-                                       .css-1uhah0b.e8zbici2{
-                                       height:40px;
-                                       }
-                                       .css-13e20ss{
-                                       visibility: hidden;
-                                       height: 0%;
-                                       position: fixed;
-                                       }
-                                        div[class="stAlert"] {
-                                                       visibility: hidden;
-                                                       height: 0%;
-                                                       position: fixed;
-                                                       }
-                                       div[class="stException"] {
-                                       visibility: hidden;
-                                       height: 0%;
-                                       position: fixed;
-                                       }
-                                       .menu{
-                                       margin-top:-100px
-                                       }
-                                     </style>
-                                     """
-        st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-        st.markdown("""
-                       <style>
-                       .stAlert{
-                       height:0px;
-                       visibility:hidden
-                       }
-                       </style>""", unsafe_allow_html=True)
-
-        hide_img_fs = '''
-                           <style>
-                           button[title="View fullscreen"]{
-                               visibility: hidden;}
-                               ul.streamlit-expander {
-                                       border: 0 None !important;
-                                       }
-                           </style>
-                           '''
-
-        st.markdown(hide_img_fs, unsafe_allow_html=True)
-
+        st.write(f"You're logged in as {st.session_state['user']['email']}")
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
         db = firebase.database()
         localId = AccountInfo["localId"]
         set_code(code=user['refreshToken'])
-        cookie_manager.set("userCookie", user["refreshToken"], expires_at = datetime.datetime(year= 2024, month = 2, day =1))
+        cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
-        st.markdown(
-            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: black'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
-            unsafe_allow_html=True)
-        st.markdown(
-            f"<h5 style='text-align:center; font-weight:lighter;color:black'>You're logged in as {st.session_state['user']['email']}</h5>",
-            unsafe_allow_html=True)
-
-        colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
-        with colResume1:
-            st.write("")
-        with colResume2:
-
-            if FirebaseResumeContent:
-                st.markdown(
-                    f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file:<span style='color: green'>&nbsp &check;</span> </h6>",
-                    unsafe_allow_html=True)
-                colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([0.8, 1.5, 1.3, 0.55])
-                with colResumeSub2:
-                    if st.button("Upload new resume"):
-                        db.child("users").child(str(localId)).child("Resume").remove()
-                        del st.session_state['resumeContent']
-                        st.experimental_rerun()
-                with colResumeSub3:
-                    if st.button("Run New Search"):
-                        switch_page("betaa")
-            else:
-                st.markdown(f"<h6 style='text-align:center; font-weight:lighter;color:black'>Upload new resume</h6>",
-                            unsafe_allow_html=True)
-                ResumePDF = st.file_uploader(
-                    ''
-                )
-                if ResumePDF is not None:
-                    pdfReader = PyPDF2.PdfReader(ResumePDF)
-                    print(len(pdfReader.pages))
-                    pageObj = pdfReader.pages[0]
-                    resumeContent = pageObj.extract_text()
-                    ResumePDF.close()
-                    firebase = pyrebase.initialize_app(firebaseconfig)
-                    AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
-                    localId = AccountInfo["localId"]
-                    db = firebase.database()
-                    FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
-                    st.experimental_rerun()
-        with colResume3:
-            st.write("")
-
+        st.write(f"Delete Resume on File")
         SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
         unique_links = {}
         for key, value in SavedResults.items():
@@ -363,14 +136,15 @@ if __name__ == "__main__":
                 Title = value['Title']
 
                 st.markdown(
-                    f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
+                    f"<a href='{Link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
                     unsafe_allow_html=True)
                 st.markdown(
-                    f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px; color:black'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
+                    f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
                     unsafe_allow_html=True)
                 with st.expander(f"{Location}"):
                     st.markdown(f"[Apply]({Link})")
                     st.write(f"{Short_Summary}")
+
                     col1, col2, col3 = st.columns([1, 1, 1])
 
                     with col1:
@@ -406,8 +180,7 @@ if __name__ == "__main__":
                     with col3:
                         st.write("")
 
-                st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
-                            unsafe_allow_html=True)
+                st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
         with colresult3:
             st.write("")
 
