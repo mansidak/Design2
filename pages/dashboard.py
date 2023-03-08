@@ -166,6 +166,50 @@ if __name__ == "__main__":
     </style>
     """, unsafe_allow_html=True)
 
+    st.markdown("""
+            <style>
+
+            .css-1uhah0b.e8zbici2{
+            z-index:0;
+            }
+
+            header[data-testid="stHeader"] {
+            position: relative;
+            }
+
+             #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(4) > div.css-keje6w.e1tzin5v2 {
+                margin-top:-120px;
+                min-width:100%;
+                margin-left:-90px;
+                position:fixed;
+                z-index:1;
+                }
+
+              .dark{
+                    background-color: #eeeeee;
+                    color:black;
+                    border-color: black;
+                    }
+
+               .dark:hover{
+                    background-color: #eeeeee;
+                    color: #F63366;
+                    border-color: #F63366;
+                    }
+
+                .button.dark {
+                  background-color: #4CAF50; /* Green */
+                  border: none;
+                  color: white;
+                  padding: 15px 32px;
+                  text-align: center;
+                  text-decoration: none;
+                  display: inline-block;
+                  font-size: 16px;
+                }
+            </style>
+            """, unsafe_allow_html=True)
+
 def set_code(code: str):
     st.experimental_set_query_params(code=code)
 
