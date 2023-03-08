@@ -11,6 +11,8 @@ import pandas as pd
 import pyrebase
 from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
+from streamlit_option_menu import option_menu
+
 import datetime
 import requests
 import os
@@ -98,6 +100,87 @@ if __name__ == "__main__":
     cookies = cookie_manager.get_all()
     st.write(cookies)
     def main(user: object):
+
+        coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
+        with coldash1:
+            st.write("")
+        with coldash2:
+            selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
+                                    icons=['house', 'search', "file-earmark-font", 'stack'],
+                                    menu_icon="cast", default_index=3, orientation="horizontal",
+                                    styles={
+                                        "container": {"padding": "0!important", "background-color": "#0f0f0f"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
+                                                     "--hover-color": "#0f0f0f", "color": "white",
+                                                     "background-color": "#0f0f0f"},
+                                        "nav-link-selected": {"font-weight": "bold", "background-color": "#0f0f0f",
+                                                              "color": "#F63366"},
+                                    })
+
+            if selected2 == "Home":
+                switch_page("streamlit_app")
+            elif selected2 == "Search":
+                switch_page("betaa")
+            elif selected2 == "Build":
+                switch_page("PreResumeBuilder")
+
+        with coldash3:
+            st.write("")
+
+        st.markdown("""
+                <style>
+
+                .css-1uhah0b.e8zbici2{
+                z-index:0;
+                }
+
+                header[data-testid="stHeader"] {
+                position: relative;
+                }
+
+                 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(4) > div.css-keje6w.e1tzin5v2 {
+                    margin-top:-120px;
+                    min-width:100%;
+                    margin-left:-90px;
+                    position:fixed;
+                    z-index:1;
+                    }
+
+                  .dark{
+                        background-color: #eeeeee;
+                        color:black;
+                        border-color: black;
+                        }
+
+                   .dark:hover{
+                        background-color: #eeeeee;
+                        color: #F63366;
+                        border-color: #F63366;
+                        }
+
+                    .button.dark {
+                      background-color: #4CAF50; /* Green */
+                      border: none;
+                      color: white;
+                      padding: 15px 32px;
+                      text-align: center;
+                      text-decoration: none;
+                      display: inline-block;
+                      font-size: 16px;
+                    }
+                </style>
+                """, unsafe_allow_html=True)
+
+        hide_menu_style = """
+                                <style>
+                                #MainMenu {visibility: hidden;}
+                                .css-j7qwjs {visibility: hidden;}
+                                footer {visibility: hidden;}
+                                .e1fb0mya1.css-fblp2m.ex0cdmw0 {visibility: hidden;}
+                                .css-leojxt.edgvbvh3{visibility: hidden;}
+                                </style>
+                                """
+        st.markdown(hide_menu_style, unsafe_allow_html=True)
         st.markdown(
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
             unsafe_allow_html=True)
