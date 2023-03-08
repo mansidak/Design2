@@ -68,7 +68,7 @@ if __name__ == "__main__":
         st.markdown("""
                 <style>
                 .stAlert{
-                visibility:none;
+                visibility:hidden;
                 height:0px;
                 }
                 .css-1uhah0b.e8zbici2{
