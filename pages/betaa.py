@@ -459,7 +459,7 @@ if __name__ == "__main__":
                          "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
 
                 HardSkills = response["choices"][0]["message"]["content"]
-                st.write(HardSkills)
+                # st.write(HardSkills)
                 return HardSkills
             def openAIGetRelevantSoftSkills(resumeContent):
                 response = openai.ChatCompletion.create(
@@ -471,7 +471,7 @@ if __name__ == "__main__":
                          "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
 
                 SoftSkills = response["choices"][0]["message"]["content"]
-                st.write(SoftSkills)
+                # st.write(SoftSkills)
                 return SoftSkills
 
             def openAIGetAllSkills(resumeContent):
@@ -484,7 +484,7 @@ if __name__ == "__main__":
                          "content": f"The resume is as follows: \n\n{resumeContent}\n\n"}])
 
                 AllSkills = response["choices"][0]["message"]["content"]
-                st.write(AllSkills)
+                # st.write(AllSkills)
                 return AllSkills
 
             def openAIMatchSkillsWithJobs(Skills, JobTitles, resumeContent):
@@ -500,7 +500,7 @@ if __name__ == "__main__":
                         """}])
 
                 Matched = response["choices"][0]["message"]["content"]
-                st.write(Matched)
+                # st.write(Matched)
                 return Matched
 
             col1, col2, col3 = st.columns([2, 1, 2])
