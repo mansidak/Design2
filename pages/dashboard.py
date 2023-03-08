@@ -165,6 +165,10 @@ if __name__ == "__main__":
                 ul.streamlit-expander {
                         border: 0 None !important;
                         }
+            .stAlert{
+            height:0px;
+            visibility:hidden;
+            }
             </style>
             '''
 
