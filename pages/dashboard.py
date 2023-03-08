@@ -67,7 +67,10 @@ if __name__ == "__main__":
 
         st.markdown("""
                 <style>
-
+                .stAlert{
+                visibility:none;
+                height:0px;
+                }
                 .css-1uhah0b.e8zbici2{
                 z-index:0;
                 }
