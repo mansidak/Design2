@@ -1007,7 +1007,7 @@ if __name__ == "__main__":
                     links4 = future4.result()
                     links5 = future5.result()
                     if FreshJobTitles[5]:
-                        links7 = future7.result()
+                        links6 = future6.result()
                     # links4 = future4.result()
                     # st.write(links1)
                     # st.write(links2)
@@ -1019,7 +1019,7 @@ if __name__ == "__main__":
                     st.write(threading.enumerate())
 
                     if FreshJobTitles[5]:
-                        st.session_state["FinalResults"] = links1 + links2 + links3 +links4 + links5 + links7
+                        st.session_state["FinalResults"] = links1 + links2 + links3 +links4 + links5 + links6
                     else:
                         st.session_state["FinalResults"] = links1 + links2 + links3 +links4 + links5
 
