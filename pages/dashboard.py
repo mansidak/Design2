@@ -20,7 +20,6 @@ st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", ini
 @st.cache(allow_output_mutation=True)
 def get_manager():
     return stx.CookieManager()
-
 cookie_manager = get_manager()
 
 firebaseconfig = {
@@ -36,8 +35,8 @@ firebaseconfig = {
 
 
 if __name__ == "__main__":
-    cookies = cookie_manager.get_all()
-    st.write(cookies)
+    # cookies = cookie_manager.get_all()
+    # st.write(cookies)
     def main(user: object):
 
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
