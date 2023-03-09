@@ -244,7 +244,7 @@ if __name__ == "__main__":
 
 
         with st.sidebar:
-            ArchivedResults = db.child("users").child(str(localId)).child("Archive").child("Archive1")get().val()
+            ArchivedResults = db.child("users").child(str(localId)).child("Archive").child("Archive1").get().val()
             unique_links = {}
 
             for key, value in SavedResults.items():
