@@ -146,7 +146,7 @@ if __name__ == "__main__":
         </style>""", unsafe_allow_html=True)
 
 
-        col1header, col2header, col3header = st.columns([2, 0.55, 2])
+        col1header, col2header, col3header = st.columns([2, 0.45, 2])
 
         with col1header:
             st.write("")
