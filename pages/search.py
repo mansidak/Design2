@@ -75,12 +75,10 @@ if __name__ == "__main__":
                         
                         
                         .css-ocqkz7.e1tzin5v4{
-                        margin-top:-60px;
+                        margin-top:-30px;
                         }
                         
-                        .css-ocqkz7.e1tzin5v4{
-                        padding-top:70px;
-                        }
+
                         .css-1uhah0b.e8zbici2{
                         z-index:0;
                         }
