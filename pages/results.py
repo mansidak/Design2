@@ -500,7 +500,7 @@ if __name__ == "__main__":
                                    mime='application/octet-stream')
             with colconclusion2:
                 if st.button("Not Satisfied? Run Again"):
-                    switch_page("betaa")
+                    switch_page("search")
 
         with colresult3:
             st.write("")

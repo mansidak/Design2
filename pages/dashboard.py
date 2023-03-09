@@ -60,7 +60,7 @@ if __name__ == "__main__":
             if selected2 == "Home":
                 switch_page("streamlit_app")
             elif selected2 == "Search":
-                switch_page("betaa")
+                switch_page("search")
             elif selected2 == "Build":
                 switch_page("PreResumeBuilder")
 
@@ -143,7 +143,7 @@ if __name__ == "__main__":
                         st.experimental_rerun()
                 with colResumeSub3:
                     if st.button("Run New Search"):
-                        switch_page("betaa")
+                        switch_page("search")
             else:
                 st.markdown(f"<h6 style='text-align:center; font-weight:lighter;color:black'>Upload new resume</h6>",
                             unsafe_allow_html=True)

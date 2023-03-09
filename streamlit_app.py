@@ -143,7 +143,7 @@ col1, col2, col3 = st.columns([2, 2, 10])
 
 with col1:
     if st.button("Find Best-Fit Roles"):
-        switch_page("app")
+        switch_page("search")
 with col2:
     if st.button("Build Resume"):
         switch_page("PreResumeBuilder")
