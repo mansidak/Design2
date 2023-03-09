@@ -362,6 +362,14 @@ with col2form:
                 st.experimental_rerun()
             except requests.HTTPError as exception:
                 st.write(exception)
+        if st.button("Create New Account",  key = "create_account"):
+            try:
+                user = auth.create_user_with_email_and_password(email, password)
+                st.session_state['user'] = user
+                st.experimental_rerun()
+            except requests.HTTPError as exception:
+                st.write(exception)
+
         if st.button("Forgot Password", key="forgotpassword"):
             auth.send_password_reset_email("email")
 
