@@ -302,7 +302,9 @@ if __name__ == "__main__":
     .css-17z41qg.e16nr0p34{
      color:white
     }
-    
+    .e1fb0mya1.css-fblp2m.ex0cdmw0{
+    color:white
+    }
     button[title="View fullscreen"]{
                         visibility: hidden;}
                         
