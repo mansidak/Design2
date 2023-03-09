@@ -29,17 +29,6 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     def main(user: object):
-        col1, col2, col3 = st.columns([2, 1, 2])
-
-        with col1:
-            st.write("")
-
-        with col2:
-            image = Image.open('PenManLogo.png')
-            st.image(image)
-
-        with col3:
-            st.write("")
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
         with coldash1:
             st.write("")
@@ -169,6 +158,18 @@ if __name__ == "__main__":
         st.write("")
         st.write("")
         st.write("")
+
+        col1header, col2header, col3header = st.columns([2, 1, 2])
+
+        with col1header:
+            st.write("")
+
+        with col2header:
+            image = Image.open('PenManLogo.png')
+            st.image(image)
+
+        with col3header:
+            st.write("")
 
         col1, col2, col3, col4, col5 = st.columns([1, 2, 0.1, 2, 1])
 
