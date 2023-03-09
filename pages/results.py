@@ -6,6 +6,7 @@ from PIL import Image
 import random
 from streamlit_extras.switch_page_button import switch_page
 import pdfkit
+from streamlit_option_menu import option_menu
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
 import pyrebase
