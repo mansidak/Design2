@@ -97,7 +97,7 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     cookies = cookie_manager.get_all()
-    st.write(cookies)
+    # st.write(cookies)
     def main(user: object):
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
         with coldash1:
@@ -172,6 +172,14 @@ if __name__ == "__main__":
                                     }
                                 </style>
                                 """, unsafe_allow_html=True)
+        st.markdown("""
+
+                <style>
+                .stAlert{
+                height:0px;
+                visibility:hidden
+                }
+                </style>""", unsafe_allow_html=True)
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
         db = firebase.database()
