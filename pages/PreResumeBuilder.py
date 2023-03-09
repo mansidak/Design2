@@ -8,6 +8,8 @@ import requests
 from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
 from st_btn_select import st_btn_select
+from PIL import Image
+
 import pyrebase
 
 st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽", layout="wide", initial_sidebar_state="collapsed")
@@ -27,6 +29,17 @@ firebaseconfig = {
 
 if __name__ == "__main__":
     def main(user: object):
+        col1, col2, col3 = st.columns([2, 1, 2])
+
+        with col1:
+            st.write("")
+
+        with col2:
+            image = Image.open('PenManLogo.png')
+            st.image(image)
+
+        with col3:
+            st.write("")
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
         with coldash1:
             st.write("")
