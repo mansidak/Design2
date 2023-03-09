@@ -78,7 +78,9 @@ if __name__ == "__main__":
                         margin-top:-60px;
                         }
                         
-                        
+                        .css-ocqkz7.e1tzin5v4{
+                        padding-top:40px;
+                        }
                         .css-1uhah0b.e8zbici2{
                         z-index:0;
                         }
