@@ -257,16 +257,16 @@ if __name__ == "__main__":
             with colresult1:
                 st.write("")
             with colresult2:
-                for key, value in my_dict.items():
-                    company_name = value['Company Name']
-                    Full_Description = value['Full Description']
-                    Link = value['Link']
-                    Location = value['Location']
-                    Short_Summary = value['Short Summary']
-                    Skills = value['Skills']
-                    Title = value['Title']
-                    # with st.expander("Archive1"):
-                    with st.expander("Archive1"):
+                with st.expander("Archive1"):
+                    for key, value in my_dict.items():
+                        company_name = value['Company Name']
+                        Full_Description = value['Full Description']
+                        Link = value['Link']
+                        Location = value['Location']
+                        Short_Summary = value['Short Summary']
+                        Skills = value['Skills']
+                        Title = value['Title']
+                        # with st.expander("Archive1"):
                         st.markdown(
                             f"<a href='{Link}' style='text-decoration: none; color: white;' target='_blank'><h5 style='font-family: Sans-Serif;margin-top:-20px;'>{Title}→ </h5></a>",
                             unsafe_allow_html=True)
