@@ -372,10 +372,7 @@ if __name__ == "__main__":
                                .streamlit-expanderHeader{
                                color:black
                                }
-                               div[data-testid="stSidebarNav"] {
-                               height: 0%;
-                               position: fixed;
-                               }
+
                                .css-5y9es8.exg6vvm15{
                                border-radius:50px; 
                                }
