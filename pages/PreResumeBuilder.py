@@ -12,7 +12,7 @@ from PIL import Image
 
 import pyrebase
 
-st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="19th Street | Resume Builder", page_icon="⓵⓽", initial_sidebar_state="collapsed")
 
 
 firebaseconfig = {
