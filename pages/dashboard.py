@@ -114,7 +114,7 @@ if __name__ == "__main__":
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
             unsafe_allow_html=True)
 
-        colLogin1, colLogin2, colLogin3 = st.columns([0.8, 1, 0.8])
+        colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
         with colLogin2:
             st.write(f"You're logged in as {st.session_state['user']['email']}")
 
