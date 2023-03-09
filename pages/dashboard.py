@@ -267,10 +267,10 @@ if __name__ == "__main__":
                     Title = value['Title']
                     # with st.expander("Archive1"):
                     st.markdown(
-                        f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
+                        f"<a href='{Link}' style='text-decoration: none; color: white;' target='_blank'><h5 style='font-family: Sans-Serif;margin-top:-20px;'>{Title}→ </h5></a>",
                         unsafe_allow_html=True)
                     st.markdown(
-                        f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
+                        f"<h7 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{company_name}</h7>",
                         unsafe_allow_html=True)
                     st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                 unsafe_allow_html=True)
