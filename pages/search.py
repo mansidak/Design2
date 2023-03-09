@@ -890,7 +890,7 @@ if __name__ == "__main__":
                                     }
                                 </style>""", unsafe_allow_html=True)
 
-                col1a, col2a, col3a = st.columns([1, 1, 1])
+                col1a, col2a, col3a = st.columns([1.3, 1, 1])
                 with col1a:
                     st.write("")
                 with col2a:
