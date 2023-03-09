@@ -270,7 +270,7 @@ if __name__ == "__main__":
                         f"<a href='{Link}' style='text-decoration: none; color: white;' target='_blank'><h5 style='font-family: Sans-Serif;margin-top:-20px;'>{Title}→ </h5></a>",
                         unsafe_allow_html=True)
                     st.markdown(
-                        f"<h7 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>{company_name}</h7>",
+                        f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px; color:white'>{company_name}</h6>",
                         unsafe_allow_html=True)
                     st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                 unsafe_allow_html=True)
