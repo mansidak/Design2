@@ -290,6 +290,10 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
+    .css-1lamwuk.e1fqkh3o8{
+    visibility:hidden;
+    height:0px;
+    }
     button[title="View fullscreen"]{
                         visibility: hidden;}
                         
