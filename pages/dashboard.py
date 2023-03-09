@@ -272,14 +272,6 @@ if __name__ == "__main__":
                     st.markdown(
                         f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
                         unsafe_allow_html=True)
-
-
-                        with col2:
-                            st.write("")
-
-                        with col3:
-                            st.write("")
-
                     st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                 unsafe_allow_html=True)
             with colresult3:
