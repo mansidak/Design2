@@ -295,7 +295,8 @@ if __name__ == "__main__":
     height:0px;
     }
     .css-vp3dme.e1tzin5v0{
-    margin-left:-30px;
+    margin-left:-50px;
+    margin-top:-70px;
     }
     button[title="View fullscreen"]{
                         visibility: hidden;}
