@@ -126,11 +126,6 @@ if __name__ == "__main__":
                 }
                 </style>""", unsafe_allow_html=True)
 
-        css = """
-                .uploadedFiles {
-                    display: none;
-                }
-                """
 
         options = Options()
         options.add_argument("--headless")

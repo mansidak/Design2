@@ -98,6 +98,79 @@ if __name__ == "__main__":
     cookies = cookie_manager.get_all()
     st.write(cookies)
     def main(user: object):
+        coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
+        with coldash1:
+            st.write("")
+        with coldash2:
+            selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
+                                    icons=['house', 'search', "file-earmark-font", 'stack'],
+                                    menu_icon="cast", default_index=1, orientation="horizontal",
+                                    styles={
+                                        "container": {"padding": "0!important", "background-color": "#0f0f0f"},
+                                        "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
+                                                     "--hover-color": "#0f0f0f", "color": "white",
+                                                     "background-color": "#0f0f0f"},
+                                        "nav-link-selected": {"font-weight": "bold", "background-color": "#0f0f0f",
+                                                              "color": "#F63366"},
+                                    })
+
+            if selected2 == "Home":
+                switch_page("streamlit_app")
+            elif selected2 == "Dashboard":
+                switch_page("dashboard")
+            elif selected2 == "Build":
+                switch_page("PreResumeBuilder")
+
+        with coldash3:
+            st.write("")
+
+        st.markdown("""
+                                <style>
+
+
+                                .css-ocqkz7.e1tzin5v4{
+                                margin-top:-30px;
+                                }
+
+
+                                .css-1uhah0b.e8zbici2{
+                                z-index:0;
+                                }
+                                header[data-testid="stHeader"] {
+                                position: relative;
+                                }
+                                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(8) {
+                                    margin-top:-90px;
+                                    margin-left:-90px;
+                                    min-width:100%;
+                                    position:fixed;
+                                    z-index:1;
+                                    }
+
+                                  .dark{
+                                        background-color: #eeeeee;
+                                        color:black;
+                                        border-color: black;
+                                        }
+
+                                   .dark:hover{
+                                        background-color: #eeeeee;
+                                        color: #F63366;
+                                        border-color: #F63366;
+                                        }
+
+                                    .button.dark {
+                                      background-color: #4CAF50; /* Green */
+                                      border: none;
+                                      color: white;
+                                      padding: 15px 32px;
+                                      text-align: center;
+                                      text-decoration: none;
+                                      display: inline-block;
+                                      font-size: 16px;
+                                    }
+                                </style>
+                                """, unsafe_allow_html=True)
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
         db = firebase.database()
