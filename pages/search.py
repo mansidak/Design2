@@ -894,6 +894,8 @@ if __name__ == "__main__":
                 with col1a:
                     st.write("")
                 with col2a:
+                    st.subheader("")
+                    st.subheader("")
                     Search = st.button("Take me to 19th Street", key="SearchButton")
                 with col3a:
                     st.write("")
