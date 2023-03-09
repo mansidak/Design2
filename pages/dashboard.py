@@ -285,6 +285,10 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
+    .css-c0yjmw.e1fqkh3o9{
+    visibility:hidden;
+    height:0px;
+    }
     button[title="View fullscreen"]{
                         visibility: hidden;}
                         
