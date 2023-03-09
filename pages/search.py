@@ -897,10 +897,6 @@ if __name__ == "__main__":
                     st.subheader("")
                     st.subheader("")
                     st.subheader("")
-                    st.subheader("")
-                    st.subheader("")
-                    st.subheader("")
-                    st.subheader("")
 
 
                     Search = st.button("Take me to 19th Street", key="SearchButton")
