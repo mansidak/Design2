@@ -115,7 +115,7 @@ if __name__ == "__main__":
             unsafe_allow_html=True)
 
 
-        # st.write(f"You're logged in as {st.session_state['user']['email']}")
+        st.write(f"You're logged in as {st.session_state['user']['email']}")
 
 
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
