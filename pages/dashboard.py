@@ -299,6 +299,9 @@ if __name__ == "__main__":
     margin-top:-70px;
     color:white
     }
+    .streamlit-expanderHeader {
+     color:white
+    }
     button[title="View fullscreen"]{
                         visibility: hidden;}
                         
