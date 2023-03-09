@@ -147,17 +147,7 @@ if __name__ == "__main__":
 
         st.write("")
         st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("")
+
 
         col1header, col2header, col3header = st.columns([2, 0.55, 2])
 
