@@ -587,6 +587,28 @@ if __name__ == "__main__":
         with colresult3:
             st.write("")
 
+        for job in unique_results:
+            firebase = pyrebase.initialize_app(firebaseconfig)
+            db = firebase.database()
+            link = job[0]
+            title = job[1]
+            companyName = job[2]
+            shortSummary = job[3]
+            fullDescription = job[4]
+            location = job[5]
+            skills = job[6]
+            data = {
+                "Link": str(link),
+                "Title": str(title),
+                "Company Name": str(companyName),
+                "Short Summary": str(shortSummary),
+                "Full Description": str(fullDescription),
+                "Location": str(location),
+                "Skills": str(skills)
+            }
+            db.child("users").child(str(localId)).child("Archive").child(datetime.datetime.now()).push(data)
+
+
 
 def set_code(code: str):
     st.experimental_set_query_params(code=code)
