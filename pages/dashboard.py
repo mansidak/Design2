@@ -291,7 +291,14 @@ if __name__ == "__main__":
     }
     
     button[data-baseweb="tab"] {
-    background-color:#eeeeee;
+    background-color:#f2f2f2;
+    color:black;
+    min-width:150px;
+    margin: 0 auto;
+    }
+    
+    button[data-baseweb="tab"]:hover {
+    background-color:#fefefe;
     color:black;
     min-width:150px;
     margin: 0 auto;
