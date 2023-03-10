@@ -309,6 +309,7 @@ if __name__ == "__main__":
     }
     
     div[data-baseweb="tab-list"] {
+    background-color:#ffffff;
     max-width:340px;
     padding:5px;
     border-bottom:none;
@@ -317,18 +318,13 @@ if __name__ == "__main__":
     }
     
     button[aria-selected="true"] {
+    background-color: #ffffff;
     border-radius:5px;
     max-height:10px !important;
     }
     
     
-    
-    
-    
-    div[data-baseweb="tab-highlight"] {
-    height:0px;
-    visibility:hidden;
-    }
+
     
     
 
