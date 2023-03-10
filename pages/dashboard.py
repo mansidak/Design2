@@ -304,11 +304,6 @@ if __name__ == "__main__":
     
     button[data-baseweb="tab"]:hover {
     background-color:#fefefe;
-    color:black;
-    border-radius:5px;
-    min-width:150px;
-    padding:20px;
-    margin: 0 auto;
     }
 
     div[data-baseweb="tab-highlight"] {
@@ -316,17 +311,6 @@ if __name__ == "__main__":
     visibility:hidden;
     }
 
-    button[data-baseweb="tab"]:hover {
-    }
-    #tabs-bui3-tab-0{
-    }
-
-    #tabs-bui3-tab-0 > div{
-    }
-    
-    #tabs-bui3-tab-0 > div > p{
-    }
-    
     
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
