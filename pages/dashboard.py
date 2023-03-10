@@ -300,6 +300,9 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
+    button{
+    max-height:10px; !important
+    }
 
     button[data-baseweb="tab"] {
     background-color:#ffffff;
@@ -340,10 +343,12 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
+    
     .css-1lamwuk.e1fqkh3o8{
     visibility:hidden;
     height:0px;
     }
+    
     .css-vp3dme.e1tzin5v0{
     margin-left:-50px;
     margin-top:-70px;
