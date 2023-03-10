@@ -110,13 +110,7 @@ if __name__ == "__main__":
                     </style>
                     """, unsafe_allow_html=True)
 
-        st.markdown(
-            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
-            unsafe_allow_html=True)
 
-        colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
-        with colLogin2:
-            st.write(f"You're logged in as {st.session_state['user']['email']}")
 
 
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
@@ -134,6 +128,13 @@ if __name__ == "__main__":
 
 
         with Saved:
+            st.markdown(
+                f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
+                unsafe_allow_html=True)
+
+            colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
+            with colLogin2:
+                st.write(f"You're logged in as {st.session_state['user']['email']}")
             colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
             with colResume1:
                 st.write("")
