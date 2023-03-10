@@ -315,18 +315,8 @@ if __name__ == "__main__":
     margin: 0 auto;
     }
     
-    
-    button[id="tabs-bui42-tab-0"]:hover {
-
-    max-height:10px;
-
-    }
-    
-    
     .css-17z41qg.e16nr0p34{
     max-height:20px;
-    margin: 0 auto;
-
     }
 
     div[data-baseweb="tab-list"] {
