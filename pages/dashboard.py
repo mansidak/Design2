@@ -17,28 +17,32 @@ import datetime
 import requests
 import os
 
-st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
+st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed",
+                   layout="wide")
+
 
 @st.cache(allow_output_mutation=True)
 def get_manager():
     return stx.CookieManager()
 
+
 cookie_manager = get_manager()
 
 firebaseconfig = {
-            "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
-            "authDomain": "nineteenth-street.firebaseapp.com",
-            "projectId": "nineteenth-street",
-            "storageBucket": "nineteenth-street.appspot.com",
-            "messagingSenderId": "964724806859",
-            "appId": "1:964724806859:web:010841fc337f30b50cb74e",
-            "measurementId": "G-N3TMC7M1WT",
-            "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
-        }
-
+    "apiKey": "AIzaSyDCHY-GB5WCd0V6o4psrasOYZL_F7xcODM",
+    "authDomain": "nineteenth-street.firebaseapp.com",
+    "projectId": "nineteenth-street",
+    "storageBucket": "nineteenth-street.appspot.com",
+    "messagingSenderId": "964724806859",
+    "appId": "1:964724806859:web:010841fc337f30b50cb74e",
+    "measurementId": "G-N3TMC7M1WT",
+    "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
+}
 
 if __name__ == "__main__":
     cookies = cookie_manager.get_all()
+
+
     # st.write(cookies)
     def main(user: object):
         coldash1, coldash2, coldash3 = st.columns([1, 2, 1])
@@ -84,7 +88,7 @@ if __name__ == "__main__":
                         position:fixed;
                         z-index:1;
                         }
-                    
+
                       .dark{
                             background-color: #eeeeee;
                             color:black;
@@ -110,9 +114,6 @@ if __name__ == "__main__":
                     </style>
                     """, unsafe_allow_html=True)
 
-
-
-
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
         db = firebase.database()
@@ -122,10 +123,7 @@ if __name__ == "__main__":
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
 
-
-
         Saved, Archive = st.tabs(["Saved", "Archive"])
-
 
         with Saved:
             st.markdown(
@@ -210,7 +208,8 @@ if __name__ == "__main__":
 
                         with col1:
                             container_2 = st.empty()
-                            button_A = container_2.button('Generate Cover Letter', key=f"{Link}+{Title}+{Short_Summary}")
+                            button_A = container_2.button('Generate Cover Letter',
+                                                          key=f"{Link}+{Title}+{Short_Summary}")
                             if button_A:
                                 container_2.empty()
                                 button_B = container_2.button('Generating... Please wait.',
@@ -241,7 +240,8 @@ if __name__ == "__main__":
                         with col3:
                             st.write("")
 
-                    st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>", unsafe_allow_html=True)
+                    st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
+                                unsafe_allow_html=True)
             with colresult3:
                 st.write("")
 
@@ -286,49 +286,50 @@ if __name__ == "__main__":
                 st.write("")
 
 
-
     st.markdown("""
     <style>
     .stAlert{
     visibility:hidden;
     height:0px;
     }
-    
-    button[data-baseweb="tab"] {
-        background-color:#ffffff;
 
+    button[data-baseweb="tab"] {
+    background-color:#f2f2f2;
     color:black;
+    border-radius:5px;
     min-width:150px;
+    max-height:10px;
     padding:20px;
     margin: 0 auto;
     }
-    
 
+    div[data-baseweb="tab-highlight"] {
+    height:0px;
+    visibility:hidden;
+    }
 
     button[data-baseweb="tab"]:hover {
-    max-height:30px;
+    max-height:10px;
 
     }
-    
+
     div[data-baseweb="tab-list"] {
-    background-color:#ffffff;
+    background-color:#eeeeee;
     max-width:340px;
+        max-height:10px;
+
     padding:5px;
     border-bottom:none;
     border-radius:5px;
     margin: 0 auto;
     }
-    
+
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:5px;
-    max-height:10px !important;
-    }
-    
-    
 
-    
-    
+
+    }
 
     .css-c0yjmw.e1fqkh3o9{
     visibility:hidden;
@@ -345,14 +346,14 @@ if __name__ == "__main__":
 
     button[title="View fullscreen"]{
                         visibility: hidden;}
-                        
+
                     ul.streamlit-expander {
                                 border: 0 None !important;
                                 }
    .css-10trblm.e16nr0p30{
    color:black
    }
-                                
+
       div[class='css-4z1n4l ehezqtx5']{
                                background: rgba(0, 0, 0, 0.3);
                                color: #fff;
@@ -428,10 +429,9 @@ if __name__ == "__main__":
                                height: 0%;
                                position: fixed;
                                }
-    
+
     </style>
     """, unsafe_allow_html=True)
-
 
 
 def set_code(code: str):
@@ -455,7 +455,7 @@ with col2form:
                 st.experimental_rerun()
             except requests.HTTPError as exception:
                 st.write(exception)
-        if st.button("Create New Account",  key = "create_account"):
+        if st.button("Create New Account", key="create_account"):
             try:
                 user = auth.create_user_with_email_and_password(email, password)
                 st.session_state['user'] = user
