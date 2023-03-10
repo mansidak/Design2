@@ -325,6 +325,7 @@ if __name__ == "__main__":
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:5px;
+    max-height:20px;
 
     }
 
