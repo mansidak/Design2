@@ -303,6 +303,7 @@ if __name__ == "__main__":
     }
     
     button[data-baseweb="tab"]:hover {
+    color:black;
     background-color:#eeeeee;
     }
 
