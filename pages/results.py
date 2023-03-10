@@ -312,7 +312,10 @@ if __name__ == "__main__":
                                 st.download_button('Download Cover Letter', cover_letter_file)
 
                         with col2:
-                            if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                            container_save = st.empty()
+                            SaveButton = container_save.button('Save' ,key=f"{link}+{title}+{shortSummary}+{companyName}")
+
+                            if SaveButton:
                                 firebase = pyrebase.initialize_app(firebaseconfig)
                                 db = firebase.database()
                                 # user = st.session_state['user']
@@ -327,6 +330,7 @@ if __name__ == "__main__":
                                 }
                                 results = db.child("users").child(str(localId)).child("Jobs").push(data)
                                 st.write("Saved!")
+                                container_save.empty()
 
                         with col3:
                             st.write("")
@@ -384,7 +388,11 @@ if __name__ == "__main__":
                                 st.download_button('Download Cover Letter', cover_letter_file)
 
                         with col2:
-                            if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                            container_save = st.empty()
+                            SaveButton = container_save.button('Save',
+                                                               key=f"{link}+{title}+{shortSummary}+{companyName}")
+
+                            if SaveButton:
                                 firebase = pyrebase.initialize_app(firebaseconfig)
                                 db = firebase.database()
                                 # user = st.session_state['user']
@@ -399,6 +407,7 @@ if __name__ == "__main__":
                                 }
                                 results = db.child("users").child(str(localId)).child("Jobs").push(data)
                                 st.write("Saved!")
+                                container_save.empty()
 
                         with col3:
                             st.write("")
@@ -456,7 +465,11 @@ if __name__ == "__main__":
                                 st.download_button('Download Cover Letter', cover_letter_file)
 
                         with col2:
-                            if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                            container_save = st.empty()
+                            SaveButton = container_save.button('Save',
+                                                               key=f"{link}+{title}+{shortSummary}+{companyName}")
+
+                            if SaveButton:
                                 firebase = pyrebase.initialize_app(firebaseconfig)
                                 db = firebase.database()
                                 # user = st.session_state['user']
@@ -471,6 +484,7 @@ if __name__ == "__main__":
                                 }
                                 results = db.child("users").child(str(localId)).child("Jobs").push(data)
                                 st.write("Saved!")
+                                container_save.empty()
 
                         with col3:
                             st.write("")
@@ -489,32 +503,13 @@ if __name__ == "__main__":
                     fullDescription = element[4]
                     location = element[5]
                     skills = element[6]
-                    col1mark, col2mark = st.columns([1, 0.1])
-                    with col1mark:
-                        st.markdown(
-                            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-                            unsafe_allow_html=True)
-                        st.markdown(
-                            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-                            unsafe_allow_html=True)
-                    with col2mark:
-                        Save = st.empty()
-                        if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
-                            firebase = pyrebase.initialize_app(firebaseconfig)
-                            db = firebase.database()
-                            # user = st.session_state['user']
-                            data = {
-                                "Link": str(link),
-                                "Title": str(title),
-                                "Company Name": str(companyName),
-                                "Short Summary": str(shortSummary),
-                                "Full Description": str(fullDescription),
-                                "Location": str(location),
-                                "Skills": str(skills)
-                            }
-                            results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                            st.write("Saved!")
-                            Save.empty()
+
+                    st.markdown(
+                        f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
+                        unsafe_allow_html=True)
+                    st.markdown(
+                        f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                        unsafe_allow_html=True)
 
                     with st.expander(f"{location}"):
                         st.markdown(f"[Apply]({link})")
@@ -551,7 +546,26 @@ if __name__ == "__main__":
                                 st.download_button('Download Cover Letter', cover_letter_file)
 
                         with col2:
-                            st.write("")
+                            container_save = st.empty()
+                            SaveButton = container_save.button('Save',
+                                                               key=f"{link}+{title}+{shortSummary}+{companyName}")
+
+                            if SaveButton:
+                                firebase = pyrebase.initialize_app(firebaseconfig)
+                                db = firebase.database()
+                                # user = st.session_state['user']
+                                data = {
+                                    "Link": str(link),
+                                    "Title": str(title),
+                                    "Company Name": str(companyName),
+                                    "Short Summary": str(shortSummary),
+                                    "Full Description": str(fullDescription),
+                                    "Location": str(location),
+                                    "Skills": str(skills)
+                                }
+                                results = db.child("users").child(str(localId)).child("Jobs").push(data)
+                                st.write("Saved!")
+                                container_save.empty()
 
                         with col3:
                             st.write("")
