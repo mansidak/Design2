@@ -259,7 +259,7 @@ if __name__ == "__main__":
 
         with ResumeTab:
             if FirebaseResumeContent:
-                colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([3,0.75,1,4])
+                colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([3,1,1,4])
                 with colResumeSub2:
                     st.markdown(
                         f"<h3 style='text-align:center;color:black'>&nbsp&nbspInformation</span> </h3>",
