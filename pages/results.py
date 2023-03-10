@@ -132,7 +132,7 @@ if __name__ == "__main__":
                                 .css-ocqkz7.e1tzin5v4{
                                 margin-top:-30px;
                                 }
-                                css-1w67d01.e1tzin5v0{
+                                .css-1w67d01.e1tzin5v0{
                                 margin-top: 10px;
                                 }
 
