@@ -295,7 +295,7 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     min-width:150px;
-    passing:5px;
+    passing:20px;
     margin: 0 auto;
     }
     
