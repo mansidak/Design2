@@ -304,6 +304,12 @@ if __name__ == "__main__":
     margin: 0 auto;
     }
     
+    button[role="tab"] {
+
+    max-height:10px !important;
+
+    }
+    
 
     
     button[data-baseweb="tab"]:hover {
