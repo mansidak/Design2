@@ -132,6 +132,9 @@ if __name__ == "__main__":
                                 .css-ocqkz7.e1tzin5v4{
                                 margin-top:-30px;
                                 }
+                                .css-18uc3a4.e16nr0p34{
+                                margin-top: 10px;
+                                }
 
 
                                 .css-1uhah0b.e8zbici2{
