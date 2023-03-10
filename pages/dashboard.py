@@ -166,18 +166,10 @@ if __name__ == "__main__":
         with colResume3:
             st.write("")
 
-        Section = option_menu(None, ["Saved", "Archive"],
-                                icons=['house', 'search'],
-                                menu_icon="cast", default_index=0, orientation="horizontal",
-                                styles={
-                                    "container": {"padding": "0!important", "background-color": "#0f0f0f"},
-                                    "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
-                                                 "--hover-color": "#0f0f0f", "color": "white",
-                                                 "background-color": "#0f0f0f"},
-                                    "nav-link-selected": {"font-weight": "bold", "background-color": "#0f0f0f",
-                                                          "color": "#F63366"},
-                                })
-        if Section == "Saved":
+
+        Saved, Archive = st.tabs(["Saved", "Arvice"])
+
+        with Saved:
             SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
             unique_links = {}
 
@@ -249,7 +241,7 @@ if __name__ == "__main__":
             with colresult3:
                 st.write("")
 
-        if Section == "Archive":
+        with Archive:
             AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
