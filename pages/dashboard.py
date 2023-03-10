@@ -260,7 +260,7 @@ if __name__ == "__main__":
                 st.markdown(
                     f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file:<span style='color: green'>&nbsp &check;</span> </h6>",
                     unsafe_allow_html=True)
-                colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([2,1,2])
+                colResumeSub1, colResumeSub2, colResumeSub3 = st.columns([2,1,2])
                 with colResumeSub1:
                     st.write("")
                 with colResumeSub2:
