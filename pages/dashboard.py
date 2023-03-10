@@ -242,19 +242,21 @@ if __name__ == "__main__":
             st.write("")
 
 
+
+        with st.sidebar:
             ArchivedResults = db.child("users").child(str(localId)).child("Archive").child("Archive1").get().val()
             unique_links = {}
 
-            for key, value in ArchivedResults.items():
+            for key, value in SavedResults.items():
                 link = value['Link']
                 if link not in unique_links:
                     unique_links[link] = value
 
             my_dict = unique_links
-            colarchive1, colarchive2, colarchive3 = st.columns([0.25, 1, 0.25])
-            with colarchive1:
+            colresult1, colresult2, colresult3 = st.columns([0.25, 1, 0.25])
+            with colresult1:
                 st.write("")
-            with colarchive2:
+            with colresult2:
                 with st.expander("Archive1"):
                     for key, value in my_dict.items():
                         company_name = value['Company Name']
@@ -273,7 +275,7 @@ if __name__ == "__main__":
                             unsafe_allow_html=True)
                         st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                     unsafe_allow_html=True)
-            with colarchive3:
+            with colresult3:
                 st.write("")
 
 
@@ -295,6 +297,7 @@ if __name__ == "__main__":
     .css-vp3dme.e1tzin5v0{
     margin-left:-50px;
     margin-top:-70px;
+    color:white
     }
 
     button[title="View fullscreen"]{
