@@ -297,8 +297,8 @@ if __name__ == "__main__":
     }
     
     button[selected="true"] {
-    border-color:F63366;
     border: 2px solid;
+    border-color:#F63366;
     }
 
     .css-c0yjmw.e1fqkh3o9{
