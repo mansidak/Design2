@@ -251,10 +251,10 @@ if __name__ == "__main__":
                 unique_links[link] = value
 
         my_dict = unique_links
-        colresult1, colresult2, colresult3 = st.columns([0.25, 1, 0.25])
-        with colresult1:
+        colarchive1, colarchive2, colarchive3 = st.columns([0.25, 1, 0.25])
+        with colarchive1:
             st.write("")
-        with colresult2:
+        with colarchive2:
             with st.expander("Archive1"):
                 for key, value in my_dict.items():
                     company_name = value['Company Name']
@@ -273,7 +273,7 @@ if __name__ == "__main__":
                         unsafe_allow_html=True)
                     st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                 unsafe_allow_html=True)
-        with colresult3:
+        with colarchive3:
             st.write("")
 
 
