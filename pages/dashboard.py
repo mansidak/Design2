@@ -328,6 +328,7 @@ if __name__ == "__main__":
     background-color: #ffffff;
     border-radius:5px;
     max-height:10px !important;
+    margin: 0 auto;
     }
     
     
