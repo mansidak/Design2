@@ -288,7 +288,6 @@ if __name__ == "__main__":
 
 
     st.markdown("""
-    
     <style>
     .stAlert{
     visibility:hidden;
@@ -300,13 +299,32 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     min-width:150px;
+    max-height:10px !important;
     padding:20px;
     margin: 0 auto;
     }
+    
+    button[data-baseweb="tab"] {
+    background-color:#f2f2f2;
+    color:black;
+    border-radius:5px;
+    min-width:150px;
+    max-height:10px !important;
+    padding:20px;
+    margin: 0 auto;
+    }
+    
 
+    
+    button[data-baseweb="tab"]:hover {
+    max-height:30px;
+
+    }
+    
     div[data-baseweb="tab-list"] {
     background-color:#eeeeee;
     max-width:340px;
+    max-height:30px;
     padding:5px;
     border-bottom:none;
     border-radius:5px;
