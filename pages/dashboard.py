@@ -316,11 +316,11 @@ if __name__ == "__main__":
     }
 
     #tabs-bui3-tab-0 > div{
-    min-height:10px;
+    max-height:10px;
     }
     
     #tabs-bui3-tab-0 > div > p{
-    min-height:10px;
+    max-height:10px;
     }
     
     #tabs-bui3-tab-0{
