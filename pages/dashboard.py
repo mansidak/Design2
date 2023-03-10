@@ -295,16 +295,7 @@ if __name__ == "__main__":
     }
     
     button[data-baseweb="tab"] {
-    background-color:#eeeeee;
-    color:black;
-    border-radius:5px;
-    min-width:150px;
-    padding:20px;
-    margin: 0 auto;
-    }
-    
-    button[data-baseweb="tab"] {
-    background-color:#f2f2f2;
+    background-color:#ffffff;
     color:black;
     border-radius:5px;
     min-width:150px;
@@ -313,7 +304,7 @@ if __name__ == "__main__":
     }
     
 
-    
+
     button[data-baseweb="tab"]:hover {
     max-height:30px;
 
