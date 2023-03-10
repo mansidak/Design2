@@ -304,9 +304,19 @@ if __name__ == "__main__":
     padding:20px;
     margin: 0 auto;
     }
+    
+    button[data-baseweb="tab"]:hover {
+    background-color:#ffffff;
+    color:black;
+    border-radius:5px;
+    max-height:10px;
+    min-width:150px;
+    padding:20px;
+    margin: 0 auto;
+    }
 
     div[data-baseweb="tab-list"] {
-    background-color:#eeeeee;
+    background-color:#f2f2f2;
     max-width:330px;
     padding:5px;
     border-bottom:none;
