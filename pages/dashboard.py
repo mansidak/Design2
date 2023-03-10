@@ -314,16 +314,11 @@ if __name__ == "__main__":
     padding:20px;
     margin: 0 auto;
     }
-    
-    .css-17z41qg.e16nr0p34{
-    max-height:20px;
-    }
 
     div[data-baseweb="tab-list"] {
     background-color:#f2f2f2;
     max-width:320px;
     padding:5px;
-    max-height:30px;
     border-bottom:none;
     border-radius:10px;
     margin: 0 auto;
