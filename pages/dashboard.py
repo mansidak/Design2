@@ -282,8 +282,9 @@ if __name__ == "__main__":
                                 unsafe_allow_html=True)
         with colresult3:
             st.write("")
+
         modal = Modal("Demo Modal")
-        open_modal = st.button("Open")
+        open_modal = st.button("Open", key ="openmodal")
         if open_modal:
             modal.open()
 
