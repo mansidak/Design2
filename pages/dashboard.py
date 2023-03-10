@@ -304,10 +304,7 @@ if __name__ == "__main__":
     margin: 0 auto;
     }
     
-    div[data-baseweb="tab-highlight"] {
-    height:0px;
-    visibility:hidden;
-    }
+
     
     button[data-baseweb="tab"]:hover {
     max-height:30px;
@@ -327,9 +324,17 @@ if __name__ == "__main__":
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:5px;
-    max-height:30px;
+    max-height:20px;
+    
 
     }
+    
+        div[data-baseweb="tab-highlight"] {
+    height:0px;
+    visibility:hidden;
+    }
+    
+    
 
     .css-c0yjmw.e1fqkh3o9{
     visibility:hidden;
