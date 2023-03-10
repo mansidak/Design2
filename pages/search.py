@@ -442,6 +442,7 @@ if __name__ == "__main__":
 
                 Name = response["choices"][0]["message"]["content"]
                 st.session_state['Name']=Name
+
                 return Name
 
             def openAIGetRelevantJobTitlesDuplicate(resumeContent):
@@ -582,6 +583,11 @@ if __name__ == "__main__":
                 holder.empty()
                 resumeContent = extract_text_from_pdf(ResumePDF)
                 Name = openAIGetName(resumeContent)
+                firebase = pyrebase.initialize_app(firebaseconfig)
+                AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+                localId = AccountInfo["localId"]
+                db = firebase.database()
+                FirebaseResumeContent = db.child("users").child(localId).child("Name").set(Name)
 
                 if 'Name' not in st.session_state:
                     st.session_state['Name'] = Name
