@@ -298,12 +298,13 @@ if __name__ == "__main__":
     
     div[data-baseweb="tab-list"] {
     background-color:#eeeeee;
+        max-width:400px;
+
     }
     
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:10px;
-    max-width:400px;
     }
 
     .css-c0yjmw.e1fqkh3o9{
