@@ -312,6 +312,7 @@ if __name__ == "__main__":
     
     button[data-baseweb="tab"]:hover {
     color:black;
+    max-height:20px;
     background-color:#eeeeee;
     }
 
@@ -324,7 +325,6 @@ if __name__ == "__main__":
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
     max-width:500px;
-    max-height:20px;
     padding:5px;
     border-bottom:none;
     border-radius:5px;
