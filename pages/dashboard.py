@@ -357,7 +357,7 @@ if __name__ == "__main__":
                                .stApp {
                                background-color: #ffffff;
                                color:black;
-                               primary-color="black"
+                               primaryColor="#F63366"
                                }
                                .element-container.css-l0vo1h.e1tzin5v3
                                {
