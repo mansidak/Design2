@@ -317,6 +317,7 @@ if __name__ == "__main__":
 
     #tabs-bui3-tab-0 > div{
     max-height:10px;
+    margin-top:-10px;
     }
     
     #tabs-bui3-tab-0 > div > p{
