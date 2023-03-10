@@ -514,7 +514,6 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             unique_results.remove(element)
-
                             st.write("Saved!")
                             Save.empty()
 
