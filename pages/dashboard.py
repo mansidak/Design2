@@ -246,7 +246,6 @@ if __name__ == "__main__":
                 st.write("")
 
         with Archive:
-            switch_page("search")
             AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
