@@ -312,7 +312,9 @@ if __name__ == "__main__":
     max-height:10px;
 
     }
-
+    p{
+    max-height:10px;
+        }
     div[data-baseweb="tab-list"] {
     background-color:#eeeeee;
     max-width:340px;
