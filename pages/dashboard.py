@@ -307,6 +307,7 @@ if __name__ == "__main__":
     background-color:#eeeeee;
     max-width:340px;
     padding:5px;
+    border-bottom:none;
     border-radius:5px;
     margin: 0 auto;
     }
@@ -314,7 +315,7 @@ if __name__ == "__main__":
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:5px;
-    
+
     }
 
     .css-c0yjmw.e1fqkh3o9{
