@@ -295,6 +295,11 @@ if __name__ == "__main__":
     color:black;
     min-width:100px;
     }
+    
+    button[selected="true"] {
+    border-color:F63366;
+    border: 2px dotted;
+    }
 
     .css-c0yjmw.e1fqkh3o9{
     visibility:hidden;
