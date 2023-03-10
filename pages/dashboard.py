@@ -291,13 +291,17 @@ if __name__ == "__main__":
     }
     
     button[data-baseweb="tab"] {
-         background-color:#eeeeee;
+    background-color:#eeeeee;
     color:black;
     min-width:100px;
     }
     
+    div[data-baseweb="tab-list"] {
+    background-color:#eeeeee;
+    }
+    
     button[aria-selected="true"] {
-    background-color: #fefefe;
+    background-color: #ffffff;
     border-radius:10px;
     }
 
