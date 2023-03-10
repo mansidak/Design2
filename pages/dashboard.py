@@ -297,8 +297,8 @@ if __name__ == "__main__":
     }
     
     button[aria-selected="true"] {
-    border: 2px solid;
-    border-color:#F63366;
+    background-color: #fefefe;
+    border-radius:10px;
     }
 
     .css-c0yjmw.e1fqkh3o9{
