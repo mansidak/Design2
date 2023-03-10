@@ -324,12 +324,10 @@ if __name__ == "__main__":
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:5px;
-    max-height:20px;
-    
-
+    max-height:10px;
     }
     
-        div[data-baseweb="tab-highlight"] {
+    div[data-baseweb="tab-highlight"] {
     height:0px;
     visibility:hidden;
     }
