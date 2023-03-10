@@ -296,7 +296,7 @@ if __name__ == "__main__":
     min-width:100px;
     }
     
-    button[selected="true"] {
+    button[aria-selected="true"] {
     border: 2px solid;
     border-color:#F63366;
     }
