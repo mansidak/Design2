@@ -298,7 +298,7 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     min-width:150px;
-    max-height:20px;
+    max-height:10px;
     padding:20px;
     margin: 0 auto;
     }
@@ -312,6 +312,7 @@ if __name__ == "__main__":
     max-height:10px;
 
     }
+    
     #tabs-bui3-tab-0 > div{
     max-height:10px;
     }
