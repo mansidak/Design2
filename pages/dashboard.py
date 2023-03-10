@@ -299,7 +299,7 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     min-width:150px;
-    max-height:30px;
+    max-height:10px;
     padding:20px;
     margin: 0 auto;
     }
@@ -324,8 +324,12 @@ if __name__ == "__main__":
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:5px;
-    max-height:10px;
+    max-height:10px !important;
     }
+    
+    
+    
+    
     
     div[data-baseweb="tab-highlight"] {
     height:0px;
