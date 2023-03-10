@@ -292,23 +292,15 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
-    
-        button[aria-selected="true"] {
-    background-color: #eeeeee;
-    border-radius:5px;
-    }
-
 
     button[data-baseweb="tab"] {
     background-color:#ffffff;
     color:black;
     border-radius:5px;
     min-width:150px;
-    max-height:10px;
     padding:20px;
     margin: 0 auto;
     }
-    
 
     div[data-baseweb="tab-highlight"] {
     height:0px;
@@ -316,24 +308,16 @@ if __name__ == "__main__":
     }
 
     button[data-baseweb="tab"]:hover {
-    max-height:10px;
     }
     #tabs-bui3-tab-0{
-    max-height:10px;
     }
 
     #tabs-bui3-tab-0 > div{
-    max-height:10px;
-    margin-top:-30px;
     }
     
     #tabs-bui3-tab-0 > div > p{
-    max-height:10px;
     }
     
-    /html/body/div/div[1]/div[1]/div/div/div/section[2]/div[1]/div[1]/div/div[9]/div/div[1]/div/button[1]{
-    max-height:10px;
-    }
     
     div[data-baseweb="tab-list"] {
     background-color:#ffffff;
@@ -344,6 +328,10 @@ if __name__ == "__main__":
     margin: 0 auto;
     }
 
+    button[aria-selected="true"] {
+    background-color: #eeeeee;
+    border-radius:5px;
+    }
 
     .css-c0yjmw.e1fqkh3o9{
     visibility:hidden;
