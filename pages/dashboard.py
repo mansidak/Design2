@@ -304,8 +304,7 @@ if __name__ == "__main__":
     margin: 0 auto;
     }
     
-    button[role="tab"] {
-
+    button[id="tabs-bui42-tab-0"] {
     max-height:10px !important;
 
     }
