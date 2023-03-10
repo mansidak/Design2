@@ -261,7 +261,7 @@ if __name__ == "__main__":
             st.header("Information")
             st.write(st.session_state['Name'])
             if st.button("Change Name", key = "ChangeName"):
-                Name = st.text_input("Enter Name")
+                Name = st.text_input("Enter Name", key = "New Name")
                 if st.button("Submit", key = "SubmitNewName"):
                     db.child("users").child(localId).child("Name").set(Name)
                     st.session_state['Name'] = db.child('users').child(localId).child('Name').get().val()
