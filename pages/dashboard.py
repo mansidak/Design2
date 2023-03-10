@@ -245,7 +245,7 @@ if __name__ == "__main__":
         ArchivedResults = db.child("users").child(str(localId)).child("Archive").child("Archive1").get().val()
         unique_links = {}
 
-        for key, value in SavedResults.items():
+        for key, value in ArchivedResults.items():
             link = value['Link']
             if link not in unique_links:
                 unique_links[link] = value
