@@ -299,7 +299,7 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     min-width:150px;
-    max-height:20px;
+    max-height:20px !important;
     padding:20px;
     margin: 0 auto;
     }
@@ -325,7 +325,7 @@ if __name__ == "__main__":
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:5px;
-    max-height:20px;
+
 
     }
 
