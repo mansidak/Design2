@@ -300,9 +300,10 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
-    button{
-    max-height:10px; !important
+    button[aria-controls="tabs-bui3-tabpanel-0"]{
+    max-height:20px;
     }
+    
 
     button[data-baseweb="tab"] {
     background-color:#ffffff;
