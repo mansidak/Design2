@@ -314,20 +314,21 @@ if __name__ == "__main__":
     padding:20px;
     margin: 0 auto;
     }
+    
 
     div[data-baseweb="tab-list"] {
     background-color:#f2f2f2;
-    max-width:30px;
+    max-width:320px;
     padding:5px;
     border-bottom:none;
     border-radius:10px;
-    margin: 0 auto;
     }
     
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:5px;
     max-height:10px !important;
+    margin: 0 auto;
     }
     
     
