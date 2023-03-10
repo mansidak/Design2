@@ -168,7 +168,7 @@ if __name__ == "__main__":
 
         Section = option_menu(None, ["Saved", "Archive"],
                                 icons=['house', 'search'],
-                                menu_icon="cast", default_index=3, orientation="horizontal",
+                                menu_icon="cast", default_index=0, orientation="horizontal",
                                 styles={
                                     "container": {"padding": "0!important", "background-color": "#0f0f0f"},
                                     "nav-link": {"font-size": "15px", "text-align": "center", "margin": "0px",
