@@ -305,6 +305,7 @@ if __name__ == "__main__":
     background-color:#ffffff;
     color:black;
     border-radius:5px;
+    display: inline-block;
     height:10px !important;
     min-width:150px;
     padding:20px;
@@ -315,8 +316,6 @@ if __name__ == "__main__":
     color:black;
     background-color:#eeeeee;
     }
-    
-    
 
     div[data-baseweb="tab-highlight"] {
     height:0px;
