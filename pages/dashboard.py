@@ -310,10 +310,6 @@ if __name__ == "__main__":
     padding:20px;
     margin: 0 auto;
     }
-    .st-dm{
-        max-height:10px !important;
-
-    }
     
     button[data-baseweb="tab"]:hover {
     color:black;
