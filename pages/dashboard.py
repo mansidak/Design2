@@ -299,7 +299,7 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     min-width:150px;
-    max-width:40px;
+    min-width:40px;
     padding:20px;
     margin: 0 auto;
     }
