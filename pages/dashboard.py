@@ -295,6 +295,7 @@ if __name__ == "__main__":
     }
     
     button[data-baseweb="tab"] {
+    background-color:#fffff;
     color:black;
     border-radius:5px;
     min-width:150px;
@@ -307,7 +308,7 @@ if __name__ == "__main__":
     }
     
     div[data-baseweb="tab-list"] {
-    background-color:#fff;
+    background-color:#fffff;
     max-width:340px;
     padding:5px;
     border-bottom:none;
@@ -316,7 +317,7 @@ if __name__ == "__main__":
     }
     
     button[aria-selected="true"] {
-
+    background-color:#fffff;
     border-radius:5px;
 
     }
