@@ -283,7 +283,7 @@ if __name__ == "__main__":
         with colresult3:
             st.write("")
 
-        modal = Modal("Demo Modal")
+        modal = Modal("Demo Modal", key = "MODAL")
         open_modal = st.button("Open", key ="openmodal")
         if open_modal:
             modal.open()
