@@ -267,13 +267,14 @@ if __name__ == "__main__":
                     st.markdown(
                         f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file:<span style='color: green'>&nbsp &check;</span> </h6>",
                         unsafe_allow_html=True)
-                with colResumeSub3:
-                    st.subheader("")
-                    st.subheader("")
                     if st.button("Upload new resume"):
                         db.child("users").child(str(localId)).child("Resume").remove()
                         del st.session_state['resumeContent']
                         st.experimental_rerun()
+                with colResumeSub3:
+                    st.subheader("")
+                    st.subheader("")
+
 
             else:
                 st.markdown(
