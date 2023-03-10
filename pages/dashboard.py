@@ -339,7 +339,7 @@ if __name__ == "__main__":
                                width: 50%;
                              }
                                .stApp {
-                               background-color: #eeeeee;
+                               background-color: #ffffff;
                                color:black
                                }
                                .element-container.css-l0vo1h.e1tzin5v3
@@ -347,12 +347,12 @@ if __name__ == "__main__":
                                color:black
                                }
                                div.stButton > button:first-child {
-                               background-color: #eeeeee;
+                               background-color: #ffffff;
                                color:black;
                                border-color: black;
                                }
                                div.stButton > button:hover {
-                               background-color: #eeeeee;
+                               background-color: #ffffff;
                                color: #F63366;
                                border-color: #F63366;
                                }
