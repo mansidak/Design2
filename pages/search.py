@@ -587,7 +587,7 @@ if __name__ == "__main__":
                 AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
                 localId = AccountInfo["localId"]
                 db = firebase.database()
-                FirebaseResumeContent = db.child("users").child(localId).child("Name").set(Name)
+                db.child("users").child(localId).child("Name").set(Name)
 
                 if 'Name' not in st.session_state:
                     st.session_state['Name'] = Name

@@ -258,9 +258,15 @@ if __name__ == "__main__":
                 st.write("")
 
         with ResumeTab:
+            st.header("Information")
+            st.write(st.session_state['Name'])
+            if st.button("Change Name"):
+                Name = st.text_input("Enter Name")
+                if st.button("Submot"):
+                    db.child("users").child(localId).child("Name").set(Name)
+                    st.session_state['Name'] = db.child('users').child(localId).child('Name').get().val()
 
             if FirebaseResumeContent:
-
                 colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([4,0.75,1,4])
                 with colResumeSub2:
                     st.markdown(
