@@ -310,9 +310,18 @@ if __name__ == "__main__":
 
     button[data-baseweb="tab"]:hover {
     max-height:10px;
-
+    }
+    #tabs-bui3-tab-0{
+    min-height:10px;
     }
 
+    #tabs-bui3-tab-0 > div{
+    min-height:10px;
+    }
+    
+    #tabs-bui3-tab-0 > div > p{
+    min-height:10px;
+    }
     
     #tabs-bui3-tab-0{
     max-height:20px
