@@ -289,10 +289,12 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
-    .stTabs{
-    background-color:#eeeeee;
+    
+    button[data-baseweb="tab"] {
+         background-color:#eeeeee;
     color:#eeeeee
     }
+
     .css-c0yjmw.e1fqkh3o9{
     visibility:hidden;
     height:0px;
