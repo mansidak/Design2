@@ -293,12 +293,12 @@ if __name__ == "__main__":
     button[data-baseweb="tab"] {
     background-color:#eeeeee;
     color:black;
-    min-width:100px;
+    min-width:150px;
     }
     
     div[data-baseweb="tab-list"] {
     background-color:#eeeeee;
-    max-width:250px;
+    max-width:300px;
     margin: 0 auto;
     }
     
