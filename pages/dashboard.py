@@ -294,11 +294,12 @@ if __name__ == "__main__":
     background-color:#eeeeee;
     color:black;
     min-width:150px;
+    margin: 0 auto;
     }
     
     div[data-baseweb="tab-list"] {
     background-color:#eeeeee;
-    max-width:300px;
+    max-width:320px;
     margin: 0 auto;
     }
     
