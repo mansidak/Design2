@@ -303,6 +303,11 @@ if __name__ == "__main__":
     margin: 0 auto;
     }
     
+    button[data-baseweb="tab-highlight"] {
+    height:0px;
+    visibility:hidden;
+    }
+    
     button[data-baseweb="tab"]:hover {
 
     }
