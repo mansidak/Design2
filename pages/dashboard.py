@@ -306,7 +306,7 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     display: inline-block;
-    height:10px !important;
+    max-height:10px !important;
     min-width:150px;
     padding:20px;
     margin: 0 auto;
