@@ -127,49 +127,52 @@ if __name__ == "__main__":
         cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
-        colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
-        with colResume1:
-            st.write("")
-        with colResume2:
 
-            if FirebaseResumeContent:
-                st.markdown(
-                    f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file:<span style='color: green'>&nbsp &check;</span> </h6>",
-                    unsafe_allow_html=True)
-                colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([0.8, 1.5, 1.3, 0.55])
-                with colResumeSub2:
-                    if st.button("Upload new resume"):
-                        db.child("users").child(str(localId)).child("Resume").remove()
-                        del st.session_state['resumeContent']
-                        st.experimental_rerun()
-                with colResumeSub3:
-                    if st.button("Run New Search"):
-                        switch_page("search")
-            else:
-                st.markdown(f"<h6 style='text-align:center; font-weight:lighter;color:black'>Upload new resume</h6>",
-                            unsafe_allow_html=True)
-                ResumePDF = st.file_uploader(
-                    ''
-                )
-                if ResumePDF is not None:
-                    pdfReader = PyPDF2.PdfReader(ResumePDF)
-                    print(len(pdfReader.pages))
-                    pageObj = pdfReader.pages[0]
-                    resumeContent = pageObj.extract_text()
-                    ResumePDF.close()
-                    firebase = pyrebase.initialize_app(firebaseconfig)
-                    AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
-                    localId = AccountInfo["localId"]
-                    db = firebase.database()
-                    FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
-                    st.experimental_rerun()
-        with colResume3:
-            st.write("")
 
 
         Saved, Archive = st.tabs(["Saved", "Archive"])
 
+
         with Saved:
+            colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
+            with colResume1:
+                st.write("")
+            with colResume2:
+
+                if FirebaseResumeContent:
+                    st.markdown(
+                        f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file:<span style='color: green'>&nbsp &check;</span> </h6>",
+                        unsafe_allow_html=True)
+                    colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([0.8, 1.5, 1.3, 0.55])
+                    with colResumeSub2:
+                        if st.button("Upload new resume"):
+                            db.child("users").child(str(localId)).child("Resume").remove()
+                            del st.session_state['resumeContent']
+                            st.experimental_rerun()
+                    with colResumeSub3:
+                        if st.button("Run New Search"):
+                            switch_page("search")
+                else:
+                    st.markdown(
+                        f"<h6 style='text-align:center; font-weight:lighter;color:black'>Upload new resume</h6>",
+                        unsafe_allow_html=True)
+                    ResumePDF = st.file_uploader(
+                        ''
+                    )
+                    if ResumePDF is not None:
+                        pdfReader = PyPDF2.PdfReader(ResumePDF)
+                        print(len(pdfReader.pages))
+                        pageObj = pdfReader.pages[0]
+                        resumeContent = pageObj.extract_text()
+                        ResumePDF.close()
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+                        localId = AccountInfo["localId"]
+                        db = firebase.database()
+                        FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
+                        st.experimental_rerun()
+            with colResume3:
+                st.write("")
             SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
             unique_links = {}
 
