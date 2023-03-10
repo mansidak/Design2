@@ -312,7 +312,7 @@ if __name__ == "__main__":
     
     button[data-baseweb="tab"]:hover {
     color:black;
-    max-height:20px;
+    max-height:20px !important;
     background-color:#eeeeee;
     }
 
