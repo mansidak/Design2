@@ -310,7 +310,7 @@ if __name__ == "__main__":
     max-width:340px;
     padding:5px;
     border-bottom:none;
-    border-radius:5px;
+    border-radius:10px;
     margin: 0 auto;
     }
     
