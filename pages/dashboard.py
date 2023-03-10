@@ -314,7 +314,7 @@ if __name__ == "__main__":
     button[aria-selected="true"] {
     background-color: #ffffff;
     border-radius:5px;
-    border-bottom: none;
+    
     }
 
     .css-c0yjmw.e1fqkh3o9{
@@ -356,8 +356,7 @@ if __name__ == "__main__":
                              }
                                .stApp {
                                background-color: #ffffff;
-                               color:black;
-                               primaryColor="#F63366"
+                               color:black
                                }
                                .element-container.css-l0vo1h.e1tzin5v3
                                {
