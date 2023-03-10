@@ -304,9 +304,7 @@ if __name__ == "__main__":
     padding:20px;
     margin: 0 auto;
     }
-    #tabs-bui3-tab-0{
-        max-height:10px;
-    }
+    
     button[data-baseweb="tab"]:hover {
     background-color:#ffffff;
     color:black;
@@ -319,7 +317,9 @@ if __name__ == "__main__":
     
     
     button[id="tabs-bui42-tab-0"]:hover {
+
     max-height:10px;
+
     }
     
     
