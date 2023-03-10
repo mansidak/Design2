@@ -244,6 +244,10 @@ if __name__ == "__main__":
 
 
         with st.sidebar:
+            AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+            firebase = pyrebase.initialize_app(firebaseconfig)
+            db = firebase.database()
+            localId = AccountInfo["localId"]
             ArchivedResults = db.child("users").child(str(localId)).child("Archive").child("Archive1").get().val()
             st.write(ArchivedResults)
 
