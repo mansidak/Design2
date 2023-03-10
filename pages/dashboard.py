@@ -293,6 +293,7 @@ if __name__ == "__main__":
     button[data-baseweb="tab"] {
          background-color:#eeeeee;
     color:black
+    min-width:100px;
     }
 
     .css-c0yjmw.e1fqkh3o9{
