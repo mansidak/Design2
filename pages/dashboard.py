@@ -314,8 +314,8 @@ if __name__ == "__main__":
     padding:20px;
     margin: 0 auto;
     }
-    .css-17z41qg e16nr0p34{
-    max-height:20px;
+    .css-17z41qg.e16nr0p34{
+    max-height:10px;
     }
 
     div[data-baseweb="tab-list"] {
