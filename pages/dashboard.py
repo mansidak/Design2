@@ -123,17 +123,13 @@ if __name__ == "__main__":
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
 
-
-
-
-
-
+        st.markdown(
+            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
+            unsafe_allow_html=True)
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
         with Saved:
-            st.markdown(
-                f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>19th street</span> Dashboard</h1>",
-                unsafe_allow_html=True)
+
 
             colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
             with colLogin2:
