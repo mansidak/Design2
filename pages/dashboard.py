@@ -312,11 +312,7 @@ if __name__ == "__main__":
     max-height:10px;
 
     }
-    
-    #tabs-bui3-tab-0 > div{
-    max-height:10px;
-    }
-    
+
     
     #tabs-bui3-tab-0{
     max-height:20px
