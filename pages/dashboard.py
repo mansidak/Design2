@@ -313,7 +313,7 @@ if __name__ == "__main__":
 
     }
     #tabs-bui3-tab-0 > div{
-    max-height:0px;
+    max-height:10px;
     }
     
     div[data-baseweb="tab-list"] {
