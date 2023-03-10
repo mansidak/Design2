@@ -301,6 +301,15 @@ if __name__ == "__main__":
     padding:20px;
     margin: 0 auto;
     }
+    
+    button[data-baseweb="tab"]:hover {
+    background-color:#fefefe;
+    color:black;
+    border-radius:5px;
+    min-width:150px;
+    padding:20px;
+    margin: 0 auto;
+    }
 
     div[data-baseweb="tab-highlight"] {
     height:0px;
