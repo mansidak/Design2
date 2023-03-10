@@ -312,12 +312,14 @@ if __name__ == "__main__":
     max-height:10px;
 
     }
+    #tabs-bui3-tab-0 > div{
+    max-height:0px;
+    }
     
     div[data-baseweb="tab-list"] {
     background-color:#eeeeee;
     max-width:340px;
     max-height:30px;
-
     padding:5px;
     border-bottom:none;
     border-radius:5px;
