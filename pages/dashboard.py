@@ -123,7 +123,12 @@ if __name__ == "__main__":
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
 
-        Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "ResumeTab"])
+
+
+
+
+
+        Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
         with Saved:
             st.markdown(
