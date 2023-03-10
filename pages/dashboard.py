@@ -295,11 +295,10 @@ if __name__ == "__main__":
     }
     
     button[data-baseweb="tab"] {
-    background-color:#f2f2f2;
+    background-color:#eeeeee;
     color:black;
     border-radius:5px;
     min-width:150px;
-    max-height:10px !important;
     padding:20px;
     margin: 0 auto;
     }
@@ -309,7 +308,6 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     min-width:150px;
-    max-height:10px !important;
     padding:20px;
     margin: 0 auto;
     }
@@ -324,7 +322,6 @@ if __name__ == "__main__":
     div[data-baseweb="tab-list"] {
     background-color:#eeeeee;
     max-width:340px;
-    max-height:30px;
     padding:5px;
     border-bottom:none;
     border-radius:5px;
