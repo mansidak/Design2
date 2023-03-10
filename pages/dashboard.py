@@ -294,7 +294,7 @@ if __name__ == "__main__":
     }
 
     button[data-baseweb="tab"] {
-    background-color:#f2f2f2;
+    background-color:#ffffff;
     color:black;
     border-radius:5px;
     min-width:150px;
@@ -317,12 +317,13 @@ if __name__ == "__main__":
     max-height:10px;
     }
     
+    
     #tabs-bui3-tab-0{
     max-height:20px
     }
     
     div[data-baseweb="tab-list"] {
-    background-color:#eeeeee;
+    background-color:#ffffff;
     max-width:340px;
     max-height:30px;
     padding:5px;
@@ -332,7 +333,7 @@ if __name__ == "__main__":
     }
 
     button[aria-selected="true"] {
-    background-color: #ffffff;
+    background-color: #eeeeee;
     border-radius:5px;
 
 
