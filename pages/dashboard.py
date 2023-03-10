@@ -292,6 +292,12 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
+    
+        button[aria-selected="true"] {
+    background-color: #eeeeee;
+    border-radius:5px;
+    }
+
 
     button[data-baseweb="tab"] {
     background-color:#ffffff;
@@ -302,6 +308,7 @@ if __name__ == "__main__":
     padding:20px;
     margin: 0 auto;
     }
+    
 
     div[data-baseweb="tab-highlight"] {
     height:0px;
@@ -337,12 +344,6 @@ if __name__ == "__main__":
     margin: 0 auto;
     }
 
-    button[aria-selected="true"] {
-    background-color: #eeeeee;
-    border-radius:5px;
-
-
-    }
 
     .css-c0yjmw.e1fqkh3o9{
     visibility:hidden;
