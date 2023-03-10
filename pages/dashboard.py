@@ -323,7 +323,7 @@ if __name__ == "__main__":
     max-height:10px;
     }
     
-    #tabs-bui3-tab-0{
+    /html/body/div/div[1]/div[1]/div/div/div/section[2]/div[1]/div[1]/div/div[9]/div/div[1]/div/button[1]{
     max-height:10px;
     }
     
