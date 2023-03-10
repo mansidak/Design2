@@ -310,6 +310,10 @@ if __name__ == "__main__":
     padding:20px;
     margin: 0 auto;
     }
+    st-dm st-dn st-b6 st-b5 st-ar st-as st-bs st-do st-d0 st-dp st-dq st-dr st-ds st-ce st-cg st-cf st-ch st-ci st-ck st-cj st-cl st-dt st-du st-dv st-b1 st-dw st-cm st-dx st-dy st-dz st-e0 st-e1 st-e2 st-ae st-e3 st-ag st-ah st-ai st-aj st-e4 st-e5 st-e6 st-e7 st-e8 st-e9{
+        max-height:10px !important;
+
+    }
     
     button[data-baseweb="tab"]:hover {
     color:black;
