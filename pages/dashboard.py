@@ -259,7 +259,7 @@ if __name__ == "__main__":
 
         with ResumeTab:
             if FirebaseResumeContent:
-                colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([3,1,1,4])
+                colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([3,0.75,1,4])
                 with colResumeSub2:
                     st.markdown(
                         f"<h3 style='text-align:center;color:black'>&nbsp&nbspInformation</span> </h3>",
@@ -267,14 +267,13 @@ if __name__ == "__main__":
                     st.markdown(
                         f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file:<span style='color: green'>&nbsp &check;</span> </h6>",
                         unsafe_allow_html=True)
+                with colResumeSub3:
+                    st.subheader("")
+                    st.subheader("")
                     if st.button("Upload new resume"):
                         db.child("users").child(str(localId)).child("Resume").remove()
                         del st.session_state['resumeContent']
                         st.experimental_rerun()
-                with colResumeSub3:
-                    st.subheader("")
-                    st.subheader("")
-
 
             else:
                 st.markdown(
