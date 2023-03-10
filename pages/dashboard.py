@@ -298,7 +298,7 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     min-width:150px;
-    max-height:10px;
+    max-height:20px;
     padding:20px;
     margin: 0 auto;
     }
@@ -312,13 +312,11 @@ if __name__ == "__main__":
     max-height:10px;
 
     }
-    p{
-    max-height:10px;
-        }
+    
     div[data-baseweb="tab-list"] {
     background-color:#eeeeee;
     max-width:340px;
-        max-height:10px;
+    max-height:30px;
 
     padding:5px;
     border-bottom:none;
