@@ -15,7 +15,6 @@ from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
 import datetime
 import requests
-from streamlit_modal import Modal
 import os
 
 st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
@@ -283,14 +282,6 @@ if __name__ == "__main__":
         with colresult3:
             st.write("")
 
-        modal = Modal("Demo Modal", key = "MODAL")
-        open_modal = st.button("Open", key ="openmodal")
-        if open_modal:
-            modal.open()
-
-        if modal.is_open():
-            with modal.container():
-                st.write("Text goes here")
 
 
 
