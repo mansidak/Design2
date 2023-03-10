@@ -290,6 +290,10 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
+    .st-fv.st-b3.st-fw.st-fx.st-fy.st-fz.st-g0.st-g1.st-g2.st-g3.st-g4.st-g5.st-g6{
+    background-color:#eeeeee;
+    color:#eeeeee
+    }
     .css-c0yjmw.e1fqkh3o9{
     visibility:hidden;
     height:0px;
