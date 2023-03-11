@@ -1,5 +1,4 @@
 import time
-
 import streamlit as st
 # st.title("CoverLetter")
 import openai
@@ -16,6 +15,7 @@ from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
 import datetime
 import requests
+import numpy as np
 import os
 
 st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
@@ -526,7 +526,13 @@ if __name__ == "__main__":
                         st.markdown(f"[Apply]({link})")
                         st.write(f"{shortSummary}")
                         st.write(f"{compatibilityScore}")
+                        score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
+                        skills_text = compatibilityScore.split('Skills that match: ')[1]
+                        chart_data = pd.DataFrame(
+                            np.random.randn(20, 3),
+                            columns=["a", "b", "c"])
 
+                        st.bar_chart(chart_data)
                         col1, col2, col3 = st.columns([1, 1, 1])
 
                         with col1:
