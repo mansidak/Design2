@@ -263,9 +263,11 @@ if __name__ == "__main__":
             st.write("")
             st.write("")
 
-            array_remove = []
-            st.write(array_remove)
+
+
             for element in unique_results:
+                array_remove = []
+                st.write(array_remove)
                 if element not in array_remove:
                     if element[5] in options and element[6].replace('-', '') in options2:
                         link = element[0]
