@@ -573,7 +573,6 @@ if __name__ == "__main__":
                                         text-align: center;
                                         background-color: transparent;
                                         border: 1px solid transparent;
-                                        padding: 6px 12px;
                                         margin-top:-2px;
                                         font-size: 1rem;
                                         border-radius: .25rem;
