@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
 
                .css-1uhah0b.e8zbici2{
-               z-index:0;
+               z-index:1;
                }
                 
                  div[class="stAlert"] {
@@ -80,7 +80,7 @@ if __name__ == "__main__":
                    min-width:100%;
                    margin-left:-90px;
                    position:fixed;
-                   z-index:1;
+                   z-index:2;
                    }
 
                  .dark{
