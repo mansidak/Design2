@@ -561,7 +561,15 @@ if __name__ == "__main__":
                                 st.download_button('Download Cover Letter', cover_letter_file)
 
                         with col2:
-                            st.write("")
+                            st.write(f'''
+                                <a target="_self" href="https://google.com">
+                                    <button>
+                                        Please login via Google
+                                    </button>
+                                </a>
+                                ''',
+                                     unsafe_allow_html=True
+                                     )
 
                         with col3:
                             st.write("")
