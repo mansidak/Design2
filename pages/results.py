@@ -1,3 +1,5 @@
+import time
+
 import streamlit as st
 # st.title("CoverLetter")
 import openai
@@ -262,7 +264,7 @@ if __name__ == "__main__":
             st.write("")
 
             # unique_results = set(st.session_state['FinalResults'])
-            for element in unique_results.copy():
+            for element in unique_results:
                 if element[5] in options and element[6].replace('-', '') in options2:
                     link = element[0]
                     title = element[1]
@@ -516,6 +518,7 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             unique_results.remove(element)
+                            time.sleep(2)
                             st.write("Saved!")
                             Save.empty()
 
