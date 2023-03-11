@@ -529,7 +529,7 @@ if __name__ == "__main__":
                         st.markdown(f"**Location:** {location}.")
                         st.write(f"{shortSummary}")
 
-                        col1, col2, col3 = st.columns([1, 1, 2])
+                        col1, col2, col3 = st.columns([1, 1, 3])
 
                         with col1:
                             container_2 = st.empty()
@@ -569,7 +569,6 @@ if __name__ == "__main__":
                                         outline: 0;
                                         display: inline-block;
                                         font-weight: 400;
-                                        line-height: 1.5;
                                         text-align: center;
                                         background-color: transparent;
                                         border: 1px solid transparent;
