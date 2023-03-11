@@ -527,7 +527,7 @@ if __name__ == "__main__":
                     with st.expander("Details"):
                         st.metric("", f"{score_text}%", f"{skills_text}")
                         st.markdown(f"[Apply]({link})")
-                        st.markdown(f"**:white[Location:]** {location}.")
+                        st.markdown(f"**:white[Location:]**{location}.")
                         st.write(f"{shortSummary}")
 
                         col1, col2, col3 = st.columns([1, 1, 1])
