@@ -528,11 +528,9 @@ if __name__ == "__main__":
                         st.write(f"{compatibilityScore}")
                         score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
                         skills_text = compatibilityScore.split('Skills that match: ')[1]
-                        chart_data = pd.DataFrame(
-                            np.random.randn(20, 3),
-                            columns=["a", "b", "c"])
+                        st.bar_chart([("percentage", score_text)])
 
-                        st.bar_chart(chart_data)
+
                         col1, col2, col3 = st.columns([1, 1, 1])
 
                         with col1:
