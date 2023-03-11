@@ -599,7 +599,7 @@ if __name__ == "__main__":
                 NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                                     unsafe_allow_html=True)
                 if 'newSkills' not in st.session_state:
-                    with st.spinner("Parsing resume...")
+                    with st.spinner("Parsing resume..."):
                         newJobtitles = openAIGetRelevantJobTitlesDuplicate(resumeContent)
                         newSkills = openAIGetRelevantHardSkills(resumeContent)
                         softSkills = openAIGetRelevantSoftSkills(resumeContent)
