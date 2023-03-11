@@ -632,7 +632,7 @@ if __name__ == "__main__":
 
 
 
-        for job in unique_results:
+        for job in set(unique_results):
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
             link = job[0]
