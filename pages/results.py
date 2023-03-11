@@ -194,7 +194,9 @@ if __name__ == "__main__":
         cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
-        unique_results = set(st.session_state['FinalResults'])
+        # unique_results = set(st.session_state['FinalResults'])
+
+        unique_results = set(db.child("users").child(str(localId)).child("Archive").child("FinalResults").get().val())
         with st.sidebar:
 
             st.subheader("")
@@ -264,6 +266,7 @@ if __name__ == "__main__":
             st.write("")
 
             # unique_results = set(st.session_state['FinalResults'])
+
             for element in unique_results:
                 if element[5] in options and element[6].replace('-', '') in options2:
                     link = element[0]
