@@ -11,6 +11,7 @@ from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from streamlit_option_menu import option_menu
 from jinja2 import Environment, FileSystemLoader
+import secrets
 import pandas as pd
 import pyrebase
 from st_btn_select import st_btn_select
@@ -504,7 +505,7 @@ if __name__ == "__main__":
                             unsafe_allow_html=True)
                     with col2mark:
                         Save = st.empty()
-                        if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}+{uuid.UUID}"):
+                        if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}+{secrets.token_hex(16)}"):
                             firebase = pyrebase.initialize_app(firebaseconfig)
                             db = firebase.database()
                             # user = st.session_state['user']
