@@ -77,6 +77,9 @@ if __name__ == "__main__":
                         .css-ocqkz7.e1tzin5v4{
                         margin-top:-80px;
                         }
+                        .element-container.css-x1osf4.e1tzin5v3{
+                        margin-top:40px;
+                        }
                         
 
                         .css-1uhah0b.e8zbici2{
