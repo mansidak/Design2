@@ -959,7 +959,7 @@ if __name__ == "__main__":
                     my_bar.progress(25, text=f"")
                     progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
                         unsafe_allow_html=True)
-                    for element in links1:
+                    for element in set(links1):
                         link = element[0]
                         title = element[1]
                         companyName = element[2]
