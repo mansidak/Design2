@@ -565,7 +565,6 @@ if __name__ == "__main__":
                             st.markdown(f'''
                                 <a target="_blank" href="{link}">
                                     <button style = "
-                    
                     cursor: pointer;
                     outline: 0;
                     display: inline-block;
@@ -580,6 +579,8 @@ if __name__ == "__main__":
                     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
                     color: #0d6efd;
                     border-color: #0d6efd;
+
+                
                 ">
                                         Apply
                                     </button>
