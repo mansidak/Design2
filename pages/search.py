@@ -1081,12 +1081,7 @@ if __name__ == "__main__":
 
                     st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
 
-
-                    if 'user' not in st.session_state:
-                        switch_page("signup")
-
-                    else:
-                        switch_page("results")
+                    switch_page("results")
         with colmain3:
             st.write("")
 
