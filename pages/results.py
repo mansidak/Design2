@@ -528,6 +528,7 @@ if __name__ == "__main__":
                         st.metric("", f"{score_text}%", f"{skills_text}")
                         st.markdown(f"[Apply]({link})")
                         st.write(f"Location: {location}")
+                        st.markdown(f"**:pink[Location] **: {location}.")
                         st.write(f"{shortSummary}")
 
                         col1, col2, col3 = st.columns([1, 1, 1])
