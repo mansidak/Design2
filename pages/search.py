@@ -628,6 +628,10 @@ if __name__ == "__main__":
                     (None, 'Intern', 'Entry-Level', 'Associate'),
                     key="ExperienceLevel"
                 )
+                if ExperienceLevel is 'Entry-Level':
+                    ExperienceLevel = ""
+                if ExperienceLevel is 'Associate':
+                    ExperienceLevel = "Senior"
                 holder3 = st.empty()
                 undesired3 = holder3.selectbox(
                     "Is there something you don't wanna do again?",
@@ -959,6 +963,7 @@ if __name__ == "__main__":
 
                     links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     my_bar.progress(25, text=f"")
+                    st.write(ExperienceLevel)
                     progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
                         unsafe_allow_html=True)
                     # for element in set(links1):
