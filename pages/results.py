@@ -494,6 +494,7 @@ if __name__ == "__main__":
                     fullDescription = element[4]
                     location = element[5]
                     skills = element[6]
+                    compatibilityScore = element[7]
                     col1mark, col2mark = st.columns([1, 0.1])
                     with col1mark:
                         st.markdown(
@@ -524,6 +525,7 @@ if __name__ == "__main__":
                     with st.expander(f"{location}"):
                         st.markdown(f"[Apply]({link})")
                         st.write(f"{shortSummary}")
+                        st.write(f"{compatibilityScore}")
 
                         col1, col2, col3 = st.columns([1, 1, 1])
 

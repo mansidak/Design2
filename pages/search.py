@@ -363,6 +363,7 @@ if __name__ == "__main__":
                     Final_Location = []
                     shortened_summary = []
                     Final_Skills = []
+                    compatibilityScore = []
 
                     try:
                         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -410,14 +411,24 @@ if __name__ == "__main__":
                             shortened_summary.append(response3["choices"][0]["message"]["content"])
                             print(response3["usage"]["total_tokens"])
 
-                        for links, titles, companies, summaries, descriptions, locations, skills in zip(Final_Links,
+                        compatibilityScoreAPI = openai.ChatCompletion.create(
+                                model="gpt-3.5-turbo",
+                                messages=[
+                                    {"role": "system",
+                                     "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
+                                    {"role": "user",
+                                     "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+                        compatibilityScore.append(compatibilityScoreAPI["choices"][0]["message"]["content"])
+                        print(compatibilityScoreAPI["usage"]["total_tokens"])
+                        for links, titles, companies, summaries, descriptions, locations, skills, compatibilityScores in zip(Final_Links,
                                                                                                         Final_Titles,
                                                                                                         Final_Company,
                                                                                                         shortened_summary,
                                                                                                         Final_Description,
                                                                                                         Final_Location,
-                                                                                                        Final_Skills):
-                            Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills, "False"))
+                                                                                                        Final_Skills,
+                                                                                                        compatibilityScore):
+                            Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills, compatibilityScores))
 
                         driver.close()
                         driver.quit()
@@ -957,24 +968,17 @@ if __name__ == "__main__":
                     NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                                         unsafe_allow_html=True)
 
-                    if ExperienceLevel == 'Entry-Level':
-                        ExperienceLevel = " "
-                    if ExperienceLevel == 'Associate':
-                        ExperienceLevel = "Senior"
                     progressText.markdown(
                         f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
                         unsafe_allow_html=True)
                     links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     my_bar.progress(25, text=f"")
-                    st.write(ExperienceLevel)
 
                     links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     my_bar.progress(50, text=f"")
                     progressText.markdown(
                         f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hang tight! We're scanning for opportunities that match your unique set of {st.session_state['softSkills']}</h6>",
                         unsafe_allow_html=True)
-
-
 
                     links3 = run_selenium1(f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     my_bar.progress(75, text=f"")
