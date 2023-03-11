@@ -569,6 +569,7 @@ if __name__ == "__main__":
                                         outline: 0;
                                         display: inline-block;
                                         font-weight: 400;
+                                        max-height:35px;
                                         text-align: center;
                                         background-color: transparent;
                                         border: 1px solid transparent;
