@@ -132,7 +132,7 @@ if __name__ == "__main__":
         options.add_argument(
             "user-agent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36")
         options.add_argument("--no-sandbox")
-        # options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--disable-gpu")
         options.add_argument("--disable-features=NetworkService")
         options.add_argument("--window-size=1920x1080")
@@ -326,7 +326,7 @@ if __name__ == "__main__":
                 options.add_argument(
                     "user-agent=Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36")
                 options.add_argument("--no-sandbox")
-                # options.add_argument("--disable-dev-shm-usage")
+                options.add_argument("--disable-dev-shm-usage")
                 options.add_argument("--disable-gpu")
                 options.add_argument("--disable-features=NetworkService")
                 options.add_argument("--window-size=1920x1080")
@@ -999,10 +999,10 @@ if __name__ == "__main__":
                                                   f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}",
                                                   f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1,
                                                   resumeContent, locationpreference.replace(' ', '_'))
-                        # future5 = executor.submit(run_selenium1,
-                        #                           f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
-                        #                           f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
-                        #                           resumeContent, locationpreference.replace(' ', '_'))
+                        future5 = executor.submit(run_selenium1,
+                                                  f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
+                                                  f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
+                                                  resumeContent, locationpreference.replace(' ', '_'))
                         future6 = executor.submit(progress_shit())
                     executor.shutdown(wait=True)
 
@@ -1010,18 +1010,22 @@ if __name__ == "__main__":
                     links2 = future2.result()
                     links3 = future3.result()
                     links4 = future4.result()
-                    # links5 = future5.result()
+                    links5 = future5.result()
+
+
                     # st.write(links1)
                     # st.write(links2)
                     # st.write(links3)
                     # st.write(links4)
                     # st.write(links5)
+
+
                     executor.shutdown(wait=True)
 
                     print(threading.enumerate())
                     st.write(threading.enumerate())
 
-                    st.session_state["FinalResults"] = links1 + links2 + links3 + links4
+                    st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
                     # st.write(st.session_state["FinalResults"] )
 
                     if 'user' not in st.session_state:
