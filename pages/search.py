@@ -953,6 +953,9 @@ if __name__ == "__main__":
 
                     NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                                         unsafe_allow_html=True)
+                    progressText.markdown(
+                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
+                        unsafe_allow_html=True)
 
                     links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     my_bar.progress(25, text=f"")
@@ -1042,7 +1045,7 @@ if __name__ == "__main__":
                     st.write(links5)
 
 
-                    executor.shutdown(wait=True)
+                    # executor.shutdown(wait=True)
 
                     print(threading.enumerate())
                     st.write(threading.enumerate())
