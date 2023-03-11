@@ -953,94 +953,36 @@ if __name__ == "__main__":
                     NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                                         unsafe_allow_html=True)
 
-                    links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    my_bar.progress(25, text=f"")
-                    # for element in set(links1):
-                    #     link = element[0]
-                    #     title = element[1]
-                    #     companyName = element[2]
-                    #     shortSummary = element[3]
-                    #     fullDescription = element[4]
-                    #     location = element[5]
-                    #     skills = element[6]
-                    #     st.write(f"{title} at {companyName}")
-                    progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
-                        unsafe_allow_html=True)
-
-
-
-
-                    links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    my_bar.progress(50, text=f"")
-                    # for element in set(links2):
-                    #     link = element[0]
-                    #     title = element[1]
-                    #     companyName = element[2]
-                    #     shortSummary = element[3]
-                    #     fullDescription = element[4]
-                    #     location = element[5]
-                    #     skills = element[6]
+                    # links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    # my_bar.progress(25, text=f"")
+                    # progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
+                    #     unsafe_allow_html=True)
                     #
-                    #     st.write(f"{title} at {companyName}")
-                    progressText.markdown(
-                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Found some roles like {links2[0][1]} at companies like {links2[0][2]}, {links2[1][2]}, {links2[2][2]}, {links2[3][2]}, {links2[4][2]}</h6>",
-                        unsafe_allow_html=True)
-
-
-
-                    links3 = run_selenium1(f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    my_bar.progress(75, text=f"")
-                    # for element in set(links3):
-                    #     link = element[0]
-                    #     title = element[1]
-                    #     companyName = element[2]
-                    #     shortSummary = element[3]
-                    #     fullDescription = element[4]
-                    #     location = element[5]
-                    #     skills = element[6]
                     #
-                    #     st.write(f"{title} at {companyName}")
-                    progressText.markdown(
-                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hang tight! We're scanning for opportunities that match your unique set of {st.session_state['softSkills']}</h6>",
-                        unsafe_allow_html=True)
-
-
-                    links4 = run_selenium1(f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    my_bar.progress(80, text=f"")
-                    # for element in set(links4):
-                    #     link = element[0]
-                    #     title = element[1]
-                    #     companyName = element[2]
-                    #     shortSummary = element[3]
-                    #     fullDescription = element[4]
-                    #     location = element[5]
-                    #     skills = element[6]
+                    # links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    # my_bar.progress(50, text=f"")
+                    # progressText.markdown(
+                    #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Found some roles like {links2[0][1]} at companies like {links2[0][2]}, {links2[1][2]}, {links2[2][2]}, {links2[3][2]}, {links2[4][2]}</h6>",
+                    #     unsafe_allow_html=True)
                     #
-                    #     st.write(f"{title} at {companyName}")
-                    progressText.markdown(
-                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'> Hold tight, big dawg 🐶</h6>",
-                        unsafe_allow_html=True)
-
-                    links5 = run_selenium1(f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))                    #
-                    my_bar.progress(100, text=f"")
-                    # for element in set(links5):
-                    #     link = element[0]
-                    #     title = element[1]
-                    #     companyName = element[2]
-                    #     shortSummary = element[3]
-                    #     fullDescription = element[4]
-                    #     location = element[5]
-                    #     skills = element[6]
                     #
-                    #     st.write(f"{title} at {companyName}")
+                    #
+                    # links3 = run_selenium1(f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    # my_bar.progress(75, text=f"")
+                    # progressText.markdown(
+                    #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hang tight! We're scanning for opportunities that match your unique set of {st.session_state['softSkills']}</h6>",
+                    #     unsafe_allow_html=True)
+                    #
+                    #
+                    # links4 = run_selenium1(f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                    # my_bar.progress(80, text=f"")
+                    # progressText.markdown(
+                    #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'> Hold tight, big dawg 🐶</h6>",
+                    #     unsafe_allow_html=True)
+                    #
+                    # links5 = run_selenium1(f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))                    #
+                    # my_bar.progress(100, text=f"")
 
-
-
-                    # st.write(links1)
-                    # st.write(links2)
-                    # st.write(links3)
-                    # st.write(links4)
-                    # st.write(links5)
 
                     def progress_shit():
                         progressText.markdown(
@@ -1063,43 +1005,48 @@ if __name__ == "__main__":
                             unsafe_allow_html=True)
                         my_bar.progress(75, text=f"")
 
-                    # with ThreadPoolExecutor(max_workers=6) as executor:
-                    #     future1 = executor.submit(run_selenium1,
-                    #                               f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",
-                    #                               f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1,
-                    #                               resumeContent, locationpreference.replace(' ', '_'))
-                    #     future2 = executor.submit(run_selenium1,
-                    #                               f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}",
-                    #                               f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1,
-                    #                               resumeContent, locationpreference.replace(' ', '_'))
-                    #     future3 = executor.submit(run_selenium1,
-                    #                               f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}",
-                    #                               f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1,
-                    #                               resumeContent, locationpreference.replace(' ', '_'))
-                    #     future4 = executor.submit(run_selenium1,
-                    #                               f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}",
-                    #                               f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1,
-                    #                               resumeContent, locationpreference.replace(' ', '_'))
-                    #     future5 = executor.submit(run_selenium1,
-                    #                               f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
-                    #                               f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
-                    #                               resumeContent, locationpreference.replace(' ', '_'))
-                    #     future6 = executor.submit(progress_shit())
-                    # executor.shutdown(wait=True)
-                    #
-                    # links1 = future1.result()
-                    # links2 = future2.result()
-                    # links3 = future3.result()
-                    # links4 = future4.result()
-                    # links5 = future5.result()
+                    with ThreadPoolExecutor(max_workers=3) as executor:
+                        future1 = executor.submit(run_selenium1,
+                                                  f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",
+                                                  f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1,
+                                                  resumeContent, locationpreference.replace(' ', '_'))
+                        future2 = executor.submit(run_selenium1,
+                                                  f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}",
+                                                  f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1,
+                                                  resumeContent, locationpreference.replace(' ', '_'))
+                        future3 = executor.submit(run_selenium1,
+                                                  f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}",
+                                                  f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1,
+                                                  resumeContent, locationpreference.replace(' ', '_'))
+                        future4 = executor.submit(run_selenium1,
+                                                  f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}",
+                                                  f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1,
+                                                  resumeContent, locationpreference.replace(' ', '_'))
+                        future5 = executor.submit(run_selenium1,
+                                                  f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
+                                                  f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
+                                                  resumeContent, locationpreference.replace(' ', '_'))
+                        future6 = executor.submit(progress_shit())
+                    executor.shutdown(wait=True)
 
-                    # executor.shutdown(wait=True)
+                    links1 = future1.result()
+                    links2 = future2.result()
+                    links3 = future3.result()
+                    links4 = future4.result()
+                    links5 = future5.result()
+                    st.write(links1)
+                    st.write(links2)
+                    st.write(links3)
+                    st.write(links4)
+                    st.write(links5)
+
+
+                    executor.shutdown(wait=True)
 
                     print(threading.enumerate())
                     st.write(threading.enumerate())
 
                     st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
-                    # st.write(st.session_state["FinalResults"] )
 
 
                     if 'user' not in st.session_state:
