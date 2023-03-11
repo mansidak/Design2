@@ -488,7 +488,7 @@ if __name__ == "__main__":
 
 
                     elif not options and not options2:
-                        element_list = list(element)  # convert the tuple to a list
+                        element_list = list(enumerate(element))  # convert the tuple to a list
                         unique_results[i] = tuple(
                             element_list)  # convert the list back to a tuple and assign it back to unique_results
                         link = unique_results[i][0]
