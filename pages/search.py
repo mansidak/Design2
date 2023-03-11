@@ -1,4 +1,6 @@
 import os
+
+import streamlit
 import streamlit as st
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -545,7 +547,7 @@ if __name__ == "__main__":
                 ''
             )
 
-            # @st.cache(show_spinner=False)
+
             def extract_text_from_pdf(pdf_file):
 
                 pdfReader = PyPDF2.PdfReader(pdf_file)
@@ -569,15 +571,13 @@ if __name__ == "__main__":
                     first_skill = job_desc[1].split(",")[0].strip()
                     job_skills[job] = first_skill
 
-                # st.write(job_skills)
                 job_titles = []
                 skills = []
 
                 for job, skill in job_skills.items():
                     job_titles.append(job)
                     skills.append(skill)
-                # st.write("Job Titles:", job_titles)
-                # st.write("Skills:", skills)
+
                 return job_titles, skills
 
             if ResumePDF is not None:
@@ -600,17 +600,20 @@ if __name__ == "__main__":
                                     unsafe_allow_html=True)
                 if 'newSkills' not in st.session_state:
                     with st.spinner("Parsing resume..."):
-                        newJobtitles = openAIGetRelevantJobTitlesDuplicate(resumeContent)
-                        newSkills = openAIGetRelevantHardSkills(resumeContent)
-                        softSkills = openAIGetRelevantSoftSkills(resumeContent)
-                        OldSkillsBullet = openAIGetAllSkills(resumeContent)
-                        Matches = openAIMatchSkillsWithJobs(newSkills, newJobtitles, resumeContent)
+                        try:
+                            newJobtitles = openAIGetRelevantJobTitlesDuplicate(resumeContent)
+                            newSkills = openAIGetRelevantHardSkills(resumeContent)
+                            softSkills = openAIGetRelevantSoftSkills(resumeContent)
+                            OldSkillsBullet = openAIGetAllSkills(resumeContent)
+                            Matches = openAIMatchSkillsWithJobs(newSkills, newJobtitles, resumeContent)
 
-                        st.session_state['newJobtitles'] = newJobtitles
-                        st.session_state['newSkills'] = newSkills
-                        st.session_state['softSkills'] = softSkills
-                        st.session_state['OldSkillsBullet'] = OldSkillsBullet
-                        st.session_state['Matches'] = Matches
+                            st.session_state['newJobtitles'] = newJobtitles
+                            st.session_state['newSkills'] = newSkills
+                            st.session_state['softSkills'] = softSkills
+                            st.session_state['OldSkillsBullet'] = OldSkillsBullet
+                            st.session_state['Matches'] = Matches
+                        except:
+                            streamlit.experimental_rerun
                 newSkills = st.session_state['newSkills']
                 newJobtitles = st.session_state['newJobtitles']
                 OldSkillsBullet = st.session_state['OldSkillsBullet']
