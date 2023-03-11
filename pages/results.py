@@ -264,7 +264,7 @@ if __name__ == "__main__":
             st.write("")
 
             # unique_results = set(st.session_state['FinalResults'])
-            for i, element in enumerate(unique_results):
+            for element in unique_results:
                 if element[7] is False:
                     if element[5] in options and element[6].replace('-', '') in options2:
                         link = element[0]
@@ -518,8 +518,7 @@ if __name__ == "__main__":
                                     "Skills": str(skills)
                                 }
                                 results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                                lst = list(element)
-                                lst[7] = "true"
+                                element[7] = "true"
                                 st.write("Saved!")
                                 Save.empty()
 
