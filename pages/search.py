@@ -1017,7 +1017,7 @@ if __name__ == "__main__":
                     print(threading.enumerate())
                     st.write(threading.enumerate())
 
-                    st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
+                    st.session_state["FinalResults"] = set(links1 + links2 + links3 + links4 + links5)
                     # st.write(st.session_state["FinalResults"] )
 
                     if 'user' not in st.session_state:
