@@ -529,7 +529,7 @@ if __name__ == "__main__":
                         st.markdown(f"**Location:** {location}.")
                         st.write(f"{shortSummary}")
 
-                        col1, col2, col3 = st.columns([1, 1, 1])
+                        col1, col2, col3 = st.columns([1, 1, 2])
 
                         with col1:
                             container_2 = st.empty()
@@ -560,6 +560,7 @@ if __name__ == "__main__":
                                 st.download_button('Download Cover Letter', cover_letter_file)
 
                         with col2:
+                            st.subheader("")
 
                             st.markdown(f'''
                                 <a target="_blank" href="{link}">
@@ -568,7 +569,7 @@ if __name__ == "__main__":
                     outline: none;
                     cursor: pointer;
                     font-size: 16px;
-                    max-height:20px;
+                    max-height:30px;
                     line-height: 20px;
                     font-weight: 600;
                     border-radius: 10px;
