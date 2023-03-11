@@ -418,7 +418,7 @@ if __name__ == "__main__":
                     fullDescription = element[4]
                     location = element[5]
                     skills = element[6]
-
+                    st.subheader("")
                     st.markdown(
                         f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
                         unsafe_allow_html=True)
@@ -480,7 +480,7 @@ if __name__ == "__main__":
                         with col3:
                             st.write("")
 
-                    st.markdown("<hr style = 'margin-top:-5px; margin-bottom:15px;'>", unsafe_allow_html=True)
+                    st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
 
 
