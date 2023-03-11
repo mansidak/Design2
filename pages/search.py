@@ -953,20 +953,29 @@ if __name__ == "__main__":
 
                     NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                                         unsafe_allow_html=True)
-                    progressText.markdown(
-                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
-                        unsafe_allow_html=True)
+
 
                     links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     my_bar.progress(25, text=f"")
                     progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
                         unsafe_allow_html=True)
+                    for element in links1:
+                        link = element[0]
+                        title = element[1]
+                        companyName = element[2]
+
+                        st.markdown(
+                            f"<h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title} </h4>",
+                            unsafe_allow_html=True)
+                        st.markdown(
+                            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                            unsafe_allow_html=True)
 
 
                     links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     my_bar.progress(50, text=f"")
                     progressText.markdown(
-                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Found some roles like {links2[0][1]} at companies like {links2[0][2]}, {links2[1][2]}, {links2[2][2]}, {links2[3][2]}, {links2[4][2]}</h6>",
+                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Found some roles like {FreshJobTitles[1]} at companies like {links2[0][2]}, {links2[1][2]}, {links2[2][2]}, {links2[3][2]}, {links2[4][2]}</h6>",
                         unsafe_allow_html=True)
 
 
