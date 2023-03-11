@@ -141,7 +141,7 @@ if __name__ == "__main__":
 
 
                                 .css-1uhah0b.e8zbici2{
-                                z-index:0;
+                                z-index:1;
                                 }
                                 header[data-testid="stHeader"] {
                                 position: relative;
@@ -151,7 +151,7 @@ if __name__ == "__main__":
                                     margin-left:-90px;
                                     min-width:100%;
                                     position:fixed;
-                                    z-index:1;
+                                    z-index:2;
                                     }
 
                                   .dark{
