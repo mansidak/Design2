@@ -197,6 +197,7 @@ if __name__ == "__main__":
         # unique_results = set(st.session_state['FinalResults'])
 
         unique_results = set(db.child("users").child(str(localId)).child("Archive").child("FinalResults").get().val())
+        st.session_state['FinalResults'] = unique_results
         with st.sidebar:
 
             st.subheader("")
