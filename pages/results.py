@@ -267,7 +267,7 @@ if __name__ == "__main__":
 
             # unique_results = set(st.session_state['FinalResults'])
 
-            for element in unique_results:
+            for index, element in enumerate(unique_results):
                 if element[5] in options and element[6].replace('-', '') in options2:
                     link = element[0]
                     title = element[1]
@@ -520,6 +520,7 @@ if __name__ == "__main__":
                                 "Skills": str(skills)
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
+                            db.child("users").child(str(localId)).child("Archive").child("FinalResults").push(data)
                             st.write("Saved!")
                             Save.empty()
 
