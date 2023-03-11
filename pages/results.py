@@ -495,7 +495,7 @@ if __name__ == "__main__":
                     location = element[5]
                     skills = element[6]
                     compatibilityScore = element[7]
-                    col1mark, col2mark = st.columns([1, 0.1])
+                    col1mark, col2mark, col3mark = st.columns([1, 0.1, 0.2])
                     with col1mark:
                         st.markdown(
                             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
@@ -521,6 +521,34 @@ if __name__ == "__main__":
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
                             Save.empty()
+                    with col3mark:
+                        st.markdown(f'''
+                                                        <a target="_blank" href="{link}">
+                                                            <button style = "
+                                                                cursor: pointer;
+                                                                outline: 0;
+                                                                display: inline-block;
+                                                                font-weight: 400;
+                                                                max-height:36px;
+                                                                min-height:35px;
+                                                                min-width:100px;
+                                                                text-align: center;
+                                                                background-color: transparent;
+                                                                border: 1px solid transparent;
+                                                                margin-top:-2px;
+                                                                font-size: 1rem;
+                                                                border-radius: .25rem;
+                                                                transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                                color: #0d6efd;
+                                                                border-color: #0d6efd;">
+                                                                Apply
+                                                            </button>
+                                                        </a>
+
+
+                                                        ''',
+                                    unsafe_allow_html=True
+                                    )
                     score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
                     skills_text = compatibilityScore.split('Skills that match: ')[1]
 
