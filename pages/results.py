@@ -561,25 +561,25 @@ if __name__ == "__main__":
 
                         with col2:
                             st.subheader("")
-                            st.write("")
 
                             st.markdown(f'''
                                 <a target="_blank" href="{link}">
                                     <button style = "
-                    display: inline-block;
-                    outline: none;
+                    
                     cursor: pointer;
-                    font-size: 16px;
-                    max-height:35px;
-                    min-width:80px;
-                    line-height: 20px;
-                    font-weight: 600;
-                    border-radius: 5px;
-                    padding: 14px 24px;
-                    border: none;
-                    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-                    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
-                    color: #fff;
+                    outline: 0;
+                    display: inline-block;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    text-align: center;
+                    background-color: transparent;
+                    border: 1px solid transparent;
+                    padding: 6px 12px;
+                    font-size: 1rem;
+                    border-radius: .25rem;
+                    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                    color: #0d6efd;
+                    border-color: #0d6efd;
                 ">
                                         Apply
                                     </button>
