@@ -652,7 +652,7 @@ if __name__ == "__main__":
                 "Location": str(location),
                 "Skills": str(skills)
             }
-            db.child("users").child(str(localId)).child("Archive").child(f"{str(datetime.datetime.now()).replace(':', '_')}").push(data)
+            db.child("users").child(str(localId)).child("Archive").child(int(time.mktime(datetime.datetime.now().timetuple()))).push(data)
         st.subheader(datetime.datetime.now())
 
 
