@@ -630,7 +630,6 @@ if __name__ == "__main__":
         with colresult3:
             st.write("")
 
-        st.subheader(datetime.datetime.now())
         for job in unique_results:
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
@@ -650,8 +649,8 @@ if __name__ == "__main__":
                 "Location": str(location),
                 "Skills": str(skills)
             }
-            db.child("users").child(str(localId)).child("Archive").child(f"{str(datetime.datetime.now())}").push(data)
-
+            db.child("users").child(str(localId)).child("Archive").child(f"{str(datetime.datetime.now()).replace(':', '_')}").push(data)
+        st.subheader(datetime.datetime.now())
 
 
 def set_code(code: str):
