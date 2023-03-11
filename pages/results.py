@@ -336,7 +336,7 @@ if __name__ == "__main__":
                         with col3:
                             st.write("")
 
-                    st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
+                    st.markdown("<hr style = 'margin-top:-5px; margin-bottom:15px;'>", unsafe_allow_html=True)
 
                 elif not options and element[6].replace('-', '') in options2:
                     link = element[0]
