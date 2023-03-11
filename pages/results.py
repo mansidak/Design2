@@ -562,8 +562,7 @@ if __name__ == "__main__":
                         with col2:
                             st.subheader("")
                             st.subheader("")
-                            st.subheader("")
-                            st.subheader("")
+
                             st.markdown(f'''
                                 <a target="_blank" href="{link}">
                                     <button style = "
@@ -573,7 +572,7 @@ if __name__ == "__main__":
                     font-size: 16px;
                     line-height: 20px;
                     font-weight: 600;
-                    border-radius: 8px;
+                    border-radius: 10px;
                     padding: 14px 24px;
                     border: none;
                     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
