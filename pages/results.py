@@ -265,9 +265,7 @@ if __name__ == "__main__":
 
             # unique_results = set(st.session_state['FinalResults'])
 
-
-
-            for element in list(unique_results):
+            for i, element in enumerate(unique_results):
                 if element[7] is "False":
                     if element[5] in options and element[6].replace('-', '') in options2:
                         link = element[0]
@@ -490,13 +488,25 @@ if __name__ == "__main__":
 
 
                     elif not options and not options2:
-                        link = element[0]
-                        title = element[1]
-                        companyName = element[2]
-                        shortSummary = element[3]
-                        fullDescription = element[4]
-                        location = element[5]
-                        skills = element[6]
+                        element_list = list(element)  # convert the tuple to a list
+                        unique_results[i] = tuple(
+                            element_list)  # convert the list back to a tuple and assign it back to unique_results
+                        link = unique_results[i][0]
+                        title = unique_results[i][1]
+                        companyName = unique_results[i][2]
+                        shortSummary = unique_results[i][3]
+                        fullDescription = unique_results[i][4]
+                        location = unique_results[i][5]
+                        skills = unique_results[i][6]
+
+
+                        # link = element[0]
+                        # title = element[1]
+                        # companyName = element[2]
+                        # shortSummary = element[3]
+                        # fullDescription = element[4]
+                        # location = element[5]
+                        # skills = element[6]
                         col1mark, col2mark = st.columns([1, 0.1])
                         with col1mark:
                             st.markdown(
@@ -521,7 +531,7 @@ if __name__ == "__main__":
                                     "Skills": str(skills)
                                 }
                                 results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                                element[7] = "True"
+                                element_list[7] = "True"
                                 st.write("Saved!")
                                 Save.empty()
 
