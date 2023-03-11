@@ -569,8 +569,9 @@ if __name__ == "__main__":
                                         outline: 0;
                                         display: inline-block;
                                         font-weight: 400;
-                                        max-height:37px;
+                                        max-height:36px;
                                         min-height:35px;
+                                        min-width:100px;
                                         text-align: center;
                                         background-color: transparent;
                                         border: 1px solid transparent;
