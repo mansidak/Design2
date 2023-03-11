@@ -560,8 +560,6 @@ if __name__ == "__main__":
                                 st.download_button('Download Cover Letter', cover_letter_file)
 
                         with col2:
-                            st.subheader("")
-                            st.subheader("")
 
                             st.markdown(f'''
                                 <a target="_blank" href="{link}">
