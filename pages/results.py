@@ -561,7 +561,7 @@ if __name__ == "__main__":
 
                         with col2:
                             st.subheader("")
-
+                            st.write("")
                             st.markdown(f'''
                                 <a target="_blank" href="{link}">
                                     <button style = "
