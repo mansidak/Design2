@@ -951,7 +951,7 @@ if __name__ == "__main__":
                                         unsafe_allow_html=True)
 
                     links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    for element in links1:
+                    for element in set(links1):
                         link = element[0]
                         title = element[1]
                         companyName = element[2]
@@ -960,9 +960,14 @@ if __name__ == "__main__":
                         location = element[5]
                         skills = element[6]
                         st.write(f"{title} at {companyName}")
+                    progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
+                        unsafe_allow_html=True)
+
+
+
 
                     links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    for element in links2:
+                    for element in set(links2):
                         link = element[0]
                         title = element[1]
                         companyName = element[2]
@@ -972,9 +977,16 @@ if __name__ == "__main__":
                         skills = element[6]
 
                         st.write(f"{title} at {companyName}")
+                    progressText.markdown(
+                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Found some roles like {links2[0][1]} at companies like {links2[0][2]}, {links2[1][2]}, {links2[2][2]}, {links2[3][2]}</h6>",
+                        unsafe_allow_html=True)
+
+
+
+
 
                     links3 = run_selenium1(f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    for element in links3:
+                    for element in set(links3):
                         link = element[0]
                         title = element[1]
                         companyName = element[2]
@@ -986,7 +998,7 @@ if __name__ == "__main__":
                         st.write(f"{title} at {companyName}")
 
                     links4 = run_selenium1(f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    for element in links4:
+                    for element in set(links4):
                         link = element[0]
                         title = element[1]
                         companyName = element[2]
@@ -998,7 +1010,7 @@ if __name__ == "__main__":
                         st.write(f"{title} at {companyName}")
 
                     links5 = run_selenium1(f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))                    #
-                    for element in links5:
+                    for element in set(links5):
                         link = element[0]
                         title = element[1]
                         companyName = element[2]
