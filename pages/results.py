@@ -570,6 +570,7 @@ if __name__ == "__main__":
                     outline: none;
                     cursor: pointer;
                     font-size: 16px;
+                    max-height:20px;
                     line-height: 20px;
                     font-weight: 600;
                     border-radius: 10px;
