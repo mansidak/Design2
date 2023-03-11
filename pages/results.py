@@ -526,7 +526,6 @@ if __name__ == "__main__":
 
                     with st.expander("Details"):
                         st.metric("", f"{score_text}%", f"{skills_text}")
-                        st.markdown(f"[Apply]({link})")
                         st.markdown(f"**Location:** {location}.")
                         st.write(f"{shortSummary}")
 
@@ -562,12 +561,30 @@ if __name__ == "__main__":
 
                         with col2:
                             st.subheader("")
+                            st.subheader("")
+                            st.subheader("")
+                            st.subheader("")
                             st.markdown(f'''
                                 <a target="_blank" href="{link}">
-                                    <button>
+                                    <button style = "
+                    display: inline-block;
+                    outline: none;
+                    cursor: pointer;
+                    font-size: 16px;
+                    line-height: 20px;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    padding: 14px 24px;
+                    border: none;
+                    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+                    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+                    color: #fff;
+                ">
                                         Apply
                                     </button>
                                 </a>
+                                
+   
                                 ''',
                                      unsafe_allow_html=True
                                      )
