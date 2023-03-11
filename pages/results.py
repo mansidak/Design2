@@ -264,7 +264,10 @@ if __name__ == "__main__":
             st.write("")
 
             # unique_results = set(st.session_state['FinalResults'])
-            for element in unique_results:
+
+
+
+            for element in list(unique_results):
                 if element[7] is "False":
                     if element[5] in options and element[6].replace('-', '') in options2:
                         link = element[0]
