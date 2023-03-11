@@ -960,6 +960,7 @@ if __name__ == "__main__":
                         location = element[5]
                         skills = element[6]
                         st.write(f"{title} at {companyName}")
+
                     links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     for element in links2:
                         link = element[0]
@@ -983,6 +984,7 @@ if __name__ == "__main__":
                         skills = element[6]
 
                         st.write(f"{title} at {companyName}")
+
                     links4 = run_selenium1(f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     for element in links4:
                         link = element[0]
