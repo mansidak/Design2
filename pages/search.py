@@ -964,7 +964,7 @@ if __name__ == "__main__":
                         companyName = element[2]
                         st.markdown(f"<h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title} </h4>",
                             unsafe_allow_html=True)
-                        st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                        st.markdown(f"<h6 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                             unsafe_allow_html=True)
 
 
@@ -978,7 +978,7 @@ if __name__ == "__main__":
                         companyName = element[2]
                         st.markdown(f"<h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title} </h4>",
                             unsafe_allow_html=True)
-                        st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                        st.markdown(f"<h6 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                             unsafe_allow_html=True)
 
 
@@ -992,7 +992,7 @@ if __name__ == "__main__":
                         companyName = element[2]
                         st.markdown(f"<h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title} </h4>",
                             unsafe_allow_html=True)
-                        st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                        st.markdown(f"<h6 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                             unsafe_allow_html=True)
 
 
@@ -1006,7 +1006,7 @@ if __name__ == "__main__":
                         companyName = element[2]
                         st.markdown(f"<h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title} </h4>",
                             unsafe_allow_html=True)
-                        st.markdown(f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                        st.markdown(f"<h6 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                             unsafe_allow_html=True)
 
                     links5 = run_selenium1(f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))                    #
