@@ -193,7 +193,7 @@ if __name__ == "__main__":
 
 
 
-        unique_results = set(reversed(st.session_state['FinalResults']))
+        unique_results = st.session_state['FinalResults']
         with st.sidebar:
 
             st.subheader("")
