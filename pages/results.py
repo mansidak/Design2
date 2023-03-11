@@ -194,10 +194,7 @@ if __name__ == "__main__":
         cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
-        # unique_results = set(st.session_state['FinalResults'])
-
-        unique_results = set(db.child("users").child(str(localId)).child("Archive").child("FinalResults").get().val())
-        st.session_state['FinalResults'] = unique_results
+        unique_results = set(st.session_state['FinalResults'])
         with st.sidebar:
 
             st.subheader("")
@@ -252,9 +249,9 @@ if __name__ == "__main__":
 
             # if 'Name' not in st.session_state:
             #     switch_page("app")
-            # st.markdown(
-            #     f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
-            #     unsafe_allow_html=True)
+            st.markdown(
+                f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
+                unsafe_allow_html=True)
             st.markdown(
                 f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>",
                 unsafe_allow_html=True)
@@ -267,8 +264,7 @@ if __name__ == "__main__":
             st.write("")
 
             # unique_results = set(st.session_state['FinalResults'])
-
-            for index, element in enumerate(unique_results):
+            for element in unique_results:
                 if element[5] in options and element[6].replace('-', '') in options2:
                     link = element[0]
                     title = element[1]
@@ -521,7 +517,8 @@ if __name__ == "__main__":
                                 "Skills": str(skills)
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                            db.child("users").child(str(localId)).child("Archive").child("FinalResults").orderByChild("index").equalTo(index).limitToFirst(1).remove()
+                            unique_results.remove(element)
+                            time.sleep(2)
                             st.write("Saved!")
                             Save.empty()
 
