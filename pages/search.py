@@ -413,7 +413,7 @@ if __name__ == "__main__":
                                                                                                         Final_Description,
                                                                                                         Final_Location,
                                                                                                         Final_Skills):
-                            Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills, False))
+                            Final_Array.append((links, titles, companies, summaries, descriptions, locations, skills, "False"))
 
                         driver.close()
                         driver.quit()
