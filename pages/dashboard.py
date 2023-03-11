@@ -136,7 +136,7 @@ if __name__ == "__main__":
 
             colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
             with colLogin2:
-                st.markdown(f"<a name='usersemail'>{st.session_state['user']['email']}</a>", unsafe_allow_html=True)
+                st.markdown(f" ht<span>tp://</span>  {st.session_state['user']['email']}  ", unsafe_allow_html=True)
                 # st.write(f"You're logged in as {st.session_state['user']['email']}")
             colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
             with colResume1:
