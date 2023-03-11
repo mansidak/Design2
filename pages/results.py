@@ -520,7 +520,7 @@ if __name__ == "__main__":
                                 "Skills": str(skills)
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                            db.child("users").child(str(localId)).child("Archive").child("FinalResults").push(data)
+                            db.child("users").child(str(localId)).child("Archive").child("FinalResults").orderByChild("index").equalTo(index).limitToFirst(1).remove()
                             st.write("Saved!")
                             Save.empty()
 
