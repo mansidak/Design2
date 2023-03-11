@@ -1,4 +1,5 @@
 import time
+import uuid
 
 import streamlit as st
 # st.title("CoverLetter")
@@ -503,7 +504,7 @@ if __name__ == "__main__":
                             unsafe_allow_html=True)
                     with col2mark:
                         Save = st.empty()
-                        if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                        if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}+{uuid.UUID}"):
                             firebase = pyrebase.initialize_app(firebaseconfig)
                             db = firebase.database()
                             # user = st.session_state['user']
