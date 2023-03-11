@@ -561,6 +561,7 @@ if __name__ == "__main__":
 
                         with col2:
                             st.subheader("")
+                            st.write("")
 
                             st.markdown(f'''
                                 <a target="_blank" href="{link}">
@@ -569,10 +570,11 @@ if __name__ == "__main__":
                     outline: none;
                     cursor: pointer;
                     font-size: 16px;
-                    max-height:30px;
+                    max-height:35px;
+                    min-width:80px;
                     line-height: 20px;
                     font-weight: 600;
-                    border-radius: 10px;
+                    border-radius: 5px;
                     padding: 14px 24px;
                     border: none;
                     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
