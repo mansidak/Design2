@@ -1001,7 +1001,7 @@ if __name__ == "__main__":
                         my_bar.progress(75, text=f"")
                         time.sleep(15)
                         progressText.markdown(
-                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Almost there</h6>",
+                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Doing one last search...</h6>",
                             unsafe_allow_html=True)
                         my_bar.progress(75, text=f"")
 
