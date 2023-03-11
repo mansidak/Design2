@@ -599,17 +599,18 @@ if __name__ == "__main__":
                 NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                                     unsafe_allow_html=True)
                 if 'newSkills' not in st.session_state:
-                    newJobtitles = openAIGetRelevantJobTitlesDuplicate(resumeContent)
-                    newSkills = openAIGetRelevantHardSkills(resumeContent)
-                    softSkills = openAIGetRelevantSoftSkills(resumeContent)
-                    OldSkillsBullet = openAIGetAllSkills(resumeContent)
-                    Matches = openAIMatchSkillsWithJobs(newSkills, newJobtitles, resumeContent)
+                    with st.spinner("Parsing resume...")
+                        newJobtitles = openAIGetRelevantJobTitlesDuplicate(resumeContent)
+                        newSkills = openAIGetRelevantHardSkills(resumeContent)
+                        softSkills = openAIGetRelevantSoftSkills(resumeContent)
+                        OldSkillsBullet = openAIGetAllSkills(resumeContent)
+                        Matches = openAIMatchSkillsWithJobs(newSkills, newJobtitles, resumeContent)
 
-                    st.session_state['newJobtitles'] = newJobtitles
-                    st.session_state['newSkills'] = newSkills
-                    st.session_state['softSkills'] = softSkills
-                    st.session_state['OldSkillsBullet'] = OldSkillsBullet
-                    st.session_state['Matches'] = Matches
+                        st.session_state['newJobtitles'] = newJobtitles
+                        st.session_state['newSkills'] = newSkills
+                        st.session_state['softSkills'] = softSkills
+                        st.session_state['OldSkillsBullet'] = OldSkillsBullet
+                        st.session_state['Matches'] = Matches
                 newSkills = st.session_state['newSkills']
                 newJobtitles = st.session_state['newJobtitles']
                 OldSkillsBullet = st.session_state['OldSkillsBullet']
