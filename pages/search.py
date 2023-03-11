@@ -958,22 +958,15 @@ if __name__ == "__main__":
                                         unsafe_allow_html=True)
 
                     if ExperienceLevel == 'Entry-Level':
-                        ExperienceLevel = ""
+                        ExperienceLevel = " "
                     if ExperienceLevel == 'Associate':
                         ExperienceLevel = "Senior"
+                    progressText.markdown(
+                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
+                        unsafe_allow_html=True)
                     links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     my_bar.progress(25, text=f"")
                     st.write(ExperienceLevel)
-                    progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
-                        unsafe_allow_html=True)
-                    # for element in set(links1):
-                    #     title = element[1]
-                    #     companyName = element[2]
-                    #     st.markdown(f"<h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title} </h4>",
-                    #         unsafe_allow_html=True)
-                    #     st.markdown(f"<h6 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-                    #         unsafe_allow_html=True)
-
 
                     links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
                     my_bar.progress(50, text=f"")
