@@ -574,6 +574,7 @@ if __name__ == "__main__":
                                         background-color: transparent;
                                         border: 1px solid transparent;
                                         padding: 6px 12px;
+                                        margin-top:-2px;
                                         font-size: 1rem;
                                         border-radius: .25rem;
                                         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
