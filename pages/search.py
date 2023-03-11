@@ -986,7 +986,7 @@ if __name__ == "__main__":
 
                     def progress_shit():
                         progressText.markdown(
-                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {FreshSkills[0]}, {FreshSkills[1]}, {FreshSkills[3]}, {FreshSkills[4]} etc...</h6>",
+                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
                             unsafe_allow_html=True)
                         my_bar.progress(25, text=f"")
                         time.sleep(10)
