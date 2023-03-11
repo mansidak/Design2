@@ -650,7 +650,7 @@ if __name__ == "__main__":
                 "Location": str(location),
                 "Skills": str(skills)
             }
-            db.child("users").child(str(localId)).child("Archive").child(datetime.datetime.now()).push(data)
+            db.child("users").child(str(localId)).child("Archive").child(f"{str(datetime.datetime.now())}").push(data)
 
 
 
