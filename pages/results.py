@@ -630,6 +630,9 @@ if __name__ == "__main__":
         with colresult3:
             st.write("")
 
+
+
+        st.subheader(str(datetime.datetime.now()).replace(':', '_'))
         for job in unique_results:
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
