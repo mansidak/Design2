@@ -193,7 +193,7 @@ if __name__ == "__main__":
         set_code(code=user['refreshToken'])
         cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
 
-        array_remove = []
+
         unique_results = set(st.session_state['FinalResults'])
         with st.sidebar:
 
@@ -263,7 +263,8 @@ if __name__ == "__main__":
             st.write("")
             st.write("")
 
-            # unique_results = set(st.session_state['FinalResults'])
+            array_remove = []
+            st.write(array_remove)
             for element in unique_results:
                 if element not in array_remove:
                     if element[5] in options and element[6].replace('-', '') in options2:
