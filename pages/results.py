@@ -608,7 +608,7 @@ if __name__ == "__main__":
                                         border-radius: .25rem;
                                         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
                                         color: #0d6efd;
-                                        border-color: #0d6efd;">
+                                        border-color: #F63366;">
                                         Apply
                                     </button>
                                 </a>
