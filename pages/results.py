@@ -527,8 +527,8 @@ if __name__ == "__main__":
                         st.write(f"{shortSummary}")
                         score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
                         skills_text = compatibilityScore.split('Skills that match: ')[1]
-                        st.metric("Compatibility Score", f"{score_text}%", f"{skills_text}", "-5%")
-
+                        st.metric("Compatibility Score", f"{score_text}%", f"{skills_text}")
+                        st.metric("", f"", f"-{skills_text}")
 
                         col1, col2, col3 = st.columns([1, 1, 1])
 
