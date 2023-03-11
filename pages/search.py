@@ -75,12 +75,10 @@ if __name__ == "__main__":
         st.markdown("""
                         <style>
                         
-               
-                        
-
                         .css-1uhah0b.e8zbici2{
                         z-index:1;
                         }
+                        
                         header[data-testid="stHeader"] {
                         position: relative;
                         }
