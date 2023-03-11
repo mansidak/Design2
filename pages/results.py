@@ -194,7 +194,7 @@ if __name__ == "__main__":
         cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
-        unique_results = set(st.session_state['FinalResults'])
+        unique_results = st.session_state['FinalResults']
         with st.sidebar:
 
             st.subheader("")
