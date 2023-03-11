@@ -415,9 +415,16 @@ if __name__ == "__main__":
                                 model="gpt-3.5-turbo",
                                 messages=[
                                     {"role": "system",
-                                     "content": "You are an AI Assistant that summarizes job postings in less than a paragraph. Just talk about what they're looking for."},
+                                     "content": """
+                                     You're an AI Bot calculates compatibility score of a job seeker for a given job. Your output should always be of the following format: 
+                                     "Score: (out of 100);
+                                     Skills that match: (list 4-5 skills that overlap)"
+                                     Most importantly, you don't add any extra fluff or explanation to your response. Your response is always in the given format.
+                                     """},
                                     {"role": "user",
-                                     "content": f"The following is a job posting I want you to summarize \n\n{description}\n\n"}])
+                                     "content": f"Here's the Job summary \n\n{response3['choices'][0]['message']['content']}\n\n Here's the resume: {resumeContent}"}])
+
+
                         compatibilityScore.append(compatibilityScoreAPI["choices"][0]["message"]["content"])
                         print(compatibilityScoreAPI["usage"]["total_tokens"])
                         for links, titles, companies, summaries, descriptions, locations, skills, compatibilityScores in zip(Final_Links,
