@@ -521,8 +521,9 @@ if __name__ == "__main__":
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
                             Save.empty()
-
-                    with st.expander(f"{location}"):
+                    score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
+                    skills_text = compatibilityScore.split('Skills that match: ')[1]
+                    with st.expander(f"Compatibility: {score_text}%"):
                         score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
                         skills_text = compatibilityScore.split('Skills that match: ')[1]
                         st.metric("Compatibility Score", f"{score_text}%", f"{skills_text}")
