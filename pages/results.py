@@ -12,6 +12,7 @@ import pdfkit
 from streamlit_option_menu import option_menu
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
+import plotly.graph_objects as go
 import pyrebase
 from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
@@ -535,12 +536,13 @@ if __name__ == "__main__":
                         sizes = [15, 30, 45, 10]
                         explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
-                        fig1, ax1 = plt.subplots()
-                        ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
-                                shadow=True, startangle=90)
-                        ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+                        fig2 = go.Figure(go.Indicator(
+                            mode="gauge+number",
+                            value=sizes,
+                            domain={'x': [0, 1], 'y': [0, 1]},
+                            title={'text': labels}))
 
-                        st.pyplot(fig1)
+                        st.pyplot(fig2)
 
                         st.metric("", f"{score_text} out of 5", f"{skills_text}")
                         # st.markdown(f"**Location:** {location}.")
