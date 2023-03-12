@@ -199,7 +199,7 @@ if __name__ == "__main__":
         cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
-        unique_results = st.session_state['FinalResults']
+        unique_results = set(st.session_state['FinalResults'])
         with st.sidebar:
 
             st.subheader("")
@@ -268,7 +268,7 @@ if __name__ == "__main__":
             st.write("")
             st.write("")
 
-            temp_list = []
+            temp_set = set()
             for element in unique_results:
                 if element[5] in options and element[6].replace('-', '') in options2:
                     link = element[0]
@@ -534,8 +534,10 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
-                            element[1] = element[1] + "(Saved)"
+                            tuple_to_delete = element
                             Save.empty()
+                            if element != tuple_to_delete:
+                                temp_set.add(element)
 
 
                     with st.expander(f"{location}"):
@@ -625,7 +627,7 @@ if __name__ == "__main__":
                             st.write("")
 
                     st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
-
+                    unique_results = temp_set
             colconclusion1, colconclusion2 = st.columns([1, 3])
             with colconclusion1:
 
