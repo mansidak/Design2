@@ -342,7 +342,7 @@ if __name__ == "__main__":
                     jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                     time.sleep(1)
                     links = []
-                    jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")[:9]
+                    jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")[:6]
 
                     for job in jobs_list1:
                         all_links = job.find_elements(By.TAG_NAME, "a")
