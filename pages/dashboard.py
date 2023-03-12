@@ -373,7 +373,6 @@ if __name__ == "__main__":
     max-height:10px;
      }  
      button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p{
-    margin-top:-30px;
     max-height:10px;
      } 
 
