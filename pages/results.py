@@ -635,9 +635,16 @@ if __name__ == "__main__":
 
         st.markdown("""
         <style>
-       #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > label > div > div > p {
-        font-size: 15px;
-            }
+        #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > label > div > div > p {
+        font-size: 17px;
+        font-weight: bold;
+        }
+            
+        #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
+        font-size: 17px;
+        font-weight:
+        }
+            
         </style>
         """, unsafe_allow_html=True)
         for job in unique_results:
