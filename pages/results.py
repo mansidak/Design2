@@ -637,7 +637,8 @@ if __name__ == "__main__":
                 with open("output.pdf", "rb") as pdf_file:
                     PDFbyte = pdf_file.read()
                 # st.download_button(label='Download PDF', data= PDFFile)
-
+                st.subheader("")
+                st.subheader("")
                 st.download_button(label="Download All Jobs",
                                    data=PDFbyte,
                                    file_name="test.pdf",
