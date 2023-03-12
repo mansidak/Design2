@@ -371,6 +371,8 @@ if __name__ == "__main__":
     button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {
     font-size: 0px;
     line-height: 0;
+    visibility:hidden;
+    height:0px;
      }  
      
      button[data-baseweb="tab"]{
