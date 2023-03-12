@@ -541,8 +541,7 @@ if __name__ == "__main__":
 
 
                     with st.expander(f"{location}"):
-                        if float(score_text) > 3:
-                            st.metric("Compatibility score out of 5", f"{score_text}", f"{skills_text}")
+
                         st.write(f"{shortSummary}")
                         st.markdown("""
                                                               <style>
@@ -559,7 +558,8 @@ if __name__ == "__main__":
 
                                                               </style>
                                                               """, unsafe_allow_html=True)
-
+                        if float(score_text) > 3:
+                            st.metric("Compatibility score out of 5", f"{score_text}", f"{skills_text}")
 
                         col1, col2, col3 = st.columns([1, 1.5, 3])
 
