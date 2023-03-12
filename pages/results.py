@@ -538,8 +538,7 @@ if __name__ == "__main__":
                         st.metric("Compatibility out of 5", f"{score_text}", f"{skills_text}")
                         st.markdown("""
                                                         <style>
-                                                        #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > label > div > div > p {
-                                                        font-size: 17px;
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(14) > ul > li > div.st-am.st-hq.st-hn.st-ho.st-hp > div > div:nth-child(1) > div > div:nth-child(3) > div > label > div > div > p{                                                        font-size: 17px;
                                                         font-weight: bold;
                                                         }
 
