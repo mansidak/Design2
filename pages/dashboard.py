@@ -374,13 +374,13 @@ if __name__ == "__main__":
      }  
      
      button[data-baseweb="tab"]{
-     display:block;
      max-height:20px;
      } 
 
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
     max-width:500px;
+    max-height:30px;
     display:block;
     padding:5px;
     border-bottom:none;
