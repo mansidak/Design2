@@ -223,12 +223,12 @@ if __name__ == "__main__":
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
             localId = AccountInfo["localId"]
-            ArchivedResultsOne = db.child("users").child(str(localId)).child("Archive").get().val()
+            ArchivedResultsOne = db.child("users").child(str(localId)).child("Archive").get()
 
             unique_links = {}
 
             for ArchivedResults in ArchivedResultsOne:
-                for key, value in ArchivedResults.items():
+                for key, value in ArchivedResults.items().value():
                     link = value['Link']
                     if link not in unique_links:
                         unique_links[link] = value
