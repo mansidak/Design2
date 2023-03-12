@@ -377,7 +377,6 @@ if __name__ == "__main__":
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
     max-width:500px;
-    display:block;
     padding:5px;
     border-bottom:none;
     border-radius:5px;
