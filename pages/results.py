@@ -549,7 +549,7 @@ if __name__ == "__main__":
 
                                                               </style>
                                                               """, unsafe_allow_html=True)
-                        if score_text > 3:
+                        if int(score_text) > 3:
                             st.metric("Compatibility out of 5", f"{score_text}", f"{skills_text}")
 
                         col1, col2, col3 = st.columns([1, 1.5, 3])
