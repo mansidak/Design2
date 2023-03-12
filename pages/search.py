@@ -1031,7 +1031,7 @@ if __name__ == "__main__":
                             def progress_shit():
                                 st.markdown("""
                                 <style>
-                                .stProgress{
+                                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(11) > div.css-keje6w.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(11) > div > div.st-b8 > div > div > div{
                                 background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
                                 }
                                 </style>
