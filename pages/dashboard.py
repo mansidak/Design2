@@ -223,7 +223,7 @@ if __name__ == "__main__":
             firebase = pyrebase.initialize_app(firebaseconfig)
             db = firebase.database()
             localId = AccountInfo["localId"]
-            ArchivedResults = db.child("users").child(str(localId)).child("Archives").get().val()
+            ArchivedResults = db.child("users").child(str(localId)).child("Archives").get()
 
             unique_links = {}
 
