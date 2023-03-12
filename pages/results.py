@@ -188,6 +188,10 @@ if __name__ == "__main__":
                 height:0px;
                 visibility:hidden
                 }
+                
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.streamlit-expanderHeader.st-ae.st-eh.st-ag.st-ah.st-ai.st-aj.st-cq.st-e0.st-cr.st-fk.st-fl.st-fm.st-fn.st-ar.st-as.st-b6.st-b5.st-b3.st-de.st-d0.st-eb.st-b4.st-ef.st-cy.st-cz.st-cx.st-cw > div{
+                font-size:19px;
+                }
                 </style>""", unsafe_allow_html=True)
         AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
         firebase = pyrebase.initialize_app(firebaseconfig)
@@ -542,6 +546,7 @@ if __name__ == "__main__":
                                 font-size: 17px;
                                 font-weight:
                                 }
+                                
 
                                 </style>
                                 """, unsafe_allow_html=True)
