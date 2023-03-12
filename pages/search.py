@@ -183,6 +183,26 @@ if __name__ == "__main__":
                                         </div>
                                         """
             st.markdown(footer, unsafe_allow_html=True)
+            st.markdown("""
+                                          <style>
+                                          #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(11) > div.css-keje6w.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(11) > div > div.st-b8 > div > div > div{
+                                          background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                                          animation: gradient 5s ease infinite;
+                                          }
+
+                                          @keyframes gradient {
+                                          0% {
+                                          background-position: 0% 50%;
+                                          }
+                                          50% {
+                                          background-position: 100% 50%;
+                                          }
+                                          100% {
+                                          background-position: 0% 50%;
+                                          }
+                                          }
+                                          </style>
+                                          """, unsafe_allow_html=True)
             hide_streamlit_style = """
                                           <style>
                                           div[class='css-4z1n4l ehezqtx5']{
@@ -199,6 +219,7 @@ if __name__ == "__main__":
                                             z-index:99999;
                                             width: 50%;
                                           }
+                                          
 
                                           css-klqnuk ehezqtx4{
 
@@ -1029,26 +1050,7 @@ if __name__ == "__main__":
 
 
                             def progress_shit():
-                                st.markdown("""
-                                <style>
-                                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(11) > div.css-keje6w.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(11) > div > div.st-b8 > div > div > div{
-                                background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-                                animation: gradient 5s ease infinite;
-                                }
-                                
-                                @keyframes gradient {
-                                0% {
-                                background-position: 0% 50%;
-                                }
-                                50% {
-                                background-position: 100% 50%;
-                                }
-                                100% {
-                                background-position: 0% 50%;
-                                }
-                                }
-                                </style>
-                                """, unsafe_allow_html=True)
+
 
                                 progressText.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>", unsafe_allow_html=True)
                                 my_bar.progress(25, text=f"")
