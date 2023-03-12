@@ -368,9 +368,9 @@ if __name__ == "__main__":
     height:0px;
     visibility:hidden;
     }
-    button[data-baseweb="tab-list"] > button[data-baseweb="tab"]  {
-    max-height:30px;
-    }  
+    button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {
+    font-size: 50px;
+     }  
 
     
     div[data-baseweb="tab-list"] {
