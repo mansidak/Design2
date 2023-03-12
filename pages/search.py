@@ -41,6 +41,14 @@ firebaseconfig = {
             "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
         }
 
+st.markdown("""
+    <style>
+    .stAlert{
+    height:0px;
+    visibility:hidden;
+    }
+        </style>
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     cookies = cookie_manager.get_all()
@@ -1202,14 +1210,7 @@ with col2form:
         if st.button("Forgot Password", key="forgotpassword"):
             auth.send_password_reset_email("email")
 
-    st.markdown("""
-    <style>
-    .stAlert{
-    height:0px;
-    visibility:hidden;
-    }
-        </style>
-    """, unsafe_allow_html=True)
+
 
 
     def Signup_form(auth):
