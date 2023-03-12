@@ -532,13 +532,10 @@ if __name__ == "__main__":
                     skills_text = compatibilityScore.split('Skills that match: ')[1]
 
                     with st.expander(f"{location}"):
-                        labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
-                        sizes = [15, 30, 45, 10]
-                        explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
                         fig2 = go.Figure(go.Indicator(
                             mode="gauge+number",
-                            value=sizes,
+                            value=250,
                             domain={'x': [0, 1], 'y': [0, 1]},
                 ))
 
