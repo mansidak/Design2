@@ -199,7 +199,7 @@ if __name__ == "__main__":
         cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
-        unique_results = set(st.session_state['FinalResults'])
+        unique_results = list(st.session_state['FinalResults'])
         with st.sidebar:
 
             st.subheader("")
@@ -534,24 +534,7 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
-
-                            tuple = element
-
-                            # Convert the tuple to a list
-                            list_ = list(tuple)
-
-                            # Create a text input widget to allow the user to enter a new value
-                            value = "Saved"
-
-                            # Update the value at index 2 in the list
-                            list_[1] = list_[2] + value
-
-                            # Convert the list back to a tuple
-                            tuple = tuple(list_)
-
-                            # Update the tuple in the set
-                            element[1] = tuple
-
+                            element[1] = element[1] + "(Saved)"
                             Save.empty()
 
 
