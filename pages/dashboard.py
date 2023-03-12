@@ -374,7 +374,8 @@ if __name__ == "__main__":
      }  
      
      button[data-baseweb="tab"]{
-     min-height:80px;
+     display:block;
+     max-height:30px;
      } 
 
     div[data-baseweb="tab-list"] {
