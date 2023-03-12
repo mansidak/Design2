@@ -626,6 +626,7 @@ if __name__ == "__main__":
                             st.write("")
 
                     st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
+            st.write(temp_list)
             for item in temp_list:
                 unique_results.remove(item)
 
