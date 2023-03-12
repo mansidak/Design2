@@ -553,6 +553,37 @@ if __name__ == "__main__":
                         col1, col2, col3 = st.columns([1.5, 1, 3])
 
                         with col1:
+                            st.write("")
+                            st.write("")
+                            st.markdown(f'''
+                                                            <a target="_blank" href="{link}">
+                                                                <button style = "
+                                                                    cursor: pointer;
+                                                                    outline: 0;
+                                                                    display: inline-block;
+                                                                    font-weight: 400;
+                                                                    max-height:36px;
+                                                                    min-height:35px;
+                                                                    min-width:100px;
+                                                                    text-align: center;
+                                                                    background-color: #141414;
+                                                                    border: 1px solid transparent;
+                                                                    margin-top:-2px;
+                                                                    font-size: 1rem;
+                                                                    border-radius: .25rem;
+                                                                    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                                    color: #F63366;
+                                                                    border-color: #F63366;">
+                                                                    Apply
+                                                                </button>
+                                                            </a>
+
+
+                                                            ''',
+                                        unsafe_allow_html=True
+                                        )
+
+                        with col2:
                             container_2 = st.empty()
                             button_A = container_2.button('Generate Cover Letter',
                                                           key=f"{link}+{title}+{shortSummary}")
@@ -580,36 +611,6 @@ if __name__ == "__main__":
                                 cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
                                 st.download_button('Download Cover Letter', cover_letter_file)
 
-                        with col2:
-                            st.write("")
-                            st.write("")
-                            st.markdown(f'''
-                                <a target="_blank" href="{link}">
-                                    <button style = "
-                                        cursor: pointer;
-                                        outline: 0;
-                                        display: inline-block;
-                                        font-weight: 400;
-                                        max-height:36px;
-                                        min-height:35px;
-                                        min-width:100px;
-                                        text-align: center;
-                                        background-color: #141414;
-                                        border: 1px solid transparent;
-                                        margin-top:-2px;
-                                        font-size: 1rem;
-                                        border-radius: .25rem;
-                                        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                                        color: #F63366;
-                                        border-color: #F63366;">
-                                        Apply
-                                    </button>
-                                </a>
-                                
-   
-                                ''',
-                                     unsafe_allow_html=True
-                                     )
 
                         with col3:
                             st.write("")
