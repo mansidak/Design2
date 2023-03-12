@@ -1,7 +1,8 @@
 import os
-
 import streamlit
 import streamlit as st
+import datetime
+import time
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
@@ -416,7 +417,7 @@ if __name__ == "__main__":
                                      "content": """
                                      You're an AI Bot calculates compatibility score of a job seeker for a given job. Your output should always be of the following format: 
                                      "Score: (out of 100);
-                                     Skills that match: (list 4-5 skills that overlap)"
+                                     Skills that match: (list 2-4 skills that overlap)"
                                      Most importantly, you don't add any extra fluff or explanation to your response. Your response is always in the given format.
                                      """},
                                     {"role": "user",
@@ -1071,6 +1072,29 @@ if __name__ == "__main__":
                     # st.write(threading.enumerate())
 
                     st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
+                    Archives = links1 + links2 + links3 + links4 + links5
+
+                    for job in Archives:
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        link = job[0]
+                        title = job[1]
+                        companyName = job[2]
+                        shortSummary = job[3]
+                        fullDescription = job[4]
+                        location = job[5]
+                        skills = job[6]
+                        data = {
+                            "Link": str(link),
+                            "Title": str(title),
+                            "Company Name": str(companyName),
+                            "Short Summary": str(shortSummary),
+                            "Full Description": str(fullDescription),
+                            "Location": str(location),
+                            "Skills": str(skills)
+                        }
+                        db.child("users").child(str(localId)).child("Archive").child(int(time.mktime(datetime.datetime.now().timetuple()))).push(data)
+                    st.subheader(datetime.datetime.now())
 
                     switch_page("results")
         with colmain3:
