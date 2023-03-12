@@ -268,8 +268,8 @@ if __name__ == "__main__":
             st.write("")
             st.write("")
 
-            indices_list = [i for i in range(len(unique_results))]
-            for index, element in enumerate(unique_results):
+            temp_list = []
+            for element in unique_results:
                 if element[5] in options and element[6].replace('-', '') in options2:
                     link = element[0]
                     title = element[1]
@@ -534,8 +534,9 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
-                            unique_results.remove(element)
+                            temp_list.append(element)
                             Save.empty()
+
 
 
                     with st.expander(f"{location}"):
@@ -625,6 +626,8 @@ if __name__ == "__main__":
                             st.write("")
 
                     st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
+            for item in temp_list:
+                unique_results.remove(item)
 
             colconclusion1, colconclusion2 = st.columns([1, 3])
             with colconclusion1:
