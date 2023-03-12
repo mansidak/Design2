@@ -1048,13 +1048,12 @@ if __name__ == "__main__":
 
                     executor.shutdown(wait=True)
 
-                    try:
-                        links1 = future1.result()
-                        links2 = future2.result()
-                        links3 = future3.result()
-                        links4 = future4.result()
-                    except:
-                        streamlit.experimental_rerun
+
+                    links1 = future1.result()
+                    links2 = future2.result()
+                    links3 = future3.result()
+                    links4 = future4.result()
+
 
                     # links5 = future5.result()
                     st.write(links1)
