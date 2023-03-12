@@ -500,7 +500,7 @@ if __name__ == "__main__":
                     location = element[5]
                     skills = element[6]
                     compatibilityScore = element[7]
-                    col1mark, col2mark= st.columns([1, 0.2])
+                    col1mark, col2mark= st.columns([1, 0.1])
                     with col1mark:
                         st.subheader("")
                         st.markdown(
