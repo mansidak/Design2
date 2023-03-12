@@ -1047,20 +1047,10 @@ if __name__ == "__main__":
                         future6 = executor.submit(progress_shit())
 
                     executor.shutdown(wait=True)
-
-
                     links1 = future1.result()
                     links2 = future2.result()
                     links3 = future3.result()
                     links4 = future4.result()
-
-
-                    # links5 = future5.result()
-                    st.write(links1)
-                    st.write(links2)
-                    st.write(links3)
-                    st.write(links4)
-                    # st.write(links5)
 
 
                     executor.shutdown(wait=True)
