@@ -237,24 +237,23 @@ if __name__ == "__main__":
             with colresult1:
                 st.write("")
             with colresult2:
-                with st.expander("Archive1"):
-                    for key, value in my_dict.items():
-                        company_name = value['Company Name']
-                        Full_Description = value['Full Description']
-                        Link = value['Link']
-                        Location = value['Location']
-                        Short_Summary = value['Short Summary']
-                        Skills = value['Skills']
-                        Title = value['Title']
-                        # with st.expander("Archive1"):
-                        st.markdown(
-                            f"<a href='{Link}' style='text-decoration: none; color: white;' target='_blank'><h5 style='font-family: Sans-Serif;margin-top:-20px;'>{Title}→ </h5></a>",
-                            unsafe_allow_html=True)
-                        st.markdown(
-                            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px; color:white'>{company_name}</h6>",
-                            unsafe_allow_html=True)
-                        st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
-                                    unsafe_allow_html=True)
+                for key, value in my_dict.items():
+                    company_name = value['Company Name']
+                    Full_Description = value['Full Description']
+                    Link = value['Link']
+                    Location = value['Location']
+                    Short_Summary = value['Short Summary']
+                    Skills = value['Skills']
+                    Title = value['Title']
+                    # with st.expander("Archive1"):
+                    st.markdown(
+                        f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h5 style='font-family: Sans-Serif;margin-top:-20px;'>{Title}→ </h5></a>",
+                        unsafe_allow_html=True)
+                    st.markdown(
+                        f"<h6 style='font-family: Sans-Serif;font-weight: color:black; bold;margin-top:-20px; color:white'>{company_name}</h6>",
+                        unsafe_allow_html=True)
+                    st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
+                                unsafe_allow_html=True)
             with colresult3:
                 st.write("")
 
