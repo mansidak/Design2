@@ -1048,23 +1048,23 @@ if __name__ == "__main__":
                             with ThreadPoolExecutor(max_workers=5) as executor:
                                 future1 = executor.submit(run_selenium1,
                                                           f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",
-                                                          f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1,
+                                                          f"{FreshSkills[0].replace(' ', '_')}", f"{undesired},Deloitte", 1,
                                                           resumeContent, locationpreference.replace(' ', '_'))
                                 future2 = executor.submit(run_selenium1,
                                                           f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}",
-                                                          f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1,
+                                                          f"{FreshSkills[1].replace(' ', '_')}", f"{undesired},Deloitte", 1,
                                                           resumeContent, locationpreference.replace(' ', '_'))
                                 future3 = executor.submit(run_selenium1,
                                                           f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}",
-                                                          f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1,
+                                                          f"{FreshSkills[2].replace(' ', '_')}", f"{undesired},Deloitte", 1,
                                                           resumeContent, locationpreference.replace(' ', '_'))
                                 future4 = executor.submit(run_selenium1,
                                                           f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}",
-                                                          f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1,
+                                                          f"{FreshSkills[3].replace(' ', '_')}", f"{undesired},Deloitte", 1,
                                                           resumeContent, locationpreference.replace(' ', '_'))
                                 future5 = executor.submit(run_selenium1,
                                                           f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
-                                                          f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
+                                                          f"{FreshSkills[4].replace(' ', '_')}", f"{undesired},Deloitte", 1,
                                                           resumeContent, locationpreference.replace(' ', '_'))
 
                                 future6 = executor.submit(progress_shit())
