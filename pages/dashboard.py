@@ -388,6 +388,7 @@ if __name__ == "__main__":
     button[aria-selected="true"] {
     background-color: #eeeeee;
     border-radius:5px;
+        height:auto;
     }
 
     .css-c0yjmw.e1fqkh3o9{
