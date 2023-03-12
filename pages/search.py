@@ -1087,6 +1087,7 @@ if __name__ == "__main__":
                             "Skills": str(skills)
                         }
                         db.child("users").child(str(localId)).child("Archive").child(str(datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))).push(data)
+                        time.sleep(5)
                     st.subheader(datetime.datetime.now())
 
                     switch_page("results")
