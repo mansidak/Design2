@@ -369,7 +369,7 @@ if __name__ == "__main__":
     }
     
     button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {
-    margin-top:-20px;    
+    margin-top:-30px;    
     height:0px;
      }  
      
