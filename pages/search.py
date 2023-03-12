@@ -948,11 +948,13 @@ if __name__ == "__main__":
 
                             st.markdown("""
                             
-                            #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(8) {
-                            height:0px;
-                            visibility:hidden;
-                            }
+                          
                                             <style>
+                                            
+                                              #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(8) > div.css-keje6w.e1tzin5v2 {
+                                            height:0px;
+                                            visibility:hidden;
+                                            }
                                              div[data-testid="stForm"]  {
                                                 visibility: hidden;
                                                 height: 0%;
