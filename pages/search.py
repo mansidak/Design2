@@ -1029,6 +1029,25 @@ if __name__ == "__main__":
 
 
                             def progress_shit():
+                                st.markdown("""
+                                <style>
+                                .stProgress .st-bo {
+                                    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	                                animation: gradient 5s ease infinite;}
+                                @keyframes gradient {
+                                    0% {
+                                        background-position: 0% 50%;
+                                    }
+                                    50% {
+                                        background-position: 100% 50%;
+                                    }
+                                    100% {
+                                        background-position: 0% 50%;
+                                    }
+                                }
+                                </style>
+                                """, unsafe_allow_html=True)
+
                                 progressText.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>", unsafe_allow_html=True)
                                 my_bar.progress(25, text=f"")
                                 time.sleep(8)
