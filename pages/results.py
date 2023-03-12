@@ -18,6 +18,7 @@ import extra_streamlit_components as stx
 import plotly.figure_factory as ff
 import datetime
 import requests
+import scipy
 import numpy as np
 import os
 
