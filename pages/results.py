@@ -268,9 +268,8 @@ if __name__ == "__main__":
             st.write("")
             st.write("")
 
-
-
-            for element in unique_results:
+            indices_list = [i for i in range(len(unique_results))]
+            for element, index in enumerate(unique_results):
                 if element[5] in options and element[6].replace('-', '') in options2:
                     link = element[0]
                     title = element[1]
@@ -535,6 +534,8 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
+                            del unique_results[indices_list[index]]
+                            del indices_list[index]
                             Save.empty()
 
 
@@ -557,7 +558,7 @@ if __name__ == "__main__":
                                                               </style>
                                                               """, unsafe_allow_html=True)
                         if float(score_text) > 3:
-                            st.metric("Compatibility out of 5", f"{score_text}", f"{skills_text}")
+                            st.metric("Compatibility score out of 5", f"{score_text}", f"{skills_text}")
 
                         col1, col2, col3 = st.columns([1, 1.5, 3])
 
