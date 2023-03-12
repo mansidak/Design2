@@ -1,4 +1,6 @@
 import time
+import uuid
+
 import streamlit as st
 # st.title("CoverLetter")
 import openai
@@ -647,10 +649,11 @@ if __name__ == "__main__":
                 "Short Summary": str(shortSummary),
                 "Full Description": str(fullDescription),
                 "Location": str(location),
-                "Skills": str(skills)
+                "Skills": str(skills),
+                "TimeStamp": str(datetime.datetime.now().timetuple())
             }
-            db.child("users").child(str(localId)).child("Archive").child(str(datetime.datetime.now().strftime("%Y%m%d-%H%M"))).push(data)
-            time.sleep(5)
+
+            db.child("users").child(str(localId)).child("Archive").child(str(uuid.uuid4().hex)).push(data)
         st.subheader(datetime.datetime.now())
 
 
