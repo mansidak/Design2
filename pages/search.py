@@ -340,6 +340,7 @@ if __name__ == "__main__":
                     try:
                         driver.get(
                             f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+                        st.write(f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                         jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                         time.sleep(1)
                         links = []
@@ -1064,11 +1065,11 @@ if __name__ == "__main__":
                                                               resumeContent, locationpreference.replace(' ', '_'))
                                     future4 = executor.submit(run_selenium1,
                                                               f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",
-                                                              "", f"{undesired},Deloitte", 1,
+                                                              "-", f"{undesired},Deloitte", 1,
                                                               resumeContent, locationpreference.replace(' ', '_'))
                                     future5 = executor.submit(run_selenium1,
                                                               f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}",
-                                                              "", f"{undesired},Deloitte", 1,
+                                                              "-", f"{undesired},Deloitte", 1,
                                                               resumeContent, locationpreference.replace(' ', '_'))
 
                                     future6 = executor.submit(progress_shit())
