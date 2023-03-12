@@ -15,7 +15,7 @@ import pandas as pd
 import pyrebase
 from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
-import plotly.figure_factory as ff
+import matplotlib.pyplot as plt
 import datetime
 import requests
 import scipy
@@ -531,21 +531,16 @@ if __name__ == "__main__":
                     skills_text = compatibilityScore.split('Skills that match: ')[1]
 
                     with st.expander(f"{location}"):
-                        x1 = np.random.randn(200) - 2
-                        x2 = np.random.randn(200)
-                        x3 = np.random.randn(200) + 2
+                        labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+                        sizes = [15, 30, 45, 10]
+                        explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
-                        # Group data together
-                        hist_data = [x1, x2, x3]
+                        fig1, ax1 = plt.subplots()
+                        ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+                                shadow=True, startangle=90)
+                        ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-                        group_labels = ['Group 1', 'Group 2', 'Group 3']
-
-                        # Create distplot with custom bin_size
-                        fig = ff.create_distplot(
-                            hist_data, group_labels, bin_size=[.1, .25, .5])
-
-                        # Plot!
-                        st.plotly_chart(fig, use_container_width=True)
+                        st.pyplot(fig1)
 
                         st.metric("", f"{score_text} out of 5", f"{skills_text}")
                         # st.markdown(f"**Location:** {location}.")
