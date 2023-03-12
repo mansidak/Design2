@@ -419,7 +419,7 @@ if __name__ == "__main__":
                                color: #fff;
                                border-radius: 10px;
                                backdrop-filter: blur(10px);
-                               height: 20px;
+                               height: 40px;
                                max-width: 200px;
                                position: fixed;
                                top: 50%;
@@ -472,7 +472,7 @@ if __name__ == "__main__":
                                filter:invert(1);
                                }
                                .css-1uhah0b.e8zbici2{
-                               height:40px;
+                               height:30px;
                                }
                                .css-13e20ss{
                                visibility: hidden;
