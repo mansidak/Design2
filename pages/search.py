@@ -925,7 +925,7 @@ if __name__ == "__main__":
                         st.write("")
                     with col2a:
                         st.subheader("")
-                        Search = st.form_submit_button("Take me to 19th Street", key="SearchButton")
+                        Search = st.form_submit_button("Take me to 19th Street")
                     with col3a:
                         st.write("")
 
