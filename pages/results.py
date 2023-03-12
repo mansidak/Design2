@@ -533,13 +533,13 @@ if __name__ == "__main__":
 
                     with st.expander(f"{location}"):
 
-                        fig2 = go.Figure(go.Indicator(
+                        fig = go.Figure(go.Indicator(
                             mode="gauge+number",
-                            value=250,
+                            value=270,
                             domain={'x': [0, 1], 'y': [0, 1]},
-                ))
+                            title={'text': "Speed"}))
 
-                        st.pyplot(fig2)
+                        st.pyplot(fig)
 
                         st.metric("", f"{score_text} out of 5", f"{skills_text}")
                         # st.markdown(f"**Location:** {location}.")
