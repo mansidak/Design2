@@ -532,7 +532,8 @@ if __name__ == "__main__":
                     skills_text = compatibilityScore.split('Skills that match: ')[1]
 
                     with st.expander(f"{location}"):
-                        fig, ax = go.Figure(go.Indicator(
+                        fig, ax = plt.subplots()  # solved by add this line
+                        ax = go.Figure(go.Indicator(
                             mode="gauge+number",
                             value=270,
                             domain={'x': [0, 1], 'y': [0, 1]},
