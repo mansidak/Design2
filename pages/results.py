@@ -535,7 +535,7 @@ if __name__ == "__main__":
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
 
-                            tuple = element[1]
+                            tuple = element
 
                             # Convert the tuple to a list
                             list_ = list(tuple)
@@ -544,7 +544,7 @@ if __name__ == "__main__":
                             value = "Saved"
 
                             # Update the value at index 2 in the list
-                            list_[2] = list_[2] + value
+                            list_[1] = list_[2] + value
 
                             # Convert the list back to a tuple
                             tuple = tuple(list_)
