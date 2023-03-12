@@ -369,7 +369,7 @@ if __name__ == "__main__":
     visibility:hidden;
     }
 
-    .stButton>button {
+    #button{
 
     height: 3em;
     width: 3em;
