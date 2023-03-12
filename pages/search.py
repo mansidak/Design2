@@ -1033,18 +1033,8 @@ if __name__ == "__main__":
                                 <style>
                                 .stProgress .st-bo {
                                     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	                                animation: gradient 5s ease infinite;}
-                                @keyframes gradient {
-                                    0% {
-                                        background-position: 0% 50%;
-                                    }
-                                    50% {
-                                        background-position: 100% 50%;
-                                    }
-                                    100% {
-                                        background-position: 0% 50%;
-                                    }
-                                }
+	                                }
+	                                
                                 </style>
                                 """, unsafe_allow_html=True)
 
