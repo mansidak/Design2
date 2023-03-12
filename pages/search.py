@@ -1209,7 +1209,7 @@ with col2form:
     visibility:hidden;
     }
     
-    """)
+    """, unsafe_allow_html=True)
 
 
     def Signup_form(auth):
