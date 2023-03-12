@@ -945,8 +945,13 @@ if __name__ == "__main__":
 
                     if Search:
                         if ExperienceLevel is not None and Search:
-                            selected2.empty()
+
                             st.markdown("""
+                            
+                            #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(8) {
+                            height:0px;
+                            visibility:hidden;
+                            }
                                             <style>
                                              div[data-testid="stForm"]  {
                                                 visibility: hidden;
