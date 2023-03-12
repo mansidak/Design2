@@ -373,10 +373,6 @@ if __name__ == "__main__":
     max-height:30px;
     }
     
-    button[type="button"] { 
-        max-height:30px;
-
-    } 
 
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
@@ -423,7 +419,7 @@ if __name__ == "__main__":
                                color: #fff;
                                border-radius: 10px;
                                backdrop-filter: blur(10px);
-                               height: 40px;
+                               height: 20px;
                                max-width: 200px;
                                position: fixed;
                                top: 50%;
