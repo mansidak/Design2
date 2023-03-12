@@ -344,7 +344,7 @@ if __name__ == "__main__":
                         time.sleep(1)
                         links = []
                         try:
-                            jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")[:6]
+                            jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")[:5]
                         except:
                             print("didn't exist")
                         for job in jobs_list1:
