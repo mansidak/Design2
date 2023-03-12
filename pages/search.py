@@ -915,8 +915,9 @@ if __name__ == "__main__":
                                 <style>
                                     .st-au {
                                     border-radius:30px; 
-                                    div[data-testid="stForm"] {border: 0px}
                                     }
+                                                                        div[data-testid="stForm"] {border: 0px}
+
                                 </style>""", unsafe_allow_html=True)
 
                 col1a, col2a, col3a = st.columns([1.1, 1, 1])
