@@ -537,7 +537,7 @@ if __name__ == "__main__":
                         st.metric("Compatibility out of 5", f"{score_text}", f"{skills_text}")
                         st.markdown("""
                                                         <style>
-                                                        .streamlit-expanderHeader {
+                                                        div[class ="streamlit-expanderHeader"]{
                                                         font-size: 17px;
                                                         font-weight: ;
                                                         }
