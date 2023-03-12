@@ -231,7 +231,7 @@ if __name__ == "__main__":
                                key='downloadingjobspdf',
                                mime='application/octet-stream')
 
-        colresult1, colresult2, colresult3 = st.columns([0.25, 1, 0.25])
+        colresult1, colresult2, colresult3 = st.columns([0.25, 0.75, 0.25])
         with colresult1:
             st.write("")
         with colresult2:
