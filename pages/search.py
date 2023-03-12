@@ -939,6 +939,13 @@ if __name__ == "__main__":
                                                 height: 0%;
                                                 position: fixed;
                                                 }
+                                                
+                                                .stForm{
+                                                {
+                                                visibility: hidden;
+                                                height: 0%;
+                                                position: fixed;
+                                                }}
                                                 button[kind ="secondaryFormSubmit]{
                                                 visibility: hidden;
                                                 height: 0%;
