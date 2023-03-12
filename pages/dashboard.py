@@ -347,6 +347,9 @@ if __name__ == "__main__":
     max-height:20px;
     }
     
+    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div.stTabs.css-0.exp6ofz0 > div > div:nth-child(1) > div {
+    max-height:30px;
+    }
 
     button[data-baseweb="tab"] {
     background-color:#ffffff;
