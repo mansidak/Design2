@@ -550,7 +550,7 @@ if __name__ == "__main__":
 
                                                         </style>
                                                         """, unsafe_allow_html=True)
-                        col1, col2, col3 = st.columns([1.5, 1, 3])
+                        col1, col2, col3 = st.columns([1, 1.5, 3])
 
                         with col1:
                             st.write("")
