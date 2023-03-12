@@ -368,8 +368,8 @@ if __name__ == "__main__":
     visibility:hidden;
     }
     
-    button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {
-    margin-top:-30px;    
+    button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"]{
+    margin-top:-30px;
      }  
 
 
