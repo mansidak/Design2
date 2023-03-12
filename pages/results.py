@@ -11,6 +11,8 @@ from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from streamlit_option_menu import option_menu
 from jinja2 import Environment, FileSystemLoader
+from streamlit_echarts import st_echarts
+import echarts
 import pandas as pd
 import plotly.graph_objects as go
 import pyrebase
@@ -532,14 +534,47 @@ if __name__ == "__main__":
                     skills_text = compatibilityScore.split('Skills that match: ')[1]
 
                     with st.expander(f"{location}"):
-                        fig, ax = plt.subplots()  # solved by add this line
-                        ax = go.Figure(go.Indicator(
-                            mode="gauge+number",
-                            value=270,
-                            domain={'x': [0, 1], 'y': [0, 1]},
-                            title={'text': "Speed"}))
+                        def gauge(value):
+                            option = {
+                                "tooltip": {
+                                    "formatter": '{a} <br/>{b} : {c}%'
+                                },
+                                "series": [
+                                    {
+                                        "name": 'Current',
+                                        "type": 'gauge',
+                                        "progress": {
+                                            "show": False
+                                        },
+                                        "axisLine": {
+                                            "lineStyle": {
+                                                "width": 6,
+                                                "color": [
+                                                    [0.2, 'rgb(235, 34, 14)'],
+                                                    [0.4, 'rgb(242, 99, 9)'],
+                                                    [0.6, 'rgb(250, 197, 21)'],
+                                                    [0.8, 'rgb(117, 198, 5)'],
+                                                    [1, 'rgb(56, 182, 14)']
+                                                ]
+                                            }
+                                        },
+                                        "detail": {
+                                            "valueAnimation": True,
+                                            "formatter": f'{value}%',
+                                            "color": 'auto'
+                                        },
+                                        "data": [
+                                            {
+                                                "value": value,
+                                                "name": '%'
+                                            },
+                                        ]
+                                    }
+                                ]
+                            }
+                            st_echarts(option, height="400px", key="echarts-1")
 
-                        st.pyplot(fig)
+                        echarts.gauge(55)
 
                         st.metric("", f"{score_text} out of 5", f"{skills_text}")
                         # st.markdown(f"**Location:** {location}.")
