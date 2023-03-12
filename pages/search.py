@@ -911,189 +911,190 @@ if __name__ == "__main__":
                                                                                                   "Wyoming",),
                         key="locationPreference")
 
-                st.markdown("""
-                                <style>
-                                    .st-au {
-                                    border-radius:30px; 
-                                    }
-                                                                        div[data-testid="stForm"] {border: 0px}
-
-                                </style>""", unsafe_allow_html=True)
-
-                col1a, col2a, col3a = st.columns([1.1, 1, 1])
-                with col1a:
-                    st.write("")
-                with col2a:
-                    st.subheader("")
-
-                    Search = st.button("Take me to 19th Street", key="SearchButton")
-                with col3a:
-                    st.write("")
-                if ExperienceLevel is not None and Search:
-
                     st.markdown("""
                                     <style>
-                                     div[data-baseweb="select"] {
-                                        visibility: hidden;
-                                        height: 0%;
-                                        position: fixed;
+                                        .st-au {
+                                        border-radius:30px; 
                                         }
-                                        .row-widget.stTextInput.css-pb6fr7.edfmue0 {
-                                        visibility: hidden;
-                                        height: 0%;
-                                        position: fixed;
-                                        }
-                                        .css-17z41qg.e16nr0p34{
-                                         visibility: hidden;
-                                        height: 0%;
-                                        position: fixed;
-                                        }
+                                     div[data-testid="stForm"] {border: 0px}
+    
+                                    </style>""", unsafe_allow_html=True)
 
-                                        .css-17z41qg.e16nr0p34{
-                                         visibility: hidden;
-                                        height: 0%;
-                                        position: fixed;
-                                        }
+                    col1a, col2a, col3a = st.columns([1.1, 1, 1])
+                    with col1a:
+                        st.write("")
+                    with col2a:
+                        st.subheader("")
+                        Search = st.form_submit_button("Take me to 19th Street", key="SearchButton")
+                    with col3a:
+                        st.write("")
 
-                                        .css-17z41qg.e16nr0p34{
-                                         visibility: hidden;
-                                        height: 0%;
-                                        position: fixed;
-                                        }
-                                        .css-1db87p3.edgvbvh10{
-                                         visibility: hidden;
-                                        height: 0%;
-                                        position: fixed;
-                                        }
-                                        div[class="row-widget stSelectbox"] {
-                                        visibility: hidden;
-                                        height: 0%;
-                                        position: fixed;
-                                        }
+                    if Search:
+                        if ExperienceLevel is not None and Search:
 
+                            st.markdown("""
+                                            <style>
+                                             div[data-baseweb="select"] {
+                                                visibility: hidden;
+                                                height: 0%;
+                                                position: fixed;
+                                                }
+                                                .row-widget.stTextInput.css-pb6fr7.edfmue0 {
+                                                visibility: hidden;
+                                                height: 0%;
+                                                position: fixed;
+                                                }
+                                                .css-17z41qg.e16nr0p34{
+                                                 visibility: hidden;
+                                                height: 0%;
+                                                position: fixed;
+                                                }
+        
+                                                .css-17z41qg.e16nr0p34{
+                                                 visibility: hidden;
+                                                height: 0%;
+                                                position: fixed;
+                                                }
+        
+                                                .css-17z41qg.e16nr0p34{
+                                                 visibility: hidden;
+                                                height: 0%;
+                                                position: fixed;
+                                                }
+                                                .css-1db87p3.edgvbvh10{
+                                                 visibility: hidden;
+                                                height: 0%;
+                                                position: fixed;
+                                                }
+                                                div[class="row-widget stSelectbox"] {
+                                                visibility: hidden;
+                                                height: 0%;
+                                                position: fixed;
+                                                }
+        
+        
+                                            </style>
+                                                """, unsafe_allow_html=True)
 
-                                    </style>
-                                        """, unsafe_allow_html=True)
+                            NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
+                                                unsafe_allow_html=True)
 
-                    NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
-                                        unsafe_allow_html=True)
-
-                    # progressText.markdown(
-                    #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
-                    #     unsafe_allow_html=True)
-                    # links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    # my_bar.progress(25, text=f"")
-                    #
-                    # links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    # my_bar.progress(50, text=f"")
-                    # progressText.markdown(
-                    #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hang tight! We're scanning for opportunities that match your unique set of {st.session_state['softSkills']}</h6>",
-                    #     unsafe_allow_html=True)
-                    #
-                    # links3 = run_selenium1(f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    # my_bar.progress(75, text=f"")
-                    # progressText.markdown(
-                    #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'> Hold tight, big dawg 🐶</h6>",
-                    #     unsafe_allow_html=True)
-                    #
-                    #
-                    # links4 = run_selenium1(f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                    # my_bar.progress(90, text=f"")
-                    # progressText.markdown(
-                    #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'> Doing one last search...</h6>",
-                    #     unsafe_allow_html=True)
-                    #
-                    #
-                    # links5 = run_selenium1(f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))                    #
-                    # my_bar.progress(100, text=f"")
-
-
-
-                    def progress_shit():
-                        progressText.markdown(
-                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
-                            unsafe_allow_html=True)
-                        my_bar.progress(25, text=f"")
-                        time.sleep(10)
-                        progressText.markdown(
-                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hang tight! We're scanning for opportunities that match your unique set of {st.session_state['softSkills']}</h6>",
-                            unsafe_allow_html=True)
-                        my_bar.progress(50, text=f"")
-                        time.sleep(10)
-                        progressText.markdown(
-                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
-                            unsafe_allow_html=True)
-                        my_bar.progress(75, text=f"")
-                        time.sleep(15)
-                        progressText.markdown(
-                            f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Doing one last search...</h6>",
-                            unsafe_allow_html=True)
-                        my_bar.progress(75, text=f"")
-
-                    with ThreadPoolExecutor(max_workers=5) as executor:
-                        future1 = executor.submit(run_selenium1,
-                                                  f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",
-                                                  f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1,
-                                                  resumeContent, locationpreference.replace(' ', '_'))
-                        future2 = executor.submit(run_selenium1,
-                                                  f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}",
-                                                  f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1,
-                                                  resumeContent, locationpreference.replace(' ', '_'))
-                        future3 = executor.submit(run_selenium1,
-                                                  f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}",
-                                                  f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1,
-                                                  resumeContent, locationpreference.replace(' ', '_'))
-                        future4 = executor.submit(run_selenium1,
-                                                  f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}",
-                                                  f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1,
-                                                  resumeContent, locationpreference.replace(' ', '_'))
-                        future5 = executor.submit(run_selenium1,
-                                                  f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
-                                                  f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
-                                                  resumeContent, locationpreference.replace(' ', '_'))
-
-                        future6 = executor.submit(progress_shit())
-
-                    executor.shutdown(wait=True)
-                    links1 = future1.result()
-                    links2 = future2.result()
-                    links3 = future3.result()
-                    links4 = future4.result()
-                    links5 = future5.result()
+                            # progressText.markdown(
+                            #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
+                            #     unsafe_allow_html=True)
+                            # links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                            # my_bar.progress(25, text=f"")
+                            #
+                            # links2 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                            # my_bar.progress(50, text=f"")
+                            # progressText.markdown(
+                            #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hang tight! We're scanning for opportunities that match your unique set of {st.session_state['softSkills']}</h6>",
+                            #     unsafe_allow_html=True)
+                            #
+                            # links3 = run_selenium1(f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                            # my_bar.progress(75, text=f"")
+                            # progressText.markdown(
+                            #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'> Hold tight, big dawg 🐶</h6>",
+                            #     unsafe_allow_html=True)
+                            #
+                            #
+                            # links4 = run_selenium1(f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
+                            # my_bar.progress(90, text=f"")
+                            # progressText.markdown(
+                            #     f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'> Doing one last search...</h6>",
+                            #     unsafe_allow_html=True)
+                            #
+                            #
+                            # links5 = run_selenium1(f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))                    #
+                            # my_bar.progress(100, text=f"")
 
 
-                    executor.shutdown(wait=True)
 
-                    print(threading.enumerate())
+                            def progress_shit():
+                                progressText.markdown(
+                                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
+                                    unsafe_allow_html=True)
+                                my_bar.progress(25, text=f"")
+                                time.sleep(10)
+                                progressText.markdown(
+                                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hang tight! We're scanning for opportunities that match your unique set of {st.session_state['softSkills']}</h6>",
+                                    unsafe_allow_html=True)
+                                my_bar.progress(50, text=f"")
+                                time.sleep(10)
+                                progressText.markdown(
+                                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",
+                                    unsafe_allow_html=True)
+                                my_bar.progress(75, text=f"")
+                                time.sleep(15)
+                                progressText.markdown(
+                                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Doing one last search...</h6>",
+                                    unsafe_allow_html=True)
+                                my_bar.progress(75, text=f"")
 
-                    st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
-                    Archives = links1 + links2 + links3 + links4 + links5
+                            with ThreadPoolExecutor(max_workers=5) as executor:
+                                future1 = executor.submit(run_selenium1,
+                                                          f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",
+                                                          f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1,
+                                                          resumeContent, locationpreference.replace(' ', '_'))
+                                future2 = executor.submit(run_selenium1,
+                                                          f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}",
+                                                          f"{FreshSkills[1].replace(' ', '_')}", f"{undesired}", 1,
+                                                          resumeContent, locationpreference.replace(' ', '_'))
+                                future3 = executor.submit(run_selenium1,
+                                                          f"{FreshJobTitles[2].replace(' ', '-')}-{ExperienceLevel}",
+                                                          f"{FreshSkills[2].replace(' ', '_')}", f"{undesired}", 1,
+                                                          resumeContent, locationpreference.replace(' ', '_'))
+                                future4 = executor.submit(run_selenium1,
+                                                          f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}",
+                                                          f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1,
+                                                          resumeContent, locationpreference.replace(' ', '_'))
+                                future5 = executor.submit(run_selenium1,
+                                                          f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
+                                                          f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
+                                                          resumeContent, locationpreference.replace(' ', '_'))
 
-                    for job in Archives:
-                        firebase = pyrebase.initialize_app(firebaseconfig)
-                        db = firebase.database()
-                        link = job[0]
-                        title = job[1]
-                        companyName = job[2]
-                        shortSummary = job[3]
-                        fullDescription = job[4]
-                        location = job[5]
-                        skills = job[6]
-                        data = {
-                            "Link": str(link),
-                            "Title": str(title),
-                            "Company Name": str(companyName),
-                            "Short Summary": str(shortSummary),
-                            "Full Description": str(fullDescription),
-                            "Location": str(location),
-                            "Skills": str(skills),
-                        }
+                                future6 = executor.submit(progress_shit())
 
-                        db.child("users").child(str(localId)).child("Archive").push(data)
-                    st.subheader(datetime.datetime.now())
+                            executor.shutdown(wait=True)
+                            links1 = future1.result()
+                            links2 = future2.result()
+                            links3 = future3.result()
+                            links4 = future4.result()
+                            links5 = future5.result()
 
 
-                    switch_page("results")
+                            executor.shutdown(wait=True)
+
+                            print(threading.enumerate())
+
+                            st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
+                            Archives = links1 + links2 + links3 + links4 + links5
+
+                            for job in Archives:
+                                firebase = pyrebase.initialize_app(firebaseconfig)
+                                db = firebase.database()
+                                link = job[0]
+                                title = job[1]
+                                companyName = job[2]
+                                shortSummary = job[3]
+                                fullDescription = job[4]
+                                location = job[5]
+                                skills = job[6]
+                                data = {
+                                    "Link": str(link),
+                                    "Title": str(title),
+                                    "Company Name": str(companyName),
+                                    "Short Summary": str(shortSummary),
+                                    "Full Description": str(fullDescription),
+                                    "Location": str(location),
+                                    "Skills": str(skills),
+                                }
+
+                                db.child("users").child(str(localId)).child("Archive").push(data)
+                            st.subheader(datetime.datetime.now())
+
+
+                            switch_page("results")
         with colmain3:
             st.write("")
 
