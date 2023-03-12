@@ -534,7 +534,24 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
-                            element[1] = element[1] + "(Saved)"
+
+                            tuple = element[1]
+
+                            # Convert the tuple to a list
+                            list_ = list(tuple)
+
+                            # Create a text input widget to allow the user to enter a new value
+                            value = "Saved"
+
+                            # Update the value at index 2 in the list
+                            list_[2] = list_[2] + value
+
+                            # Convert the list back to a tuple
+                            tuple = tuple(list_)
+
+                            # Update the tuple in the set
+                            element[1] = tuple
+
                             Save.empty()
 
 
