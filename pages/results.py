@@ -532,24 +532,24 @@ if __name__ == "__main__":
                     skills_text = compatibilityScore.split('Skills that match: ')[1]
 
                     with st.expander(f"{location}"):
+
+                        st.write(f"{shortSummary}")
                         st.metric("Compatibility out of 5", f"{score_text}", f"{skills_text}")
                         st.markdown("""
-                                <style>
-                                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > label > div > div > p {
-                                font-size: 17px;
-                                font-weight: bold;
-                                }
+                                                        <style>
+                                                        #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > label > div > div > p {
+                                                        font-size: 17px;
+                                                        font-weight: bold;
+                                                        }
 
-                                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
-                                font-size: 17px;
-                                font-weight:
-                                }
-                                
+                                                        #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
+                                                        font-size: 17px;
+                                                        font-weight:
+                                                        }
 
-                                </style>
-                                """, unsafe_allow_html=True)
-                        st.write(f"{shortSummary}")
 
+                                                        </style>
+                                                        """, unsafe_allow_html=True)
                         col1, col2, col3 = st.columns([1.5, 1, 3])
 
                         with col1:

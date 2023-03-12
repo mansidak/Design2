@@ -620,6 +620,7 @@ if __name__ == "__main__":
                 NameHolder.markdown(f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{Name}</h2>",
                                     unsafe_allow_html=True)
                 if 'newSkills' not in st.session_state:
+
                     with st.spinner("Parsing resume..."):
                         try:
                             newJobtitles = openAIGetRelevantJobTitlesDuplicate(resumeContent)
@@ -1063,11 +1064,11 @@ if __name__ == "__main__":
                                                               resumeContent, locationpreference.replace(' ', '_'))
                                     future4 = executor.submit(run_selenium1,
                                                               f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",
-                                                              f"", f"{undesired},Deloitte", 1,
+                                                              "", f"{undesired},Deloitte", 1,
                                                               resumeContent, locationpreference.replace(' ', '_'))
                                     future5 = executor.submit(run_selenium1,
                                                               f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}",
-                                                              f"", f"{undesired},Deloitte", 1,
+                                                              "", f"{undesired},Deloitte", 1,
                                                               resumeContent, locationpreference.replace(' ', '_'))
 
                                     future6 = executor.submit(progress_shit())
