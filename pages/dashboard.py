@@ -377,6 +377,7 @@ if __name__ == "__main__":
     background-color:#fefefe;
     max-width:500px;
     max-height:30px;
+    line-height: 2px;
     display:block;
     padding:5px;
     border-bottom:none;
