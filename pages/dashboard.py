@@ -370,7 +370,7 @@ if __name__ == "__main__":
     }
     button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {
     font-size: 15px;
-    line-height: 3.5;
+    line-height: 0.5;
      }  
 
     
