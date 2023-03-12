@@ -353,7 +353,6 @@ if __name__ == "__main__":
     background-color:#ffffff;
     color:black;
     border-radius:5px;
-    height:auto;
     min-width:150px;
     max-height:30px;
     padding:20px;
@@ -378,7 +377,6 @@ if __name__ == "__main__":
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
     max-width:500px;
-    max-height:30px;
     padding:5px;
     border-bottom:none;
     border-radius:5px;
@@ -388,7 +386,6 @@ if __name__ == "__main__":
     button[aria-selected="true"] {
     background-color: #eeeeee;
     border-radius:5px;
-    max-height:30px;
     }
 
     .css-c0yjmw.e1fqkh3o9{
