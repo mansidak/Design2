@@ -502,13 +502,22 @@ if __name__ == "__main__":
                     compatibilityScore = element[7]
                     col1mark, col2mark= st.columns([1, 0.1])
                     with col1mark:
+
+                        score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
+                        skills_text = compatibilityScore.split('Skills that match: ')[1]
                         st.subheader("")
                         st.markdown(
                             f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
                             unsafe_allow_html=True)
-                        st.markdown(
-                            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-                            unsafe_allow_html=True)
+
+                        if float(score_text) > 3:
+                            st.markdown(
+                                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName} 🎖️</h6>",
+                                unsafe_allow_html=True)
+                        else:
+                            st.markdown(
+                                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                                unsafe_allow_html=True)
                     with col2mark:
                         Save = st.empty()
                         if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
@@ -528,8 +537,6 @@ if __name__ == "__main__":
                             st.write("Saved!")
                             Save.empty()
 
-                    score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
-                    skills_text = compatibilityScore.split('Skills that match: ')[1]
 
                     with st.expander(f"{location}"):
 
