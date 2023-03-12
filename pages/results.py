@@ -534,7 +534,7 @@ if __name__ == "__main__":
                         # st.markdown(f"**Location:** {location}.")
                         st.write(f"{shortSummary}")
 
-                        col1, col2, col3 = st.columns([1, 1, 3])
+                        col1, col2, col3 = st.columns([1.5, 1, 3])
 
                         with col1:
                             container_2 = st.empty()
