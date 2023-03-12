@@ -915,6 +915,7 @@ if __name__ == "__main__":
                                 <style>
                                     .st-au {
                                     border-radius:30px; 
+                                    [data-testid="stForm"] {border: 0px}
                                     }
                                 </style>""", unsafe_allow_html=True)
 
