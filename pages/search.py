@@ -1190,12 +1190,10 @@ def set_code(code: str):
     st.experimental_set_query_params(code=code)
 
 
-col1form, col2form, col3form = st.columns([1, 1, 1])
+col1form, col2form, col3form = st.columns([2, 1, 2])
 with col1form:
     st.write("")
 with col2form:
-
-
     def login_form(auth):
         email = st.text_input(
             label="email", placeholder="fullname@gmail.com")
@@ -1212,24 +1210,6 @@ with col2form:
         if st.button("Forgot Password", key="forgotpassword"):
             auth.send_password_reset_email("email")
 
-
-
-
-    def Signup_form(auth):
-        email = st.text_input(
-            label="email", placeholder="fullname@gmail.com")
-        password = st.text_input(
-            label="password", placeholder="password", type="password")
-
-        if st.button("login"):
-            try:
-                user = auth.sign_in_with_email_and_password(email, password)
-                st.session_state['user'] = user
-                st.experimental_rerun()
-            except requests.HTTPError as exception:
-                st.write(exception)
-        if st.button("Forgot Password", key="forgotpassword"):
-            auth.send_password_reset_email("email")
 
 with col3form:
     st.write("")
