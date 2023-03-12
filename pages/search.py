@@ -1067,7 +1067,7 @@ if __name__ == "__main__":
                     st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
                     Archives = links1 + links2 + links3 + links4 + links5
 
-                    for job in Archives:
+                    for job in set(Archives):
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         link = job[0]
