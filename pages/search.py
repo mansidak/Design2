@@ -639,7 +639,7 @@ if __name__ == "__main__":
                 Matches = st.session_state['Matches']
                 # st.write(newJobtitles)
                 FreshJobTitles, FreshSkills = MatchMethod(Matches)
-                # st.write(FreshJobTitles, FreshSkills)
+                st.write(FreshJobTitles, FreshSkills)
                 with st.form("my_form"):
                     holder2 = st.empty()
                     ExperienceLevel = holder2.selectbox(
