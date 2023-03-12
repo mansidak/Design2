@@ -1056,14 +1056,14 @@ if __name__ == "__main__":
 
                                 progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hang tight! We're scanning for opportunities that match your unique set of {st.session_state['softSkills']}</h6>", unsafe_allow_html=True)
                                 my_bar.progress(50, text=f"")
-                                time.sleep(6)
+                                time.sleep(10)
 
                                 progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",unsafe_allow_html=True)
-                                my_bar.progress(75, text=f"")
+                                my_bar.progress(60, text=f"")
                                 time.sleep(10)
 
                                 progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Generating Compatibility Scores 💯</h6>",unsafe_allow_html=True)
-                                my_bar.progress(90, text=f"")
+                                my_bar.progress(80, text=f"")
                                 time.sleep(6)
 
                                 progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Doing one last search...</h6>",unsafe_allow_html=True)
