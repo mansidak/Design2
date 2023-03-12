@@ -937,7 +937,7 @@ if __name__ == "__main__":
                                              div[data-testid="stForm"]  {
                                                 visibility: hidden;
                                                 height: 0%;
-                                                position: fixed;
+                                                opacity:0;
                                                 }
                                                 
                                                 
