@@ -616,7 +616,7 @@ if __name__ == "__main__":
 
                     st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-            colconclusion1, colconclusion2 = st.columns([1, 1])
+            colconclusion1, colconclusion2 = st.columns([1, 3])
             with colconclusion1:
 
                 html_string = "<ul>"
