@@ -18,7 +18,7 @@ import requests
 import numpy as np
 import os
 
-st.set_page_config(page_title="19th Street | Dashboard", page_icon="⓵⓽", initial_sidebar_state="collapsed", layout="wide")
+st.set_page_config(page_title="19th Street | Dashboard", page_icon="19th", initial_sidebar_state="collapsed", layout="wide")
 
 @st.cache(allow_output_mutation=True)
 def get_manager():
