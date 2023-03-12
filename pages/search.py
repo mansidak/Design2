@@ -1023,16 +1023,16 @@ if __name__ == "__main__":
 
 
                             links4 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"-", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                        st.subheader(f"https://search.linkup.com/search/results/{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}-jobs?all=-&none={undesired}&location={locationpreference.replace(' ', '_')}&pageNum=1")
+                            st.subheader(f"https://search.linkup.com/search/results/{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}-jobs?all=-&none={undesired}&location={locationpreference.replace(' ', '_')}&pageNum=1")
 
-                        my_bar.progress(90, text=f"")
+                            my_bar.progress(90, text=f"")
                             progressText.markdown(
                                 f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'> Doing one last search...</h6>",
                                 unsafe_allow_html=True)
 
 
                             links5 = run_selenium1(f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", f"-", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))                    #
-                        st.subheader(f"https://search.linkup.com/search/results/{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}-jobs?all=-&none={undesired}&location={locationpreference.replace(' ', '_')}&pageNum=1")
+                            st.subheader(f"https://search.linkup.com/search/results/{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}-jobs?all=-&none={undesired}&location={locationpreference.replace(' ', '_')}&pageNum=1")
 
                             my_bar.progress(100, text=f"")
 
