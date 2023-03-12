@@ -340,7 +340,8 @@ if __name__ == "__main__":
                     try:
                         driver.get(
                             f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
-                        st.write( f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
+
+                        st.subheader( f"https://search.linkup.com/search/results/{jobTitle}-jobs?all={skill1}&none={undesired}&location={locationpreference}&pageNum={pageNumber}")
                         jobs_block = driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div[2]")
                         time.sleep(1)
                         links = []
