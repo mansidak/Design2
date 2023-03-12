@@ -187,7 +187,7 @@ if __name__ == "__main__":
                                         }
                                         </style>
                                         <div class="footer" font-family: Sans-Serif;font-weight: lighter;>
-                                        <h3><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>ALPHA</span></h3>
+                                        <h5><span style='background: -webkit-gradient(linear,left top,right bottom,from(#34C800), to(#FE0000));-webkit-background-clip:text;-webkit-text-fill-color: transparent;'>ALPHA</span></h5>
                                         <p>Don't switch tabs while running.</p>
                                         </div>
                                         """
