@@ -1109,23 +1109,6 @@ if __name__ == "__main__":
                             st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
                             Archives = links1 + links2 + links3 + links4 + links5
 
-                            # for job in Archives:
-                            #     firebase = pyrebase.initialize_app(firebaseconfig)
-                            #     db = firebase.database()
-                            #     link = job[0]
-                            #     title = job[1]
-                            #     companyName = job[2]
-                            #     location = job[5]
-                            #     data = {
-                            #         "Link": str(link),
-                            #         "Title": str(title),
-                            #         "Company Name": str(companyName),
-                            #         "Location": str(location),
-                            #     }
-                            #
-                            #     db.child("users").child(str(localId)).child("Archive").push(data)
-                            # st.subheader(datetime.datetime.now())
-
 
                             switch_page("results")
         with colmain3:
@@ -1218,6 +1201,15 @@ with col2form:
                 st.write(exception)
         if st.button("Forgot Password", key="forgotpassword"):
             auth.send_password_reset_email("email")
+
+    st.markdown("""
+    
+    .stAlert{
+    height:0px;
+    visibility:hidden;
+    }
+    
+    """)
 
 
     def Signup_form(auth):
