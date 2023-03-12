@@ -417,8 +417,8 @@ if __name__ == "__main__":
                                      "content": """
                                      You're an AI Bot calculates compatibility score of a job seeker for a given job. Your output should always be of the following format: 
                                      
-                                     "Score (out of 5, example 2.5,3,4.5): ;(end this with semicolon)
-                                     Skills that match: (list 2-3 skills that overlap);(end this with semicolon)"
+                                     "Score: (out of 5, example 2.5,3,4.5) ;
+                                     Skills that match: (list 2-3 skills that overlap);"
                                      
                                      Most importantly, you don't add any extra fluff or explanation to your response. Your response is always in the given format.
                                      """},
