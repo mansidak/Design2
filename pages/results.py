@@ -650,10 +650,9 @@ if __name__ == "__main__":
                 "Full Description": str(fullDescription),
                 "Location": str(location),
                 "Skills": str(skills),
-                "TimeStamp": str(datetime.datetime.now().timetuple())
             }
 
-            db.child("users").child(str(localId)).child("Archive").child(str(uuid.uuid4().hex)).push(data)
+            db.child("users").child(str(localId)).child("Archive").push(data)
         st.subheader(datetime.datetime.now())
 
 
