@@ -526,9 +526,9 @@ if __name__ == "__main__":
                     score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
                     skills_text = compatibilityScore.split('Skills that match: ')[1]
 
-                    with st.expander("Compatibility"):
+                    with st.expander(f"{location}"):
                         st.metric("", f"{score_text}%", f"{skills_text}")
-                        st.markdown(f"**Location:** {location}.")
+                        # st.markdown(f"**Location:** {location}.")
                         st.write(f"{shortSummary}")
 
                         col1, col2, col3 = st.columns([1, 1, 3])
