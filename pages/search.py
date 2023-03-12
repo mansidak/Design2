@@ -1003,7 +1003,7 @@ if __name__ == "__main__":
                                 f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>",
                                 unsafe_allow_html=True)
                             links1 = run_selenium1(f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}", f"{FreshSkills[0].replace(' ', '_')}", f"{undesired}", 1, resumeContent, locationpreference.replace(' ', '_'))
-                            st.write(f"https://search.linkup.com/search/results/{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}-jobs?all={FreshSkills[0].replace(' ', '_')}&none={undesired}&location={locationpreference.replace(' ', '_')}&pageNum=1")
+                            st.write(f"https://search.linkup.com/search/results/")
 
                             my_bar.progress(25, text=f"")
 
