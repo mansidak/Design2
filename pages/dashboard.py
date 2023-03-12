@@ -353,7 +353,6 @@ if __name__ == "__main__":
     background-color:#ffffff;
     color:black;
     border-radius:5px;
-    max-height:10px !important;
     min-width:150px;
     padding:20px;
     margin: 0 auto;
@@ -368,10 +367,15 @@ if __name__ == "__main__":
     height:0px;
     visibility:hidden;
     }
+    
     button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p {
     font-size: 15px;
-    line-height: 0.25;
+    line-height: 0.025;
      }  
+     
+     button[data-baseweb="tab"]{
+    max-height:30px;
+     } 
 
     
     div[data-baseweb="tab-list"] {
