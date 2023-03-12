@@ -1067,7 +1067,7 @@ if __name__ == "__main__":
                     st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
                     Archives = links1 + links2 + links3 + links4 + links5
 
-                    for job in set(Archives):
+                    for job in Archives:
                         firebase = pyrebase.initialize_app(firebaseconfig)
                         db = firebase.database()
                         link = job[0]
@@ -1086,7 +1086,7 @@ if __name__ == "__main__":
                             "Location": str(location),
                             "Skills": str(skills)
                         }
-                        db.child("users").child(str(localId)).child("Archive").child(str(datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))).push(data)
+                        db.child("users").child(str(localId)).child("Archive").child(str(datetime.datetime.now().strftime("%Y%m%d-%H%M"))).push(data)
                         time.sleep(5)
                     st.subheader(datetime.datetime.now())
 
