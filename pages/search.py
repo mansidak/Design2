@@ -1058,7 +1058,7 @@ if __name__ == "__main__":
                                     future5 = executor.submit(run_selenium1, f"{FreshJobTitles[1].replace(' ', '-')}-{ExperienceLevel}", "-", f"{undesired},Deloitte", 1, resumeContent, locationpreference.replace(' ', '_'))
                                     future6 = executor.submit(progress_shit())
                             except:
-                                st.experimental_rerun()
+                                pass
 
                             executor.shutdown(wait=True)
                             links1 = future1.result()
