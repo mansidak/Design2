@@ -934,14 +934,14 @@ if __name__ == "__main__":
 
                             st.markdown("""
                                             <style>
-                                             div[data-baseweb="select"] {
+                                             div[data-testid="stForm"]  {
                                                 visibility: hidden;
                                                 height: 0%;
                                                 position: fixed;
                                                 }
                                                 
-                                                .stForm{
-                                                {
+                                                
+                                             div[data-baseweb="select"] {
                                                 visibility: hidden;
                                                 height: 0%;
                                                 position: fixed;
