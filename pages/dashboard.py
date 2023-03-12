@@ -354,6 +354,7 @@ if __name__ == "__main__":
     color:black;
     border-radius:5px;
     min-width:150px;
+    max-height:30px;
     padding:20px;
     margin: 0 auto;
     }
@@ -367,14 +368,7 @@ if __name__ == "__main__":
     height:0px;
     visibility:hidden;
     }
-    
-    button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"]{
-    margin-top:-30px;
-    max-height:10px;
-     }  
-     button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p{
-    max-height:10px;
-     } 
+
     button[class="st-dn st-do st-b6 st-b5 st-ar st-as st-bt st-dp st-d1 st-dq st-dr st-ds st-dt st-cf st-ch st-cg st-ci st-cj st-cl st-ck st-cm st-du st-dv st-dw st-b1 st-dx st-cn st-dy st-dz st-e0 st-e1 st-e2 st-e3 st-ae st-e4 st-ag st-ah st-ai st-aj st-e5 st-e6 st-e7 st-e8 st-e9 st-ea"]{
     max-height:10px;
     }
