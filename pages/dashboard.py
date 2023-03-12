@@ -472,7 +472,7 @@ if __name__ == "__main__":
                                filter:invert(1);
                                }
                                .css-1uhah0b.e8zbici2{
-                               height:30px;
+                               height:40px;
                                }
                                .css-13e20ss{
                                visibility: hidden;
