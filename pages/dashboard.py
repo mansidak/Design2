@@ -369,11 +369,11 @@ if __name__ == "__main__":
     visibility:hidden;
     }
 
-    #button{
+    button{
     max-height:30px;
     }
     
-    input[type="button"] { 
+    button[type="button"] { 
         max-height:30px;
 
     } 
