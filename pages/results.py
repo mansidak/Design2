@@ -511,11 +511,11 @@ if __name__ == "__main__":
 
                         if float(score_text) > 3:
                             st.markdown(
-                                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName} 🎖️</h6>",
+                                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;&nbsp;{companyName} 🎖️</h6>",
                                 unsafe_allow_html=True)
                         else:
                             st.markdown(
-                                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                                 unsafe_allow_html=True)
                     with col2mark:
                         Save = st.empty()
