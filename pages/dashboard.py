@@ -368,11 +368,13 @@ if __name__ == "__main__":
     height:0px;
     visibility:hidden;
     }
+    button[data-baseweb="tab-list"] > button[data-baseweb="tab"]  {
+    max-height:30px;
+    }  
 
     
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
-    max-height:30px;
     max-width:500px;
     padding:5px;
     border-bottom:none;
