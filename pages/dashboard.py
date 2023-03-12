@@ -374,10 +374,9 @@ if __name__ == "__main__":
      }  
      
      button[data-baseweb="tab"]{
-    max-height:30px;
+     min-height:80px;
      } 
 
-    
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
     max-width:500px;
