@@ -1031,10 +1031,9 @@ if __name__ == "__main__":
                             def progress_shit():
                                 st.markdown("""
                                 <style>
-                                .stProgress .st-bo {
-                                    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	                                }
-	                                
+                                .stProgress{
+                                background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                                }
                                 </style>
                                 """, unsafe_allow_html=True)
 
