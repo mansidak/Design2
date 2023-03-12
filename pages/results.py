@@ -627,7 +627,7 @@ if __name__ == "__main__":
                             st.write("")
 
                     st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
-                    unique_results = temp_set
+            unique_results = temp_set
             colconclusion1, colconclusion2 = st.columns([1, 3])
             with colconclusion1:
 
