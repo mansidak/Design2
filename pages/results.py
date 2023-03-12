@@ -534,22 +534,23 @@ if __name__ == "__main__":
                     with st.expander(f"{companyName}, {location}"):
 
                         st.write(f"{shortSummary}")
-                        st.metric("Compatibility out of 5", f"{score_text}", f"{skills_text}")
                         st.markdown("""
-                                                        <style>
-                                                        div[class = "streamlit-expanderHeader"] > div[data-testid="stMarkdownContainer"]{
-                                                        font-size: 17px;
-                                                        font-weight: ;
-                                                        }
+                                                              <style>
+                                                              div[data-testid="stMarkdownContainer"] > p{
+                                                              font-size: 17px;
+                                                              font-weight: ;
+                                                              }
 
-                                                        #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
-                                                        font-size: 17px;
-                                                        font-weight:
-                                                        }
+                                                              #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
+                                                              font-size: 17px;
+                                                              font-weight:
+                                                              }
 
 
-                                                        </style>
-                                                        """, unsafe_allow_html=True)
+                                                              </style>
+                                                              """, unsafe_allow_html=True)
+                        st.metric("Compatibility out of 5", f"{score_text}", f"{skills_text}")
+
                         col1, col2, col3 = st.columns([1, 1.5, 3])
 
                         with col1:
