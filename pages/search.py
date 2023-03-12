@@ -939,11 +939,17 @@ if __name__ == "__main__":
                                                 height: 0%;
                                                 position: fixed;
                                                 }
+                                                button[kind ="secondaryFormSubmit]{
+                                                visibility: hidden;
+                                                height: 0%;
+                                                position: fixed;
+                                                }
                                                 .row-widget.stTextInput.css-pb6fr7.edfmue0 {
                                                 visibility: hidden;
                                                 height: 0%;
                                                 position: fixed;
                                                 }
+                                                
                                                 .css-17z41qg.e16nr0p34{
                                                  visibility: hidden;
                                                 height: 0%;
