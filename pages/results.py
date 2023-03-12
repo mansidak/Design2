@@ -534,8 +534,7 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
-                            del unique_results[indices_list[index]]
-                            del indices_list[index]
+                            unique_results.remove(element)
                             Save.empty()
 
 
