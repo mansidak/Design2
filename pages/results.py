@@ -531,9 +531,10 @@ if __name__ == "__main__":
                     score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
                     skills_text = compatibilityScore.split('Skills that match: ')[1]
 
-                    with st.expander(f"{location}"):
+                    with st.expander(f"Description"):
 
                         st.write(f"{shortSummary}")
+                        st.write(f"Location: {location}")
                         st.metric("Compatibility out of 5", f"{score_text}", f"{skills_text}")
                         st.markdown("""
                                                         <style>
