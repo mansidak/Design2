@@ -269,7 +269,7 @@ if __name__ == "__main__":
             st.write("")
 
             indices_list = [i for i in range(len(unique_results))]
-            for element, index in enumerate(unique_results):
+            for element, index in unique_results:
                 if element[5] in options and element[6].replace('-', '') in options2:
                     link = element[0]
                     title = element[1]
