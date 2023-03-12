@@ -416,7 +416,7 @@ if __name__ == "__main__":
                                     {"role": "system",
                                      "content": """
                                      You're an AI Bot calculates compatibility score of a job seeker for a given job. Your output should always be of the following format: 
-                                     "Score: (out of 100);
+                                     "Score (out of 5, example 3/5,4/5):;
                                      Skills that match: (list 2-3 skills that overlap)"
                                      Most importantly, you don't add any extra fluff or explanation to your response. Your response is always in the given format.
                                      """},
@@ -1043,6 +1043,10 @@ if __name__ == "__main__":
                                                   f"{FreshJobTitles[3].replace(' ', '-')}-{ExperienceLevel}",
                                                   f"{FreshSkills[3].replace(' ', '_')}", f"{undesired}", 1,
                                                   resumeContent, locationpreference.replace(' ', '_'))
+                        future5 = executor.submit(run_selenium1,
+                                                  f"{FreshJobTitles[4].replace(' ', '-')}-{ExperienceLevel}",
+                                                  f"{FreshSkills[4].replace(' ', '_')}", f"{undesired}", 1,
+                                                  resumeContent, locationpreference.replace(' ', '_'))
 
                         future6 = executor.submit(progress_shit())
 
@@ -1051,15 +1055,15 @@ if __name__ == "__main__":
                     links2 = future2.result()
                     links3 = future3.result()
                     links4 = future4.result()
+                    links5 = future5.result()
 
 
                     executor.shutdown(wait=True)
 
                     print(threading.enumerate())
-                    # st.write(threading.enumerate())
 
-                    st.session_state["FinalResults"] = links1 + links2 + links3 + links4
-                    Archives = links1 + links2 + links3 + links4
+                    st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
+                    Archives = links1 + links2 + links3 + links4 + links5
 
                     for job in Archives:
                         firebase = pyrebase.initialize_app(firebaseconfig)
