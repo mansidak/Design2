@@ -374,6 +374,8 @@ if __name__ == "__main__":
     }
     
     input[type="button"] { 
+        max-height:30px;
+
     } 
 
     div[data-baseweb="tab-list"] {
