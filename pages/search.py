@@ -1192,10 +1192,12 @@ def set_code(code: str):
 
 
 def login_form(auth):
+
         col1form, col2form, col3form = st.columns([2, 1, 2])
         with col1form:
             st.write("")
         with col2form:
+            st.title("Login")
             email = st.text_input(
                 label="email", placeholder="fullname@gmail.com")
             password = st.text_input(
@@ -1262,7 +1264,7 @@ if st.session_state['user'] is None:
 
         main(user=user)
     except:
-        st.title("Login")
+
         login_form(auth)
 
 else:
