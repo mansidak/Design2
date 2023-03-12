@@ -370,10 +370,11 @@ if __name__ == "__main__":
     }
 
     #button{
-
-    height: 3em;
-    width: 3em;
+    max-height:30px;
     }
+    
+    input[type="button"] { 
+    } 
 
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
