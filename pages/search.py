@@ -345,18 +345,17 @@ if __name__ == "__main__":
                     links = []
                     try:
                         jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")[:6]
-
-                        for job in jobs_list1:
-                            all_links = job.find_elements(By.TAG_NAME, "a")
-                            for a in all_links:
-                                if str(a.get_attribute('href')).startswith(
-                                        "https://search.linkup.com/details/") and a.get_attribute('href') not in links:
-                                    links.append(a.get_attribute('href'))
-                                    print(links)
-                                else:
-                                    pass
                     except:
-                        pass
+                        print("didn't exist")
+                    for job in jobs_list1:
+                        all_links = job.find_elements(By.TAG_NAME, "a")
+                        for a in all_links:
+                            if str(a.get_attribute('href')).startswith(
+                                    "https://search.linkup.com/details/") and a.get_attribute('href') not in links:
+                                links.append(a.get_attribute('href'))
+                                print(links)
+                            else:
+                                pass
 
                 def get_links(i, skill1, resumeContent):
                     Final_Links = []
