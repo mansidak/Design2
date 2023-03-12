@@ -534,18 +534,15 @@ if __name__ == "__main__":
                     with st.expander(f"{location}"):
                         labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
                         sizes = [15, 30, 45, 10]
+                        explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
-                        figs = []
+                        fig2 = go.Figure(go.Indicator(
+                            mode="gauge+number",
+                            value=sizes,
+                            domain={'x': [0, 1], 'y': [0, 1]},
+                ))
 
-                        for i in range(len(labels)):
-                            figs.append(go.Figure(go.Indicator(
-                                mode="gauge+number",
-                                value=sizes[i],
-                                domain={'x': [0, 1], 'y': [0, 1]},
-                                title={'text': labels[i]})))
-
-                        for fig in figs:
-                            st.pyplot(fig)
+                        st.pyplot(fig2)
 
                         st.metric("", f"{score_text} out of 5", f"{skills_text}")
                         # st.markdown(f"**Location:** {location}.")
