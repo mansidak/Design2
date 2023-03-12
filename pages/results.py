@@ -684,7 +684,6 @@ if __name__ == "__main__":
             }
 
             db.child("users").child(str(localId)).child("Archive").push(data)
-        st.subheader(datetime.datetime.now())
 
 
 
