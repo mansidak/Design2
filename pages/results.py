@@ -506,7 +506,7 @@ if __name__ == "__main__":
                         skills_text = compatibilityScore.split('Skills that match: ')[1]
                         st.subheader("")
                         st.markdown(
-                            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
+                            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h5 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h5></a>",
                             unsafe_allow_html=True)
 
                         if float(score_text) > 3:
