@@ -59,7 +59,8 @@ if __name__ == "__main__":
         with coldash1:
             st.write("")
         with coldash2:
-            selected2 = option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
+            selected2 = st.empty()
+            selected2.option_menu(None, ["Home", "Search", "Build", 'Dashboard'],
                                     icons=['house', 'search', "file-earmark-font", 'stack'],
                                     menu_icon="cast", default_index=1, orientation="horizontal",
                                     styles={
@@ -945,7 +946,7 @@ if __name__ == "__main__":
 
                     if Search:
                         if ExperienceLevel is not None and Search:
-
+                            selected2.empty()
                             st.markdown("""
                                             <style>
                                              div[data-testid="stForm"]  {
