@@ -370,6 +370,7 @@ if __name__ == "__main__":
     
     button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"]{
     margin-top:-30px;
+    max-height:10px;
      }  
 
 
