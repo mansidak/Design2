@@ -1203,12 +1203,12 @@ with col2form:
             auth.send_password_reset_email("email")
 
     st.markdown("""
-    
+    <style>
     .stAlert{
     height:0px;
     visibility:hidden;
     }
-    
+        </style>
     """, unsafe_allow_html=True)
 
 
