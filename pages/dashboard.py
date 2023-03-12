@@ -375,7 +375,9 @@ if __name__ == "__main__":
      button[data-baseweb="tab"] > div[data-testid="stMarkdownContainer"] > p{
     max-height:10px;
      } 
-
+    button[data-baseweb="tab"]{
+    max-height:10px;
+    }
 
     div[data-baseweb="tab-list"] {
     background-color:#fefefe;
