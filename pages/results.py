@@ -534,9 +534,8 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             st.write("Saved!")
-                            temp_list.append(element)
+                            element[1] = element[1].append("(Saved)")
                             Save.empty()
-
 
 
                     with st.expander(f"{location}"):
@@ -626,9 +625,6 @@ if __name__ == "__main__":
                             st.write("")
 
                     st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
-            st.write(temp_list)
-            for item in temp_list:
-                unique_results.remove(item)
 
             colconclusion1, colconclusion2 = st.columns([1, 3])
             with colconclusion1:
