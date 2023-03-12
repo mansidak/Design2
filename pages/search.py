@@ -945,7 +945,8 @@ if __name__ == "__main__":
                                                 visibility: hidden;
                                                 height: 0%;
                                                 position: fixed;
-                                                }}
+                                                }
+                                                
                                                 button[kind ="secondaryFormSubmit]{
                                                 visibility: hidden;
                                                 height: 0%;
