@@ -333,7 +333,9 @@ if __name__ == "__main__":
         with ResumeTab:
             colresult11, colresult22 = st.columns([0.5, 1])
             with colresult11:
-                st.header("Profile")
+                st.markdown(
+                    f"<h2 style='text-align:left;font-weight:normal;font-family: Baskerville'>Profile Information</h2>",
+                    unsafe_allow_html=True)
             with colresult22:
                 if FirebaseResumeContent:
                         st.markdown(
