@@ -536,6 +536,10 @@ if __name__ == "__main__":
     max-height:30px;
     }
     
+    div[data-baseweb="tab-border"]{
+    height:0px;
+    visibility:hidden;
+    }
 
     div[data-baseweb="tab-list"] {
     background-color:rgba(255, 122, 89, 0);
