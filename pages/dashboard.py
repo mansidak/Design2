@@ -573,10 +573,11 @@ if __name__ == "__main__":
                                backdrop-filter: blur(10px);
                                height: 40px;
                                max-width: 200px;
+                               margin-top:300px;
                                position: fixed;
                                top: 50%;
                                left: 50%;
-                               transform: translate(-50%, -80%);
+                               transform: translate(-50%, -50%);
                                z-index:99999;
                                width: 50%;
                              }
