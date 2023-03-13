@@ -5,16 +5,16 @@ import streamlit as st
 import openai
 from docx import Document
 from PIL import Image
-from streamlit_modal import Modal
 from streamlit_option_menu import option_menu
 import PyPDF2
 from streamlit_card import card
+import streamlit as st
+from streamlit_modal import Modal
 import random
 from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
-import streamlit.components.v1 as components
 import pyrebase
 from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
@@ -143,29 +143,30 @@ if __name__ == "__main__":
             f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'>{st.session_state['Name'].replace('.','')}'s Dashboard</h1>",
             unsafe_allow_html=True)
 
-
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
         with Saved:
-            with st.form(key = "Hanji"):
-                modal = Modal("Demo Modal", key = "Hanji")
-                open_modal = st.form_submit_button("Open")
-                if modal.is_open():
-                    with modal.container():
-                        st.write("Text goes here")
+            modal = Modal("Demo Modal")
+            open_modal = st.button("Open")
+            if open_modal:
+                modal.open()
 
-                        html_string = '''
-                        <h1>HTML string in RED</h1>
+            if modal.is_open():
+                with modal.container():
+                    st.write("Text goes here")
 
-                        <script language="javascript">
-                          document.querySelector("h1").style.color = "red";
-                        </script>
-                        '''
-                        components.html(html_string)
+                    html_string = '''
+                    <h1>HTML string in RED</h1>
 
-                        st.write("Some fancy text")
-                        value = st.checkbox("Check me")
-                        st.write(f"Checkbox checked: {value}")
+                    <script language="javascript">
+                      document.querySelector("h1").style.color = "red";
+                    </script>
+                    '''
+                    components.html(html_string)
+
+                    st.write("Some fancy text")
+                    value = st.checkbox("Check me")
+                    st.write(f"Checkbox checked: {value}")
 
             colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
             with colLogin2:
