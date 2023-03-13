@@ -412,10 +412,7 @@ if __name__ == "__main__":
             <style>
             
             div[data-testid="stForm"] {border: 0px;}
-            
-
-            
-            
+        
             label[data-baseweb="checkbox"] > span  {
               width: 2rem;
               height: 2rem;
@@ -452,7 +449,7 @@ if __name__ == "__main__":
             /* Checked */
             
             label[data-baseweb="checkbox"] > span :checked {
-              background-color: currentcolor;
+              background-color: #F63366;
             }
             
             [type=checkbox]:checked::before {
@@ -461,13 +458,6 @@ if __name__ == "__main__":
             }
             
             
-            /* Disabled */
-            
-            label[data-baseweb="checkbox"] > span :disabled {
-              background-color: #CCD3D8;
-              opacity: 0.84;
-              cursor: not-allowed;
-            }
 
             
             
