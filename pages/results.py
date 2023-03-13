@@ -262,8 +262,13 @@ if __name__ == "__main__":
                 st.markdown(
                     f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
                     unsafe_allow_html=True)
+
                 st.markdown(
-                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>",
+                    f"<h3 style='text-align: center; font-family: Sans-Serif;'>Next Step: Select the Jobs you like</h3>",
+                    unsafe_allow_html=True)
+
+                st.markdown(
+                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Once done choosing, hit Done on the bottom.</h6>",
                     unsafe_allow_html=True)
 
                 st.write("")
