@@ -101,21 +101,8 @@ if __name__ == "__main__":
                         z-index:2;
                         }
                         
-                        div[data-testid="stExpander"]:hover{
-                        color:#F63366
-                        }
 
-                      .dark{
-                            background-color: #eeeeee;
-                            color:black;
-                            border-color: black;
-                            }
 
-                       .dark:hover{
-                            background-color: #eeeeee;
-                            color: #F63366;
-                            border-color: #F63366;
-                            }
 
                         .button.dark {
                           background-color: #4CAF50; /* Green */
