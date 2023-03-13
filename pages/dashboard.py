@@ -343,6 +343,8 @@ if __name__ == "__main__":
                     st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                 unsafe_allow_html=True)
 
+        with Applied:
+            st.write("Hello")
 
         with ResumeTab:
             colresult11, colresult22 = st.columns([0.5, 1])
@@ -380,8 +382,7 @@ if __name__ == "__main__":
                         FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
                         st.experimental_rerun()
 
-        with Applied:
-            st.write("")
+
 
 
     st.markdown("""
