@@ -544,7 +544,7 @@ if __name__ == "__main__":
                                 # results = db.child("users").child(str(localId)).child("Jobs").push(data)
                                 st.write("Chosen")
                                 Jobs_to_save.append(element)
-                                st.write(Jobs_to_save)
+                                # st.write(Jobs_to_save)
                                 Save.empty()
 
 
