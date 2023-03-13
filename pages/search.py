@@ -1233,33 +1233,48 @@ def set_code(code: str):
 
 def login_form(auth):
     time.sleep(3)
+
     col1form, col2form, col3form = st.columns([2, 1, 2])
     with col1form:
         st.write("")
     with col2form:
-        st.title("Login")
-        email = st.text_input(
-            label="email", placeholder="fullname@gmail.com")
-        password = st.text_input(
-            label="password", placeholder="password", type="password")
+        Login, Register = st.tabs(["Login", "Register"])
+        with Login:
+            with st.form(key="Login"):
+                st.title("Welcome Back")
+                email = st.text_input(
+                    label="email", placeholder="fullname@gmail.com")
+                password = st.text_input(
+                    label="password", placeholder="password", type="password")
 
-        if st.button("Login"):
-            try:
-                user = auth.sign_in_with_email_and_password(email, password)
-                st.session_state['user'] = user
-                st.experimental_rerun()
-            except requests.HTTPError as exception:
-                st.write(exception)
-        if st.button("Sign Up"):
-            try:
-                user = auth.create_user_with_email_and_password(email, password)
-                st.session_state['user'] = user
-                st.experimental_rerun()
-            except requests.HTTPError as exception:
-                st.write(exception)
+                if st.form_submit_button("Login"):
+                    try:
+                        user = auth.sign_in_with_email_and_password(email, password)
+                        st.session_state['user'] = user
+                        st.experimental_rerun()
+                    except requests.HTTPError as exception:
+                        st.write(exception)
 
-        if st.button("Forgot Password", key="forgotpassword"):
-            auth.send_password_reset_email("email")
+                # if st.button("Forgot Password", key="forgotpassword"):
+                #     auth.send_password_reset_email("email")
+        with Register:
+            st.title("Welcome")
+            email = st.text_input(
+                label="email", placeholder="fullname@gmail.com")
+            password = st.text_input(
+                label="password", placeholder="password", type="password")
+
+            if st.form_submit_button("Sign Up"):
+                try:
+                    user = auth.create_user_with_email_and_password(email, password)
+                    st.session_state['user'] = user
+                    st.experimental_rerun()
+                except requests.HTTPError as exception:
+                    st.write(exception)
+
+            # if st.button("Forgot Password", key="forgotpassword"):
+            #     auth.send_password_reset_email("email")
+
 
     with col3form:
         st.write("")
