@@ -4,7 +4,7 @@ import streamlit as st
 # st.title("CoverLetter")
 import openai
 from docx import Document
-from PIL import Image
+from PIL import
 from streamlit_modal import Modal
 from streamlit_option_menu import option_menu
 import PyPDF2
@@ -146,7 +146,19 @@ if __name__ == "__main__":
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
         with Saved:
+            with st.form(key = "Hanji"):
+                modal = Modal("Demo Modal")
+                open_modal = st.button("Open")
+                if open_modal:
+                    modal.open()
 
+                if modal.is_open():
+                    with modal.container():
+                        st.write("Text goes here")
+
+                        st.write("Some fancy text")
+                        value = st.checkbox("Check me")
+                        st.write(f"Checkbox checked: {value}")
 
             colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
             with colLogin2:
@@ -166,6 +178,7 @@ if __name__ == "__main__":
                 st.write("")
             SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
             unique_links = {}
+
             for key, value in SavedResults.items():
                 link = value['Link']
                 if link not in unique_links:
@@ -195,84 +208,45 @@ if __name__ == "__main__":
                         st.markdown(
                             f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
                             unsafe_allow_html=True)
-                        modal = Modal("Demo Modal", key = f"{Link}+{Title}+{Short_Summary}+Modal")
-                        open_modal = st.checkbox("Open", key = f"{Link}+{Title}+{Short_Summary}+Ley")
-                        if open_modal:
-                            modal.open()
-                        if modal.is_open():
-                            with modal.container():
-                                st.markdown(f"[Apply]({Link})")
-                                st.write(f"{Short_Summary}")
-
-                                col1, col2, col3 = st.columns([1, 1, 1])
-
-                                with col1:
-                                    container_2 = st.empty()
-                                    button_A = container_2.button('Generate Cover Letter',
-                                                                  key=f"{Link}+{Title}+{Short_Summary}")
-                                    if button_A:
-                                        container_2.empty()
-                                        button_B = container_2.button('Generating... Please wait.',
-                                                                      key=f"{Link}+{Title}+{Short_Summary}+Generating",
-                                                                      disabled=True)
-                                        responseJob = openai.ChatCompletion.create(
-                                            model="gpt-3.5-turbo",
-                                            messages=[
-                                                {"role": "system",
-                                                 "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
-                                                {"role": "user",
-                                                 "content": f"The following is a job posting I want you to summarize \n\n{Full_Description}\n\n"}])
-
-                                        jobSummary = responseJob["choices"][0]["message"]["content"]
-                                        CoverLetterResponse = openai.ChatCompletion.create(
-                                            model="gpt-3.5-turbo",
-                                            messages=[
-                                                {"role": "system",
-                                                 "content": "You are an AI Assistant that writes highly customized cover letters from a first-person point of view. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
-                                                {"role": "user",
-                                                 "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
-                                        cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
-                                        st.download_button('Download Cover Letter', cover_letter_file)
-
                         with st.expander(f"{Location}"):
                             st.markdown(f"[Apply]({Link})")
-                            # st.write(f"{Short_Summary}")
-                            #
-                            # col1, col2, col3 = st.columns([1, 1, 1])
-                            #
-                            # with col1:
-                            #     container_2 = st.empty()
-                            #     button_A = container_2.button('Generate Cover Letter',
-                            #                                   key=f"{Link}+{Title}+{Short_Summary}")
-                            #     if button_A:
-                            #         container_2.empty()
-                            #         button_B = container_2.button('Generating... Please wait.',
-                            #                                       key=f"{Link}+{Title}+{Short_Summary}+Generating",
-                            #                                       disabled=True)
-                            #         responseJob = openai.ChatCompletion.create(
-                            #             model="gpt-3.5-turbo",
-                            #             messages=[
-                            #                 {"role": "system",
-                            #                  "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
-                            #                 {"role": "user",
-                            #                  "content": f"The following is a job posting I want you to summarize \n\n{Full_Description}\n\n"}])
-                            #
-                            #         jobSummary = responseJob["choices"][0]["message"]["content"]
-                            #         CoverLetterResponse = openai.ChatCompletion.create(
-                            #             model="gpt-3.5-turbo",
-                            #             messages=[
-                            #                 {"role": "system",
-                            #                  "content": "You are an AI Assistant that writes highly customized cover letters from a first-person point of view. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
-                            #                 {"role": "user",
-                            #                  "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
-                            #         cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
-                            #         st.download_button('Download Cover Letter', cover_letter_file)
+                            st.write(f"{Short_Summary}")
 
-                            # with col2:
-                            #     st.write("")
-                            #
-                            # with col3:
-                            #     st.write("")
+                            col1, col2, col3 = st.columns([1, 1, 1])
+
+                            with col1:
+                                container_2 = st.empty()
+                                button_A = container_2.button('Generate Cover Letter',
+                                                              key=f"{Link}+{Title}+{Short_Summary}")
+                                if button_A:
+                                    container_2.empty()
+                                    button_B = container_2.button('Generating... Please wait.',
+                                                                  key=f"{Link}+{Title}+{Short_Summary}+Generating",
+                                                                  disabled=True)
+                                    responseJob = openai.ChatCompletion.create(
+                                        model="gpt-3.5-turbo",
+                                        messages=[
+                                            {"role": "system",
+                                             "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
+                                            {"role": "user",
+                                             "content": f"The following is a job posting I want you to summarize \n\n{Full_Description}\n\n"}])
+
+                                    jobSummary = responseJob["choices"][0]["message"]["content"]
+                                    CoverLetterResponse = openai.ChatCompletion.create(
+                                        model="gpt-3.5-turbo",
+                                        messages=[
+                                            {"role": "system",
+                                             "content": "You are an AI Assistant that writes highly customized cover letters from a first-person point of view. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
+                                            {"role": "user",
+                                             "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
+                                    cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
+                                    st.download_button('Download Cover Letter', cover_letter_file)
+
+                            with col2:
+                                st.write("")
+
+                            with col3:
+                                st.write("")
 
                         st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                     unsafe_allow_html=True)
