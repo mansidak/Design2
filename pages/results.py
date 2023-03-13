@@ -259,9 +259,9 @@ if __name__ == "__main__":
                 with col3:
                     st.write("")
 
-                st.markdown(
-                    f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
-                    unsafe_allow_html=True)
+                # st.markdown(
+                #     f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
+                #     unsafe_allow_html=True)
 
                 st.markdown(
                     f"<h3 style='text-align: center; font-family: Sans-Serif;'>Next Step: Select the Jobs you like</h3>",
