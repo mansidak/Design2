@@ -7,6 +7,7 @@ from docx import Document
 from PIL import Image
 from streamlit_option_menu import option_menu
 import PyPDF2
+from streamlit_card import card
 import random
 from streamlit_extras.switch_page_button import switch_page
 import pdfkit
@@ -149,6 +150,12 @@ if __name__ == "__main__":
             with colLogin2:
 
                 st.write(f"You're logged in as {st.session_state['user']['email']}")
+                hasClicked = card(
+                    title="Hello World!",
+                    text="Some description",
+                    image="http://placekitten.com/200/300"
+                url = "https://github.com/gamcoh/st-card"
+                )
                 st.markdown("""
                 <style>
                 #tabs-bui3-tabpanel-0 > div:nth-child(1) > div > div:nth-child(1) > div.css-j5r0tf.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(1) > div > div > p > a{
@@ -183,6 +190,8 @@ if __name__ == "__main__":
                     Short_Summary = value['Short Summary']
                     Skills = value['Skills']
                     Title = value['Title']
+
+
                     st.write(Skills)
                     st.markdown(
                         f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
