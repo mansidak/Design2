@@ -446,8 +446,10 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
+    
     button[kind="secondary"]{
-    background-color:#ffffff
+    background-color:#ffffff;
+    border-color:black
     }
     
    
