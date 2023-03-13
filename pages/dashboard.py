@@ -140,7 +140,7 @@ if __name__ == "__main__":
                 st.write(f"You're logged in as {st.session_state['user']['email']}")
                 st.markdown("""
                 <style>
-                a{
+                #tabs-bui3-tabpanel-0 > div:nth-child(1) > div > div:nth-child(1) > div.css-j5r0tf.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(1) > div > div > p > a{
                 color:black
                 }
                 </style>""", unsafe_allow_html=True)
