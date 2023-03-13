@@ -673,6 +673,7 @@ if __name__ == "__main__":
                 #                    file_name="test.pdf",
                 #                    mime='application/octet-stream')
             with colconclusion2:
+                st.write("")
                 # if st.button("Not Satisfied? Run Again"):
                 #     switch_page("search")
 
