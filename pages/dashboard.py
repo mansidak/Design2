@@ -138,6 +138,7 @@ if __name__ == "__main__":
         SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
         AppliedResults = db.child("users").child(str(localId)).child("Applied").get().val()
         unique_links = {}
+        unique_applied_links = {}
 
 
         st.session_state['Name'] = db.child('users').child(localId).child('Name').get().val()
@@ -347,11 +348,10 @@ if __name__ == "__main__":
 
         with ResumeTab:
             for key, value in AppliedResults.items():
-                link = value['Link']
-                if link not in unique_links:
-                    unique_links[link] = value
+                if key not in unique_applied_links:
+                    unique_applied_links[link] = value
 
-            my_dict = unique_links
+            my_dict = unique_applied_links
             colresult1, colresult2 = st.columns([0.5, 1])
             with colresult1:
                 st.markdown(
