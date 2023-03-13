@@ -268,7 +268,36 @@ if __name__ == "__main__":
             st.write("")
             st.write("")
 
-            temp_list = []
+
+
+
+
+
+
+            Jobs_to_save = set()
+            if st.button("Save Chosen Roles", key ="SaveJobs"):
+                for items in Jobs_to_save:
+                    link = items[0]
+                    title = items[1]
+                    companyName = items[2]
+                    shortSummary = items[3]
+                    fullDescription = items[4]
+                    location = items[5]
+                    skills = items[6]
+                    firebase = pyrebase.initialize_app(firebaseconfig)
+                    db = firebase.database()
+                    # user = st.session_state['user']
+                    data = {
+                        "Link": str(link),
+                        "Title": str(title),
+                        "Company Name": str(companyName),
+                        "Short Summary": str(shortSummary),
+                        "Full Description": str(fullDescription),
+                        "Location": str(location),
+                        "Skills": str(skills)
+                    }
+                    results = db.child("users").child(str(localId)).child("Jobs").push(data)
+
             for element in unique_results.copy():
                 if element[5] in options and element[6].replace('-', '') in options2:
                     link = element[0]
@@ -521,23 +550,21 @@ if __name__ == "__main__":
                         with col2mark:
                             Save = st.empty()
                             if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
-                                firebase = pyrebase.initialize_app(firebaseconfig)
-                                db = firebase.database()
-                                # user = st.session_state['user']
-                                data = {
-                                    "Link": str(link),
-                                    "Title": str(title),
-                                    "Company Name": str(companyName),
-                                    "Short Summary": str(shortSummary),
-                                    "Full Description": str(fullDescription),
-                                    "Location": str(location),
-                                    "Skills": str(skills)
-                                }
-                                results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                                st.write("Saved!")
-                                tuple_to_delete = element
-                                if element == tuple_to_delete:
-                                    unique_results.remove(element)
+                                # firebase = pyrebase.initialize_app(firebaseconfig)
+                                # db = firebase.database()
+                                # # user = st.session_state['user']
+                                # data = {
+                                #     "Link": str(link),
+                                #     "Title": str(title),
+                                #     "Company Name": str(companyName),
+                                #     "Short Summary": str(shortSummary),
+                                #     "Full Description": str(fullDescription),
+                                #     "Location": str(location),
+                                #     "Skills": str(skills)
+                                # }
+                                # results = db.child("users").child(str(localId)).child("Jobs").push(data)
+                                st.write("Chosen")
+                                Jobs_to_save.append(element)
                                 Save.empty()
 
 
