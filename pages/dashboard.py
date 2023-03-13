@@ -140,7 +140,7 @@ if __name__ == "__main__":
                 st.write(f"You're logged in as {st.session_state['user']['email']}")
                 st.markdown("""
                 <style>
-                .a{
+                a{
                 color:black
                 }
                 </style>""", unsafe_allow_html=True)
