@@ -175,8 +175,8 @@ if __name__ == "__main__":
             with colresult1:
                 st.write("")
             with colresult2:
-                with st.form("DAMN", key=f"{key}"):
-                    for key, value in my_dict.items():
+                for key, value in my_dict.items():
+                    with st.form("DAMN", key=f"{key}"):
                         company_name = value['Company Name']
                         Full_Description = value['Full Description']
                         Link = value['Link']
@@ -234,7 +234,7 @@ if __name__ == "__main__":
                                 st.write("")
 
                         st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
-                                    unsafe_allow_html=True)
+                                unsafe_allow_html=True)
             with colresult3:
                 st.write("")
 
