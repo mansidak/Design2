@@ -427,6 +427,7 @@ if __name__ == "__main__":
     background-color:#ffffff;
     color:black;
     border-radius:5px;
+    border-color:#000;
     min-width:150px;
     max-height:30px;
     padding:20px;
