@@ -239,7 +239,7 @@ if __name__ == "__main__":
                         with st.expander(f"{Location}"):
                             st.write(f"{Short_Summary}")
 
-                            col1, col2, col3 = st.columns([1, 1, 2])
+                            col1, col2, col3 = st.columns([1, 1, 2.5])
 
                             with col1:
                                 container_2 = st.empty()
