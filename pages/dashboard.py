@@ -377,7 +377,7 @@ if __name__ == "__main__":
                     
                                 
     div[data-baseweb="select"]
-    color: red !important;
+    background-color: red !important;
     }
 
     
