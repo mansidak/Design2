@@ -5,6 +5,7 @@ from streamlit_extras.switch_page_button import switch_page
 import PyPDF2
 import datetime
 import requests
+import time
 from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
 from st_btn_select import st_btn_select
@@ -302,10 +303,7 @@ with col1form:
     st.write("")
 with col2form:
     def login_form(auth):
-
-        # st.subheader("All Cookies:")
-        # cookies = cookie_manager.get_all()
-        # st.write(cookies)
+        time.sleep(3)
         email = st.text_input(
             label="email", placeholder="fullname@gmail.com")
         password = st.text_input(

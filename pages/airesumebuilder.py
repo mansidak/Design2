@@ -15,6 +15,7 @@ import openai
 from streamlit_extras.switch_page_button import switch_page
 import PyPDF2
 import datetime
+import time
 import requests
 from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
@@ -653,7 +654,7 @@ with col1form:
     st.write("")
 with col2form:
     def login_form(auth):
-
+        time.sleep(3)
         # st.subheader("All Cookies:")
         # cookies = cookie_manager.get_all()
         # st.write(cookies)
