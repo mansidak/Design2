@@ -254,7 +254,7 @@ if __name__ == "__main__":
             with colresult1:
                 st.write("")
             with colresult2:
-                for key, value in set(my_dict).items():
+                for key, value in my_dict.items():
                     company_name = value['Company Name']
                     Full_Description = value['Full Description']
                     Link = value['Link']
@@ -278,7 +278,7 @@ if __name__ == "__main__":
                         with col1:
                             container_2 = st.empty()
                             button_A = container_2.button('Generate Cover Letter',
-                                                          key=f"{Link}+{Title}+{Short_Summary}")
+                                                          key=f"{Link}+{Title}+{Short_Summary}+{key}")
                             if button_A:
                                 container_2.empty()
                                 button_B = container_2.button('Generating... Please wait.',
