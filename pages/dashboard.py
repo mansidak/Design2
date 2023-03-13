@@ -267,7 +267,7 @@ if __name__ == "__main__":
             colresult1, colresult2 = st.columns([0.5, 1])
             with colresult1:
                 st.markdown(
-                    f"<h2 style='text-align:left;font-family: Sans-Serif'>Search Archives</h2>",
+                    f"<h3 style='text-align:left;font-family: Baskerville'>Search Archives</h3>",
                     unsafe_allow_html=True)
             with colresult2:
                 st.subheader("")
