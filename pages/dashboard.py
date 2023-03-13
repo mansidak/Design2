@@ -452,13 +452,13 @@ if __name__ == "__main__":
     background-color:rgba(255, 122, 89, 0);
     max-width:500px;
     padding:5px;
+    border-bottom:none;
     border-radius:5px;
     margin: 0 auto;
     }
 
     button[aria-selected="true"] {
-    background-color:rgba(255, 122, 89, 0);
-    border-color:#000000;
+    background-color: #eeeeee;
     border-radius:5px;
     }
 
