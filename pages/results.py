@@ -411,7 +411,8 @@ if __name__ == "__main__":
                             }
                             results = db.child("users").child(str(localId)).child("Jobs").push(data)
                             time.sleep(3)
-                            switch_page("dashboard")
+                            st.write(Jobs_to_save)
+                            # switch_page("dashboard")
 
 
             st.markdown("""
