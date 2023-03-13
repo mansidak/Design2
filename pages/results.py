@@ -191,82 +191,84 @@ if __name__ == "__main__":
 
                 }
                 </style>""", unsafe_allow_html=True)
-        AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
-        firebase = pyrebase.initialize_app(firebaseconfig)
-        db = firebase.database()
-        localId = AccountInfo["localId"]
-        set_code(code=user['refreshToken'])
-        cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
 
         with st.form("Resulsts"):
-            unique_results = set(st.session_state['FinalResults'])
-            with st.sidebar:
+            AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+            firebase = pyrebase.initialize_app(firebaseconfig)
+            db = firebase.database()
+            localId = AccountInfo["localId"]
+            set_code(code=user['refreshToken'])
+            cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
 
-                st.subheader("")
-                st.subheader("")
 
-                options = st.multiselect('Filter by location',
-                                         set([item[5] for item in st.session_state['FinalResults']]), None,
-                                         key="option1")
-                options2 = st.multiselect('Filter by your strongest skills',
-                                          set([item[6].replace('-', '') for item in st.session_state['FinalResults']]),
-                                          None, key="option2")
-                html_string = "<ul>"
-                for list in unique_results:
-                    link = list[0]
-                    title = list[1]
-                    companyName = list[2]
-                    shortSummary = list[3]
-                    fullDescription = list[4]
-                    location = list[5]
-                    skills = list[6]
-                    html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
-                html_string += "</ul>"
+                unique_results = set(st.session_state['FinalResults'])
+                with st.sidebar:
 
-                # generate the pdf
-                PDFFile = pdfkit.from_string(html_string, "output.pdf")
+                    st.subheader("")
+                    st.subheader("")
 
-                with open("output.pdf", "rb") as pdf_file:
-                    PDFbyte = pdf_file.read()
-                # st.download_button(label='Download PDF', data= PDFFile)
+                    options = st.multiselect('Filter by location',
+                                             set([item[5] for item in st.session_state['FinalResults']]), None,
+                                             key="option1")
+                    options2 = st.multiselect('Filter by your strongest skills',
+                                              set([item[6].replace('-', '') for item in st.session_state['FinalResults']]),
+                                              None, key="option2")
+                    html_string = "<ul>"
+                    for list in unique_results:
+                        link = list[0]
+                        title = list[1]
+                        companyName = list[2]
+                        shortSummary = list[3]
+                        fullDescription = list[4]
+                        location = list[5]
+                        skills = list[6]
+                        html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
+                    html_string += "</ul>"
 
-                # st.download_button(label="Download All Jobs",
-                #                    data=PDFbyte,
-                #                    file_name="test.pdf",
-                #                    key='downloadingjobspdf',
-                #                    mime='application/octet-stream')
+                    # generate the pdf
+                    PDFFile = pdfkit.from_string(html_string, "output.pdf")
 
-            colresult1, colresult2, colresult3 = st.columns([0.25, 0.75, 0.25])
-            with colresult1:
-                st.write("")
-            with colresult2:
-                col1, col2, col3 = st.columns([2, 1, 2])
+                    with open("output.pdf", "rb") as pdf_file:
+                        PDFbyte = pdf_file.read()
+                    # st.download_button(label='Download PDF', data= PDFFile)
 
-                with col1:
+                    # st.download_button(label="Download All Jobs",
+                    #                    data=PDFbyte,
+                    #                    file_name="test.pdf",
+                    #                    key='downloadingjobspdf',
+                    #                    mime='application/octet-stream')
+
+                colresult1, colresult2, colresult3 = st.columns([0.25, 0.75, 0.25])
+                with colresult1:
                     st.write("")
+                with colresult2:
+                    col1, col2, col3 = st.columns([2, 1, 2])
 
-                with col2:
-                    image = Image.open('PenManLogo.png')
-                    st.image(image)
+                    with col1:
+                        st.write("")
 
-                with col3:
+                    with col2:
+                        image = Image.open('PenManLogo.png')
+                        st.image(image)
+
+                    with col3:
+                        st.write("")
+
+                    # if 'Name' not in st.session_state:
+                    #     switch_page("app")
+                    st.markdown(
+                        f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
+                        unsafe_allow_html=True)
+                    st.markdown(
+                        f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>",
+                        unsafe_allow_html=True)
+
                     st.write("")
-
-                # if 'Name' not in st.session_state:
-                #     switch_page("app")
-                st.markdown(
-                    f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
-                    unsafe_allow_html=True)
-                st.markdown(
-                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Tip: You can ask 19th Street to write custom cover letters for each job.</h6>",
-                    unsafe_allow_html=True)
-
-                st.write("")
-                st.write("")
-                st.write("")
-                st.write("")
-                st.write("")
-                st.write("")
+                    st.write("")
+                    st.write("")
+                    st.write("")
+                    st.write("")
+                    st.write("")
 
 
 
