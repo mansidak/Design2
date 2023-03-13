@@ -166,7 +166,7 @@ if __name__ == "__main__":
             st.markdown(f"<center> <h5 style='font-family: Baskerville; font-weight:normal; color: white'> Applied</h5>", unsafe_allow_html=True)
 
 
-        Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Applied"])
+        Saved, ResumeTab, Archive = st.tabs(["Saved", "Archive", "Applied"])
 
         with Saved:
 
