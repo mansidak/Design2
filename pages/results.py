@@ -526,7 +526,10 @@ if __name__ == "__main__":
                                     f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                                     unsafe_allow_html=True)
                         with col2mark:
-                            Save = st.empty()
+                            Save = st.checkbox
+                            if Save:
+                                Jobs_to_save.append(element)
+
                             # if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
                             #     st.write("Chosen")
                             #     Jobs_to_save.append(element)
@@ -623,6 +626,30 @@ if __name__ == "__main__":
 
 
                 submitted = st.form_submit_button("Submit")
+                if submitted:
+                    for items in Jobs_to_save:
+                        link = items[0]
+                        title = items[1]
+                        companyName = items[2]
+                        shortSummary = items[3]
+                        fullDescription = items[4]
+                        location = items[5]
+                        skills = items[6]
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        # user = st.session_state['user']
+                        data = {
+                            "Link": str(link),
+                            "Title": str(title),
+                            "Company Name": str(companyName),
+                            "Short Summary": str(shortSummary),
+                            "Full Description": str(fullDescription),
+                            "Location": str(location),
+                            "Skills": str(skills)
+                        }
+                        results = db.child("users").child(str(localId)).child("Jobs").push(data)
+                    st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
+
 
             st.markdown("""
             
