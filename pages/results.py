@@ -429,8 +429,11 @@ if __name__ == "__main__":
             position:fixed;
             bottom: 40px;
             right: -700px;
-             border-radius: 30px;
             z-index:9999999
+            }
+            button[kind="secondaryFormSubmit"]{
+            border-radius: 30px;
+
             }
 
 
