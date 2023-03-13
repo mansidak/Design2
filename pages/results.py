@@ -337,7 +337,7 @@ if __name__ == "__main__":
                                 }
                                 db.child("users").child(str(localId)).child("Jobs").push(data)
                                 Save.empty()
-                            Save.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}", on_change=Savejob())
+                            st.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}",value= False, on_change=Savejob())
 
 
 
