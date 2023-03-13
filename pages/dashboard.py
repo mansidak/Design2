@@ -241,9 +241,16 @@ if __name__ == "__main__":
                                     st.download_button('Download Cover Letter', cover_letter_file)
 
                             with col2:
-                                if st.button("Mark as Applied"):
-                                    Applied.append(key, value)
-                                    st.write(Applied)
+                                if st.button("Mark As Applies"):
+                                    Applied.append({
+                                        'Company Name': company_name,
+                                        'Full Description': Full_Description,
+                                        'Link': Link,
+                                        'Location': Location,
+                                        'Short Summary': Short_Summary,
+                                        'Skills': Skills,
+                                        'Title': Title
+                                    })
 
                             with col3:
                                 st.write("")
