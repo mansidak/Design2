@@ -376,9 +376,9 @@ if __name__ == "__main__":
     
                     
                                 
-   div[role="listbox"] ul {
+   div[data-baseweb="select"] > div {
     background-color: red;
-    }
+}
 
     
     button[class="tabs-bui3-tab-0"]{
