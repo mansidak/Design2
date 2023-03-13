@@ -275,6 +275,7 @@ if __name__ == "__main__":
 
 
             Jobs_to_save = set()
+            st.write(Jobs_to_save)
             if st.button("Save Chosen Roles", key ="SaveJobs"):
                 for items in Jobs_to_save:
                     link = items[0]
