@@ -144,10 +144,10 @@ if __name__ == "__main__":
         st.subheader("")
         metricscol0, metricscol1, metricscol2, metricscol3 = st.columns([0.01,0.1,0.1,2])
         with metricscol1:
-            st.markdown(f"<h1 style='font-family: Baskerville; font-weight:normal; color: white'> {len(SavedResults)} </h1>", unsafe_allow_html=True)
+            st.markdown(f"<center> <h1 style='font-family: Baskerville; font-weight:normal; color: white'> {len(SavedResults)} </h1>", unsafe_allow_html=True)
             st.write("Saved")
         with metricscol3:
-            st.markdown(f"<h1 style='font-family: Baskerville; font-weight:normal; color: white'> {len(SavedResults)} </h1>", unsafe_allow_html=True)
+            st.markdown(f"<center><h1 style='font-family: Baskerville; font-weight:normal; color: white'> {len(SavedResults)} </h1>", unsafe_allow_html=True)
             st.write("Applied")
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
