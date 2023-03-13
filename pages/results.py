@@ -385,7 +385,7 @@ if __name__ == "__main__":
                                 st.write("")
                     st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-                submitted = st.form_submit_button("Submit")
+                submitted = st.form_submit_button("Done")
                 if submitted:
                     for items in Jobs_to_save:
                         link = items[0]
@@ -408,6 +408,7 @@ if __name__ == "__main__":
                             "Skills": str(skills)
                         }
                         results = db.child("users").child(str(localId)).child("Jobs").push(data)
+                        switch_page("dashboard")
 
 
             st.markdown("""
