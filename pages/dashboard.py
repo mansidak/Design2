@@ -404,11 +404,7 @@ if __name__ == "__main__":
                 st.write("")
                 for key, value in my_dict.items():
                     company_name = value['Company Name']
-                    Full_Description = value['Full Description']
                     Link = value['Link']
-                    Location = value['Location']
-                    Short_Summary = value['Short Summary']
-                    Skills = value['Skills']
                     Title = value['Title']
 
                     st.markdown(
