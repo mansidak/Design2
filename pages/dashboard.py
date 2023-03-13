@@ -447,15 +447,6 @@ if __name__ == "__main__":
     height:0px;
     }
     
-    div.stButton > button:first-child {
-    background-color: #0099ff;
-    color:#ffffff;
-    }
-    
-    div.stButton > button:hover {
-    background-color: #00ff00;
-    color:#ff0000;
-    }
     
     button[kind="secondary"]{
     background-color:#ffffff;

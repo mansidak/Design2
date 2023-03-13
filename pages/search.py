@@ -1076,8 +1076,12 @@ if __name__ == "__main__":
                                 time.sleep(8)
 
                                 progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hold tight, big dawg...🐶</h6>",unsafe_allow_html=True)
+                                my_bar.progress(50, text=f"")
+                                time.sleep(6)
+
+                                progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Don't worry, it's not like the world is gonna end while you wait ;)</h6>",unsafe_allow_html=True)
                                 my_bar.progress(60, text=f"")
-                                time.sleep(10)
+                                time.sleep(4)
 
                                 progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Generating Compatibility Scores 💯</h6>",unsafe_allow_html=True)
                                 my_bar.progress(80, text=f"")
@@ -1085,6 +1089,9 @@ if __name__ == "__main__":
 
                                 progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Doing one last search...</h6>",unsafe_allow_html=True)
                                 my_bar.progress(90, text=f"")
+
+
+
                             try:
                                 with ThreadPoolExecutor(max_workers=6) as executor:
                                     future1 = executor.submit(run_selenium1, f"{FreshJobTitles[0].replace(' ', '-')}-{ExperienceLevel}",f"{FreshSkills[0].replace(' ', '_')}", f"{undesired},Deloitte", 1,
