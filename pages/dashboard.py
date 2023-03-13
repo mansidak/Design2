@@ -166,7 +166,7 @@ if __name__ == "__main__":
                 st.write("")
             SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
             unique_links = {}
-            with st.form("Dashboard", key="My_Form"):
+            with st.form(key="My_Form"):
                 for key, value in SavedResults.items():
                     link = value['Link']
                     if link not in unique_links:
