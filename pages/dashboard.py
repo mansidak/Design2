@@ -146,7 +146,7 @@ if __name__ == "__main__":
         with metricscol1:
             st.markdown(f"<center> <h1 style='font-family: Baskerville; font-weight:normal; color: white'> {len(SavedResults)} </h1>", unsafe_allow_html=True)
             st.write("Saved")
-        with metricscol3:
+        with metricscol2:
             st.markdown(f"<center><h1 style='font-family: Baskerville; font-weight:normal; color: white'> {len(SavedResults)} </h1>", unsafe_allow_html=True)
             st.write("Applied")
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
