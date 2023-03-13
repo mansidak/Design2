@@ -498,12 +498,12 @@ if __name__ == "__main__":
                                z-index:99999;
                                width: 50%;
                              }
-                               .stApp {
+                               .stApp {                           
+                                background-image: url(‘Dashboard.png’);
                                 color:black
                                }
                                
                                p {
-                            background-image: url(‘Dashboard.png’);
                                 }
                                .element-container.css-l0vo1h.e1tzin5v3
                                {
