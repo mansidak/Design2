@@ -527,24 +527,10 @@ if __name__ == "__main__":
                                     unsafe_allow_html=True)
                         with col2mark:
                             Save = st.empty()
-                            if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
-                                # firebase = pyrebase.initialize_app(firebaseconfig)
-                                # db = firebase.database()
-                                # # user = st.session_state['user']
-                                # data = {
-                                #     "Link": str(link),
-                                #     "Title": str(title),
-                                #     "Company Name": str(companyName),
-                                #     "Short Summary": str(shortSummary),
-                                #     "Full Description": str(fullDescription),
-                                #     "Location": str(location),
-                                #     "Skills": str(skills)
-                                # }
-                                # results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                                st.write("Chosen")
-                                Jobs_to_save.append(element)
-                                # st.write(Jobs_to_save)
-                                Save.empty()
+                            # if Save.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
+                            #     st.write("Chosen")
+                            #     Jobs_to_save.append(element)
+                            #     Save.empty()
 
 
                         with st.expander(f"{location}"):
