@@ -39,6 +39,8 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 hide_streamlit_style = """
               <style>
+              
+              
               div[class='css-4z1n4l ehezqtx5']{
                 background: rgba(0, 0, 0, 0.3);
                 color: #fff;
@@ -72,6 +74,10 @@ hide_streamlit_style = """
                 position: fixed;
                 }
 
+              div[data-testid="stMarkdownContainer"] > p{
+              font-size: 17px;
+              font-weight: ;
+              }
               </style>
               """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
@@ -253,8 +259,6 @@ if __name__ == "__main__":
                 with col3:
                     st.write("")
 
-                # if 'Name' not in st.session_state:
-                #     switch_page("app")
                 st.markdown(
                     f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
                     unsafe_allow_html=True)
@@ -324,11 +328,7 @@ if __name__ == "__main__":
 
                             st.write(f"{shortSummary}")
                             st.markdown("""
-                              <style>
-                              div[data-testid="stMarkdownContainer"] > p{
-                              font-size: 17px;
-                              font-weight: ;
-                              }
+                        
 
                               #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
                               font-size: 17px;
