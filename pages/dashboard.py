@@ -398,7 +398,7 @@ if __name__ == "__main__":
     filter:invert(0.8);
     }
     .st-au {
-      border-radius:15px; 
+      border-radius:5px; 
       }
     
     li[role="option"]:hover{
@@ -407,7 +407,7 @@ if __name__ == "__main__":
     
     
     li[aria-selected="true"]{
-    background-color: #F63366;
+    background-color: #bebebe;
     color:white;
     }
 
