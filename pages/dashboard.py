@@ -41,6 +41,15 @@ firebaseconfig = {
     "databaseURL": "https://nineteenth-street-default-rtdb.firebaseio.com"
 }
 
+st.markdown("""
+    <style>
+    .stAlert{
+    height:0px;
+    visibility:hidden;
+    }
+        </style>
+    """, unsafe_allow_html=True)
+
 if __name__ == "__main__":
     cookies = cookie_manager.get_all()
 
