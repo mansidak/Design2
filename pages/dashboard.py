@@ -173,7 +173,7 @@ if __name__ == "__main__":
             my_dict = unique_links
             colresult1, colresult2 = st.columns([0.5, 1])
             with colresult1:
-                options = st.multiselect('Filter by location', set([value['Location'] for key, value in my_dict.items()]), None, key="option1")
+                options = st.multiselect('Filter by location', set([value['Company Name'] for key, value in my_dict.items()]), None, key="option1")
 
             with colresult2:
                 for key, value in my_dict.items():
@@ -364,9 +364,7 @@ if __name__ == "__main__":
     height:0px;
     }
     
-    div[data-testid="column"]{
-    position:fixed;
-    }
+
     
     button[class="tabs-bui3-tab-0"]{
     max-height:20px;
