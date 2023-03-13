@@ -179,8 +179,7 @@ if __name__ == "__main__":
                 st.write("")
             with colResume3:
                 st.write("")
-
-
+            st.write("")
             for key, value in SavedResults.items():
                 link = value['Link']
                 if link not in unique_links:
@@ -381,6 +380,8 @@ if __name__ == "__main__":
     height:0px;
     }
     
+   
+    
                     
                                 
    div[data-baseweb="select"] > div {
@@ -504,8 +505,9 @@ if __name__ == "__main__":
                                width: 50%;
                              }
                                .stApp {
-                               background-color: #ffffff;
-                               color:black
+
+                                background-image: Image;
+                                color:black
                                }
                                .element-container.css-l0vo1h.e1tzin5v3
                                {
