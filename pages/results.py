@@ -386,7 +386,7 @@ if __name__ == "__main__":
                                 st.write("")
                     st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
-                submitted = st.form_submit_button("Done")
+                submitted = st.form_submit_button("Done →")
                 if submitted:
                     for items in Jobs_to_save:
                         link = items[0]
