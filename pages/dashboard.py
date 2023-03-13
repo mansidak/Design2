@@ -415,9 +415,7 @@ if __name__ == "__main__":
     }
     
    
-    div[data-testid="stMarkdownContainer"]{
-    color:black
-    }
+
                     
                                 
    div[data-baseweb="select"] > div {
