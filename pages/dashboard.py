@@ -499,12 +499,15 @@ if __name__ == "__main__":
                                width: 50%;
                              }
                                .stApp {                           
-                                background-image: url(‘Dashboard.png’);
                                 color:black
                                }
                                
-                               p {
-                                }
+                               .stApp {{
+                                 background-image: url("https://static1.squarespace.com/static/63c3021120578c74f330b74c/t/640f62829f387724d381bd56/1678729858972/Dashboard.png");
+                                 background-attachment: fixed;
+                                 background-size: cover
+                                }}
+                                                   
                                .element-container.css-l0vo1h.e1tzin5v3
                                {
                                color:black
