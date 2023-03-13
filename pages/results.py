@@ -15,7 +15,7 @@ import pandas as pd
 import pyrebase
 from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
-
+import asyncio
 import datetime
 import requests
 import numpy as np
@@ -409,10 +409,13 @@ if __name__ == "__main__":
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                            time.sleep(3)
-                            st.write(Jobs_to_save)
-                            # switch_page("dashboard")
+
+                            async def wait_for_data_push():
+                                results = await db.child("users").child(str(localId)).child("Jobs").push(data)
+
+                            asyncio.run(wait_for_data_push())
+                            switch_page("dashboard")
+
 
 
             st.markdown("""
