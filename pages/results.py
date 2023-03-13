@@ -408,13 +408,13 @@ if __name__ == "__main__":
                             "Location": str(location),
                             "Skills": str(skills)
                         }
+                        with st.spinner("Adding to your database"):
+                            async def wait_for_data_push():
+                                db.child("users").child(str(localId)).child("Jobs").push(data)
+                                await asyncio.sleep(1)
 
-                        async def wait_for_data_push():
-                            with st.spinner("Adding to your database"):
-                                await db.child("users").child(str(localId)).child("Jobs").push(data)
-
-                        asyncio.run(wait_for_data_push())
-                        switch_page("dashboard")
+                            asyncio.run(wait_for_data_push())
+                            switch_page("dashboard")
 
 
 
