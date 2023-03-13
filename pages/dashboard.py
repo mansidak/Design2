@@ -375,7 +375,9 @@ if __name__ == "__main__":
     }
     
    
-    
+    div[class="row-widget stMultiSelect"]P
+    color:black
+    }
                     
                                 
    div[data-baseweb="select"] > div {
