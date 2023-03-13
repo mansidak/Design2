@@ -376,7 +376,7 @@ if __name__ == "__main__":
     
                     
                                 
-   div[data-baseweb="select"] > div {
+   div[data-baseweb="select"] > div > div > div{
     background-color: red;
     color:black;
     }
