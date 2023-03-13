@@ -285,7 +285,7 @@ if __name__ == "__main__":
 
 
 
-                st.session_state['JobsToSave'] = Jobs_to_save = []
+                Jobs_to_save = []
                 for element in unique_results.copy():
                     if element[5] in options and element[6].replace('-', '') in options2:
                         st.write("")
@@ -326,8 +326,8 @@ if __name__ == "__main__":
                             st.write("")
                             Save = st.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}")
                             if Save:
-                                st.session_state('JobsToSave').append(element)
-                                st.write(st.session_state('JobsToSave'))
+                                Jobs_to_save.append(element)
+                                st.write(Jobs_to_save)
 
 
 
