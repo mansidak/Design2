@@ -388,33 +388,33 @@ if __name__ == "__main__":
                 submitted = st.form_submit_button("Done →")
                 st.write(Jobs_to_save)
                 if submitted:
-                    with st.spinner("Adding to your database"):
-                        for items in set(Jobs_to_save):
-                            link = items[0]
-                            title = items[1]
-                            companyName = items[2]
-                            shortSummary = items[3]
-                            fullDescription = items[4]
-                            location = items[5]
-                            skills = items[6]
-                            firebase = pyrebase.initialize_app(firebaseconfig)
-                            db = firebase.database()
-                            # user = st.session_state['user']
-                            data = {
-                                "Link": str(link),
-                                "Title": str(title),
-                                "Company Name": str(companyName),
-                                "Short Summary": str(shortSummary),
-                                "Full Description": str(fullDescription),
-                                "Location": str(location),
-                                "Skills": str(skills)
-                            }
+                    for items in set(Jobs_to_save):
+                        link = items[0]
+                        title = items[1]
+                        companyName = items[2]
+                        shortSummary = items[3]
+                        fullDescription = items[4]
+                        location = items[5]
+                        skills = items[6]
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        # user = st.session_state['user']
+                        data = {
+                            "Link": str(link),
+                            "Title": str(title),
+                            "Company Name": str(companyName),
+                            "Short Summary": str(shortSummary),
+                            "Full Description": str(fullDescription),
+                            "Location": str(location),
+                            "Skills": str(skills)
+                        }
 
-                            async def wait_for_data_push():
+                        async def wait_for_data_push():
+                            with st.spinner("Adding to your database"):
                                 await db.child("users").child(str(localId)).child("Jobs").push(data)
 
-                            asyncio.run(wait_for_data_push())
-                            switch_page("dashboard")
+                        asyncio.run(wait_for_data_push())
+                        switch_page("dashboard")
 
 
 
