@@ -294,7 +294,7 @@ if __name__ == "__main__":
                         location = element[5]
                         skills = element[6]
                         compatibilityScore = element[7]
-                        col1mark, col2mark= st.columns([1, 0.2])
+                        col1mark, col2mark= st.columns([1, 0.15])
                         with col1mark:
 
                             score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
@@ -313,8 +313,6 @@ if __name__ == "__main__":
                                     f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                                     unsafe_allow_html=True)
                         with col2mark:
-                            st.write("")
-                            st.write("")
 
                             Save = st.checkbox("\n\n\nSave", key = f"{link}+{title}+{shortSummary}+{companyName}")
                             if Save:
