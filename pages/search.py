@@ -1241,6 +1241,70 @@ def login_form(auth):
         st.markdown("""
                 <style>
                  div[data-testid="stForm"] {border: 0px;}
+                 
+                .st-au {
+                  border-radius:5px; 
+                }
+                
+                li[role="option"]:hover{
+                background-color: #bebebe;
+                }
+                
+                
+                li[aria-selected="true"]{
+                background-color: #bebebe;
+                color:black;
+                }
+            
+                
+                button[class="tabs-bui3-tab-0"]{
+                max-height:20px;
+                }
+                
+              
+            
+                button[data-baseweb="tab"] {
+                background-color:rgba(255, 122, 89, 0);
+                color:black;
+                border-radius:5px;
+                min-width:150px;
+                max-height:30px;
+                padding:20px;
+                margin: 0 auto;
+                }
+                
+                button[data-baseweb="tab"]:hover {
+                color:black;
+                background-color:#eeeeee;
+                }
+            
+                div[data-baseweb="tab-highlight"] {
+                height:0px;
+                visibility:hidden;
+                }
+            
+                button{
+                max-height:30px;
+                }
+                
+                div[data-baseweb="tab-border"]{
+                height:0px;
+                visibility:hidden;
+                }
+            
+                div[data-baseweb="tab-list"] {
+                background-color:rgba(255, 122, 89, 0);
+                max-width:500px;
+                padding:5px;
+                border-bottom:none;
+                border-radius:5px;
+                margin: 0 auto;
+                }
+            
+                button[aria-selected="true"] {
+                background-color: #eeeeee;
+                border-radius:5px;
+                }
                 </style>
                 """, unsafe_allow_html=True)
         Login, Register = st.tabs(["Login", "Register"])
