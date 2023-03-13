@@ -389,10 +389,12 @@ if __name__ == "__main__":
     background-color: #eeeeee;
     color:black;
     }
+    
     li[role="option"]{
     color:black;
     }
-    li [aria-selected="true"]{
+    
+    li[aria-selected="true"]{
     background-color: #808080;
     color:white;
     }
