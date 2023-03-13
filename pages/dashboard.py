@@ -148,7 +148,7 @@ if __name__ == "__main__":
         with Saved:
             with st.form(key = "Hanji"):
                 modal = Modal("Demo Modal")
-                open_modal = st.button("Open")
+                open_modal = st.form_submit_button("Open")
                 if open_modal:
                     modal.open()
 
