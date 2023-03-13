@@ -134,7 +134,7 @@ if __name__ == "__main__":
         with Saved:
 
 
-            colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 1])
+            colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
             with colLogin2:
 
                 st.write(f"You're logged in as {st.session_state['user']['email']}")
