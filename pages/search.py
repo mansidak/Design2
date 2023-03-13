@@ -1125,9 +1125,10 @@ if __name__ == "__main__":
                             st.session_state["FinalResults"] = links1 + links2 + links3 + links4 + links5
                             Archives = links1 + links2 + links3 + links4 + links5
 
+                            firebase = pyrebase.initialize_app(firebaseconfig)
+                            db = firebase.database()
+                            data = []
                             for job in Archives:
-                                firebase = pyrebase.initialize_app(firebaseconfig)
-                                db = firebase.database()
                                 link = job[0]
                                 title = job[1]
                                 companyName = job[2]
@@ -1135,7 +1136,7 @@ if __name__ == "__main__":
                                 fullDescription = job[4]
                                 location = job[5]
                                 skills = job[6]
-                                data = {
+                                data.append({
                                     "Link": str(link),
                                     "Title": str(title),
                                     "Company Name": str(companyName),
@@ -1143,9 +1144,9 @@ if __name__ == "__main__":
                                     "Full Description": str(fullDescription),
                                     "Location": str(location),
                                     "Skills": str(skills),
-                                }
+                                })
 
-                            db.child("users").child(str(localId)).child("Archive").push(data)
+                            db.child("users").child(str(localId)).child("Archive").set(data)
 
 
                             switch_page("results")
