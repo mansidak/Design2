@@ -1069,7 +1069,7 @@ if __name__ == "__main__":
 
                                 progressText.markdown( f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Looking for jobs where you can use your experience in {st.session_state['newSkills']} etc...</h6>", unsafe_allow_html=True)
                                 my_bar.progress(25, text=f"")
-                                time.sleep(10)
+                                time.sleep(8)
 
                                 progressText.markdown(f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Hang tight! We're scanning for opportunities that match your unique set of {st.session_state['softSkills']}</h6>", unsafe_allow_html=True)
                                 my_bar.progress(40, text=f"")
