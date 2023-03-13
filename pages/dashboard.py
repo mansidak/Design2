@@ -346,14 +346,6 @@ if __name__ == "__main__":
                                 unsafe_allow_html=True)
 
         with ResumeTab:
-            AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
-            firebase = pyrebase.initialize_app(firebaseconfig)
-            db = firebase.database()
-            localId = AccountInfo["localId"]
-            AppliedResults = db.child("users").child(str(localId)).child("Applied").get().val()
-
-            unique_links = {}
-
             for key, value in AppliedResults.items():
                 link = value['Link']
                 if link not in unique_links:
