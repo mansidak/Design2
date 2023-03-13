@@ -267,7 +267,7 @@ if __name__ == "__main__":
             colresult1, colresult2 = st.columns([0.5, 1])
             with colresult1:
                 st.markdown(
-                    f"<h2 style='text-align:left;font-family: Baskerville'>Search Archives</h2>",
+                    f"<h2 style='text-align:left;font-weight:normal;font-family: Baskerville'>Search Archives</h2>",
                     unsafe_allow_html=True)
             with colresult2:
                 for key, value in my_dict.items():
