@@ -164,11 +164,7 @@ if __name__ == "__main__":
                 color:black
 
                 }
-                
-                                
-                .css-4reuil.ede6r8z0{
-                color: red !important;
-                }
+
                 </style>""", unsafe_allow_html=True)
             colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
             with colResume1:
@@ -378,6 +374,11 @@ if __name__ == "__main__":
     height:0px;
     }
     
+                    
+                                
+    .css-4reuil.ede6r8z0{
+    color: red !important;
+    }
 
     
     button[class="tabs-bui3-tab-0"]{
