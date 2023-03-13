@@ -183,7 +183,7 @@ if __name__ == "__main__":
                     Short_Summary = value['Short Summary']
                     Skills = value['Skills']
                     Title = value['Title']
-                    with st.form("DAMN", key=f"form"):
+                    with st.form("DAMN", key="form"):
                         st.write(Skills)
                         st.markdown(
                             f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
