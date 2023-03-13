@@ -143,7 +143,7 @@ if __name__ == "__main__":
                 .a{
                 color:black
                 }
-                </style>""")
+                </style>""", unsafe_allow_html=True)
             colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
             with colResume1:
                 st.write("")
