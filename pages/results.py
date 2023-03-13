@@ -425,7 +425,7 @@ if __name__ == "__main__":
 
             }
             
-            button[kind="secondaryFormSubmit"]{
+            div[class="row-widget.stButton"]{
             margin-top:100px;
             margin-right:100px;
             position:fixed;
