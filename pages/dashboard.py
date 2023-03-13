@@ -153,8 +153,8 @@ if __name__ == "__main__":
                 hasClicked = card(
                     title="Hello World!",
                     text="Some description",
-                    image="http://placekitten.com/200/300"
-                url = "https://github.com/gamcoh/st-card"
+                    image="http://placekitten.com/200/300",
+                    url = "https://github.com/gamcoh/st-card"
                 )
                 st.markdown("""
                 <style>
