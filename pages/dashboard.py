@@ -389,6 +389,9 @@ if __name__ == "__main__":
     background-color: #eeeeee;
     color:black;
     }
+    li[role="option"]{
+    color:black;
+    }
 
     
     button[class="tabs-bui3-tab-0"]{
