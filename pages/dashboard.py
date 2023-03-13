@@ -394,6 +394,9 @@ if __name__ == "__main__":
     li[role="option"]{
     color:black;
     }
+    div[data-baseweb="icon"]{
+    filter:invert(0.8);
+    }
     
     li[role="option"]:hover{
     background-color: #F63366;
