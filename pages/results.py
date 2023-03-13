@@ -294,7 +294,7 @@ if __name__ == "__main__":
                         location = element[5]
                         skills = element[6]
                         compatibilityScore = element[7]
-                        col1mark, col2mark= st.columns([1, 0.1])
+                        col1mark, col2mark= st.columns([1, 0.2])
                         with col1mark:
 
                             score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
@@ -419,9 +419,7 @@ if __name__ == "__main__":
               border-radius: 50%;
 
             }
-            
 
-            
             </style>
             """, unsafe_allow_html=True)
 
