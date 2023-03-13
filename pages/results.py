@@ -644,7 +644,7 @@ if __name__ == "__main__":
              div[data-testid="stForm"] {min-height: 2000px}
             
             </style>
-            """)
+            """, unsafe_allow_html=True)
             colconclusion1, colconclusion2 = st.columns([1, 3])
             with colconclusion1:
 
