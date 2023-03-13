@@ -175,9 +175,8 @@ if __name__ == "__main__":
             with colResume3:
                 st.write("")
             for key, value in SavedResults.items():
-                link = value['Link']
-                if link not in unique_links:
-                    unique_links[link] = value
+                if key not in unique_links:
+                    unique_links[key] = value
 
             my_dict = unique_links
             colresult1, colresult2 = st.columns([0.5, 1])
