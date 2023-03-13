@@ -4,7 +4,7 @@ import streamlit as st
 # st.title("CoverLetter")
 import openai
 from docx import Document
-from PIL import
+from PIL import Image
 from streamlit_modal import Modal
 from streamlit_option_menu import option_menu
 import PyPDF2
