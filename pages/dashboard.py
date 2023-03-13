@@ -446,6 +446,9 @@ if __name__ == "__main__":
     visibility:hidden;
     height:0px;
     }
+    button[kind="secondary"]{
+    background-color:#ffffff
+    }
     
    
     div[data-testid="stMarkdownContainer"]{
