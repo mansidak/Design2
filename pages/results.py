@@ -416,7 +416,6 @@ if __name__ == "__main__":
             #input[type="checkbox"] {
               width: 2rem;
               height: 2rem;
-              color: dodgerblue;
               vertical-align: middle;
               -webkit-appearance: none;
               background: none;
