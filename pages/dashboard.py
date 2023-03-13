@@ -376,13 +376,17 @@ if __name__ == "__main__":
     
                     
                                 
-   div[data-baseweb="select"] > div > div > div{
-    background-color: red;
+   div[data-baseweb="select"] > div {
+    background-color: #eeeeee;
+    color:black;
+    }
+    
+    div[data-baseweb="select"] > div > div > div{
     color:black;
     }
     
     #root > div:nth-child(2) > div > div > div > div > div > div > ul{
-    background-color: red;
+    background-color: #eeeeee;
     color:black;
     }
 
