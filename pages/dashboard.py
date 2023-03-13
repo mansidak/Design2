@@ -169,7 +169,7 @@ if __name__ == "__main__":
                
                 }
                 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(9){
-                margin-top:-100px;
+                margin-top:-150px;
                 }
                 </style>""", unsafe_allow_html=True)
             colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
