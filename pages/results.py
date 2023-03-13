@@ -198,222 +198,134 @@ if __name__ == "__main__":
 
                 }
                 </style>""", unsafe_allow_html=True)
-        with st.form("Results"):
-            AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
-            firebase = pyrebase.initialize_app(firebaseconfig)
-            db = firebase.database()
-            localId = AccountInfo["localId"]
-            set_code(code=user['refreshToken'])
-            cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
+        # with st.form("Results"):
+        AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+        firebase = pyrebase.initialize_app(firebaseconfig)
+        db = firebase.database()
+        localId = AccountInfo["localId"]
+        set_code(code=user['refreshToken'])
+        cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
 
 
-            unique_results = set(st.session_state['FinalResults'])
-            with st.sidebar:
+        unique_results = set(st.session_state['FinalResults'])
+        with st.sidebar:
 
-                st.subheader("")
-                st.subheader("")
+            st.subheader("")
+            st.subheader("")
 
-                options = st.multiselect('Filter by location',
-                                         set([item[5] for item in st.session_state['FinalResults']]), None,
-                                         key="option1")
-                options2 = st.multiselect('Filter by your strongest skills',
-                                          set([item[6].replace('-', '') for item in st.session_state['FinalResults']]),
-                                          None, key="option2")
-                html_string = "<ul>"
-                for list in unique_results:
-                    link = list[0]
-                    title = list[1]
-                    companyName = list[2]
-                    shortSummary = list[3]
-                    fullDescription = list[4]
-                    location = list[5]
-                    skills = list[6]
-                    html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
-                html_string += "</ul>"
+            options = st.multiselect('Filter by location',
+                                     set([item[5] for item in st.session_state['FinalResults']]), None,
+                                     key="option1")
+            options2 = st.multiselect('Filter by your strongest skills',
+                                      set([item[6].replace('-', '') for item in st.session_state['FinalResults']]),
+                                      None, key="option2")
+            html_string = "<ul>"
+            for list in unique_results:
+                link = list[0]
+                title = list[1]
+                companyName = list[2]
+                shortSummary = list[3]
+                fullDescription = list[4]
+                location = list[5]
+                skills = list[6]
+                html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
+            html_string += "</ul>"
 
-                # generate the pdf
-                PDFFile = pdfkit.from_string(html_string, "output.pdf")
+            # generate the pdf
+            PDFFile = pdfkit.from_string(html_string, "output.pdf")
 
-                with open("output.pdf", "rb") as pdf_file:
-                    PDFbyte = pdf_file.read()
-                # st.download_button(label='Download PDF', data= PDFFile)
+            with open("output.pdf", "rb") as pdf_file:
+                PDFbyte = pdf_file.read()
+            # st.download_button(label='Download PDF', data= PDFFile)
 
-                # st.download_button(label="Download All Jobs",
-                #                    data=PDFbyte,
-                #                    file_name="test.pdf",
-                #                    key='downloadingjobspdf',
-                #                    mime='application/octet-stream')
+            # st.download_button(label="Download All Jobs",
+            #                    data=PDFbyte,
+            #                    file_name="test.pdf",
+            #                    key='downloadingjobspdf',
+            #                    mime='application/octet-stream')
 
-            colresult1, colresult2, colresult3 = st.columns([0.25, 0.75, 0.25])
-            with colresult1:
+        colresult1, colresult2, colresult3 = st.columns([0.25, 0.75, 0.25])
+        with colresult1:
+            st.write("")
+        with colresult2:
+            col1, col2, col3 = st.columns([2, 1, 2])
+
+            with col1:
                 st.write("")
-            with colresult2:
-                col1, col2, col3 = st.columns([2, 1, 2])
 
-                with col1:
+            with col2:
+                image = Image.open('PenManLogo.png')
+                st.image(image)
+
+            with col3:
+                st.write("")
+
+            # st.markdown(
+            #     f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
+            #     unsafe_allow_html=True)
+
+            st.markdown(
+                f"<h3 style='text-align: center; font-family: Sans-Serif;'>Next Step: Select the Jobs you like</h3>",
+                unsafe_allow_html=True)
+
+            st.markdown(
+                f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Once done choosing, hit Done on the bottom.</h6>",
+                unsafe_allow_html=True)
+
+            st.write("")
+            st.write("")
+            st.write("")
+            st.write("")
+            st.write("")
+            st.write("")
+
+
+
+
+
+
+
+            Jobs_to_save = []
+            for element in unique_results.copy():
+                if element[5] in options and element[6].replace('-', '') in options2:
+                    st.write("")
+                elif not options and element[6].replace('-', '') in options2:
+                    st.write("")
+                elif not options2 and element[5] in options:
                     st.write("")
 
-                with col2:
-                    image = Image.open('PenManLogo.png')
-                    st.image(image)
+                elif not options and not options2:
 
-                with col3:
-                    st.write("")
+                    link = element[0]
+                    title = element[1]
+                    companyName = element[2]
+                    shortSummary = element[3]
+                    fullDescription = element[4]
+                    location = element[5]
+                    skills = element[6]
+                    compatibilityScore = element[7]
+                    col1mark, col2mark= st.columns([1, 0.065])
+                    with col1mark:
 
-                # st.markdown(
-                #     f"<h2 style='text-align: center; font-family: Sans-Serif;'>Welcome,{st.session_state['Name']}</h2>",
-                #     unsafe_allow_html=True)
+                        score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
+                        skills_text = compatibilityScore.split('Skills that match: ')[1]
+                        st.subheader("")
+                        st.markdown(
+                            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h5 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{title}→ </h5></a>",
+                            unsafe_allow_html=True)
 
-                st.markdown(
-                    f"<h3 style='text-align: center; font-family: Sans-Serif;'>Next Step: Select the Jobs you like</h3>",
-                    unsafe_allow_html=True)
-
-                st.markdown(
-                    f"<h6 style='text-align: center; font-family: Sans-Serif;font-weight: lighter;'>Once done choosing, hit Done on the bottom.</h6>",
-                    unsafe_allow_html=True)
-
-                st.write("")
-                st.write("")
-                st.write("")
-                st.write("")
-                st.write("")
-                st.write("")
-
-
-
-
-
-
-
-                Jobs_to_save = []
-                for element in unique_results.copy():
-                    if element[5] in options and element[6].replace('-', '') in options2:
-                        st.write("")
-                    elif not options and element[6].replace('-', '') in options2:
-                        st.write("")
-                    elif not options2 and element[5] in options:
-                        st.write("")
-
-                    elif not options and not options2:
-
-                        link = element[0]
-                        title = element[1]
-                        companyName = element[2]
-                        shortSummary = element[3]
-                        fullDescription = element[4]
-                        location = element[5]
-                        skills = element[6]
-                        compatibilityScore = element[7]
-                        col1mark, col2mark= st.columns([1, 0.065])
-                        with col1mark:
-
-                            score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
-                            skills_text = compatibilityScore.split('Skills that match: ')[1]
-                            st.subheader("")
+                        if float(score_text) > 3:
                             st.markdown(
-                                f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h5 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{title}→ </h5></a>",
+                                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;&nbsp;{companyName} 🎖️</h6>",
                                 unsafe_allow_html=True)
-
-                            if float(score_text) > 3:
-                                st.markdown(
-                                    f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;&nbsp;{companyName} 🎖️</h6>",
-                                    unsafe_allow_html=True)
-                            else:
-                                st.markdown(
-                                    f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-                                    unsafe_allow_html=True)
-                        with col2mark:
-                            st.write("")
-                            Save = st.empty()
-                            def Savejob():
-                                data = {
-                                    "Link": str(link),
-                                    "Title": str(title),
-                                    "Company Name": str(companyName),
-                                    "Short Summary": str(shortSummary),
-                                    "Full Description": str(fullDescription),
-                                    "Location": str(location),
-                                    "Skills": str(skills)
-                                }
-                                db.child("users").child(str(localId)).child("Jobs").push(data)
-
-                            if st.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}"):
-                                Savejob()
-
-
-
-
-
-
-                        with st.expander(f"{location}"):
-
-                            st.write(f"{shortSummary}")
-                            st.markdown("""
-                        <style>
-
-                              #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
-                              font-size: 17px;
-                              font-weight:
-                              }
-                                 </style>
-                             """, unsafe_allow_html=True)
-                            if float(score_text) > 3:
-                                st.metric("Compatibility score out of 5", f"{score_text}", f"{skills_text}")
-
-                            col1, col2, col3 = st.columns([1, 1.5, 3])
-
-                            with col1:
-                                st.write("")
-                                st.write("")
-                                st.markdown(f'''
-                                    <a target="_blank" href="{link}">
-                                        <button style = "
-                                            cursor: pointer;
-                                            outline: 0;
-                                            display: inline-block;
-                                            font-weight: 400;
-                                            max-height:36px;
-                                            min-height:35px;
-                                            min-width:100px;
-                                            text-align: center;
-                                            background-color: #141414;
-                                            border: 1px solid transparent;
-                                            margin-top:-2px;
-                                            font-size: 1rem;
-                                            border-radius: .25rem;
-                                            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                                            color: #F63366;
-                                            border-color: #F63366;">
-                                            Apply
-                                        </button>
-                                    </a>
-                                                                    ''',
-                                            unsafe_allow_html=True
-                                            )
-                                st.write("")
-                                st.write("")
-
-                            with col2:
-                                st.write("")
-                            with col3:
-                                st.write("")
-                    st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
-
-                submitted = st.form_submit_button("Done →")
-                st.write(Jobs_to_save)
-                if submitted:
-                    with st.spinner("Adding to your database"):
-                        for items in set(Jobs_to_save):
-                            link = items[0]
-                            title = items[1]
-                            companyName = items[2]
-                            shortSummary = items[3]
-                            fullDescription = items[4]
-                            location = items[5]
-                            skills = items[6]
-                            firebase = pyrebase.initialize_app(firebaseconfig)
-                            db = firebase.database()
-                            # user = st.session_state['user']
+                        else:
+                            st.markdown(
+                                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;&nbsp;{companyName}</h6>",
+                                unsafe_allow_html=True)
+                    with col2mark:
+                        st.write("")
+                        Save = st.empty()
+                        def Savejob():
                             data = {
                                 "Link": str(link),
                                 "Title": str(title),
@@ -423,70 +335,158 @@ if __name__ == "__main__":
                                 "Location": str(location),
                                 "Skills": str(skills)
                             }
-                            results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                            time.sleep(5)
-                            # switch_page("dashboard")
+                            db.child("users").child(str(localId)).child("Jobs").push(data)
+
+                        if st.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}"):
+                            Savejob()
 
 
-            st.markdown("""
-            
-            <style>
-            
-            div[data-testid="stForm"] {border: 0px;}
+
+
+
+
+                    with st.expander(f"{location}"):
+
+                        st.write(f"{shortSummary}")
+                        st.markdown("""
+                    <style>
+
+                          #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
+                          font-size: 17px;
+                          font-weight:
+                          }
+                             </style>
+                         """, unsafe_allow_html=True)
+                        if float(score_text) > 3:
+                            st.metric("Compatibility score out of 5", f"{score_text}", f"{skills_text}")
+
+                        col1, col2, col3 = st.columns([1, 1.5, 3])
+
+                        with col1:
+                            st.write("")
+                            st.write("")
+                            st.markdown(f'''
+                                <a target="_blank" href="{link}">
+                                    <button style = "
+                                        cursor: pointer;
+                                        outline: 0;
+                                        display: inline-block;
+                                        font-weight: 400;
+                                        max-height:36px;
+                                        min-height:35px;
+                                        min-width:100px;
+                                        text-align: center;
+                                        background-color: #141414;
+                                        border: 1px solid transparent;
+                                        margin-top:-2px;
+                                        font-size: 1rem;
+                                        border-radius: .25rem;
+                                        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                        color: #F63366;
+                                        border-color: #F63366;">
+                                        Apply
+                                    </button>
+                                </a>
+                                                                ''',
+                                        unsafe_allow_html=True
+                                        )
+                            st.write("")
+                            st.write("")
+
+                        with col2:
+                            st.write("")
+                        with col3:
+                            st.write("")
+                st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
+
+            submitted = st.form_submit_button("Done →")
+            st.write(Jobs_to_save)
+            if submitted:
+                with st.spinner("Adding to your database"):
+                    for items in set(Jobs_to_save):
+                        link = items[0]
+                        title = items[1]
+                        companyName = items[2]
+                        shortSummary = items[3]
+                        fullDescription = items[4]
+                        location = items[5]
+                        skills = items[6]
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        # user = st.session_state['user']
+                        data = {
+                            "Link": str(link),
+                            "Title": str(title),
+                            "Company Name": str(companyName),
+                            "Short Summary": str(shortSummary),
+                            "Full Description": str(fullDescription),
+                            "Location": str(location),
+                            "Skills": str(skills)
+                        }
+                        results = db.child("users").child(str(localId)).child("Jobs").push(data)
+                        time.sleep(5)
+                        # switch_page("dashboard")
+
+
+        st.markdown("""
         
-            label[data-baseweb="checkbox"] > span  {
-              width: 2rem;
-              height: 2rem;
-              border-radius: 50%;
+        <style>
+        
+        div[data-testid="stForm"] {border: 0px;}
+    
+        label[data-baseweb="checkbox"] > span  {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
 
-            }
-            
-            div[class="row-widget css-k008qs epcbefy2"]{
-            position:fixed;
-            bottom: 40px;
-            right: -700px;
-            z-index:9999999
-            }
-            button[kind="secondaryFormSubmit"]{
-            border-radius: 30px;
+        }
+        
+        div[class="row-widget css-k008qs epcbefy2"]{
+        position:fixed;
+        bottom: 40px;
+        right: -700px;
+        z-index:9999999
+        }
+        button[kind="secondaryFormSubmit"]{
+        border-radius: 30px;
 
-            }
+        }
 
 
-            </style>
-            """, unsafe_allow_html=True)
+        </style>
+        """, unsafe_allow_html=True)
 
-            colconclusion1, colconclusion2 = st.columns([1, 3])
-            with colconclusion1:
+        colconclusion1, colconclusion2 = st.columns([1, 3])
+        with colconclusion1:
 
-                html_string = "<ul>"
-                for list in unique_results:
-                    link = list[0]
-                    title = list[1]
-                    companyName = list[2]
-                    shortSummary = list[3]
-                    fullDescription = list[4]
-                    location = list[5]
-                    skills = list[6]
-                    html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
-                html_string += "</ul>"
+            html_string = "<ul>"
+            for list in unique_results:
+                link = list[0]
+                title = list[1]
+                companyName = list[2]
+                shortSummary = list[3]
+                fullDescription = list[4]
+                location = list[5]
+                skills = list[6]
+                html_string += "<li><a href='" + link + "'>" + title + " at " + companyName + "</a><ul><li>" + shortSummary + "</li></ul></li>"
+            html_string += "</ul>"
 
-                # generate the pdf
-                PDFFile = pdfkit.from_string(html_string, "output.pdf")
+            # generate the pdf
+            PDFFile = pdfkit.from_string(html_string, "output.pdf")
 
-                with open("output.pdf", "rb") as pdf_file:
-                    PDFbyte = pdf_file.read()
-                # st.download_button(label='Download PDF', data= PDFFile)
-                st.write("")
-                st.write("")
-                # st.download_button(label="Download All Jobs",
-                #                    data=PDFbyte,
-                #                    file_name="test.pdf",
-                #                    mime='application/octet-stream')
-            with colconclusion2:
-                st.write("")
-                # if st.button("Not Satisfied? Run Again"):
-                #     switch_page("search")
+            with open("output.pdf", "rb") as pdf_file:
+                PDFbyte = pdf_file.read()
+            # st.download_button(label='Download PDF', data= PDFFile)
+            st.write("")
+            st.write("")
+            # st.download_button(label="Download All Jobs",
+            #                    data=PDFbyte,
+            #                    file_name="test.pdf",
+            #                    mime='application/octet-stream')
+        with colconclusion2:
+            st.write("")
+            # if st.button("Not Satisfied? Run Again"):
+            #     switch_page("search")
 
         with colresult3:
             st.write("")
