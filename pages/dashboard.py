@@ -408,7 +408,7 @@ if __name__ == "__main__":
     
     li[aria-selected="true"]{
     background-color: #bebebe;
-    color:white;
+    color:black;
     }
 
     
