@@ -176,7 +176,7 @@ if __name__ == "__main__":
                 st.write("")
             with colresult2:
                 for key, value in my_dict.items():
-                    with st.form("DAMN", key=f"{key}"):
+                    with st.form("DAMN", key=f"{Link}+{Title}+{Short_Summary} + Form "):
                         company_name = value['Company Name']
                         Full_Description = value['Full Description']
                         Link = value['Link']
