@@ -154,7 +154,7 @@ if __name__ == "__main__":
             st.markdown(f"<center> <h5 style='font-family: Baskerville; font-weight:normal; color: white'> Applied</h5>", unsafe_allow_html=True)
 
 
-        Saved, Archive, ResumeTab, Applied = st.tabs(["Saved", "Archive", "Profile", "Applied"])
+        Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Applied"])
 
         with Saved:
 
@@ -503,7 +503,7 @@ if __name__ == "__main__":
 
     div[data-baseweb="tab-list"] {
     background-color:rgba(255, 122, 89, 0);
-    max-width:700px;
+    max-width:500px;
     padding:5px;
     border-bottom:none;
     border-radius:5px;
