@@ -427,7 +427,6 @@ if __name__ == "__main__":
             
             div[data-testid="stFormSubmitButton"]{
             position:fixed;
-            z-index:9999999;
             }
 
 
