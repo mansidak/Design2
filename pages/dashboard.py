@@ -200,7 +200,6 @@ if __name__ == "__main__":
 
 
                         # st.write(Skills)
-                        st.write(key)
                         st.markdown(
                             f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
                             unsafe_allow_html=True)
