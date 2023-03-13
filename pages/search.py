@@ -1238,6 +1238,11 @@ def login_form(auth):
     with col1form:
         st.write("")
     with col2form:
+        st.markdown("""
+                <style>
+                 div[data-testid="stForm"] {border: 0px;}
+                </style>
+                """, unsafe_allow_html=True)
         Login, Register = st.tabs(["Login", "Register"])
         with Login:
             with st.form(key="Login"):
@@ -1275,11 +1280,7 @@ def login_form(auth):
             # if st.button("Forgot Password", key="forgotpassword"):
             #     auth.send_password_reset_email("email")
 
-    st.markdown("""
-    <style>
-     div[data-testid="stForm"] {border: 0px;}
-    </style>
-    """, unsafe_allow_html=True)
+
     with col3form:
         st.write("")
 
