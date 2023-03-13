@@ -411,7 +411,7 @@ if __name__ == "__main__":
                             }
 
                             async def wait_for_data_push():
-                                results = await db.child("users").child(str(localId)).child("Jobs").push(data)
+                                await db.child("users").child(str(localId)).child("Jobs").push(data)
 
                             asyncio.run(wait_for_data_push())
                             switch_page("dashboard")
