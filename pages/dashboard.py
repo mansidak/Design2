@@ -347,7 +347,8 @@ if __name__ == "__main__":
                                 unsafe_allow_html=True)
 
         with ResumeTab:
-            for key, value in AppliedResults.items():
+            AppliedResults2 = ArchivedResults = db.child("users").child(str(localId)).child("Applied").get().val()
+            for key, value in AppliedResults2.items():
                 if key not in unique_applied_links:
                     unique_applied_links[link] = value
 
