@@ -144,7 +144,7 @@ if __name__ == "__main__":
             unsafe_allow_html=True)
         st.subheader("")
         st.subheader("")
-        metricscol1, metricscol2, metricscol3 = st.columns([0.5,0.5,5])
+        metricscol1, metricscol2, metricscol3 = st.columns([0.5,0.5,2])
         with metricscol1:
             st.header(f"{len(SavedResults)}")
             st.subheader("Saved")
