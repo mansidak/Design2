@@ -397,8 +397,8 @@ if __name__ == "__main__":
     div[data-baseweb="icon"]{
     filter:invert(0.8);
     }
-    .st-ae{
-    border-radius:20px;
+    .st-be{
+    border-radius: 50px;
     }
     
     li[role="option"]:hover{
