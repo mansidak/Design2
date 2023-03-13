@@ -162,6 +162,7 @@ if __name__ == "__main__":
                                     position:fixed;
                                     z-index:2;
                                     }
+                                    
 
                                   .dark{
                                         background-color: #eeeeee;
@@ -423,6 +424,12 @@ if __name__ == "__main__":
               border-radius: 50%;
 
             }
+            
+            button[kind="secondaryFormSubmit"]{
+            position:fixed;
+            z-index:2;
+            }
+
 
             </style>
             """, unsafe_allow_html=True)
