@@ -471,7 +471,7 @@ if __name__ == "__main__":
                                 
    div[data-baseweb="select"] > div {
     background-color: rgba(255, 122, 89, 0);
-    border-color:#eeeeee;
+    border-color:#c9c9c9;
     color:black;
     }
     
