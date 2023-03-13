@@ -278,12 +278,11 @@ if __name__ == "__main__":
                 Jobs_to_save = []
                 for element in unique_results.copy():
                     if element[5] in options and element[6].replace('-', '') in options2:
-
+                        st.write("")
                     elif not options and element[6].replace('-', '') in options2:
-
-
+                        st.write("")
                     elif not options2 and element[5] in options:
-
+                        st.write("")
 
                     elif not options and not options2:
 
