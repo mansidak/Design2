@@ -149,8 +149,8 @@ if __name__ == "__main__":
             st.header(f"{len(SavedResults)}")
             st.write("Saved")
         with metricscol3:
-            st.write(f"{len(SavedResults)}")
-            st.subheader("Applied")
+            st.header(f"{len(SavedResults)}")
+            st.write("Applied")
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
         with Saved:
