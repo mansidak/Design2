@@ -375,7 +375,7 @@ if __name__ == "__main__":
     }
     
    
-    div[class="row-widget stMultiSelect"]P
+    div[class="row-widget stMultiSelect"]{
     color:black
     }
                     
