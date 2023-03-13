@@ -361,10 +361,10 @@ if __name__ == "__main__":
                 st.write("")
                 for key, value in my_dict.items():
                     company_name = value['company_name']
-                    Full_Description = value['Full Description']
+                    Full_Description = value['Full_Description']
                     Link = value['Link']
                     Location = value['Location']
-                    Short_Summary = value['Short Summary']
+                    Short_Summary = value['Short_Summary']
                     Skills = value['Skills']
                     Title = value['Title']
 
