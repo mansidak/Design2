@@ -255,7 +255,7 @@ if __name__ == "__main__":
                                     }
                                     db.child("users").child(str(localId)).child("Applied").push(data)
                                     db.child("users").child(str(localId)).child("Jobs").child(key).remove()
-                                    st.experimental_rerun
+                                    st.experimental_rerun()
                             with col3:
                                 st.write("")
 
