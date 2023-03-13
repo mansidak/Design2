@@ -402,7 +402,7 @@ if __name__ == "__main__":
       }
     
     li[role="option"]:hover{
-    background-color: #F63366;
+    background-color: #bebebe;
     }
     
     
