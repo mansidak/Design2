@@ -171,7 +171,7 @@ if __name__ == "__main__":
                     unique_links[link] = value
 
             my_dict = unique_links
-            colresult1, colresult2, colresult3 = st.columns([0.5, 1, 0.5])
+            colresult1, colresult2 = st.columns([0.5, 1])
             with colresult1:
                 st.write("This should be static")
             with colresult2:
@@ -235,8 +235,7 @@ if __name__ == "__main__":
 
                         st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                     unsafe_allow_html=True)
-            with colresult3:
-                st.write("")
+
 
         with Archive:
             AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
