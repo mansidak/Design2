@@ -267,9 +267,10 @@ if __name__ == "__main__":
             colresult1, colresult2 = st.columns([0.5, 1])
             with colresult1:
                 st.markdown(
-                    f"<h2 style='text-align:right;font-family: Sans-Serif'>Search Archives</h2>",
+                    f"<h2 style='text-align:left;font-family: Sans-Serif'>Search Archives</h2>",
                     unsafe_allow_html=True)
             with colresult2:
+                st.subheader("")
                 for key, value in my_dict.items():
                     company_name = value['Company Name']
                     Full_Description = value['Full Description']
