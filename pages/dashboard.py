@@ -173,7 +173,7 @@ if __name__ == "__main__":
             my_dict = unique_links
             colresult1, colresult2 = st.columns([0.5, 1])
             with colresult1:
-                options = st.multiselect('Filter by location', set([value[0] for value in my_dict.items()]), None, key="option1")
+                options = st.multiselect('Filter by location', set([value[5] for value in my_dict.items()]), None, key="option1")
 
             with colresult2:
                 for key, value in my_dict.items():
