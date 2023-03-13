@@ -567,9 +567,7 @@ if __name__ == "__main__":
                                color: #F63366;
                                border-color: #F63366;
                                }
-                               .stMarkdown{
-                               color:black
-                               }
+
 
                                .css-5y9es8.exg6vvm15{
                                border-radius:50px; 
