@@ -499,9 +499,12 @@ if __name__ == "__main__":
                                width: 50%;
                              }
                                .stApp {
-                                background-color: #ffffff;
                                 color:black
                                }
+                               
+                               p {
+                            background-image: url(‘Dashboard.png’);
+                                }
                                .element-container.css-l0vo1h.e1tzin5v3
                                {
                                color:black
