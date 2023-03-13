@@ -395,7 +395,7 @@ if __name__ == "__main__":
     }
     
     li[aria-selected="true"]{
-    background-color: #808080;
+    background-color: #F63366;
     color:white;
     }
 
