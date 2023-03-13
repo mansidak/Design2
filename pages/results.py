@@ -413,7 +413,7 @@ if __name__ == "__main__":
             
              div[data-testid="stForm"] {border: 0px;}
              
-            #input[type="checkbox"] {
+            input[type="checkbox"] {
               width: 2rem;
               height: 2rem;
               vertical-align: middle;
