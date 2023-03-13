@@ -420,7 +420,7 @@ if __name__ == "__main__":
     }
          
     div[data-testid="stMarkdownContainer"]:hover{
-    color:F63366
+    color:#F63366
     }           
                                 
    div[data-baseweb="select"] > div {
