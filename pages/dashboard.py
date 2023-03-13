@@ -398,7 +398,7 @@ if __name__ == "__main__":
     filter:invert(0.8);
     }
     .st-au {
-      border-radius:30px; 
+      border-radius:15px; 
       }
     
     li[role="option"]:hover{
