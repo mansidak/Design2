@@ -284,19 +284,18 @@ if __name__ == "__main__":
                                 if MarkAsApplied.button("Mark As Applied", key =f"{Link}+{Title}+{Short_Summary}+MarkASApplied"):
                                     MarkAsApplied.empty()
                                     button_applied = MarkAsApplied.button('Good Job!', key=f"{Link}+{Title}+{Short_Summary}+Applying",disabled=True)
-                                    with st.spinner(""):
-                                        data = {
-                                            "company_name": value['Company Name'],
-                                            "Full_Description": value['Full Description'],
-                                            "Link": value['Link'],
-                                            "Location": value['Location'],
-                                            "Short_Summary": value['Short Summary'],
-                                            "Skills": value['Skills'],
-                                            "Title": value['Title']
-                                        }
-                                        db.child("users").child(str(localId)).child("Applied").push(data)
-                                        db.child("users").child(str(localId)).child("Jobs").child(key).remove()
-                                        st.experimental_rerun()
+                                    data = {
+                                        "company_name": value['Company Name'],
+                                        "Full_Description": value['Full Description'],
+                                        "Link": value['Link'],
+                                        "Location": value['Location'],
+                                        "Short_Summary": value['Short Summary'],
+                                        "Skills": value['Skills'],
+                                        "Title": value['Title']
+                                    }
+                                    db.child("users").child(str(localId)).child("Applied").push(data)
+                                    db.child("users").child(str(localId)).child("Jobs").child(key).remove()
+                                    st.experimental_rerun()
                             with col3:
                                 st.write("")
 
