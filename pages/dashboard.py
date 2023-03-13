@@ -178,7 +178,7 @@ if __name__ == "__main__":
                 options = st.multiselect('Filter by location', set([value['Company Name'] for key, value in my_dict.items()]), None, key="option1")
 
             with colresult2:
-                with st.form("")
+                with st.form("Dashboard"):
                     for key, value in my_dict.items():
                         with st.container():
                             company_name = value['Company Name']
