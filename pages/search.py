@@ -355,7 +355,9 @@ if __name__ == "__main__":
                         jobs_list1 = jobs_block[0].find_elements(By.CLASS_NAME, "job-listing")[:9]
                     except:
                         print("didn't exist")
-                    for job in jobs_list1:
+
+                    try:
+                        for job in jobs_list1:
                         all_links = job.find_elements(By.TAG_NAME, "a")
                         for a in all_links:
                             if str(a.get_attribute('href')).startswith(
@@ -364,6 +366,8 @@ if __name__ == "__main__":
                                 print(links)
                             else:
                                 pass
+                    except:
+                        print("didn't exist")
 
 
                 def get_links(i, skill1, resumeContent):
