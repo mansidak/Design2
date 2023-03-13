@@ -135,9 +135,19 @@ if __name__ == "__main__":
         cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
-        SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
-        AppliedResults = db.child("users").child(str(localId)).child("Applied").get().val()
-        AppliedResults2 = db.child("users").child(str(localId)).child("Applied").get().val()
+        try:
+            SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
+        except:
+            pass
+        try:
+            AppliedResults = db.child("users").child(str(localId)).child("Applied").get().val()
+        except:
+            pass
+        try:
+            AppliedResults2 = db.child("users").child(str(localId)).child("Applied").get().val()
+        except:
+            pass
+
 
         unique_links = {}
         unique_applied_links = {}
