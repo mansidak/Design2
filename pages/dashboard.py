@@ -585,7 +585,6 @@ if st.session_state['user'] is None:
 
         main(user=user)
     except:
-        st.title("Login")
         login_form(auth)
 
 else:
