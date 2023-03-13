@@ -379,8 +379,8 @@ if __name__ == "__main__":
                     
                                 
    div[data-baseweb="select"] > div {
-    background-color: #eeeeee;
-    border-color:#eeeeee;
+    background-color: rgba(255, 122, 89, 0);
+    border-color:#000000;
     color:black;
     }
     
@@ -399,6 +399,7 @@ if __name__ == "__main__":
     div[data-baseweb="icon"]{
     filter:invert(0.8);
     }
+    
     .st-au {
       border-radius:5px; 
       }
