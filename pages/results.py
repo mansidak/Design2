@@ -324,9 +324,20 @@ if __name__ == "__main__":
                                     unsafe_allow_html=True)
                         with col2mark:
                             st.write("")
-                            Save = st.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}")
+                            Save = st.empty()
+                            Save.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}")
                             if Save:
-                                Jobs_to_save.append(element)
+                                data = {
+                                    "Link": str(link),
+                                    "Title": str(title),
+                                    "Company Name": str(companyName),
+                                    "Short Summary": str(shortSummary),
+                                    "Full Description": str(fullDescription),
+                                    "Location": str(location),
+                                    "Skills": str(skills)
+                                }
+                                db.child("users").child(str(localId)).child("Jobs").push(data)
+                                Save.empty()
 
 
 
