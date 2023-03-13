@@ -166,9 +166,11 @@ if __name__ == "__main__":
                 <style>
                 #tabs-bui3-tabpanel-0 > div:nth-child(1) > div > div:nth-child(1) > div.css-j5r0tf.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(1) > div > div > p > a{
                 color:black
-
+               
                 }
-
+                #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 {
+                margin-top:-100px;
+                }
                 </style>""", unsafe_allow_html=True)
             colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
             with colResume1:
