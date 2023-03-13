@@ -347,10 +347,13 @@ if __name__ == "__main__":
                                 unsafe_allow_html=True)
 
         with ResumeTab:
-            AppliedResults2 = ArchivedResults = db.child("users").child(str(localId)).child("Applied").get().val()
+            AppliedResults2 = db.child("users").child(str(localId)).child("Applied").get().val()
+
             for key, value in AppliedResults2.items():
-                if key not in unique_applied_links:
+                link = value['Link']
+                if link not in unique_applied_links:
                     unique_applied_links[link] = value
+
 
             my_dict = unique_applied_links
             colresult1, colresult2 = st.columns([0.5, 1])
@@ -375,11 +378,6 @@ if __name__ == "__main__":
                     st.markdown(
                         f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
                         unsafe_allow_html=True)
-                    with st.expander(f"{Location}"):
-                        st.markdown(f"[Apply]({Link})")
-                        st.write(f"{Short_Summary}")
-
-
 
                     st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                 unsafe_allow_html=True)
