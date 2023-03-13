@@ -251,6 +251,7 @@ if __name__ == "__main__":
                                         'Skills': Skills,
                                         'Title': Title
                                     })
+                                    st.write(Applied)
 
                             with col3:
                                 st.write("")
