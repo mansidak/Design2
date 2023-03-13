@@ -146,7 +146,7 @@ if __name__ == "__main__":
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
         with Saved:
-            modal = Modal("Demo Modal")
+            modal = Modal("Demo Modal", key = "Modal")
             open_modal = st.button("Open")
             if open_modal:
                 modal.open()
