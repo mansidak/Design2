@@ -241,18 +241,20 @@ if __name__ == "__main__":
                                     st.download_button('Download Cover Letter', cover_letter_file)
 
                             with col2:
-                                if st.button("Mark As Applies", key =f"{Link}+{Title}+{Short_Summary}+MarkASApplied"):
-                                    Applied.append({
-                                        'Company Name': company_name,
-                                        'Full Description': Full_Description,
-                                        'Link': Link,
-                                        'Location': Location,
-                                        'Short Summary': Short_Summary,
-                                        'Skills': Skills,
-                                        'Title': Title
-                                    })
-                                    st.write(Applied)
 
+                                if st.button("Mark As Applies", key =f"{Link}+{Title}+{Short_Summary}+MarkASApplied"):
+
+                                    data = {
+                                        "company_name": value['Company Name'],
+                                        "Full_Description": value['Full Description'],
+                                        "Link": value['Link'],
+                                        "Location": value['Location'],
+                                        "Short_Summary": value['Short Summary'],
+                                        "Skills": value['Skills'],
+                                        "Title": value['Title']
+                                    }
+                                    db.child("users").child(str(localId)).child("Applied").push(data)
+                                    db.child("users").child(str(localId)).child("Jobs").child(key).delete()
                             with col3:
                                 st.write("")
 
