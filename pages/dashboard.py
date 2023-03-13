@@ -138,6 +138,12 @@ if __name__ == "__main__":
             with colLogin2:
 
                 st.write(f"You're logged in as {st.session_state['user']['email']}")
+                st.markdown("""
+                <style>
+                .a{
+                color:black
+                }
+                </style>""")
             colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
             with colResume1:
                 st.write("")
