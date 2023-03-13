@@ -426,8 +426,6 @@ if __name__ == "__main__":
             }
             
             div[data-testid="stFormSubmitButton"]{
-            margin-bottom:100px;
-            margin-right:100px;
             position:fixed;
             z-index:9999999;
             }
