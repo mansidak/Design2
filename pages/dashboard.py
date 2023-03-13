@@ -144,12 +144,12 @@ if __name__ == "__main__":
             unsafe_allow_html=True)
         st.subheader("")
         st.subheader("")
-        metricscol0, metricscol1, metricscol2, metricscol3 = st.columns([0.2,0.1,0.1,2])
+        metricscol0, metricscol1, metricscol2, metricscol3 = st.columns([0.01,0.1,0.1,2])
         with metricscol1:
             st.header(f"{len(SavedResults)}")
-            st.subheader("Saved")
+            st.write("Saved")
         with metricscol3:
-            st.header(f"{len(SavedResults)}")
+            st.write(f"{len(SavedResults)}")
             st.subheader("Applied")
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
