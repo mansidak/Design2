@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
         st.session_state['Name'] = db.child('users').child(localId).child('Name').get().val()
         st.markdown(
-            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'>{st.session_state['Name']}'s Dashboard</h1>",
+            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'>{st.session_state['Name'].replace('.',' ')}'s Dashboard</h1>",
             unsafe_allow_html=True)
 
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
