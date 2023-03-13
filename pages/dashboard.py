@@ -392,6 +392,10 @@ if __name__ == "__main__":
     li[role="option"]{
     color:black;
     }
+    li [aria-selected="true"]{
+    background-color: #808080;
+    color:white;
+    }
 
     
     button[class="tabs-bui3-tab-0"]{
