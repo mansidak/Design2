@@ -81,7 +81,7 @@ if __name__ == "__main__":
                     position: relative;
                     }
 
-                    #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(6) {
+                        #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div.css-ocqkz7.e1tzin5v4{
                         margin-top:-90px;
                         min-width:100%;
                         margin-left:-90px;
