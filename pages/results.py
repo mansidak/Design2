@@ -339,7 +339,7 @@ if __name__ == "__main__":
                         Save = st.empty()
                         if Save.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}"):
                             Savejob()
-                            Save.empty()
+                            Save.write("Saved!")
 
 
 
