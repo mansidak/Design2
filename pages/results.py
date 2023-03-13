@@ -429,6 +429,7 @@ if __name__ == "__main__":
             position:fixed;
             bottom: 40px;
             right: -700px;
+             border-radius: 10px;
             z-index:9999999
             }
 
