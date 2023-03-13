@@ -316,7 +316,7 @@ if __name__ == "__main__":
                             st.write("")
                             st.write("")
 
-                            Save = st.checkbox("Save", key = f"{link}+{title}+{shortSummary}+{companyName}")
+                            Save = st.checkbox("\nSave", key = f"{link}+{title}+{shortSummary}+{companyName}")
                             if Save:
                                 Jobs_to_save.append(element)
 
