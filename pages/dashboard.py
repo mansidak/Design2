@@ -136,6 +136,7 @@ if __name__ == "__main__":
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
         SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
+        AppliedResults = db.child("users").child(str(localId)).child("Applied").get().val()
         unique_links = {}
 
 
@@ -148,7 +149,7 @@ if __name__ == "__main__":
             st.markdown(f"<center> <h1 style='font-family: Baskerville; font-weight:normal; color: white'> {len(SavedResults)} </h1>", unsafe_allow_html=True)
             st.markdown(f"<center> <h5 style='font-family: Baskerville; font-weight:normal; color: white'> Saved </h5>", unsafe_allow_html=True)
         with metricscol2:
-            st.markdown(f"<center><h1 style='font-family: Baskerville; font-weight:normal; color: white'> {len(SavedResults)} </h1>", unsafe_allow_html=True)
+            st.markdown(f"<center><h1 style='font-family: Baskerville; font-weight:normal; color: white'> {len(AppliedResults)} </h1>", unsafe_allow_html=True)
             st.markdown(f"<center> <h5 style='font-family: Baskerville; font-weight:normal; color: white'> Applied</h5>", unsafe_allow_html=True)
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
