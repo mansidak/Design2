@@ -376,8 +376,8 @@ if __name__ == "__main__":
     
                     
                                 
-    div[data-baseweb="select"]
-    background-color: red !important;
+   div[role="listbox"] ul {
+    background-color: red;
     }
 
     
