@@ -411,7 +411,7 @@ if __name__ == "__main__":
                         with st.spinner("Adding to your database"):
                             async def wait_for_data_push():
                                 db.child("users").child(str(localId)).child("Jobs").push(data)
-                                await asyncio.sleep(1)
+                                await asyncio.sleep(5)
 
                             asyncio.run(wait_for_data_push())
                             switch_page("dashboard")
