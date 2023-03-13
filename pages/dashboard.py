@@ -176,16 +176,14 @@ if __name__ == "__main__":
                 st.write("")
             with colresult2:
                 for key, value in my_dict.items():
+                    company_name = value['Company Name']
+                    Full_Description = value['Full Description']
+                    Link = value['Link']
+                    Location = value['Location']
+                    Short_Summary = value['Short Summary']
+                    Skills = value['Skills']
+                    Title = value['Title']
                     with st.form("DAMN", key=f"{Link}+{Title}+{Short_Summary} + Form "):
-                        company_name = value['Company Name']
-                        Full_Description = value['Full Description']
-                        Link = value['Link']
-                        Location = value['Location']
-                        Short_Summary = value['Short Summary']
-                        Skills = value['Skills']
-                        Title = value['Title']
-
-
                         st.write(Skills)
                         st.markdown(
                             f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
