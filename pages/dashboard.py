@@ -101,7 +101,7 @@ if __name__ == "__main__":
                         z-index:2;
                         }
                         
-                        div.streamlit-expanderHeader :hover{
+                        div[data-testid="stExpander"]:hover{
                         color:#F63366
                         }
 
