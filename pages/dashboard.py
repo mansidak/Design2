@@ -125,7 +125,7 @@ if __name__ == "__main__":
                         }
                         
                         body {
-                        image = Image.open('PenManLogo.png')
+                        image = Image.open('Dashboard.png')
                         background-image: Image;
                         background-size: cover;
                         }
@@ -179,7 +179,6 @@ if __name__ == "__main__":
                 st.write("")
             with colResume3:
                 st.write("")
-            st.write("")
             for key, value in SavedResults.items():
                 link = value['Link']
                 if link not in unique_links:
