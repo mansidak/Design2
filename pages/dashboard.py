@@ -249,12 +249,12 @@ if __name__ == "__main__":
                 if link not in unique_links:
                     unique_links[link] = value
 
-            my_dict = set(unique_links)
+            my_dict = unique_links
             colresult1, colresult2, colresult3 = st.columns([0.25, 1, 0.25])
             with colresult1:
                 st.write("")
             with colresult2:
-                for key, value in my_dict.items():
+                for key, value in set(my_dict).items():
                     company_name = value['Company Name']
                     Full_Description = value['Full Description']
                     Link = value['Link']
