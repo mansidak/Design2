@@ -162,7 +162,6 @@ if __name__ == "__main__":
 
             colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
             with colLogin2:
-
                 st.markdown("""
                 <style>
                 #tabs-bui3-tabpanel-0 > div:nth-child(1) > div > div:nth-child(1) > div.css-j5r0tf.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(1) > div > div > p > a{
@@ -203,14 +202,40 @@ if __name__ == "__main__":
                         Skills = value['Skills']
                         Title = value['Title']
 
-
-                        # st.write(Skills)
-                        st.markdown(
-                            f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
-                            unsafe_allow_html=True)
-                        st.markdown(
-                            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
-                            unsafe_allow_html=True)
+                        col1mark, col2mark = st.columns([1, 0.065])
+                        with col1mark:
+                            st.markdown(
+                                f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
+                                unsafe_allow_html=True)
+                            st.markdown(
+                                f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
+                                unsafe_allow_html=True)
+                        with col2mark:
+                            st.markdown(f'''
+                                    <a target="_blank" href="{Link}">
+                                        <button style = "
+                                            cursor: pointer;
+                                            outline: 0;
+                                            display: inline-block;
+                                            font-weight: 400;
+                                            max-height:36px;
+                                            min-height:35px;
+                                            min-width:100px;
+                                            text-align: center;
+                                            background-color: #141414;
+                                            border: 1px solid transparent;
+                                            margin-top:-2px;
+                                            font-size: 1rem;
+                                            border-radius: .25rem;
+                                            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                            color: #F63366;
+                                            border-color: #F63366;">
+                                            Apply
+                                        </button>
+                                    </a>
+                                    ''',
+                                        unsafe_allow_html=True
+                                        )
                         with st.expander(f"Details"):
                             st.markdown(f"[Apply]({Link})")
                             st.markdown(f"Location: {Location}")
