@@ -446,7 +446,7 @@ if __name__ == "__main__":
     
 
     div[data-baseweb="tab-list"] {
-    background-color:#fefefe;
+    background-color:rgba(255, 122, 89, 0);
     max-width:500px;
     padding:5px;
     border-bottom:none;
@@ -502,6 +502,7 @@ if __name__ == "__main__":
                                
                                .stApp {
                                  background-image: url("https://static1.squarespace.com/static/63c3021120578c74f330b74c/t/640f62829f387724d381bd56/1678729858972/Dashboard.png");
+                                 background-attachment: fixed;
                                  background-size: cover;
                                  color:black
                                 }
