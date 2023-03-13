@@ -244,7 +244,7 @@ if __name__ == "__main__":
 
             unique_links = {}
 
-            for key, value in ArchivedResults.items():
+            for key, value in set(ArchivedResults.items()):
                 link = value['Link']
                 if link not in unique_links:
                     unique_links[link] = value
