@@ -394,6 +394,11 @@ if __name__ == "__main__":
     color:black;
     }
     
+    li[role="option"]:hover{
+    background-color: #F63366;
+    }
+    
+    
     li[aria-selected="true"]{
     background-color: #F63366;
     color:white;
