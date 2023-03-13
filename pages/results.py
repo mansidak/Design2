@@ -427,7 +427,7 @@ if __name__ == "__main__":
             
             div[class="row-widget css-k008qs epcbefy2"]{
             position:fixed;
-            margin-right:100px;
+            margin-left:1000px;
             }
 
 
