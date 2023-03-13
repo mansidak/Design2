@@ -166,7 +166,7 @@ if __name__ == "__main__":
                 }
                 
                                 
-                div[data-baseweb="select"]{
+                #tabs-bui3-tabpanel-0 > div:nth-child(1) > div > div:nth-child(3) > div.css-1r6slb0.e1tzin5v2 > div:nth-child(1) > div > div > div > div > div{
                 background-color:#ffffff !important;
                 }
                 </style>""", unsafe_allow_html=True)
