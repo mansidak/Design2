@@ -254,7 +254,7 @@ if __name__ == "__main__":
                                         "Title": value['Title']
                                     }
                                     db.child("users").child(str(localId)).child("Applied").push(data)
-                                    db.child("users").child(str(localId)).child("Jobs").child(key).remove()
+                                    db.child("users").child(str(localId)).child("Jobs").child(f"{key}").remove()
                             with col3:
                                 st.write("")
 
