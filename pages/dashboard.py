@@ -345,9 +345,6 @@ if __name__ == "__main__":
                     st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
                                 unsafe_allow_html=True)
 
-        with Applied:
-            st.write("Hello")
-
         with ResumeTab:
             colresult11, colresult22 = st.columns([0.5, 1])
             with colresult11:
