@@ -327,7 +327,7 @@ if __name__ == "__main__":
                             Save = st.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}")
                             if Save:
                                 Jobs_to_save.append(element)
-                                st.write(Jobs_to_save)
+
 
 
 
@@ -386,6 +386,7 @@ if __name__ == "__main__":
                     st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
                 submitted = st.form_submit_button("Done →")
+                st.write(Jobs_to_save)
                 if submitted:
                     with st.spinner("Adding to your database"):
                         for items in Jobs_to_save:
