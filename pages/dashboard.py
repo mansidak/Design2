@@ -236,8 +236,7 @@ if __name__ == "__main__":
                                     ''',
                                         unsafe_allow_html=True
                                         )
-                        with st.expander(f"Details"):
-                            st.markdown(f"Location: {Location}")
+                        with st.expander(f"{Location}"):
                             st.write(f"{Short_Summary}")
 
                             col1, col2, col3 = st.columns([1, 1, 1])
