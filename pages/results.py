@@ -637,7 +637,14 @@ if __name__ == "__main__":
 
                 submitted = st.form_submit_button("Submit")
 
-
+            st.markdown("""
+            
+            <style>
+            
+             div[data-testid="stForm"] {min-height: 2000px}
+            
+            </style>
+            """)
             colconclusion1, colconclusion2 = st.columns([1, 3])
             with colconclusion1:
 
