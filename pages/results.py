@@ -637,29 +637,29 @@ if __name__ == "__main__":
                     except:
                         pass
                     st.write(Jobs_to_save)
-                    if st.button("Save Chosen Roles", key="SaveJobs"):
-                        for items in Jobs_to_save:
-                            link = items[0]
-                            title = items[1]
-                            companyName = items[2]
-                            shortSummary = items[3]
-                            fullDescription = items[4]
-                            location = items[5]
-                            skills = items[6]
-                            firebase = pyrebase.initialize_app(firebaseconfig)
-                            db = firebase.database()
-                            # user = st.session_state['user']
-                            data = {
-                                "Link": str(link),
-                                "Title": str(title),
-                                "Company Name": str(companyName),
-                                "Short Summary": str(shortSummary),
-                                "Full Description": str(fullDescription),
-                                "Location": str(location),
-                                "Skills": str(skills)
-                            }
-                            results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                    st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
+                if st.button("Save Chosen Roles", key="SaveJobs"):
+                    for items in Jobs_to_save:
+                        link = items[0]
+                        title = items[1]
+                        companyName = items[2]
+                        shortSummary = items[3]
+                        fullDescription = items[4]
+                        location = items[5]
+                        skills = items[6]
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        db = firebase.database()
+                        # user = st.session_state['user']
+                        data = {
+                            "Link": str(link),
+                            "Title": str(title),
+                            "Company Name": str(companyName),
+                            "Short Summary": str(shortSummary),
+                            "Full Description": str(fullDescription),
+                            "Location": str(location),
+                            "Skills": str(skills)
+                        }
+                        results = db.child("users").child(str(localId)).child("Jobs").push(data)
+                st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
             colconclusion1, colconclusion2 = st.columns([1, 3])
             with colconclusion1:
