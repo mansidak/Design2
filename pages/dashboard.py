@@ -162,10 +162,12 @@ if __name__ == "__main__":
                 <style>
                 #tabs-bui3-tabpanel-0 > div:nth-child(1) > div > div:nth-child(1) > div.css-j5r0tf.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(1) > div > div > p > a{
                 color:black
-                
-                div[data-baseweb="select"]{
-                background-color:#fffff;
+
                 }
+                
+                                
+                div[data-baseweb="select"]{
+                background-color:#ffffff !important;
                 }
                 </style>""", unsafe_allow_html=True)
             colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
