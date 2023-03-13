@@ -381,42 +381,7 @@ if __name__ == "__main__":
                         st.experimental_rerun()
 
         with Applied:
-            AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
-            firebase = pyrebase.initialize_app(firebaseconfig)
-            db = firebase.database()
-            localId = AccountInfo["localId"]
-            ArchivedResults = db.child("users").child(str(localId)).child("Applied").get().val()
-
-            unique_links = {}
-
-            for key, value in ArchivedResults.items():
-                link = value['Link']
-                if link not in unique_links:
-                    unique_links[link] = value
-
-            my_dict = unique_links
-            colresult1, colresult2 = st.columns([0.5, 1])
-            with colresult1:
-                st.markdown(
-                    f"<h2 style='text-align:left;font-weight:normal;font-family: Baskerville'>Applied 💅</h2>",
-                    unsafe_allow_html=True)
-            with colresult2:
-                st.write("")
-                for key, value in my_dict.items():
-                    company_name = value['Company Name']
-                    Link = value['Link']
-                    Title = value['Title']
-
-                    st.markdown(
-                        f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
-                        unsafe_allow_html=True)
-                    st.markdown(
-                        f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
-                        unsafe_allow_html=True)
-
-
-                    st.markdown("<hr  color=black style = 'margin-top:-5px;background-color:black'>",
-                                unsafe_allow_html=True)
+            st.write("")
 
 
     st.markdown("""
