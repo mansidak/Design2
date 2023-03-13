@@ -239,7 +239,7 @@ if __name__ == "__main__":
                         with st.expander(f"{Location}"):
                             st.write(f"{Short_Summary}")
 
-                            col1, col2, col3 = st.columns([1, 1, 1])
+                            col1, col2, col3 = st.columns([1, 1, 2])
 
                             with col1:
                                 container_2 = st.empty()
@@ -271,7 +271,7 @@ if __name__ == "__main__":
 
                             with col2:
 
-                                if st.button("Mark As Applies", key =f"{Link}+{Title}+{Short_Summary}+MarkASApplied"):
+                                if st.button("Mark As Applied", key =f"{Link}+{Title}+{Short_Summary}+MarkASApplied"):
 
                                     data = {
                                         "company_name": value['Company Name'],
