@@ -556,11 +556,7 @@ if __name__ == "__main__":
                                  background-image: url("https://static1.squarespace.com/static/63c3021120578c74f330b74c/t/640f6580fd145910b7916911/1678730624838/Dashboard.png");
                                  background-size: cover;
                                 }
-                                                   
-                               .element-container.css-l0vo1h.e1tzin5v3
-                               {
-                               color:black
-                               }
+
                                div.stButton > button:first-child {
                                background-color: #ffffff;
                                color:black;
