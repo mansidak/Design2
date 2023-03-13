@@ -459,7 +459,7 @@ if __name__ == "__main__":
 
     button[aria-selected="true"] {
     background-color:rgba(255, 122, 89, 0);
-    border-color:#000;
+    border-color:#000000;
     border-radius:5px;
     }
 
