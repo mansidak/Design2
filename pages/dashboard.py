@@ -137,6 +137,8 @@ if __name__ == "__main__":
         st.session_state['resumeContent'] = FirebaseResumeContent
         SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
         AppliedResults = db.child("users").child(str(localId)).child("Applied").get().val()
+        AppliedResults2 = db.child("users").child(str(localId)).child("Applied").get().val()
+
         unique_links = {}
         unique_applied_links = {}
 
@@ -347,8 +349,6 @@ if __name__ == "__main__":
                                 unsafe_allow_html=True)
 
         with ResumeTab:
-            AppliedResults2 = db.child("users").child(str(localId)).child("Applied").get().val()
-
             for key, value in AppliedResults2.items():
                 link = value['Link']
                 if link not in unique_applied_links:
@@ -365,11 +365,7 @@ if __name__ == "__main__":
                 st.write("")
                 for key, value in my_dict.items():
                     company_name = value['company_name']
-                    Full_Description = value['Full_Description']
                     Link = value['Link']
-                    Location = value['Location']
-                    Short_Summary = value['Short_Summary']
-                    Skills = value['Skills']
                     Title = value['Title']
 
                     st.markdown(
