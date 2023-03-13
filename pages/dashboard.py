@@ -502,6 +502,7 @@ if __name__ == "__main__":
                                
                                .stApp {
                                  background-image: url("https://static1.squarespace.com/static/63c3021120578c74f330b74c/t/640f64a5f5808a1768beadeb/1678730406394/Dashboard.png");
+                                 background-attachment: local;
                                  background-size: cover;
                                  color:black
                                 }
