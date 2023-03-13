@@ -166,19 +166,18 @@ if __name__ == "__main__":
                 st.write("")
             SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
             unique_links = {}
+            with st.form("Dashboard"):
+                for key, value in SavedResults.items():
+                    link = value['Link']
+                    if link not in unique_links:
+                        unique_links[link] = value
 
-            for key, value in SavedResults.items():
-                link = value['Link']
-                if link not in unique_links:
-                    unique_links[link] = value
+                my_dict = unique_links
+                colresult1, colresult2 = st.columns([0.5, 1])
+                with colresult1:
+                    options = st.multiselect('Filter by location', set([value['Company Name'] for key, value in my_dict.items()]), None, key="option1")
 
-            my_dict = unique_links
-            colresult1, colresult2 = st.columns([0.5, 1])
-            with colresult1:
-                options = st.multiselect('Filter by location', set([value['Company Name'] for key, value in my_dict.items()]), None, key="option1")
-
-            with colresult2:
-                with st.form("Dashboard"):
+                with colresult2:
                     for key, value in my_dict.items():
                         with st.container():
                             company_name = value['Company Name']
