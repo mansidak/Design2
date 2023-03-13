@@ -94,7 +94,6 @@ if __name__ == "__main__":
                     }
 
                         #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div.css-ocqkz7.e1tzin5v4{
-                        margin-top:-90px;
                         min-width:100%;
                         margin-left:-90px;
                         position:fixed;
@@ -144,7 +143,7 @@ if __name__ == "__main__":
             unsafe_allow_html=True)
         st.subheader("")
         st.subheader("")
-        metricscol0, metricscol1, metricscol2, metricscol3 = st.columns([1,0.5,0.5,2])
+        metricscol0, metricscol1, metricscol2, metricscol3 = st.columns([0.5,0.25,0.25,2])
         with metricscol1:
             st.header(f"{len(SavedResults)}")
             st.subheader("Saved")
@@ -154,7 +153,6 @@ if __name__ == "__main__":
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
         with Saved:
-
 
             colLogin1, colLogin2, colLogin3 = st.columns([2, 1, 2])
             with colLogin2:
