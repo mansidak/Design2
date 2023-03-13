@@ -100,6 +100,10 @@ if __name__ == "__main__":
                         position:fixed;
                         z-index:2;
                         }
+                        
+                        div.streamlit-expanderHeader > div {
+                        color:white
+                        }
 
                       .dark{
                             background-color: #eeeeee;
