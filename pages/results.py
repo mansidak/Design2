@@ -588,6 +588,8 @@ if __name__ == "__main__":
                                                                     ''',
                                             unsafe_allow_html=True
                                             )
+                                st.write("")
+                                st.write("")
 
                             with col2:
                                 st.write("")
