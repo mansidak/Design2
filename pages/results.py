@@ -389,7 +389,7 @@ if __name__ == "__main__":
                 st.write(Jobs_to_save)
                 if submitted:
                     with st.spinner("Adding to your database"):
-                        for items in Jobs_to_save:
+                        for items in set(Jobs_to_save):
                             link = items[0]
                             title = items[1]
                             companyName = items[2]
