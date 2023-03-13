@@ -230,11 +230,11 @@ if __name__ == "__main__":
                     PDFbyte = pdf_file.read()
                 # st.download_button(label='Download PDF', data= PDFFile)
 
-                st.download_button(label="Download All Jobs",
-                                   data=PDFbyte,
-                                   file_name="test.pdf",
-                                   key='downloadingjobspdf',
-                                   mime='application/octet-stream')
+                # st.download_button(label="Download All Jobs",
+                #                    data=PDFbyte,
+                #                    file_name="test.pdf",
+                #                    key='downloadingjobspdf',
+                #                    mime='application/octet-stream')
 
             colresult1, colresult2, colresult3 = st.columns([0.25, 0.75, 0.25])
             with colresult1:
@@ -324,7 +324,7 @@ if __name__ == "__main__":
                                             {"role": "user",
                                              "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
                                     cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
-                                    st.download_button('Download Cover Letter', cover_letter_file)
+                                    # st.download_button('Download Cover Letter', cover_letter_file)
 
                             with col2:
                                 if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
@@ -396,7 +396,7 @@ if __name__ == "__main__":
                                             {"role": "user",
                                              "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
                                     cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
-                                    st.download_button('Download Cover Letter', cover_letter_file)
+                                    # st.download_button('Download Cover Letter', cover_letter_file)
 
                             with col2:
                                 if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
@@ -468,7 +468,7 @@ if __name__ == "__main__":
                                             {"role": "user",
                                              "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
                                     cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
-                                    st.download_button('Download Cover Letter', cover_letter_file)
+                                    # st.download_button('Download Cover Letter', cover_letter_file)
 
                             with col2:
                                 if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
@@ -626,7 +626,7 @@ if __name__ == "__main__":
                                                 {"role": "user",
                                                  "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
                                         cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
-                                        st.download_button('Download Cover Letter', cover_letter_file)
+                                        # st.download_button('Download Cover Letter', cover_letter_file)
 
 
                                 with col3:
@@ -668,10 +668,10 @@ if __name__ == "__main__":
                 # st.download_button(label='Download PDF', data= PDFFile)
                 st.write("")
                 st.write("")
-                st.download_button(label="Download All Jobs",
-                                   data=PDFbyte,
-                                   file_name="test.pdf",
-                                   mime='application/octet-stream')
+                # st.download_button(label="Download All Jobs",
+                #                    data=PDFbyte,
+                #                    file_name="test.pdf",
+                #                    mime='application/octet-stream')
             with colconclusion2:
                 if st.button("Not Satisfied? Run Again"):
                     switch_page("search")
