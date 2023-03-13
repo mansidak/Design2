@@ -173,7 +173,7 @@ if __name__ == "__main__":
             my_dict = unique_links
             colresult1, colresult2, colresult3 = st.columns([0.5, 1, 0.5])
             with colresult1:
-                st.write("")
+                st.write("This should be static")
             with colresult2:
                 for key, value in my_dict.items():
                     company_name = value['Company Name']
