@@ -328,42 +328,46 @@ if __name__ == "__main__":
 
 
         with ResumeTab:
-            if FirebaseResumeContent:
-                colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([1,0.75,1,4])
-                with colResumeSub2:
-                    st.markdown(
-                        f"<h3 style='text-align:center;color:black'>&nbsp&nbsp&nbspInformation</span> </h3>",
-                        unsafe_allow_html=True)
-                    st.markdown(
-                        f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file:<span style='color: green'>&nbsp &check;</span> </h6>",
-                        unsafe_allow_html=True)
-                with colResumeSub3:
-                    st.subheader("")
-                    st.subheader("")
-                    if st.button("Upload new resume"):
-                        db.child("users").child(str(localId)).child("Resume").remove()
-                        del st.session_state['resumeContent']
-                        st.experimental_rerun()
+            colresult11, colresult22 = st.columns([0.5, 1])
+            with colresult11:
+                st.header("Profile")
+            with colresult22:
+                if FirebaseResumeContent:
+                    colResumeSub1, colResumeSub2, colResumeSub3, colResumeSub4 = st.columns([1,0.75,1,4])
+                    with colResumeSub2:
+                        st.markdown(
+                            f"<h3 style='text-align:center;color:black'>&nbsp&nbsp&nbspInformation</span> </h3>",
+                            unsafe_allow_html=True)
+                        st.markdown(
+                            f"<h6 style='text-align:center; font-weight:lighter;color:black'>Resume on file:<span style='color: green'>&nbsp &check;</span> </h6>",
+                            unsafe_allow_html=True)
+                    with colResumeSub3:
+                        st.subheader("")
+                        st.subheader("")
+                        if st.button("Upload new resume"):
+                            db.child("users").child(str(localId)).child("Resume").remove()
+                            del st.session_state['resumeContent']
+                            st.experimental_rerun()
 
-            else:
-                st.markdown(
-                    f"<h6 style='text-align:center; font-weight:lighter;color:black'>Upload new resume</h6>",
-                    unsafe_allow_html=True)
-                ResumePDF = st.file_uploader(
-                    ''
-                )
-                if ResumePDF is not None:
-                    pdfReader = PyPDF2.PdfReader(ResumePDF)
-                    print(len(pdfReader.pages))
-                    pageObj = pdfReader.pages[0]
-                    resumeContent = pageObj.extract_text()
-                    ResumePDF.close()
-                    firebase = pyrebase.initialize_app(firebaseconfig)
-                    AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
-                    localId = AccountInfo["localId"]
-                    db = firebase.database()
-                    FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
-                    st.experimental_rerun()
+                else:
+                    st.markdown(
+                        f"<h6 style='text-align:center; font-weight:lighter;color:black'>Upload new resume</h6>",
+                        unsafe_allow_html=True)
+                    ResumePDF = st.file_uploader(
+                        ''
+                    )
+                    if ResumePDF is not None:
+                        pdfReader = PyPDF2.PdfReader(ResumePDF)
+                        print(len(pdfReader.pages))
+                        pageObj = pdfReader.pages[0]
+                        resumeContent = pageObj.extract_text()
+                        ResumePDF.close()
+                        firebase = pyrebase.initialize_app(firebaseconfig)
+                        AccountInfo = auth.get_account_info(user['idToken'])["users"][0]
+                        localId = AccountInfo["localId"]
+                        db = firebase.database()
+                        FirebaseResumeContent = db.child("users").child(localId).child("Resume").set(resumeContent)
+                        st.experimental_rerun()
 
 
 
