@@ -167,7 +167,7 @@ if __name__ == "__main__":
                 
                                 
                 .css-4reuil.ede6r8z0{
-                background-color:#ffffff !important;
+                color: red !important;
                 }
                 </style>""", unsafe_allow_html=True)
             colResume1, colResume2, colResume3 = st.columns([0.8, 1, 0.8])
