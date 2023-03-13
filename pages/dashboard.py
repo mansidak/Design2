@@ -134,13 +134,17 @@ if __name__ == "__main__":
         cookie_manager.set("userCookie", user['refreshToken'], expires_at=datetime.datetime(year=2024, month=2, day=2))
         FirebaseResumeContent = db.child("users").child(str(localId)).child("Resume").get().val()
         st.session_state['resumeContent'] = FirebaseResumeContent
+        SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
+        unique_links = {}
 
 
         st.session_state['Name'] = db.child('users').child(localId).child('Name').get().val()
         st.markdown(
             f"<h1 style='font-family: w3-sans-serif; font-weight:normal; color: white'>{st.session_state['Name'].replace('.','')}'s Street</h1>",
             unsafe_allow_html=True)
-
+        st.subheader("")
+        st.subheader("")
+        st.subheader(f"{len(SavedResults)}")
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
         with Saved:
@@ -162,8 +166,7 @@ if __name__ == "__main__":
                 st.write("")
             with colResume3:
                 st.write("")
-            SavedResults = db.child("users").child(str(localId)).child("Jobs").get().val()
-            unique_links = {}
+
 
             for key, value in SavedResults.items():
                 link = value['Link']
