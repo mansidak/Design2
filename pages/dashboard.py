@@ -573,6 +573,9 @@ if __name__ == "__main__":
                                .streamlit-expanderHeader{
                                color:black
                                }
+                               .streamlit-expanderHeader:hover{
+                               color:#F63366
+                               }
 
                                .css-5y9es8.exg6vvm15{
                                border-radius:50px; 
