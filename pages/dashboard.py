@@ -419,9 +419,7 @@ if __name__ == "__main__":
     color:black
     }
          
-    div[data-testid="stMarkdownContainer"]:hover{
-    color:#F63366
-    }           
+                    
                                 
    div[data-baseweb="select"] > div {
     background-color: rgba(255, 122, 89, 0);
