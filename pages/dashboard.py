@@ -237,7 +237,6 @@ if __name__ == "__main__":
                                         unsafe_allow_html=True
                                         )
                         with st.expander(f"Details"):
-                            st.markdown(f"[Apply]({Link})")
                             st.markdown(f"Location: {Location}")
                             st.write(f"{Short_Summary}")
 
