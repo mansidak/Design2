@@ -624,7 +624,7 @@ if __name__ == "__main__":
             
             <style>
             
-             div[data-testid="stForm"] {min-height: 2000px}
+             div[data-testid="stForm"] {border: 0px;}
             
             </style>
             """, unsafe_allow_html=True)
