@@ -397,9 +397,9 @@ if __name__ == "__main__":
     div[data-baseweb="icon"]{
     filter:invert(0.8);
     }
-    .st-be{
-    border-radius: 50px;
-    }
+    .st-au {
+      border-radius:30px; 
+      }
     
     li[role="option"]:hover{
     background-color: #F63366;
