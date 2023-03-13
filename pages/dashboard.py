@@ -101,8 +101,8 @@ if __name__ == "__main__":
                         z-index:2;
                         }
                         
-                        div.streamlit-expanderHeader > div {
-                        color:white
+                        div.streamlit-expanderHeader > div :hover{
+                        color:#F63366
                         }
 
                       .dark{
