@@ -1263,19 +1263,20 @@ def login_form(auth):
                 # if st.button("Forgot Password", key="forgotpassword"):
                 #     auth.send_password_reset_email("email")
         with Register:
-            st.title("Welcome")
-            email = st.text_input(
-                label="email", placeholder="fullname@gmail.com")
-            password = st.text_input(
-                label="password", placeholder="password", type="password")
+            with st.form(key="Register"):
+                st.title("Welcome")
+                email = st.text_input(
+                    label="email", placeholder="fullname@gmail.com")
+                password = st.text_input(
+                    label="password", placeholder="password", type="password")
 
-            if st.form_submit_button("Sign Up"):
-                try:
-                    user = auth.create_user_with_email_and_password(email, password)
-                    st.session_state['user'] = user
-                    st.experimental_rerun()
-                except requests.HTTPError as exception:
-                    st.write(exception)
+                if st.form_submit_button("Sign Up"):
+                    try:
+                        user = auth.create_user_with_email_and_password(email, password)
+                        st.session_state['user'] = user
+                        st.experimental_rerun()
+                    except requests.HTTPError as exception:
+                        st.write(exception)
 
             # if st.button("Forgot Password", key="forgotpassword"):
             #     auth.send_password_reset_email("email")
