@@ -275,8 +275,6 @@ if __name__ == "__main__":
 
             with st.form("Resulsts"):
                 Jobs_to_save = []
-
-
                 for element in unique_results.copy():
                     if element[5] in options and element[6].replace('-', '') in options2:
                         link = element[0]
@@ -636,6 +634,8 @@ if __name__ == "__main__":
 
                         except:
                             pass
+
+            submitted = st.form_submit_button("Submit")
 
 
             colconclusion1, colconclusion2 = st.columns([1, 3])
