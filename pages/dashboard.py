@@ -100,9 +100,18 @@ if __name__ == "__main__":
                         position:fixed;
                         z-index:2;
                         }
-                        
 
+                      .dark{
+                            background-color: #eeeeee;
+                            color:black;
+                            border-color: black;
+                            }
 
+                       .dark:hover{
+                            background-color: #eeeeee;
+                            color: #F63366;
+                            border-color: #F63366;
+                            }
 
                         .button.dark {
                           background-color: #4CAF50; /* Green */
@@ -418,7 +427,6 @@ if __name__ == "__main__":
     div[data-testid="stMarkdownContainer"]{
     color:black
     }
-         
                     
                                 
    div[data-baseweb="select"] > div {
@@ -547,8 +555,13 @@ if __name__ == "__main__":
                                .stApp {
                                  background-image: url("https://static1.squarespace.com/static/63c3021120578c74f330b74c/t/640f6580fd145910b7916911/1678730624838/Dashboard.png");
                                  background-size: cover;
+                                 color:black
                                 }
-
+                                                   
+                               .element-container.css-l0vo1h.e1tzin5v3
+                               {
+                               color:black
+                               }
                                div.stButton > button:first-child {
                                background-color: #ffffff;
                                color:black;
@@ -559,7 +572,12 @@ if __name__ == "__main__":
                                color: #F63366;
                                border-color: #F63366;
                                }
-
+                               .stMarkdown{
+                               color:black
+                               }
+                               .streamlit-expanderHeader{
+                               color:black
+                               }
 
                                .css-5y9es8.exg6vvm15{
                                border-radius:50px; 
