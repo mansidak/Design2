@@ -202,7 +202,7 @@ if __name__ == "__main__":
                         Skills = value['Skills']
                         Title = value['Title']
 
-                        col1mark, col2mark = st.columns([1, 0.1])
+                        col1mark, col2mark = st.columns([1, 0.15])
                         with col1mark:
                             st.markdown(
                                 f"<a href='{Link}' style='text-decoration: none; color: black;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{Title}→ </h4></a>",
