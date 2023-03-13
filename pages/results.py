@@ -635,7 +635,7 @@ if __name__ == "__main__":
                         except:
                             pass
 
-            submitted = st.form_submit_button("Submit")
+                submitted = st.form_submit_button("Submit")
 
 
             colconclusion1, colconclusion2 = st.columns([1, 3])
