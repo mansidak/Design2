@@ -427,8 +427,8 @@ if __name__ == "__main__":
             
             div[class="row-widget css-k008qs epcbefy2"]{
             position:fixed;
-            bottom: 60px;
-            right: 40px;
+            bottom: 40px;
+            right: -40px;
             z-index:9999999
             }
 
