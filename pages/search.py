@@ -1145,7 +1145,7 @@ if __name__ == "__main__":
                                     "Skills": str(skills),
                                 }
 
-                                db.child("users").child(str(localId)).child("Archive").push(data)
+                            db.child("users").child(str(localId)).child("Archive").push(data)
 
 
                             switch_page("results")
