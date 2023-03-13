@@ -294,7 +294,7 @@ if __name__ == "__main__":
                         location = element[5]
                         skills = element[6]
                         compatibilityScore = element[7]
-                        col1mark, col2mark= st.columns([1, 0.1])
+                        col1mark, col2mark= st.columns([1, 0.05])
                         with col1mark:
 
                             score_text = compatibilityScore.split('Score: ')[1].split(';')[0]
