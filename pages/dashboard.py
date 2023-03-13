@@ -138,8 +138,25 @@ if __name__ == "__main__":
 
         st.session_state['Name'] = db.child('users').child(localId).child('Name').get().val()
         st.markdown(
-            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'>{st.session_state['Name'].replace('.',' ')}'s Dashboard</h1>",
+            f"<center> <h1 style='font-family: Sans-Serif; font-weight:normal; color: white'>{st.session_state['Name'].replace('.','')}'s Dashboard</h1>",
             unsafe_allow_html=True)
+
+        items = ["apple", "green", "banana", "grapes"]
+
+        # Calculate the frequency of each item in the array
+        counts = [0, 0, 0, 0]
+
+        for item in ["apple", "green", "apple", "banana", "grapes", "apple", "green"]:
+            for index, value in enumerate(items):
+                if item == value:
+                    counts[index] += 1
+
+        # Create a dataframe containing the items and their frequencies
+        df = pd.DataFrame({"items": items, "counts": counts})
+
+        # Plot the bar chart
+        st.bar_chart(df)
+
 
         Saved, Archive, ResumeTab = st.tabs(["Saved", "Archive", "Profile"])
 
