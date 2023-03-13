@@ -15,7 +15,7 @@ import pandas as pd
 import pyrebase
 from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
-import asyncio
+
 import datetime
 import requests
 import numpy as np
@@ -388,34 +388,30 @@ if __name__ == "__main__":
                 submitted = st.form_submit_button("Done →")
                 st.write(Jobs_to_save)
                 if submitted:
-                    for items in set(Jobs_to_save):
-                        link = items[0]
-                        title = items[1]
-                        companyName = items[2]
-                        shortSummary = items[3]
-                        fullDescription = items[4]
-                        location = items[5]
-                        skills = items[6]
-                        firebase = pyrebase.initialize_app(firebaseconfig)
-                        db = firebase.database()
-                        # user = st.session_state['user']
-                        data = {
-                            "Link": str(link),
-                            "Title": str(title),
-                            "Company Name": str(companyName),
-                            "Short Summary": str(shortSummary),
-                            "Full Description": str(fullDescription),
-                            "Location": str(location),
-                            "Skills": str(skills)
-                        }
-                        with st.spinner("Adding to your database"):
-                            async def wait_for_data_push():
-                                db.child("users").child(str(localId)).child("Jobs").push(data)
-                                await asyncio.sleep(5)
-
-                            asyncio.run(wait_for_data_push())
-                            switch_page("dashboard")
-
+                    with st.spinner("Adding to your database"):
+                        for items in set(Jobs_to_save):
+                            link = items[0]
+                            title = items[1]
+                            companyName = items[2]
+                            shortSummary = items[3]
+                            fullDescription = items[4]
+                            location = items[5]
+                            skills = items[6]
+                            firebase = pyrebase.initialize_app(firebaseconfig)
+                            db = firebase.database()
+                            # user = st.session_state['user']
+                            data = {
+                                "Link": str(link),
+                                "Title": str(title),
+                                "Company Name": str(companyName),
+                                "Short Summary": str(shortSummary),
+                                "Full Description": str(fullDescription),
+                                "Location": str(location),
+                                "Skills": str(skills)
+                            }
+                            results = db.child("users").child(str(localId)).child("Jobs").push(data)
+                            time.sleep(5)
+                            # switch_page("dashboard")
 
 
             st.markdown("""
