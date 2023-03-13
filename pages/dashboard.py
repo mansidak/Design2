@@ -270,6 +270,7 @@ if __name__ == "__main__":
                     f"<h2 style='text-align:left;font-weight:normal;font-family: Baskerville'>Search Archives</h2>",
                     unsafe_allow_html=True)
             with colresult2:
+                st.write("")
                 for key, value in my_dict.items():
                     company_name = value['Company Name']
                     Full_Description = value['Full Description']
