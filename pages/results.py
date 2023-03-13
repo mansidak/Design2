@@ -325,7 +325,7 @@ if __name__ == "__main__":
                         with col2mark:
                             st.write("")
                             Save = st.empty()
-                            def Savejob()
+                            def Savejob():
                                 data = {
                                     "Link": str(link),
                                     "Title": str(title),
