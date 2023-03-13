@@ -425,7 +425,7 @@ if __name__ == "__main__":
 
             }
             
-            div[class="row-widget.stButton"]{
+            div[data-testid="stFormSubmitButton"]{
             margin-top:100px;
             margin-right:100px;
             position:fixed;
