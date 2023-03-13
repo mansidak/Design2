@@ -14,6 +14,7 @@ from streamlit_extras.switch_page_button import switch_page
 import pdfkit
 from jinja2 import Environment, FileSystemLoader
 import pandas as pd
+import streamlit.components.v1 as components
 import pyrebase
 from st_btn_select import st_btn_select
 import extra_streamlit_components as stx
@@ -149,12 +150,18 @@ if __name__ == "__main__":
             with st.form(key = "Hanji"):
                 modal = Modal("Demo Modal", key = "Hanji")
                 open_modal = st.form_submit_button("Open")
-                if open_modal:
-                    modal.open()
-
                 if modal.is_open():
                     with modal.container():
                         st.write("Text goes here")
+
+                        html_string = '''
+                        <h1>HTML string in RED</h1>
+
+                        <script language="javascript">
+                          document.querySelector("h1").style.color = "red";
+                        </script>
+                        '''
+                        components.html(html_string)
 
                         st.write("Some fancy text")
                         value = st.checkbox("Check me")
