@@ -412,8 +412,8 @@ if __name__ == "__main__":
             <style>
             
             div[data-testid="stForm"] {border: 0px;}
-             
-            label[data-testid="checkbox"] > span {              
+            
+            label[data-baseweb="checkbox"] > span {              
             width: 2rem;
               height: 2rem;
               vertical-align: middle;
