@@ -313,7 +313,7 @@ if __name__ == "__main__":
                                     f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;&nbsp;{companyName}</h6>",
                                     unsafe_allow_html=True)
                         with col2mark:
-
+                            st.write("")
                             Save = st.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}")
                             if Save:
                                 Jobs_to_save.append(element)
