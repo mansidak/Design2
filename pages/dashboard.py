@@ -360,7 +360,7 @@ if __name__ == "__main__":
             with colresult2:
                 st.write("")
                 for key, value in my_dict.items():
-                    company_name = value['Company Name']
+                    company_name = value['company_name']
                     Full_Description = value['Full Description']
                     Link = value['Link']
                     Location = value['Location']
