@@ -325,7 +325,7 @@ if __name__ == "__main__":
                         with col2mark:
                             st.write("")
                             Save = st.empty()
-                            Save.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}")
+                            Save.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}", value=False)
                             if Save:
                                 data = {
                                     "Link": str(link),
