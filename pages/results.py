@@ -388,28 +388,30 @@ if __name__ == "__main__":
 
                 submitted = st.form_submit_button("Done →")
                 if submitted:
-                    for items in Jobs_to_save:
-                        link = items[0]
-                        title = items[1]
-                        companyName = items[2]
-                        shortSummary = items[3]
-                        fullDescription = items[4]
-                        location = items[5]
-                        skills = items[6]
-                        firebase = pyrebase.initialize_app(firebaseconfig)
-                        db = firebase.database()
-                        # user = st.session_state['user']
-                        data = {
-                            "Link": str(link),
-                            "Title": str(title),
-                            "Company Name": str(companyName),
-                            "Short Summary": str(shortSummary),
-                            "Full Description": str(fullDescription),
-                            "Location": str(location),
-                            "Skills": str(skills)
-                        }
-                        results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                        # switch_page("dashboard")
+                    with st.spinner("Adding to your database"):
+                        for items in Jobs_to_save:
+                            link = items[0]
+                            title = items[1]
+                            companyName = items[2]
+                            shortSummary = items[3]
+                            fullDescription = items[4]
+                            location = items[5]
+                            skills = items[6]
+                            firebase = pyrebase.initialize_app(firebaseconfig)
+                            db = firebase.database()
+                            # user = st.session_state['user']
+                            data = {
+                                "Link": str(link),
+                                "Title": str(title),
+                                "Company Name": str(companyName),
+                                "Short Summary": str(shortSummary),
+                                "Full Description": str(fullDescription),
+                                "Location": str(location),
+                                "Skills": str(skills)
+                            }
+                            results = db.child("users").child(str(localId)).child("Jobs").push(data)
+                            time.sleep(3)
+                            switch_page("dashboard")
 
 
             st.markdown("""
