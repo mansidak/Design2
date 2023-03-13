@@ -325,7 +325,7 @@ if __name__ == "__main__":
                         with col2mark:
                             st.write("")
                             Save = st.empty()
-                            if Save.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}"):
+                            def Savejob()
                                 data = {
                                     "Link": str(link),
                                     "Title": str(title),
@@ -337,6 +337,8 @@ if __name__ == "__main__":
                                 }
                                 db.child("users").child(str(localId)).child("Jobs").push(data)
                                 Save.empty()
+                            Save.checkbox("", key = f"{link}+{title}+{shortSummary}+{companyName}", on_change=Savejob())
+
 
 
 
