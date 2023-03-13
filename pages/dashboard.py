@@ -376,9 +376,14 @@ if __name__ == "__main__":
     
                     
                                 
-   div[data-baseweb="select"] > div {
-    background-color: red;
-}
+    div[data-baseweb="select"] > div {
+    background-color: #ffffff;
+    color:black
+    }
+    
+    div[data-baseweb="popover"] {
+    background-color: #ffffff;
+    }
 
     
     button[class="tabs-bui3-tab-0"]{
