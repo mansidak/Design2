@@ -242,7 +242,7 @@ if __name__ == "__main__":
 
                             with col2:
                                 if st.button("Mark as Applied"):
-                                    Applied.append(key)
+                                    Applied.append(key, value)
                                     st.write(Applied)
 
                             with col3:
