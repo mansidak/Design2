@@ -498,15 +498,14 @@ if __name__ == "__main__":
                                z-index:99999;
                                width: 50%;
                              }
-                               .stApp {                           
-                                color:black
-                               }
+
                                
-                               .stApp {{
+                               .stApp {
                                  background-image: url("https://static1.squarespace.com/static/63c3021120578c74f330b74c/t/640f62829f387724d381bd56/1678729858972/Dashboard.png");
                                  background-attachment: fixed;
-                                 background-size: cover
-                                }}
+                                 background-size: cover;
+                                 color:black
+                                }
                                                    
                                .element-container.css-l0vo1h.e1tzin5v3
                                {
