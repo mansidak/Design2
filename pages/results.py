@@ -425,7 +425,7 @@ if __name__ == "__main__":
 
             }
             
-            div[class="row-widget.css-k008qs.epcbefy2"]{
+            div[class="row-widget css-k008qs epcbefy2"]{
             margin-top:-340px;
             position:fixed;
             }
