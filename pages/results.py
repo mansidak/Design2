@@ -413,8 +413,7 @@ if __name__ == "__main__":
             
             div[data-testid="stForm"] {border: 0px;}
              
-            #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div.css-ctszbf.epcbefy1 > div:nth-child(1) > div > div:nth-child(2) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(19) > div.css-ht50i.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(3) > div > label > input{
-              width: 2rem;
+            #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div.css-ctszbf.epcbefy1 > div:nth-child(1) > div > div:nth-child(2) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(19) > div.css-ht50i.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(3) > div > label > span {              width: 2rem;
               height: 2rem;
               vertical-align: middle;
               -webkit-appearance: none;
