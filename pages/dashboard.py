@@ -140,7 +140,7 @@ if __name__ == "__main__":
 
         st.session_state['Name'] = db.child('users').child(localId).child('Name').get().val()
         st.markdown(
-            f"<h1 style='font-family: w3-sans-serif; font-weight:normal; color: white'>{st.session_state['Name'].replace('.','')}'s Street</h1>",
+            f"<h1 style='font-family: Baskerville; font-weight:normal; color: white'>{st.session_state['Name'].replace('.','')}'s Street</h1>",
             unsafe_allow_html=True)
         st.subheader("")
         st.subheader("")
