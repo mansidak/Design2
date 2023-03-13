@@ -1234,7 +1234,7 @@ def set_code(code: str):
 def login_form(auth):
     time.sleep(3)
 
-    col1form, col2form, col3form = st.columns([2, 1, 2])
+    col1form, col2form, col3form = st.columns([1, 1, 1])
     with col1form:
         st.write("")
     with col2form:
@@ -1275,7 +1275,11 @@ def login_form(auth):
             # if st.button("Forgot Password", key="forgotpassword"):
             #     auth.send_password_reset_email("email")
 
-
+    st.markdown("""
+    <style>
+     div[data-testid="stForm"] {border: 0px;}
+    </style>
+    """, unsafe_allow_html=True)
     with col3form:
         st.write("")
 
