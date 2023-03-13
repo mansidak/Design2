@@ -376,7 +376,7 @@ if __name__ == "__main__":
     
                     
                                 
-    .css-4reuil.ede6r8z0{
+    div[data-baseweb="select"]
     color: red !important;
     }
 
