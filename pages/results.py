@@ -426,6 +426,8 @@ if __name__ == "__main__":
             }
             
             button[kind="secondaryFormSubmit"]{
+            margin-top:100px;
+            margin-right:100px;
             position:fixed;
             z-index:2;
             }
