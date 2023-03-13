@@ -278,223 +278,11 @@ if __name__ == "__main__":
                 Jobs_to_save = []
                 for element in unique_results.copy():
                     if element[5] in options and element[6].replace('-', '') in options2:
-                        link = element[0]
-                        title = element[1]
-                        companyName = element[2]
-                        shortSummary = element[3]
-                        fullDescription = element[4]
-                        location = element[5]
-                        skills = element[6]
-
-                        st.markdown(
-                            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-                            unsafe_allow_html=True)
-                        st.markdown(
-                            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-                            unsafe_allow_html=True)
-
-                        with st.expander(f"{location}"):
-                            st.markdown(f"[Apply]({link})")
-                            st.write(f"{shortSummary}")
-
-                            col1, col2, col3 = st.columns([1, 1, 1])
-
-                            with col1:
-                                container_2 = st.empty()
-                                button_A = container_2.button('Generate Cover Letter',
-                                                              key=f"{link}+{title}+{shortSummary}")
-                                if button_A:
-                                    container_2.empty()
-                                    button_B = container_2.button('Generating... Please wait.',
-                                                                  key=f"{link}+{title}+{shortSummary}+Generating",
-                                                                  disabled=True)
-                                    responseJob = openai.ChatCompletion.create(
-                                        model="gpt-3.5-turbo",
-                                        messages=[
-                                            {"role": "system",
-                                             "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
-                                            {"role": "user",
-                                             "content": f"The following is a job posting I want you to summarize \n\n{fullDescription}\n\n"}])
-
-                                    jobSummary = responseJob["choices"][0]["message"]["content"]
-                                    CoverLetterResponse = openai.ChatCompletion.create(
-                                        model="gpt-3.5-turbo",
-                                        messages=[
-                                            {"role": "system",
-                                             "content": "You are an AI Assistant that writes highly customized cover letters from a first-person point of view. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
-                                            {"role": "user",
-                                             "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
-                                    cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
-                                    # st.download_button('Download Cover Letter', cover_letter_file)
-
-                            with col2:
-                                if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
-                                    firebase = pyrebase.initialize_app(firebaseconfig)
-                                    db = firebase.database()
-                                    # user = st.session_state['user']
-                                    data = {
-                                        "Link": str(link),
-                                        "Title": str(title),
-                                        "Company Name": str(companyName),
-                                        "Short Summary": str(shortSummary),
-                                        "Full Description": str(fullDescription),
-                                        "Location": str(location),
-                                        "Skills": str(skills)
-                                    }
-                                    results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                                    st.write("Saved!")
-
-                            with col3:
-                                st.write("")
-
-                        st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
                     elif not options and element[6].replace('-', '') in options2:
-                        link = element[0]
-                        title = element[1]
-                        companyName = element[2]
-                        shortSummary = element[3]
-                        fullDescription = element[4]
-                        location = element[5]
-                        skills = element[6]
 
-                        st.markdown(
-                            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-                            unsafe_allow_html=True)
-                        st.markdown(
-                            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-                            unsafe_allow_html=True)
-
-                        with st.expander(f"{location}"):
-                            st.markdown(f"[Apply]({link})")
-                            st.write(f"{shortSummary}")
-
-                            col1, col2, col3 = st.columns([1, 1, 1])
-
-                            with col1:
-                                container_2 = st.empty()
-                                button_A = container_2.button('Generate Cover Letter',
-                                                              key=f"{link}+{title}+{shortSummary}")
-                                if button_A:
-                                    container_2.empty()
-                                    button_B = container_2.button('Generating... Please wait.',
-                                                                  key=f"{link}+{title}+{shortSummary}+Generating",
-                                                                  disabled=True)
-                                    responseJob = openai.ChatCompletion.create(
-                                        model="gpt-3.5-turbo",
-                                        messages=[
-                                            {"role": "system",
-                                             "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
-                                            {"role": "user",
-                                             "content": f"The following is a job posting I want you to summarize \n\n{fullDescription}\n\n"}])
-
-                                    jobSummary = responseJob["choices"][0]["message"]["content"]
-                                    CoverLetterResponse = openai.ChatCompletion.create(
-                                        model="gpt-3.5-turbo",
-                                        messages=[
-                                            {"role": "system",
-                                             "content": "You are an AI Assistant that writes highly customized cover letters from a first-person point of view. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
-                                            {"role": "user",
-                                             "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
-                                    cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
-                                    # st.download_button('Download Cover Letter', cover_letter_file)
-
-                            with col2:
-                                if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
-                                    firebase = pyrebase.initialize_app(firebaseconfig)
-                                    db = firebase.database()
-                                    # user = st.session_state['user']
-                                    data = {
-                                        "Link": str(link),
-                                        "Title": str(title),
-                                        "Company Name": str(companyName),
-                                        "Short Summary": str(shortSummary),
-                                        "Full Description": str(fullDescription),
-                                        "Location": str(location),
-                                        "Skills": str(skills)
-                                    }
-                                    results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                                    st.write("Saved!")
-
-                            with col3:
-                                st.write("")
-
-                        st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
 
                     elif not options2 and element[5] in options:
-                        link = element[0]
-                        title = element[1]
-                        companyName = element[2]
-                        shortSummary = element[3]
-                        fullDescription = element[4]
-                        location = element[5]
-                        skills = element[6]
-
-                        st.markdown(
-                            f"<a href='{link}' style='text-decoration: none; color: white;' target='_blank'><h4 style='font-family: Sans-Serif;margin-top:-20px;'>&nbsp;&nbsp;{title}→ </h4></a>",
-                            unsafe_allow_html=True)
-                        st.markdown(
-                            f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{companyName}</h6>",
-                            unsafe_allow_html=True)
-
-                        with st.expander(f"{location}"):
-                            st.markdown(f"[Apply]({link})")
-                            st.write(f"{shortSummary}")
-
-                            col1, col2, col3 = st.columns([1, 1, 1])
-
-                            with col1:
-                                container_2 = st.empty()
-                                button_A = container_2.button('Generate Cover Letter',
-                                                              key=f"{link}+{title}+{shortSummary}")
-                                if button_A:
-                                    container_2.empty()
-                                    button_B = container_2.button('Generating... Please wait.',
-                                                                  key=f"{link}+{title}+{shortSummary}+Generating",
-                                                                  disabled=True)
-                                    responseJob = openai.ChatCompletion.create(
-                                        model="gpt-3.5-turbo",
-                                        messages=[
-                                            {"role": "system",
-                                             "content": "You are an AI Assistant that summarizes job postings in less than a paragraph."},
-                                            {"role": "user",
-                                             "content": f"The following is a job posting I want you to summarize \n\n{fullDescription}\n\n"}])
-
-                                    jobSummary = responseJob["choices"][0]["message"]["content"]
-                                    CoverLetterResponse = openai.ChatCompletion.create(
-                                        model="gpt-3.5-turbo",
-                                        messages=[
-                                            {"role": "system",
-                                             "content": "You are an AI Assistant that writes highly customized cover letters from a first-person point of view. I have a cover letter format for you:\n\nFirst paragraph: Write about why the candidate is applying to this job. give one of the candidate's skills and relate it to the job requirements. Then give another skill of the job candidate and relate it to the job requirements. \n\nSecond Paragraph: Pick candidate's strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nThird Paragraph:  Pick candidate's second strongest skills and elaborate on it giving exmaples of their past experiences. Write at least 100 words. Make sure to relate it to the job description\n\nFourth Paragraph: Conclude with how the candidate is excited to be able to contribute to the job and the company and grow more in a very mature way. "},
-                                            {"role": "user",
-                                             "content": f"Here's the job description:\n{jobSummary}\n\nHere's the resume data content:\n\n {st.session_state['resumeContent']}"}])
-                                    cover_letter_file = CoverLetterResponse["choices"][0]["message"]["content"]
-                                    # st.download_button('Download Cover Letter', cover_letter_file)
-
-                            with col2:
-                                if st.button("Save", key=f"{link}+{title}+{shortSummary}+{companyName}"):
-                                    firebase = pyrebase.initialize_app(firebaseconfig)
-                                    db = firebase.database()
-                                    # user = st.session_state['user']
-                                    data = {
-                                        "Link": str(link),
-                                        "Title": str(title),
-                                        "Company Name": str(companyName),
-                                        "Short Summary": str(shortSummary),
-                                        "Full Description": str(fullDescription),
-                                        "Location": str(location),
-                                        "Skills": str(skills)
-                                    }
-                                    results = db.child("users").child(str(localId)).child("Jobs").push(data)
-                                    st.write("Saved!")
-
-                            with col3:
-                                st.write("")
-
-                        st.markdown("<hr style = 'margin-top:-5px;'>", unsafe_allow_html=True)
-
-
-
 
 
                     elif not options and not options2:
@@ -539,20 +327,18 @@ if __name__ == "__main__":
 
                             st.write(f"{shortSummary}")
                             st.markdown("""
-                                                                      <style>
-                                                                      div[data-testid="stMarkdownContainer"] > p{
-                                                                      font-size: 17px;
-                                                                      font-weight: ;
-                                                                      }
-        
-                                                                      #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
-                                                                      font-size: 17px;
-                                                                      font-weight:
-                                                                      }
-        
-        
-                                                                      </style>
-                                                                      """, unsafe_allow_html=True)
+                              <style>
+                              div[data-testid="stMarkdownContainer"] > p{
+                              font-size: 17px;
+                              font-weight: ;
+                              }
+
+                              #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-k1vhr4.egzxvld5 > div.block-container.css-k1ih3n.egzxvld4 > div:nth-child(1) > div > div:nth-child(12) > div.css-fplge5.e1tzin5v2 > div:nth-child(1) > div > div:nth-child(23) > ul > li > div.st-am.st-fs.st-fp.st-fq.st-fr > div > div:nth-child(1) > div > div:nth-child(1) > div > div.css-wnm74r.e16fv1kl0 > div{
+                              font-size: 17px;
+                              font-weight:
+                              }
+                                 </style>
+                             """, unsafe_allow_html=True)
                             if float(score_text) > 3:
                                 st.metric("Compatibility score out of 5", f"{score_text}", f"{skills_text}")
 
@@ -562,29 +348,29 @@ if __name__ == "__main__":
                                 st.write("")
                                 st.write("")
                                 st.markdown(f'''
-                                                                    <a target="_blank" href="{link}">
-                                                                        <button style = "
-                                                                            cursor: pointer;
-                                                                            outline: 0;
-                                                                            display: inline-block;
-                                                                            font-weight: 400;
-                                                                            max-height:36px;
-                                                                            min-height:35px;
-                                                                            min-width:100px;
-                                                                            text-align: center;
-                                                                            background-color: #141414;
-                                                                            border: 1px solid transparent;
-                                                                            margin-top:-2px;
-                                                                            font-size: 1rem;
-                                                                            border-radius: .25rem;
-                                                                            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                                                                            color: #F63366;
-                                                                            border-color: #F63366;">
-                                                                            Apply
-                                                                        </button>
-                                                                    </a>
-        
-        
+                                    <a target="_blank" href="{link}">
+                                        <button style = "
+                                            cursor: pointer;
+                                            outline: 0;
+                                            display: inline-block;
+                                            font-weight: 400;
+                                            max-height:36px;
+                                            min-height:35px;
+                                            min-width:100px;
+                                            text-align: center;
+                                            background-color: #141414;
+                                            border: 1px solid transparent;
+                                            margin-top:-2px;
+                                            font-size: 1rem;
+                                            border-radius: .25rem;
+                                            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                            color: #F63366;
+                                            border-color: #F63366;">
+                                            Apply
+                                        </button>
+                                    </a>
+
+
                                                                     ''',
                                             unsafe_allow_html=True
                                             )
@@ -627,6 +413,61 @@ if __name__ == "__main__":
             <style>
             
              div[data-testid="stForm"] {border: 0px;}
+             
+             
+            [type=checkbox] {
+              width: 2rem;
+              height: 2rem;
+              color: dodgerblue;
+              vertical-align: middle;
+              -webkit-appearance: none;
+              background: none;
+              border: 0;
+              outline: 0;
+              flex-grow: 0;
+              border-radius: 50%;
+              background-color: #FFFFFF;
+              transition: background 300ms;
+              cursor: pointer;
+            }
+            
+            
+            /* Pseudo element for check styling */
+            
+            [type=checkbox]::before {
+              content: "";
+              color: transparent;
+              display: block;
+              width: inherit;
+              height: inherit;
+              border-radius: inherit;
+              border: 0;
+              background-color: transparent;
+              background-size: contain;
+              box-shadow: inset 0 0 0 1px #CCD3D8;
+            }
+            
+            
+            /* Checked */
+            
+            [type=checkbox]:checked {
+              background-color: currentcolor;
+            }
+            
+            [type=checkbox]:checked::before {
+              box-shadow: none;
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E %3Cpath d='M15.88 8.29L10 14.17l-1.88-1.88a.996.996 0 1 0-1.41 1.41l2.59 2.59c.39.39 1.02.39 1.41 0L17.3 9.7a.996.996 0 0 0 0-1.41c-.39-.39-1.03-.39-1.42 0z' fill='%23fff'/%3E %3C/svg%3E");
+            }
+            
+            
+            /* Disabled */
+            
+            [type=checkbox]:disabled {
+              background-color: #CCD3D8;
+              opacity: 0.84;
+              cursor: not-allowed;
+            }
+
             
             </style>
             """, unsafe_allow_html=True)
