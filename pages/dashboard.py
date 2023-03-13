@@ -211,8 +211,9 @@ if __name__ == "__main__":
                         st.markdown(
                             f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
                             unsafe_allow_html=True)
-                        with st.expander(f"{Location}"):
+                        with st.expander(f"Details"):
                             st.markdown(f"[Apply]({Link})")
+                            st.markdown(f"Location: {Location}")
                             st.write(f"{Short_Summary}")
 
                             col1, col2, col3 = st.columns([1, 1, 1])
