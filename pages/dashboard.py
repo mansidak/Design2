@@ -197,7 +197,7 @@ if __name__ == "__main__":
                                 f"<h6 style='font-family: Sans-Serif;font-weight: bold;margin-top:-20px;'>&nbsp;&nbsp;&nbsp;{company_name}</h6>",
                                 unsafe_allow_html=True)
                             modal = Modal("Demo Modal", key = f"{Link}+{Title}+{Short_Summary}+Modal")
-                            open_modal = st.button("Open")
+                            open_modal = st.checkbox("Open")
                             if open_modal:
                                 modal.open()
                             if modal.is_open():
