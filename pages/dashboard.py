@@ -88,7 +88,7 @@ if __name__ == "__main__":
                     .css-1uhah0b.e8zbici2{
                     z-index:1;
                     }
-
+                    
                     header[data-testid="stHeader"] {
                     position: relative;
                     }
@@ -122,6 +122,12 @@ if __name__ == "__main__":
                           text-decoration: none;
                           display: inline-block;
                           font-size: 16px;
+                        }
+                        
+                        body {
+                        image = Image.open('PenManLogo.png')
+                        background-image: Image;
+                        background-size: cover;
                         }
                     </style>
                     """, unsafe_allow_html=True)
