@@ -187,6 +187,7 @@ if __name__ == "__main__":
 
 
             with colresult2:
+                Applied = []
                 for key, value in my_dict.items():
                     with st.container():
                         company_name = value['Company Name']
@@ -240,7 +241,9 @@ if __name__ == "__main__":
                                     st.download_button('Download Cover Letter', cover_letter_file)
 
                             with col2:
-                                st.write("")
+                                if st.button("Mark as Applied"):
+                                    Applied.append(key)
+                                    st.write(Applied)
 
                             with col3:
                                 st.write("")
