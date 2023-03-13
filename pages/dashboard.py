@@ -125,8 +125,7 @@ if __name__ == "__main__":
                         }
                         
                         body {
-                        image = Image.open('Dashboard.png')
-                        background-image: Image;
+                        background-image: url('Dashboard.png');
                         background-size: cover;
                         }
                     </style>
