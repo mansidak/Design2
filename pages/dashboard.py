@@ -199,7 +199,7 @@ if __name__ == "__main__":
                 subcol1, subcol2 = st.columns([1,0.1])
                 with subcol1:
                     options = st.multiselect('Filter by company name', set([value['Company Name'] for key, value in my_dict.items()]), None, key="option1")
-                    options2 = st.multiselect('Filter by skill', set([value['Skills'] for key, value in my_dict.items()]), None, key="option2")
+                    # options2 = st.multiselect('Filter by skill', set([value['Skills'] for key, value in my_dict.items()]), None, key="option2")
                     if st.button("New Search"):
                         switch_page("search")
 
