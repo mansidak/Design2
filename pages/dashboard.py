@@ -123,11 +123,7 @@ if __name__ == "__main__":
                           display: inline-block;
                           font-size: 16px;
                         }
-                        
-                        body {
-                        background-image: url('Dashboard.png');
-                        background-size: cover;
-                        }
+       
                     </style>
                     """, unsafe_allow_html=True)
 
@@ -503,8 +499,7 @@ if __name__ == "__main__":
                                width: 50%;
                              }
                                .stApp {
-
-                                background-image: Image;
+                                background-color: #ffffff;
                                 color:black
                                }
                                .element-container.css-l0vo1h.e1tzin5v3
